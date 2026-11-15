@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "scale": "F1",
+  "comparisons": [
+    {
+      "case": "F1-joint-bypass",
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108,
+      "logits_sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-joint-host",
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108,
+      "logits_sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-joint-modeled",
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108,
+      "logits_sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-kv-bypass",
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108,
+      "logits_sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-kv-modeled",
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108,
+      "logits_sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-native",
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0,
+      "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-readonly-bypass",
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0,
+      "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "tokens_equal": true
+    },
+    {
+      "case": "F1-readonly-modeled",
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0,
+      "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "tokens_equal": true
+    }
+  ],
+  "same_arithmetic_logits_bitwise": true,
+  "kv_content_sha256_equal": true,
+  "statistical_performance_confirmation": false
+}

@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "cases": [
+    {
+      "case": "intact_frozen_design",
+      "status": "pass"
+    },
+    {
+      "case": "post_prepare_schedule_tamper",
+      "status": "pass",
+      "rejected": "Protocol changed after successful prepare",
+      "models_launched": 0
+    },
+    {
+      "case": "altered_budget_even_with_updated_receipt",
+      "status": "pass",
+      "rejected": "Scientific protocol settings changed",
+      "models_launched": 0
+    },
+    {
+      "case": "altered_order_even_with_updated_receipt",
+      "status": "pass",
+      "rejected": "Fixed 142-process schedule/order changed",
+      "models_launched": 0
+    }
+  ]
+}

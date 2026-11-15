@@ -1,0 +1,98 @@
+{
+  "status": "complete",
+  "lossless_records": true,
+  "historical_model_processes": 158,
+  "correctness_processes": 16,
+  "statistical_processes": 142,
+  "included": [
+    "integrated/20261112-dual-line-r1/README.md",
+    "integrated/20261112-dual-line-r1/configs",
+    "integrated/20261112-dual-line-r1/provenance",
+    "integrated/20261112-dual-line-r1/reports",
+    "integrated/20261112-dual-line-r1/results",
+    "integrated/20261112-dual-line-r1/scripts",
+    "integrated/20261113-dual-line-stat-r1",
+    "experiments/readonly_f_compare/process_probe.py",
+    "integrated/20261112-dual-line-r1/build/model/bin/ggml-base.dll",
+    "integrated/20261112-dual-line-r1/build/model/bin/ggml-cpu.dll",
+    "integrated/20261112-dual-line-r1/build/model/bin/ggml-cuda.dll",
+    "integrated/20261112-dual-line-r1/build/model/bin/ggml.dll",
+    "integrated/20261112-dual-line-r1/build/model/bin/joint_b2_fixture.exe",
+    "integrated/20261112-dual-line-r1/build/model/bin/joint_media_gpu.exe",
+    "integrated/20261112-dual-line-r1/build/model/bin/llama.dll",
+    "integrated/20261112-dual-line-r1/build/model/bin/realgpu_llama.exe"
+  ],
+  "frozen_dependencies_verified": [
+    {
+      "path": "experiments/readonly_f_compare/process_probe.py",
+      "bytes": 1820,
+      "sha256": "a5754950b9019ae641116092304153e0e5a64c780cbf9d909573ff83053bd905"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/ggml-base.dll",
+      "bytes": 678912,
+      "sha256": "d1b7eedcf14d87d61b269989a6ac0037657eae26c163a60292b841fa23623e62"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/ggml-cpu.dll",
+      "bytes": 1174016,
+      "sha256": "35ca27079b4f20cb18e3524b00b06160d4f0d8106c3c46bb79e40f0bc55c1089"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/ggml-cuda.dll",
+      "bytes": 29831168,
+      "sha256": "060f71f47cf0584b79dddb1f7a784624e5fbc7d4ee1c10e7ea27b3d794432a82"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/ggml.dll",
+      "bytes": 61440,
+      "sha256": "2156dba76f3eed6a0f0dc543c6b3850b86d2031034ab2d31f1996f1b03c79813"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/joint_b2_fixture.exe",
+      "bytes": 818688,
+      "sha256": "aa8c8ae50bcbb358e0de4e8a1301742fff6b6d1540a1607a6327c9e5a060bc0b"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/joint_media_gpu.exe",
+      "bytes": 624640,
+      "sha256": "7b259e851fdfed02e2d18743f9c2a76c2193adccbaabf36d466bd923181fee92"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/llama.dll",
+      "bytes": 3082752,
+      "sha256": "f92f95817fa0312fd57a428bff7e97cdb228f84411b6a649bc250b6b36a27c73"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build/model/bin/realgpu_llama.exe",
+      "bytes": 239616,
+      "sha256": "d9b13692f54c1784899b3169b6a88fe7f1dda4921caddc6cd3bf74bf49ab4587"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/configs/prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/configs/qwen3-0.6b.json",
+      "bytes": 63919,
+      "sha256": "5bac49b46ed3ab989dfa8a34a2d3f02e9fe1e9cf4d686f7170b5138e26eae5da"
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/scripts/run_correctness.py",
+      "bytes": 9737,
+      "sha256": "3e93f076b1add9426309de741c062e7fd44b1721961663304ae89726d04ba318"
+    }
+  ],
+  "omitted_top_level_categories": [
+    {
+      "path": "integrated/20261112-dual-line-r1/source",
+      "reason": "Exact 4276-file source snapshot is separately delivered in joint/source-bundle, not duplicated in experimental data."
+    },
+    {
+      "path": "integrated/20261112-dual-line-r1/build",
+      "reason": "Objects, static libraries, compiler caches and other generated builds are reproducible. Only the protocol runtime exe/DLL identity dependencies listed above are retained, exclusively for offline SHA-256 audit."
+    }
+  ],
+  "cache_policy": "Python bytecode excluded individually in the bundle manifest; no successful, failed or interrupted experimental record is omitted."
+}

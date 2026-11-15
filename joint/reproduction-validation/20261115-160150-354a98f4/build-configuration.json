@@ -1,0 +1,14 @@
+{
+  "source": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\source",
+  "build_root": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host",
+  "cuda_root": "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0",
+  "cuda_architectures": "120a-real",
+  "ptx_architecture": "compute_75",
+  "python": "E:\\v1_update\\.venv\\Scripts\\python.exe",
+  "vs_root": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools",
+  "cmake": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+  "ninja": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja\\ninja.exe",
+  "jobs": 4,
+  "skip_tests": false,
+  "reuse": true
+}

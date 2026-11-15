@@ -1,0 +1,68 @@
+[
+  {
+    "case": "normal",
+    "exit": 0,
+    "main_unchanged": true,
+    "v2_unchanged": true,
+    "v3_unchanged_on_failure": true,
+    "error": [],
+    "final_tree_matches": true,
+    "ordinary_deletion_absent": true,
+    "changed_existing_part_in_batch": true,
+    "unchanged_part_not_in_batch": true
+  },
+  {
+    "case": "file-to-dir",
+    "exit": 0,
+    "main_unchanged": true,
+    "v2_unchanged": true,
+    "v3_unchanged_on_failure": true,
+    "error": [],
+    "final_tree_matches": true,
+    "ordinary_deletion_absent": true,
+    "changed_existing_part_in_batch": true,
+    "unchanged_part_not_in_batch": true
+  },
+  {
+    "case": "missing-plan-parent",
+    "exit": 1,
+    "main_unchanged": true,
+    "v2_unchanged": true,
+    "v3_unchanged_on_failure": true,
+    "error": [
+      "subprocess.CalledProcessError: Command '['git', '-C', 'E:\\\\v1_update\\\\repository-prep\\\\GPU_RA\\\\verification\\\\transport-fixture\\\\3f4a315bff\\\\missing-plan-parent', 'read-tree', 'a412dce0a91c08a079ee1eb23f1ff98e812f3c39']' returned non-zero exit status 128."
+    ]
+  },
+  {
+    "case": "unstaged",
+    "exit": 1,
+    "main_unchanged": true,
+    "v2_unchanged": true,
+    "v3_unchanged_on_failure": true,
+    "error": [
+      "ValueError: Stage the final files first; unstaged tracked edits remain"
+    ]
+  },
+  {
+    "case": "unmerged",
+    "exit": 1,
+    "main_unchanged": true,
+    "v2_unchanged": true,
+    "v3_unchanged_on_failure": true,
+    "error": [
+      "ValueError: Stage the final files first; unstaged tracked edits remain"
+    ]
+  },
+  {
+    "case": "deleted-hold",
+    "exit": 0,
+    "main_unchanged": true,
+    "v2_unchanged": true,
+    "v3_unchanged_on_failure": true,
+    "error": [],
+    "final_tree_matches": true,
+    "ordinary_deletion_absent": true,
+    "changed_existing_part_in_batch": true,
+    "unchanged_part_not_in_batch": true
+  }
+]

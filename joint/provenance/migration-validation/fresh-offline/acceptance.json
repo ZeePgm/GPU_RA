@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "model_or_GPU_executed": false,
+  "new_build_artifact_hashes_verified": 8,
+  "fresh_correctness": {
+    "status": "pass",
+    "model_processes": 16,
+    "frozen_dependency_records": 19,
+    "loaded_module_hashes": 80,
+    "resource_probes": 236,
+    "nonoverlapping_adjacent_processes": 15,
+    "raw_streams": {
+      "weight_request_rows": 4423680,
+      "weight_launches": 8640,
+      "media_rows": 103152
+    },
+    "historical_bitwise_logits_matches": 16,
+    "historical_KV_hash_matches": 10,
+    "historical_difference_cases": [],
+    "cross_path_original_acceptance_recomputed": true
+  },
+  "failed_attempt": {
+    "status": "excluded",
+    "completed_prefix_processes": 2,
+    "failed_case": "F1-readonly-modeled",
+    "reason": "OS resource guard found two auxiliary Python processes; no complete acceptance",
+    "conflicting_PIDs": [
+      32920,
+      37536
+    ],
+    "mixed_into_successful_16_process_batch": false
+  },
+  "statistical_prepare": {
+    "status": "pass",
+    "model_processes_executed": 0,
+    "fixed_schedule_rows": 142,
+    "scientific_settings_and_orders_rechecked": true,
+    "frozen_dependency_records": 61,
+    "gold_groups": 14,
+    "gold_files_byte_exact_to_fresh_correctness": 36,
+    "prepared_protocol_sha256": "31f34fde3af7f3dd8b4a77db336d3bf73e4a1433f7715c387abedcf48f2bd337",
+    "sample_or_attempt_records_present": false
+  },
+  "limits": [
+    "No GGUF acquisition, original OS enumeration, model execution or DLL loading occurs during replay.",
+    "Original streams export consumer maxima per warp and in-process byte/lane counters, not every lane timestamp; KV content is recorded by hashes rather than exported raw KV bytes. Checks rederive only exported evidence.",
+    "Build/component execution is represented by the archived acceptance receipt; the eight actual fresh executable/DLL bytes are independently hashed here."
+  ],
+  "offline_parser_sha256": "88f1093c3d33dca3f2a9f965999fa5c1bf6d40fa3bd673b25d40aec26f8e6618"
+}

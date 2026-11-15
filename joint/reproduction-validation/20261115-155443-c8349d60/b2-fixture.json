@@ -1,0 +1,206 @@
+{
+  "cases": [
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 512,
+      "requests": 1,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 3584,
+      "requests": 7,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 4096,
+      "requests": 8,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 4608,
+      "requests": 9,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 261632,
+      "requests": 511,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 262144,
+      "requests": 512,
+      "slow_ns": 100000
+    },
+    {
+      "K": 262144,
+      "W": 4096,
+      "bytes": 262656,
+      "requests": 513,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 512,
+      "requests": 1,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 3584,
+      "requests": 7,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 4096,
+      "requests": 8,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 4608,
+      "requests": 9,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 261632,
+      "requests": 511,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 262144,
+      "requests": 512,
+      "slow_ns": 100000
+    },
+    {
+      "K": 262144,
+      "W": 8192,
+      "bytes": 262656,
+      "requests": 513,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 512,
+      "requests": 1,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 3584,
+      "requests": 7,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 4096,
+      "requests": 8,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 4608,
+      "requests": 9,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 261632,
+      "requests": 511,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 262144,
+      "requests": 512,
+      "slow_ns": 100000
+    },
+    {
+      "K": 262144,
+      "W": 16384,
+      "bytes": 262656,
+      "requests": 513,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 512,
+      "requests": 1,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 3584,
+      "requests": 7,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 4096,
+      "requests": 8,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 4608,
+      "requests": 9,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 261632,
+      "requests": 511,
+      "slow_ns": 0
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 262144,
+      "requests": 512,
+      "slow_ns": 100000
+    },
+    {
+      "K": 262144,
+      "W": 32768,
+      "bytes": 262656,
+      "requests": 513,
+      "slow_ns": 0
+    }
+  ],
+  "checks": 199808,
+  "drained": true,
+  "peak_resident_fragments": 64,
+  "refill_overlap": 10,
+  "requests": 6244,
+  "status": "pass"
+}

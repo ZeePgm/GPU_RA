@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "schedule_rows": 142,
+  "historical_order_exact": true,
+  "historical_statistics_exact_reconstruction": [
+    "F1",
+    "F2"
+  ],
+  "build_receipt_preflight": "pass",
+  "source_records_verified": 4276,
+  "correctness_prepare_only": "joint/output/runtime-prepare-only-001",
+  "prepared_model_processes": 16,
+  "model_processes_executed": 0,
+  "protocol_tamper_tests": "protocol-tamper-checks.json",
+  "historical_source_or_scripts_modified": false,
+  "files": [
+    {
+      "path": "joint/reproduction/runtime_common.py",
+      "bytes": 13669,
+      "sha256": "753f76ed6cde9b801cea6b98556181291592d968101c92aa3f1e5541eb645434"
+    },
+    {
+      "path": "joint/reproduction/run_correctness.py",
+      "bytes": 3066,
+      "sha256": "33ab95afd2922fadfe5a1f06325dc25f08d65608867bcc2dd89c4518cc07ba73"
+    },
+    {
+      "path": "joint/reproduction/run_statistics.py",
+      "bytes": 13990,
+      "sha256": "ec9e0b4e07b1a830d7524cd4cf203448c61c30fc0140517b2382229400a68614"
+    },
+    {
+      "path": "joint/reproduction/process_probe.py",
+      "bytes": 1820,
+      "sha256": "a5754950b9019ae641116092304153e0e5a64c780cbf9d909573ff83053bd905"
+    }
+  ]
+}

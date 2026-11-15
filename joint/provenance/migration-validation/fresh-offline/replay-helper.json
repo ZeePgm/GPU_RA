@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "helper": "repository-prep/GPU_RA/v3/joint/reproduction/replay_fresh.py",
+  "helper_sha256": "82f6df23a61bea9253e391a07b7e355e146b37501ffdb6ad91ba8b62ad588931",
+  "report": "joint/provenance/migration-validation/fresh-offline/acceptance.json",
+  "inputs_modified": false,
+  "frozen_runtime_scripts_modified": false,
+  "model_or_GPU_executed": false
+}

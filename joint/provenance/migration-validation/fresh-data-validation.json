@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "fresh_bundle": {
+    "files": 406,
+    "logical_bytes": 1352562979,
+    "unique_objects": 192,
+    "compressed_bytes": 182055231,
+    "parts": 6,
+    "max_part_bytes": 33554432,
+    "manifest_sha256": "881d4bbcdd70d892eca65bd3713bf4d42632ebcb951150d5b49fd3c05fe29008"
+  },
+  "independent_restored_root": "repository-prep/GPU_RA/verification/v3-fresh-clean",
+  "all_paths_restored_and_SHA256_verified": 406,
+  "frozen_dependency_occurrences_checked": 99,
+  "missing_frozen_dependency_paths": [],
+  "frozen_dependency_hash_or_size_mismatches": [],
+  "scope": "Both correctness attempts, 16 accepted model processes, zero-model statistics preparation, new source build/test logs, and eight new runtime binaries for offline hashing. No model weights, objects, static libraries or compiler caches.",
+  "fresh_semantic_replay": "Provided separately by replay_fresh.py and its acceptance report; this record certifies lossless packing/restoration and frozen dependency closure."
+}

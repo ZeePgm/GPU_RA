@@ -1,0 +1,586 @@
+{
+  "status": "complete",
+  "fresh_correctness_processes_accepted": 16,
+  "failed_attempt": "correctness-new-001: two completed processes and the interrupted third preserved in full",
+  "new_statistics_model_processes": 0,
+  "statistics_prepare_reference_groups": 14,
+  "includes": [
+    "joint/output/correctness-new-001",
+    "joint/output/correctness-new-002",
+    "joint/output/statistics-prepare-001",
+    "joint/reproduction-validation",
+    "joint/build-reproduction-host/build-acceptance.json",
+    "joint/source-bundle/manifest.json",
+    "joint/configs",
+    "joint/scripts/run_correctness.py",
+    "joint/statistical-batch/protocol.json",
+    "joint/statistical-batch/scripts",
+    "joint/reproduction/evidence_validators",
+    "build-v3-final-wrapper.log",
+    "build-v3-live-validation-002.log",
+    "build-v3-live-validation.log",
+    "build-v3-statistics-prepare.log",
+    "build-v3-validation.log",
+    "joint/reproduction/run_correctness.py",
+    "joint/reproduction/run_statistics.py",
+    "joint/reproduction/runtime_common.py",
+    "joint/reproduction/process_probe.py",
+    "joint/reproduction/verify_source.py",
+    "joint/reproduction/check_build.py",
+    "joint/reproduction/requirements-validated.txt",
+    "joint/reproduction/python-environment.json",
+    "joint/build-reproduction-host/model/bin/ggml-base.dll",
+    "joint/build-reproduction-host/model/bin/ggml-cpu.dll",
+    "joint/build-reproduction-host/model/bin/ggml-cuda.dll",
+    "joint/build-reproduction-host/model/bin/ggml.dll",
+    "joint/build-reproduction-host/model/bin/joint_b2_fixture.exe",
+    "joint/build-reproduction-host/model/bin/joint_media_gpu.exe",
+    "joint/build-reproduction-host/model/bin/llama.dll",
+    "joint/build-reproduction-host/model/bin/realgpu_llama.exe"
+  ],
+  "frozen_correctness_dependencies_verified": [
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\build-acceptance.json",
+      "bytes": 58123,
+      "sha256": "e2ff3a68f07396a4e5d34e7d92bbf1ce60c69282f041b2d943dd43c7e8391038"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-base.dll",
+      "bytes": 678912,
+      "sha256": "ac9752d9e304f805d8e3e9c82adc774af1c646d65a3b025361eb79e3fda452b1"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-cpu.dll",
+      "bytes": 1174016,
+      "sha256": "4f5c925540b9cc1b3e1db1c5b61276e1616eedc5169c3ca49984b6592519c9b2"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-cuda.dll",
+      "bytes": 29831168,
+      "sha256": "e3d2f50c124a06152c03d892bb66dfd27fad67969b5a0c8b5bb5898d7aaf4899"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml.dll",
+      "bytes": 61440,
+      "sha256": "363a8ac255b1a0c209294a7318d4bf20afba485727061f816069e54e1bed4400"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\joint_b2_fixture.exe",
+      "bytes": 818688,
+      "sha256": "fb3cb063fc865b3f3e6ba4f1a5f59e2b184aadb6f714bb41120bd61a49a4faf4"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\joint_media_gpu.exe",
+      "bytes": 624640,
+      "sha256": "acea86737cb193d78c67d65e1a5b9d98e55f36edba4328dc06bb64936f0cf8b4"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\llama.dll",
+      "bytes": 3082240,
+      "sha256": "60fe432ac5251aad5aefd3422502d1b0be477ee1d62c2ac3ca5097bafe2aeb82"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\realgpu_llama.exe",
+      "bytes": 239616,
+      "sha256": "5ed195a52e6c0538f5df617e6fc975864e9527ed55de7234c03bd6a5368a751b"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\configs\\prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\configs\\qwen3-0.6b.json",
+      "bytes": 63919,
+      "sha256": "5bac49b46ed3ab989dfa8a34a2d3f02e9fe1e9cf4d686f7170b5138e26eae5da"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\correctness-new-001\\inputs\\configs\\conversion.json",
+      "bytes": 2283,
+      "sha256": "ba7a2098911000e1fdbf9b4035aef34dc4d29ce95f6e91b7b2b53688cc7d86ba"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\correctness-new-001\\inputs\\configs\\prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\correctness-new-001\\inputs\\configs\\qwen3-0.6b.json",
+      "bytes": 63982,
+      "sha256": "406b728398cc5fbb66ca922aee149597038ce4d2aac6ff80d5ec2a529f8137f8"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\process_probe.py",
+      "bytes": 1820,
+      "sha256": "a5754950b9019ae641116092304153e0e5a64c780cbf9d909573ff83053bd905"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\run_correctness.py",
+      "bytes": 3066,
+      "sha256": "33ab95afd2922fadfe5a1f06325dc25f08d65608867bcc2dd89c4518cc07ba73"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\runtime_common.py",
+      "bytes": 13669,
+      "sha256": "753f76ed6cde9b801cea6b98556181291592d968101c92aa3f1e5541eb645434"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\scripts\\run_correctness.py",
+      "bytes": 9737,
+      "sha256": "3e93f076b1add9426309de741c062e7fd44b1721961663304ae89726d04ba318"
+    },
+    {
+      "case": "correctness-new-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\source-bundle\\manifest.json",
+      "bytes": 942215,
+      "sha256": "a7730e6368627fdf5f7b668c4baad14e1aa98502610a40b032531267d6f28b65"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\build-acceptance.json",
+      "bytes": 58123,
+      "sha256": "e2ff3a68f07396a4e5d34e7d92bbf1ce60c69282f041b2d943dd43c7e8391038"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-base.dll",
+      "bytes": 678912,
+      "sha256": "ac9752d9e304f805d8e3e9c82adc774af1c646d65a3b025361eb79e3fda452b1"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-cpu.dll",
+      "bytes": 1174016,
+      "sha256": "4f5c925540b9cc1b3e1db1c5b61276e1616eedc5169c3ca49984b6592519c9b2"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-cuda.dll",
+      "bytes": 29831168,
+      "sha256": "e3d2f50c124a06152c03d892bb66dfd27fad67969b5a0c8b5bb5898d7aaf4899"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml.dll",
+      "bytes": 61440,
+      "sha256": "363a8ac255b1a0c209294a7318d4bf20afba485727061f816069e54e1bed4400"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\joint_b2_fixture.exe",
+      "bytes": 818688,
+      "sha256": "fb3cb063fc865b3f3e6ba4f1a5f59e2b184aadb6f714bb41120bd61a49a4faf4"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\joint_media_gpu.exe",
+      "bytes": 624640,
+      "sha256": "acea86737cb193d78c67d65e1a5b9d98e55f36edba4328dc06bb64936f0cf8b4"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\llama.dll",
+      "bytes": 3082240,
+      "sha256": "60fe432ac5251aad5aefd3422502d1b0be477ee1d62c2ac3ca5097bafe2aeb82"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\realgpu_llama.exe",
+      "bytes": 239616,
+      "sha256": "5ed195a52e6c0538f5df617e6fc975864e9527ed55de7234c03bd6a5368a751b"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\configs\\prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\configs\\qwen3-0.6b.json",
+      "bytes": 63919,
+      "sha256": "5bac49b46ed3ab989dfa8a34a2d3f02e9fe1e9cf4d686f7170b5138e26eae5da"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\correctness-new-002\\inputs\\configs\\conversion.json",
+      "bytes": 2283,
+      "sha256": "ba7a2098911000e1fdbf9b4035aef34dc4d29ce95f6e91b7b2b53688cc7d86ba"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\correctness-new-002\\inputs\\configs\\prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\correctness-new-002\\inputs\\configs\\qwen3-0.6b.json",
+      "bytes": 63982,
+      "sha256": "a251f1bd4ce7e36ad41ec8e636b871a6b241817509190d6e7830a0bfe9da4680"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\process_probe.py",
+      "bytes": 1820,
+      "sha256": "a5754950b9019ae641116092304153e0e5a64c780cbf9d909573ff83053bd905"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\run_correctness.py",
+      "bytes": 3066,
+      "sha256": "33ab95afd2922fadfe5a1f06325dc25f08d65608867bcc2dd89c4518cc07ba73"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\runtime_common.py",
+      "bytes": 13669,
+      "sha256": "753f76ed6cde9b801cea6b98556181291592d968101c92aa3f1e5541eb645434"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\scripts\\run_correctness.py",
+      "bytes": 9737,
+      "sha256": "3e93f076b1add9426309de741c062e7fd44b1721961663304ae89726d04ba318"
+    },
+    {
+      "case": "correctness-new-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\source-bundle\\manifest.json",
+      "bytes": 942215,
+      "sha256": "a7730e6368627fdf5f7b668c4baad14e1aa98502610a40b032531267d6f28b65"
+    }
+  ],
+  "runtime_binary_policy": "Eight new source-built exe/DLL files are retained exclusively for offline identity hashing. Restore does not execute them or link them as build inputs.",
+  "excluded": "GGUF model weights, object/static-library files and CMake/compiler caches. Python bytecode omissions are listed in manifest.json.",
+  "frozen_statistics_prepare_dependencies_verified": [
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\build-acceptance.json",
+      "bytes": 58123,
+      "sha256": "e2ff3a68f07396a4e5d34e7d92bbf1ce60c69282f041b2d943dd43c7e8391038"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-base.dll",
+      "bytes": 678912,
+      "sha256": "ac9752d9e304f805d8e3e9c82adc774af1c646d65a3b025361eb79e3fda452b1"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-cpu.dll",
+      "bytes": 1174016,
+      "sha256": "4f5c925540b9cc1b3e1db1c5b61276e1616eedc5169c3ca49984b6592519c9b2"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml-cuda.dll",
+      "bytes": 29831168,
+      "sha256": "e3d2f50c124a06152c03d892bb66dfd27fad67969b5a0c8b5bb5898d7aaf4899"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\ggml.dll",
+      "bytes": 61440,
+      "sha256": "363a8ac255b1a0c209294a7318d4bf20afba485727061f816069e54e1bed4400"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\joint_b2_fixture.exe",
+      "bytes": 818688,
+      "sha256": "fb3cb063fc865b3f3e6ba4f1a5f59e2b184aadb6f714bb41120bd61a49a4faf4"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\joint_media_gpu.exe",
+      "bytes": 624640,
+      "sha256": "acea86737cb193d78c67d65e1a5b9d98e55f36edba4328dc06bb64936f0cf8b4"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\llama.dll",
+      "bytes": 3082240,
+      "sha256": "60fe432ac5251aad5aefd3422502d1b0be477ee1d62c2ac3ca5097bafe2aeb82"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\build-reproduction-host\\model\\bin\\realgpu_llama.exe",
+      "bytes": 239616,
+      "sha256": "5ed195a52e6c0538f5df617e6fc975864e9527ed55de7234c03bd6a5368a751b"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\configs\\prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\configs\\qwen3-0.6b.json",
+      "bytes": 63919,
+      "sha256": "5bac49b46ed3ab989dfa8a34a2d3f02e9fe1e9cf4d686f7170b5138e26eae5da"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\F1-reference-acceptance.json",
+      "bytes": 2216,
+      "sha256": "c53877f58dd22ae3fdc994c5e3aa7816a2697d6edfc49b74580ed7a356705310"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\F2-reference-acceptance.json",
+      "bytes": 2216,
+      "sha256": "e835716eb04934aa861e810398a5b87b7631aef64f1f4017081c0d6db25e754d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\gold-recomputed\\F1-acceptance.json",
+      "bytes": 2216,
+      "sha256": "c53877f58dd22ae3fdc994c5e3aa7816a2697d6edfc49b74580ed7a356705310"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\gold-recomputed\\F2-acceptance.json",
+      "bytes": 2216,
+      "sha256": "e835716eb04934aa861e810398a5b87b7631aef64f1f4017081c0d6db25e754d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\configs\\conversion.json",
+      "bytes": 2283,
+      "sha256": "ba7a2098911000e1fdbf9b4035aef34dc4d29ce95f6e91b7b2b53688cc7d86ba"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\configs\\prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\configs\\qwen3-0.6b.json",
+      "bytes": 63985,
+      "sha256": "63321e84eb224c421caf8aa3cabf68db1725b10a838f41e7f01552f0a934323f"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-joint-bypass\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-joint-bypass\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-joint-bypass\\summary.json",
+      "bytes": 2546,
+      "sha256": "534b3e4822e06eaba58556b696cbe65cdd7ebf0db851db49b326a3db60017b4d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-joint-modeled\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-joint-modeled\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-joint-modeled\\summary.json",
+      "bytes": 2556,
+      "sha256": "4021ee28051fa155396d432cf63e6e3cbf78d355b68da2aeb49a1c5822ac6a3c"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-kv-bypass\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-kv-bypass\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-kv-bypass\\summary.json",
+      "bytes": 2539,
+      "sha256": "6f6cc7edbb0c000ed3784a5d6af93f0609030ec32a778a625599e26f07ae37ce"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-kv-modeled\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-kv-modeled\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-kv-modeled\\summary.json",
+      "bytes": 2555,
+      "sha256": "01283c20a8b39939f7bb2ddd30464a8fde8188cbc8884ce4606ebbbca4214de6"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-native\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-native\\summary.json",
+      "bytes": 2532,
+      "sha256": "4c0c23cd86402a89963431e7563940d15a0482659bc780a75f32e57ce1c7bec3"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-readonly-bypass\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-readonly-bypass\\summary.json",
+      "bytes": 2539,
+      "sha256": "b11d788662fe39c4930612f7d223fc95505e71ba16b6a96067a7d710b3ec7526"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-readonly-modeled\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F1-readonly-modeled\\summary.json",
+      "bytes": 2554,
+      "sha256": "a89b7030dddca15ba49104d0ffa36d7f420b12696654caa0b871c526ac88e99b"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-joint-bypass\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-joint-bypass\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-joint-bypass\\summary.json",
+      "bytes": 2547,
+      "sha256": "3bf4b5b637d812613c08338173a55d0eba5b5eb85b1206536428ebdbcd9d41a3"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-joint-modeled\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-joint-modeled\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-joint-modeled\\summary.json",
+      "bytes": 2564,
+      "sha256": "78bf074106f35fbb74304c54ed05606e1f5cd286ea1ed6dbb9e1d3508899fe0a"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-kv-bypass\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-kv-bypass\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-kv-bypass\\summary.json",
+      "bytes": 2538,
+      "sha256": "a2d78b2b3308423bcbbfb6b2af3401238ce9ab6a970a822a43e570e464716eec"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-kv-modeled\\kv-content.json",
+      "bytes": 357,
+      "sha256": "7f8327190a35c56f496e413d4ca7da0fd36bde93418f38b6c5d69561b843a30d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-kv-modeled\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "978e775f3ce4ef7d7d91b6eb597a6cbb35c037d73bf4d82ca2a709d81c1a4a85"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-kv-modeled\\summary.json",
+      "bytes": 2554,
+      "sha256": "08a290c393365b0750101eb277f4cc4cb89d366a66ae97042b9e184985a71cb3"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-native\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-native\\summary.json",
+      "bytes": 2531,
+      "sha256": "c71cf1d1cd5b37ad1a268e99cc37f832bdf681b53fa579b8b93008ad0ba9d5e5"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-readonly-bypass\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-readonly-bypass\\summary.json",
+      "bytes": 2545,
+      "sha256": "4fe7f3790f0ae0c5ea51179fa433ab3942d4a303531749821d76bd378e48c250"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-readonly-modeled\\logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\output\\statistics-prepare-001\\inputs\\results\\correctness-001\\F2-readonly-modeled\\summary.json",
+      "bytes": 2563,
+      "sha256": "975babad64d209f042c0bfabe2d06e6e652dd1b09403f2fc8a348466565b0186"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\process_probe.py",
+      "bytes": 1820,
+      "sha256": "a5754950b9019ae641116092304153e0e5a64c780cbf9d909573ff83053bd905"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\run_statistics.py",
+      "bytes": 13990,
+      "sha256": "ec9e0b4e07b1a830d7524cd4cf203448c61c30fc0140517b2382229400a68614"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\reproduction\\runtime_common.py",
+      "bytes": 13669,
+      "sha256": "753f76ed6cde9b801cea6b98556181291592d968101c92aa3f1e5541eb645434"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\scripts\\run_correctness.py",
+      "bytes": 9737,
+      "sha256": "3e93f076b1add9426309de741c062e7fd44b1721961663304ae89726d04ba318"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\source-bundle\\manifest.json",
+      "bytes": 942215,
+      "sha256": "a7730e6368627fdf5f7b668c4baad14e1aa98502610a40b032531267d6f28b65"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\statistical-batch\\protocol.json",
+      "bytes": 38852,
+      "sha256": "e5b825b9c404b875a70717fdb3f46afda0e9ec89e79bab691eae56f5cf57234d"
+    },
+    {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\v3\\joint\\statistical-batch\\scripts\\run.py",
+      "bytes": 17831,
+      "sha256": "c0d719dc2ef9a62ef26b4f2db4b2e4c9d223f5d5fd72ca3cd42cfdefd624e46a"
+    }
+  ],
+  "all_frozen_dependencies_manifest_crosscheck": {
+    "correctness_occurrences": 38,
+    "statistics_prepare_occurrences": 61,
+    "missing": 0,
+    "mismatched": 0
+  }
+}

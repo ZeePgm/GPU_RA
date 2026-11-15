@@ -1,0 +1,6 @@
+{
+  "status": "replay_tool_corrected",
+  "stage": "statistics_prepare_empty_raw_directory",
+  "reason": "File-only evidence archive legitimately omits empty raw directory; verifier now accepts absent or empty, still rejects any sample/attempt.",
+  "input_data_modified": false
+}

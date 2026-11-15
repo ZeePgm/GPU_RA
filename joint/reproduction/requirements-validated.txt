@@ -1,0 +1,4 @@
+# Versions used for the V3 migration validation on Python 3.12.10.
+# The runtime and offline statistical rechecks use NumPy; source profile tools use PyYAML.
+numpy==2.4.6
+PyYAML==6.0.3

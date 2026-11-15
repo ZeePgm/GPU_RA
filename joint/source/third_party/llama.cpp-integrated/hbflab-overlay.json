@@ -1,0 +1,14 @@
+{
+  "upstream": "b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9",
+  "modified_sha256": {
+    "ggml/src/ggml-cuda/norm.cu": "405d86105b666617139edbcf341885065a0c979dda1c48c0bbaf56f1850cbb03",
+    "ggml/src/ggml-cuda/ggml-cuda.cu": "0d66b651a39075e6eb565c89d057d82f75fab6a5818093e84c350fa431f52c89",
+    "src/llama-model.cpp": "bbdddf5feaa3629f5b4a76d6c7c0eb64d72ff4f4d2f713874f1ec1e70b7d8a02",
+    "src/models/qwen3.cpp": "1468b927a7295c93d2de66882776fc38b8aa4528c59a35e319b759b5dfc50229",
+    "src/llama-kv-cache.cpp": "ad316fe8c8b917089aa507bf2087d620f0174013f3e2a91ac13bc088a9aefdf3",
+    "ggml/src/ggml-alloc.c": "4fb9c0a5d636adcec767c40d0ca7b0804a09b564e20b766ef2f572c7d8c33a8f",
+    "src/models/llama.cpp": "cd064def1922170d73347e7ad8f6272c45488f22b44381af897ec7999602a387",
+    "src/llama-graph.h": "6a73f287b2a7462cbf751d116e5d9947e8b97b7801f82f45edde89c07cc33e99",
+    "src/llama-graph.cpp": "e5338c88e97306901d8f7dbb3b97bee181ccb35081e2011dcc9762d86f3ecd89"
+  }
+}

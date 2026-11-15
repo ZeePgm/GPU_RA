@@ -1,0 +1,64 @@
+{
+  "source_git_info_rule": "joint/source/** -text\n",
+  "clone_has_info_attributes": false,
+  "source_status": "",
+  "clone_status": "",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "expected_bytes_hex": "2a202d746578740a",
+      "clone_bytes_hex": "2a202d746578740a",
+      "clone_bytes_match": true,
+      "original_blob_sha1": "fa1385d99a319b43c06f5309d1aae9fdd3adea46",
+      "clone_blob_sha1": "fa1385d99a319b43c06f5309d1aae9fdd3adea46",
+      "clone_working_sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "clone_attributes": ".gitattributes: text: unset\n.gitattributes: eol: unspecified"
+    },
+    {
+      "path": "joint/source/nested/.gitattributes",
+      "expected_bytes_hex": "2a20746578743d6175746f20656f6c3d6c660a2a2e636d64207465787420656f6c3d63726c660a",
+      "clone_bytes_hex": "2a20746578743d6175746f20656f6c3d6c660a2a2e636d64207465787420656f6c3d63726c660a",
+      "clone_bytes_match": true,
+      "original_blob_sha1": "4b887bf0f0d287bea91fabb7e143fe0b4ca46a20",
+      "clone_blob_sha1": "4b887bf0f0d287bea91fabb7e143fe0b4ca46a20",
+      "clone_working_sha256": "61ed2c4effbbe5060e2a745e9e8416080aa5cc7bc0e3eda2cd1bc7feefc994ff",
+      "clone_attributes": "joint/source/nested/.gitattributes: text: auto\njoint/source/nested/.gitattributes: eol: lf"
+    },
+    {
+      "path": "joint/source/nested/driver.cpp",
+      "expected_bytes_hex": "696e742061203d20313b0d0a696e742062203d20323b0d0a",
+      "clone_bytes_hex": "696e742061203d20313b0d0a696e742062203d20323b0d0a",
+      "clone_bytes_match": true,
+      "original_blob_sha1": "6f8ca1c9e862cd4d43e26c4f2ff0ee5a6ec6ab10",
+      "clone_blob_sha1": "6f8ca1c9e862cd4d43e26c4f2ff0ee5a6ec6ab10",
+      "clone_working_sha256": "b0bb9dcc3d15b66c3e93439466d128c5db7085c5414aa71f36a7bd4a171b0900",
+      "clone_attributes": "joint/source/nested/driver.cpp: text: auto\njoint/source/nested/driver.cpp: eol: lf"
+    },
+    {
+      "path": "joint/source/nested/normal.cpp",
+      "expected_bytes_hex": "696e742061203d20313b0a",
+      "clone_bytes_hex": "696e742061203d20313b0a",
+      "clone_bytes_match": true,
+      "original_blob_sha1": "d46545ef59a97a55ed944530b455e32cefa5987d",
+      "clone_blob_sha1": "d46545ef59a97a55ed944530b455e32cefa5987d",
+      "clone_working_sha256": "f9d474b81d62f2dbd45efbb01be01794f9f77b523c1be2ddce417d2d1208ff4c",
+      "clone_attributes": "joint/source/nested/normal.cpp: text: auto\njoint/source/nested/normal.cpp: eol: lf"
+    },
+    {
+      "path": "joint/source/nested/build.cmd",
+      "expected_bytes_hex": "6563686f206578616d706c650a",
+      "clone_bytes_hex": "6563686f206578616d706c650d0a",
+      "clone_bytes_match": false,
+      "original_blob_sha1": "8a00da814d15622a7b02efeda140ce8f512020eb",
+      "clone_blob_sha1": "8a00da814d15622a7b02efeda140ce8f512020eb",
+      "clone_working_sha256": "b9646a04e75648097f11d68b9c3f06e00a70e6911023a83b2edbafc435f852a1",
+      "clone_attributes": "joint/source/nested/build.cmd: text: set\njoint/source/nested/build.cmd: eol: crlf"
+    }
+  ],
+  "helper": {
+    "global_config_unchanged": true,
+    "info_attributes": "# GPU_RA: preserve sealed source bytes when staging changes.\njoint/source/** -text\n",
+    "idempotent_exact_rule_count": 1
+  },
+  "fixture": "E:\\v1_update\\repository-prep\\GPU_RA\\verification\\git-byte-fixture\\2f37e5fa22"
+}

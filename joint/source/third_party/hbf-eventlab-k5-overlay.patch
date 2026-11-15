@@ -1,0 +1,146 @@
+--- a/include/hbf_eventlab/runtime/device_driver.hpp
++++ b/include/hbf_eventlab/runtime/device_driver.hpp
+@@ -52,6 +52,12 @@
+         signals_.set_runtime_profile(profile);
+     }
+     const StaticDeviceDescription& description() const { return description_; }
++    // A representation-only switch for differential validation. Both paths
++    // traverse the same ascending attempt IDs and preserve all event ordering.
++    void set_direct_transactions(bool enabled) {
++        if(next_attempt_)throw std::logic_error("set active directory before input");
++        direct_transactions_=enabled;
++    }
+     const ExecutionConfiguration& configuration() const { return config_; }
+     const CoreChannelTopology& topology() const { return topology_; }
+     const ReferenceAddressLayout& layout() const { return layout_; }
+@@ -101,7 +107,9 @@
+         std::optional<WaitId> response_wait;
+         bool request_busy=false,response_busy=false;
+         std::size_t request_flights=0,response_flights=0,feedback=0;
+-        std::set<std::uint64_t> transactions; // active directory for this channel, never payload copies
++        // std::map nodes keep Transaction addresses stable. Erase this borrowed
++        // entry before destroying its owning transaction; no payload copies.
++        std::map<std::uint64_t,Transaction*> transactions;
+         std::map<DluKey,std::uint64_t> programs;
+         std::map<CandidateId,std::uint64_t> erases;
+     };
+@@ -147,6 +155,7 @@
+     std::unique_ptr<IReadDispatchPolicy> dispatch_policy_;
+     std::vector<std::unique_ptr<Channel>> channels_;
+     std::map<std::uint64_t,Transaction> transactions_;
++    bool direct_transactions_=true;
+     std::map<CommandKey,std::uint64_t> identities_;
+     std::set<EventId> events_owned_;
+     std::uint64_t next_attempt_=0;
+--- a/include/hbf_eventlab/runtime/simulation_session.hpp
++++ b/include/hbf_eventlab/runtime/simulation_session.hpp
+@@ -19,7 +19,7 @@
+ // waits, threads, sockets, or file I/O. The optional observer outlives this object.
+ class SimulationSession {
+ public:
+-    explicit SimulationSession(ResolvedSimulationConfiguration, IStatisticsSink* = nullptr,RuntimeProfile* = nullptr);
++    explicit SimulationSession(ResolvedSimulationConfiguration, IStatisticsSink* = nullptr,RuntimeProfile* = nullptr,bool direct_transactions=true);
+     SimulationSession(const SimulationSession&)=delete;
+     SimulationSession& operator=(const SimulationSession&)=delete;
+     void set_completion_handler(std::function<void(const GlobalCompletion&)>);
+--- a/src/runtime/device_driver.cpp
++++ b/src/runtime/device_driver.cpp
+@@ -117,7 +117,7 @@
+     Transaction transaction{id,input,std::move(receiver),std::move(acceptance)};
+     transactions_.emplace(id.value,std::move(transaction));
+     identities_.emplace(CommandKey{ch,cmd.id},id.value); // Handoff registered before ANY callback/event.
+-    channel.transactions.insert(id.value);
++    channel.transactions.emplace(id.value,&transactions_.at(id.value));
+     channel.rx.reserve(payload); channel.request_busy=true; ++channel.request_flights;
+     next_attempt_=id.value; ++stats_.handoffs; ++stats_.request_transfers;
+     const auto serialized=after(events_.now(),config_.ucie.serialization(service));
+@@ -164,9 +164,9 @@
+     const auto& cmd=t.input.command; const auto ch=cmd.address.channel;
+     // An unaccepted earlier member of an ordered read group must not be bypassed.
+     if(cmd.op==Op::Read && cmd.read_group) {
+-        for(const auto identity:channels_[ch]->transactions) {
+-            const auto& earlier=transactions_.at(identity); const auto& e=earlier.input.command;
+-            if(identity>=t.id.value) break;
++        for(const auto& entry:channels_[ch]->transactions) {
++            const auto& earlier=(direct_transactions_?*entry.second:transactions_.at(entry.first)); const auto& e=earlier.input.command;
++            if(entry.first>=t.id.value) break;
+             if(e.address.channel==ch && e.op==Op::Read && e.read_group==cmd.read_group &&
+                (earlier.stage==Stage::Link || earlier.stage==Stage::Ingress)) {
+                 wait(t,{WaitKey::order(ch,*cmd.read_group)}); return false;
+@@ -270,12 +270,12 @@
+     RuntimeScope timing(signals_.runtime_profile(),RuntimeRegion::DevicePump);
+     // Bounded active-command/Ingress directories only; never scan NAND or historical
+     // mappings. Sleeping records are not retried unless their indexed condition fires.
+-    for(const auto identity:channels_[ch]->transactions) {
+-        auto& t=transactions_.at(identity);
++    for(const auto& entry:channels_[ch]->transactions) {
++        auto& t=(direct_transactions_?*entry.second:transactions_.at(entry.first));
+         if(t.stage==Stage::Ingress && !t.wait) admit(t);
+     }
+-    for(const auto identity:channels_[ch]->transactions) {
+-        auto& t=transactions_.at(identity); if(t.stage!=Stage::Accepted || !t.read) continue;
++    for(const auto& entry:channels_[ch]->transactions) {
++        auto& t=(direct_transactions_?*entry.second:transactions_.at(entry.first)); if(t.stage!=Stage::Accepted || !t.read) continue;
+         // A path can independently settle an error while its candidate sleeps.
+         if(!reads_.candidate(ch,t.input.command.id) && !t.cache_pending) {
+             remove_window(t); t.read.reset(); notify_sense_order(t); if(t.wait) {signals_.cancel(*t.wait);t.wait.reset();}
+@@ -289,8 +289,8 @@
+     if(t.target) signals_.notify(bank_wait(WaitReason::SenseOrder,bank_of(*t.target)));
+ }
+ bool DeviceDriver::prior_sense(const Transaction& t,BankKey bank) const {
+-    for(auto identity:channels_[bank.channel]->transactions) {
+-        const auto& older=transactions_.at(identity);
++    for(const auto& entry:channels_[bank.channel]->transactions) {
++        const auto& older=(direct_transactions_?*entry.second:transactions_.at(entry.first));
+         if(!older.read || older.cache_pending || older.accepted_sequence>=t.accepted_sequence) continue;
+         const auto p=reads_.probe(*older.read,false);
+         if(p.state==ProbeState::Stale || p.state==ProbeState::Terminal) continue;
+@@ -329,8 +329,8 @@
+                 choices.push_back({{choices.size()+1,it->second,MediaOperationKind::Program,*a},{},c,{},0});
+             ++it;
+         }
+-        for(const auto identity:channels_[ch]->transactions) {
+-            auto& t=transactions_.at(identity);
++        for(const auto& entry:channels_[ch]->transactions) {
++            auto& t=(direct_transactions_?*entry.second:transactions_.at(entry.first));
+             if(t.stage!=Stage::Accepted || !t.read || !t.released || t.cache_pending || t.wait) continue;
+             const auto p=reads_.probe(*t.read,false);
+             if(p.state==ProbeState::Terminal) { reads_.resolve_terminal(*t.read); continue; }
+@@ -404,8 +404,8 @@
+     }
+ }
+ void DeviceDriver::queue_responses(ChannelId ch) {
+-    for(const auto identity:channels_[ch]->transactions) {
+-        auto& t=transactions_.at(identity); const auto& cmd=t.input.command;
++    for(const auto& entry:channels_[ch]->transactions) {
++        auto& t=(direct_transactions_?*entry.second:transactions_.at(entry.first)); const auto& cmd=t.input.command;
+         if(t.stage!=Stage::Accepted || t.cache_pending) continue;
+         if(cmd.op==Op::Read) {
+             const auto response=reads_.response(ch,cmd.id); if(!response) continue;
+@@ -432,8 +432,8 @@
+ void DeviceDriver::start_response(ChannelId ch) {
+     auto& channel=*channels_[ch]; if(channel.response_busy) return;
+     std::vector<TransferCandidateView> candidates;
+-    for(const auto identity:channels_[ch]->transactions) {
+-        const auto& t=transactions_.at(identity); const auto& cmd=t.input.command;
++    for(const auto& entry:channels_[ch]->transactions) {
++        const auto& t=(direct_transactions_?*entry.second:transactions_.at(entry.first)); const auto& cmd=t.input.command;
+         if(t.stage!=Stage::Egress) continue;
+         const auto payload=cmd.op==Op::Read && reads_.response(ch,cmd.id)->data?host_unit_bytes:0;
+         candidates.push_back({t.id.value,t.accepted_sequence,cmd.op,checked_add(config_.ucie.overhead.response_control_bytes,payload)});
+--- a/src/runtime/simulation_session.cpp
++++ b/src/runtime/simulation_session.cpp
+@@ -8,11 +8,12 @@
+     ~FlagScope() { flag=false; }
+ };
+ }
+-SimulationSession::SimulationSession(ResolvedSimulationConfiguration config,IStatisticsSink* sink,RuntimeProfile* profile)
++SimulationSession::SimulationSession(ResolvedSimulationConfiguration config,IStatisticsSink* sink,RuntimeProfile* profile,bool direct_transactions)
+     :config_(std::move(config)),device_(config_.description(),config_.values().execution,events_),
+      interleaver_(config_.values().address.global_base,config_.description().geometry().host_channels,
+                   config_.description().geometry().channel_bytes(),config_.values().address.interleave_bytes),
+      host_(device_,events_,interleaver_,config_.values().host),limits_(config_.values().run) {
++    device_.set_direct_transactions(direct_transactions);
+     events_.set_limits(limits_.events);
+     device_.set_program_outcome(make_program_outcome(config_.values().faults));
+     if(sink) { device_.set_statistics_sink(*sink);host_.set_statistics_sink(*sink); }

@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "path": "run_correctness.py",
+      "original_path": "integrated/20261112-dual-line-r1/scripts/run_correctness.py",
+      "sha256": "3e93f076b1add9426309de741c062e7fd44b1721961663304ae89726d04ba318",
+      "adaptation": "None; selected offline functions are compiled from these exact bytes and injected with restored data paths. No model/process launch functions are selected."
+    },
+    {
+      "path": "statistics_run.py",
+      "original_path": "integrated/20261113-dual-line-stat-r1/scripts/run.py",
+      "sha256": "c0d719dc2ef9a62ef26b4f2db4b2e4c9d223f5d5fd72ca3cd42cfdefd624e46a",
+      "adaptation": "None; selected offline functions are compiled from these exact bytes and injected with restored data paths. No model/process launch functions are selected."
+    },
+    {
+      "path": "finalize.py",
+      "original_path": "integrated/20261113-dual-line-stat-r1/scripts/finalize.py",
+      "sha256": "39c21a9c23bed820c18dea8eb5215ce190191159bdb603a7416d3a2682c70c9c",
+      "adaptation": "None; selected offline functions are compiled from these exact bytes and injected with restored data paths. No model/process launch functions are selected."
+    },
+    {
+      "path": "seal_verify.py",
+      "original_path": "integrated/20261113-dual-line-stat-r1/scripts/seal_verify.py",
+      "sha256": "1a2e482a6436a2334f7b36929ec800872e7d9cacb99858062e579891dde06ff9",
+      "adaptation": "None; selected offline functions are compiled from these exact bytes and injected with restored data paths. No model/process launch functions are selected."
+    }
+  ]
+}

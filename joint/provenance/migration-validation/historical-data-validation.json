@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "historical_bundle": {
+    "files": 2685,
+    "logical_bytes": 11680662120,
+    "unique_objects": 919,
+    "compressed_bytes": 1451241878,
+    "parts": 44,
+    "max_part_bytes": 33554432,
+    "manifest_sha256": "535f1f64af8b74796d916e91ea0f288723876c34fa6dab0bbdf4f331347fd5f1"
+  },
+  "restored_independent_root": "repository-prep/GPU_RA/verification/v3-historical-clean",
+  "restored_original_paths": 2685,
+  "original_sealed_evidence_manifest_records": 2659,
+  "full_raw_replay": "pass",
+  "replay_tool_sha256": "88f1093c3d33dca3f2a9f965999fa5c1bf6d40fa3bd673b25d40aec26f8e6618",
+  "acceptance": "offline-historical/acceptance.json",
+  "compile_executed": false,
+  "GPU_executed": false
+}
