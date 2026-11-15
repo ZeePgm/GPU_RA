@@ -10,3 +10,13 @@ __pycache__/
 /artifacts/minexp/payload.zip.part*
 /evidence/**/*.gzpart
 /provenance/clean-validation/raw-*.zip
+
+# New experiment payloads remain outside every source worktree.
+/runs/
+/inputs/
+/seals/
+/evidence/**/part-*.gzpart
+/joint/evidence/**/part-*.gzpart
+/experiments/**/data/
+/experiments/**/raw/
+/reports/**/raw/

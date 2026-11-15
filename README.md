@@ -1,5 +1,7 @@
 # GPU_RA — 第二版：R3 完整 FFN 读取与原生 KV
 
+后续新实验统一使用 [实验工作流](reproduction/EXPERIMENTS.md) 和 `python reproduction/experiment.py new/start/finish/verify`，按代码提交 A、外置运行数据、报告提交 B 建立关联；规则见 [AGENTS.md](AGENTS.md)。
+
 本分支固定 2026-11-08 的第二版边界：R1/R2/R3 之后的完整 FFN 读取、逐 4 KiB 批次等待、plan/scatter、返回字节发布与消费者门控。KV 使用原生 F16，不启用原分页 KV 或后续 K 系列优化。A/B1/B2 不在本版冻结点内。
 
 支持 Qwen3-0.6B F16、原始 249 字节 CRLF prompt、44 输入/8 输出、单序列、F1/F2。F1 第 10 层；F2 第 0/10/20/27 层；每层 gate/up/down 三个完整矩阵。保留 H0 512 MiB 及 Host 256 个 64 B fragment 的预算。
@@ -7,7 +9,7 @@
 新机器使用私有仓库访问权限克隆本分支，推荐较短路径：
 
 ```powershell
-git -c core.longpaths=true clone --branch codex/v2-readonly https://github.com/ZeePgm/GPU_RA.git GPU_RA-v2
+git clone --config core.longpaths=true --branch codex/v2-readonly https://github.com/ZeePgm/GPU_RA.git GPU_RA-v2
 cd GPU_RA-v2
 python -m venv .venv
 ./.venv/Scripts/python.exe -m pip install -r requirements.txt

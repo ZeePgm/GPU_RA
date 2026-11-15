@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "status": "preserved",
+  "scope": "Relocation of a historical nonimplementation workspace instruction document; source manifests and implementation bytes unchanged.",
+  "source_manifest_changes": false,
+  "implementation_source_changes": false,
+  "relocations": [
+    {
+      "manifest_path": "AGENTS.md",
+      "verified_path": "provenance/historical/AGENTS.md",
+      "bytes": 541,
+      "sha256": "68bda04818de813d87a658951d1eb62a2c3d718d6636f14cd4cb9d11c4f43f86",
+      "reason": "Preserve original V2-added-source-origin identity while allowing current root AGENTS.md to describe the new experiment workflow."
+    }
+  ],
+  "verifier": "reproduce/verify-v2-source.py",
+  "existing_CMake_relocation": "experiments/readonly_f_compare/CMakeLists.txt -> provenance/historical/readonly_f_compare-CMakeLists.txt",
+  "historical_source_manifests": [
+    {
+      "path": "provenance/v2-r2-source-origin.json",
+      "bytes": 1364445,
+      "sha256": "76fa16d34293b83e3d67029bde175ba04392d999d208510ac90487852cdbc6fe"
+    },
+    {
+      "path": "provenance/v2-added-source-origin.json",
+      "bytes": 55871,
+      "sha256": "95c3a4d73e671085ea66f2988f117d86170b4c07d2b66ba4a53ad85770dfc159"
+    }
+  ]
+}

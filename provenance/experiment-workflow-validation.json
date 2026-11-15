@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "date": "2026-11-15",
+  "version_family": "V2",
+  "scope": "Engineering workflow validation in isolated Git fixtures; no real GPU/model experiment.",
+  "public_commands": [
+    "new",
+    "start",
+    "finish",
+    "verify"
+  ],
+  "code": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "59d97e6c8b80944523fc0abb3c0f40a1cb3a946f4b4af1000fd5777852dcf616",
+      "bytes": 4019
+    },
+    {
+      "path": "reproduction/experiment.py",
+      "sha256": "e57d80fbabea224caeb1c242e7fca20fb1a2b6c75b306fe0261d20d7d4601158",
+      "bytes": 37287
+    },
+    {
+      "path": "reproduction/run_job.cs",
+      "sha256": "533389f216641b9cf998bb23bc8d87c396acf1c601fa285db14ffe9956423ee2",
+      "bytes": 21056
+    },
+    {
+      "path": "reproduction/EXPERIMENTS.md",
+      "sha256": "e93afec75652f97c7e676ba96ab68a81e6d3fa5777de9d00227615f1004753e3",
+      "bytes": 9333
+    },
+    {
+      "path": "reproduction/tests/test_experiment_workflow.py",
+      "sha256": "3be2d59d4141cda57bc4dda2c45cd36bfca0c59acf27f834a50aed2a777b3e24",
+      "bytes": 18695
+    }
+  ],
+  "end_to_end_cases_passed": 43,
+  "external_output_guard_cases_passed": 3,
+  "native_job_cases_passed": 5,
+  "execution_adapter": "Windows x64 / PowerShell 7 / suspended child assigned to owned Job before resume; wait for all descendants to exit before Python completion.",
+  "portable_test_receipt_sha256": "2cf82c5e0da1709301d1914cf86c5e888448327e7f05dcb81049bce6a2ef27b8",
+  "native_test_receipt_sha256": "81a456bd5815b8e152ec15ba28a5eadc0cc7aaa047ebde5fc9879061fca62338",
+  "historical_source_records_verified": 4423,
+  "historical_source_check": "pass",
+  "scientific_implementation_changed": false,
+  "new_GPU_or_model_processes_executed": 0,
+  "raw_data_and_local_configuration_tracked": false,
+  "report_commit_points_to_run_code_commit": true,
+  "historical_instruction_mapping": "provenance/v2-historical-document-relocations.json (original manifest/hash unchanged)"
+}
