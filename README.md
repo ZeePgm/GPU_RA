@@ -20,7 +20,7 @@ cd GPU_RA
 python -m venv .venv
 ./.venv/Scripts/python.exe -m pip install -r requirements.txt
 ./reproduction/build.ps1 -CudaRoot '<CUDA目录>' -Python ./.venv/Scripts/python.exe -Jobs 4
-./.venv/Scripts/python.exe reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output output/fresh-f-001 --cuda-root '<CUDA目录>'
+./.venv/Scripts/python.exe reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output '<仓库外新批次目录>' --cuda-root '<CUDA目录>'
 ```
 
 模型需满足 SHA-256 `74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2`（1,509,347,712字节）。输入以哈希确认，可提供已有同哈希模型；另行转换得到的 GGUF 必须先核对哈希，转换工具与权重版本相同也不自动证明字节身份相同。
@@ -41,18 +41,26 @@ python -m venv .venv
 仅核对输入、布局和预期计数而不执行 GPU：
 
 ```powershell
-python reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output output/prepare-001 --prepare-only
+python reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output '<仓库外准备目录>' --prepare-only
 ```
 
 ## 身份和证据
 
 provenance/historical-f-build-identity.json 保存历史二进制、DLL与4,222条源码哈希；provenance/source-recovery.json 记录源码恢复来源。build-reproduction/model/release-identity.json 在新构建后产生，专门标识新源码构建，和历史二进制身份分开。
 
-根目录 `release-manifest.json` 保留恢复的历史发布身份。当前GPU_RA源码、复现入口和数据包以 `provenance/delivery-manifest.json` 登记，运行 `python reproduction/verify_checkout.py` 复核；该交付清单与历史源码清单、历史实验清单各自保留。
+根目录 `release-manifest.json` 保留恢复的历史发布身份。当前GPU_RA源码、复现入口和数据清单以 `provenance/delivery-manifest.json` 登记，运行 `python reproduction/verify_checkout.py` 复核；该交付清单与历史源码清单、历史实验清单各自保留。
 
 `python reproduction/verify_source.py` 可重新核对全部4,222条历史源码记录。FFN入口本身仅编译C++，CUDA目标架构由新构建model依赖库的 `-CudaArchitectures` 决定。
 
-F系列历史数据与离线重建入口由 evidence/ 中的数据清单及复核说明导航。历史计时保留当时的轨迹和测量条件；新采样另存新批次，不替换历史结果。minexp/S 原始数据由 artifacts/minexp/ 的分片与恢复工具管理。已有原始F代码的详细运行与输出合同见 [experiments/gpu_ffn/README.md](experiments/gpu_ffn/README.md)。
+F系列历史数据与离线重建入口由 evidence/ 中的数据清单及复核说明导航。历史计时保留当时的轨迹和测量条件；新采样另存新批次，不替换历史结果。minexp/S 的清单和恢复工具在 artifacts/minexp/。已有原始F代码的详细运行与输出合同见 [experiments/gpu_ffn/README.md](experiments/gpu_ffn/README.md)。
+
+## 实验数据外置
+
+仓库保存源码、配置、报告、数据清单和复现入口；原始轨迹、logits、日志归档等实验载荷保留在仓库外的本地数据目录。克隆不会取得这些载荷，先取得与 [DATASETS.json](DATASETS.json) 及各批 manifest 哈希一致的本地数据。
+
+可复制 [data.example.json](data.example.json) 为 `data.local.json`，填写本机的 `data_root`；本机配置已被 Git 忽略。也可设置 `$env:GPU_RA_DATA_ROOT='<外部归档根目录>'`，或在恢复命令中传 `--data-root`。优先级为显式参数、环境变量、本机配置；相对数据根目录按仓库根目录解释。三个版本可以共用一个外部根目录。
+
+外部根目录保持仓库相对布局：`evidence/v1-ffn/part-0000.gzpart`、`evidence/v1-migration-validation/part-0000.gzpart` 和 `artifacts/minexp/payload.zip.part*`。清单继续从仓库读取，载荷只从外部位置读取。恢复目标必须在仓库外；新实验的 `--output` 也建议指向仓库外的新目录。新归档只能写到仓库外，提交时只纳入对应清单、配置和报告。详细命令见[数据说明](evidence/README.md)。
 
 ## 此次迁移的实际验证（2026-11-15）
 
@@ -61,4 +69,4 @@ F系列历史数据与离线重建入口由 evidence/ 中的数据清单及复�
 - 新后端 F1/F2/F3 历史数据在独立干净克隆中恢复并通过深度离线复核；v0/minexp 的 22,379 个原始文件另行恢复且全部哈希匹配。
 - 本轮没有重新采集完整 F2/F3，也没有重新下载或转换模型。新采集不是历史样本的替换，验证结论不扩展为新的性能统计。
 
-新验证摘要见 [v1-fresh-live-validation.json](provenance/validation/v1-fresh-live-validation.json)，原始新轨迹和构建日志见 `evidence/v1-migration-validation`。恢复及复核命令见 [数据说明](evidence/README.md)。
+新验证摘要见 [v1-fresh-live-validation.json](provenance/validation/v1-fresh-live-validation.json)，原始新轨迹和构建日志的清单见 `evidence/v1-migration-validation`，数据载荷在配置的外部根目录。恢复及复核命令见 [数据说明](evidence/README.md)。
