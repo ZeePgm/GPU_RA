@@ -1,18 +1,21 @@
 # 第二版历史实验数据
 
-本分支保留第一版的 `evidence/v1-ffn/`，并增加 `evidence/v2-readonly/`。第二版包保存 2026-11-08 新旧 F 对照的全部成功、失败及中断记录，以及 R1、R2 norm、R2 down、R3、真实上下文留出的原始证据；Python 字节码作为可再生缓存不归档，逐项原因记录在 manifest 的 omissions 中。原始文件没有有损缩减。
+本分支保留第一版的 `evidence/v1-ffn/` 清单，并增加 `evidence/v2-readonly/` 清单；压缩分片存放在仓库外。第二版包保存 2026-11-08 新旧 F 对照的全部成功、失败及中断记录，以及 R1、R2 norm、R2 down、R3、真实上下文留出的原始证据；Python 字节码作为可再生缓存不归档，逐项原因记录在 manifest 的 omissions 中。原始文件没有有损缩减。
 
 第二版包共 7,252 个路径、1,745,852,245 字节，按 SHA-256 去重后为 3,331 个对象，压缩分为 6 片，每片不超过 32 MiB。数据包含当时留证的源码/二进制快照；它们用于追溯历史身份，不作为新构建的链接输入。
 
-从当前仓库恢复完整证据并离线重建：
+`manifest.json`、范围说明和恢复工具保留在 Git。分片通过 `--data-root`、环境变量 `GPU_RA_DATA_ROOT` 或被忽略的 `data.local.json` 中的 `data_root` 选择，优先级依次递减；`data.example.json` 为配置示例。载荷位置为 `<data_root>/evidence/<包名>/<分片名>`，全部数据的清单见根目录 `DATASETS.json`。新机器需另行取得数据载荷，源码克隆不会下载实验数据。
+
+从当前仓库读取清单，恢复到仓库外的新目录并离线重建：
 
 ```powershell
-python reproduction/evidence_bundle.py restore --bundle evidence/v1-ffn --dest .
-python reproduction/evidence_bundle.py restore --bundle evidence/v2-readonly --dest .
-python reproduction/replay_evidence.py --root . --version v2 --report-dir output/offline-v2-001
+$env:GPU_RA_DATA_ROOT = 'E:/GPU_RA-local-data/bundles'
+python reproduction/evidence_bundle.py restore --bundle evidence/v1-ffn --dest E:/GPU_RA-local-data/restored/v2
+python reproduction/evidence_bundle.py restore --bundle evidence/v2-readonly --dest E:/GPU_RA-local-data/restored/v2
+python reproduction/replay_evidence.py --root E:/GPU_RA-local-data/restored/v2 --version v2 --report-dir E:/GPU_RA-local-data/reports/offline-v2-001
 ```
 
-恢复只依赖 Python 标准库；深度复核还需要 NumPy。恢复验证压缩分片及逐对象 SHA-256，保留原 `output/` 相对路径，拒绝覆盖不同内容。报告目录必须不存在。
+恢复只依赖 Python 标准库；深度复核还需要 NumPy。恢复验证压缩分片及逐对象 SHA-256，保留原 `output/` 相对路径，拒绝覆盖不同内容。`--verify-only` 校验全包但不恢复文件；目标数据目录必须位于仓库外，报告目录必须不存在。模型和构建缓存不随数据清单上传。
 
 离线复核包括：
 

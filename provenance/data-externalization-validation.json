@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "date": "2026-11-15",
+  "version_family": "V2",
+  "storage": "external-local",
+  "payload_files_externalized": 111,
+  "payload_bytes_externalized": 426040763,
+  "tracked_payload_files_after_migration": 0,
+  "catalog_sha256": "ad9284095312d641528f717847f45f9020b9bda7355232dfa16f84a799eb4952",
+  "external_payload_copy_hashes": "pass",
+  "full_archive_stream_verification": "pass",
+  "configuration_precedence": [
+    "--data-root",
+    "GPU_RA_DATA_ROOT",
+    "data.local.json"
+  ],
+  "restore_and_pack_checkout_write_guard": "pass",
+  "scientific_source_modified": false,
+  "new_model_processes_executed": 0,
+  "history_policy": "Remove exact dataset payload paths from all reachable branches and tags; retain manifests/reports/source bytes. Original commits and payloads remain in local external backup.",
+  "V2_history_verified_paths": 7252,
+  "fresh_ZIP_restored_paths": 24,
+  "fresh_ZIP_negative_cases_rejected": 8
+}

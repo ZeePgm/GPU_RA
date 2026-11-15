@@ -6,3 +6,7 @@ __pycache__/
 /models/
 /.env
 /.env.local
+/data.local.json
+/artifacts/minexp/payload.zip.part*
+/evidence/**/*.gzpart
+/provenance/clean-validation/raw-*.zip
