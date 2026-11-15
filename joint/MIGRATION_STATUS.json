@@ -1,6 +1,6 @@
 {
   "source_family": "V3",
-  "migration_status": "source_build_live_execution_and_independent_data_replay_passed",
+  "migration_status": "complete",
   "source_records_verified": 4276,
   "source_layout": "joint/source directly tracked by Git; joint/source-bundle retained as original-byte backup",
   "source_build": "pass",
@@ -42,5 +42,6 @@
   "receipts": "joint/provenance/migration-validation",
   "fresh_offline_replay": "pass",
   "historical_offline_replay": "pass",
-  "clean_Git_checkout": "Pending final delivery tree checkout; source/data independently restored and rechecked already."
+  "clean_Git_checkout": "pass",
+  "clean_checkout_receipt": "joint/provenance/migration-validation/clean-checkout/acceptance.json"
 }

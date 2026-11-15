@@ -1898,8 +1898,8 @@
     },
     {
       "path": "joint/MIGRATION_STATUS.json",
-      "bytes": 1570,
-      "sha256": "5bf3b1fe4c12492d090bbaaec53e4b7655248d112a32978f70e1332f4e760e58"
+      "bytes": 1526,
+      "sha256": "6b867193cb0d4e381a70bb5668e9fabebf8872ce9729cbba08fc45cacef2ed69"
     },
     {
       "path": "joint/configs/joint-contract.json",
@@ -2235,6 +2235,21 @@
       "path": "joint/provenance/integration.patch",
       "bytes": 17821,
       "sha256": "8657ad344306491f8ea24f6a40900484e7c658a30c6f08cd860902804acf303b"
+    },
+    {
+      "path": "joint/provenance/migration-validation/clean-checkout/acceptance.json",
+      "bytes": 676,
+      "sha256": "44eafb9ca00ee09a2ec9221b72d7d05824f92dfcef16bdd0ea374ce3363dee08"
+    },
+    {
+      "path": "joint/provenance/migration-validation/clean-checkout/fresh-acceptance.json",
+      "bytes": 2048,
+      "sha256": "7dc0c998c0e7d07029a1777d286637ddd8db477ad513730d05fa2bcd20b82e33"
+    },
+    {
+      "path": "joint/provenance/migration-validation/clean-checkout/historical-acceptance.json",
+      "bytes": 3110,
+      "sha256": "c54783d14301dc7c117fb0861bc1143c67ee349b3d4ba8fcb0916566e18ebce6"
     },
     {
       "path": "joint/provenance/migration-validation/fresh-data-validation.json",
@@ -45202,6 +45217,6 @@
       "sha256": "b2cb949dcc6bde153699a83884d6c27abe9db9868c074b6e2a439cd1eeb1cf20"
     }
   ],
-  "file_count": 9039,
-  "total_bytes": 2288561499
+  "file_count": 9042,
+  "total_bytes": 2288567289
 }

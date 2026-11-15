@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "checked_commit": "fed028fe5d7c46cea4d5f05589bfea1130c32659",
+  "checkout": "E:\\v1_update\\repository-prep\\GPU_RA\\verification\\clean-v3-repro-001",
+  "delivery_files": 9039,
+  "delivery_bytes": 2288561499,
+  "historical_source_files": 4276,
+  "source_missing": 0,
+  "source_changed": 0,
+  "clean_git_status": true,
+  "historical_paths_restored": 2685,
+  "fresh_paths_restored": 406,
+  "historical_semantic_replay": "pass",
+  "fresh_semantic_replay": "pass",
+  "model_processes_executed_in_clean_clone": 0,
+  "source_build_and_live_experiments": "Separately performed from the same byte-exact restored source in the V3 worktree."
+}
