@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "scope": "Qwen3-0.6B F16, 44 inputs, 8 outputs; F1 then F2; joint correctness only",
+  "start_utc": "2026-11-12T07:20:16+00:00",
+  "end_utc": "2026-11-12T07:57:22.565484+00:00",
+  "elapsed_s": 2226.565484,
+  "accepted_model_processes": 16,
+  "model_process_sum_s": 1211.0760000000082,
+  "GPU_fixture_cases": 28,
+  "loaded_module_hash_checks": 80,
+  "core_test_summary": [
+    "100% tests passed, 0 tests failed out of 608"
+  ],
+  "rows": [
+    {
+      "scale": "F1",
+      "requests": 294912,
+      "covered_MiB": 144,
+      "publications": 24,
+      "dependency_checks": 9437184,
+      "kv_media_requests": 17192,
+      "max_abs": 0.016894906759262085,
+      "rms": 0.0028074998555964108,
+      "process_s": 100.23399999999674,
+      "host_process_s": 98.93700000000536
+    },
+    {
+      "scale": "F2",
+      "requests": 1179648,
+      "covered_MiB": 576,
+      "publications": 96,
+      "dependency_checks": 37748736,
+      "kv_media_requests": 17192,
+      "max_abs": 0.016894906759262085,
+      "rms": 0.0028074998555964108,
+      "process_s": 287.9369999999981,
+      "host_process_s": 298.57800000000134
+    }
+  ],
+  "cross_scale_logits_and_KV_exact": true,
+  "statistical_performance_confirmation": false
+}

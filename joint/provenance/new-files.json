@@ -1,0 +1,18 @@
+[
+  {
+    "path": "adapters\\llama_cpp\\joint_weights.cu",
+    "sha256": "354c6e9ade6680722751ff8312e7b232845dca713d2e6356dd681849852c38de"
+  },
+  {
+    "path": "tests\\joint_backend_test.cpp",
+    "sha256": "7e79fa6d2fc814903fa4d1292cad9e0d01e6bed0034815401d6c635f0c611f21"
+  },
+  {
+    "path": "tests\\joint_k5_feedback.cpp",
+    "sha256": "8267c5fa06c9bd2b293c14ae1ca62ccb5c689c7afcae92f521585078dd777ad0"
+  },
+  {
+    "path": "tests\\joint_media_gpu.cpp",
+    "sha256": "e74fff8721c92cf50919a374c4be2e8f0b59d30288551b53b64bf24ed4e20d9d"
+  }
+]

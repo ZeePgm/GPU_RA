@@ -1,0 +1,272 @@
+--- original/CMakeLists.txt
++++ integrated/CMakeLists.txt
+@@ -298,3 +298,12 @@
+     endforeach()
+   endif()
+ endif()
++
++if(BUILD_TESTING)
++  add_executable(joint_backend_test tests/joint_backend_test.cpp)
++  target_link_libraries(joint_backend_test PRIVATE hbflab_backend)
++  add_test(NAME lab_joint_backend COMMAND joint_backend_test)
++  add_executable(joint_k5_feedback tests/joint_k5_feedback.cpp)
++  target_link_libraries(joint_k5_feedback PRIVATE hbflab_backend)
++  add_test(NAME lab_joint_k5_feedback COMMAND joint_k5_feedback)
++endif()
+--- original/src\async_runtime.cu
++++ integrated/src\async_runtime.cu
+@@ -37,7 +37,7 @@
+     std::deque<AsyncServiceTrace> traces;
+     std::deque<AsyncMediaTrace> media_traces;
+     std::vector<std::pair<std::uint64_t,std::uint64_t>> media_ranges;
+-    std::uint64_t wall_epoch=0,dispatch_serial=0;
++    std::uint64_t wall_epoch=0,dispatch_serial=0,registered_end=0;
+     struct Media {
+         bool active=false,done=false,write=false;
+         std::uint64_t logical=0,ticket=0,dispatch=0,ready_wall_ns=0;
+@@ -210,13 +210,29 @@
+     for(const auto& r:s.ranges)if(address>=r.gpu_base?address-r.gpu_base<r.bytes:r.gpu_base-address<bytes)
+         throw std::invalid_argument("borrow overlaps registered range");
+     const auto padded=hbf_eventlab::checked_mul(hbf_eventlab::checked_add(bytes,4095)/4096,4096);
+-    try{s.ranges.push_back({address,bytes,s.backend.reserve(padded)});}
++    try{
++        if(!s.options.readonly_bases.empty()) {
++            if(s.ranges.size()>=s.options.readonly_bases.size())throw std::invalid_argument("missing readonly base");
++            const auto base=s.options.readonly_bases.at(s.ranges.size());
++            if(base<s.registered_end)throw std::invalid_argument("readonly logical overlap");
++            if(base>s.registered_end)s.backend.reserve_gap(base-s.registered_end);
++            s.registered_end=base;
++        }
++        const auto logical=s.backend.reserve(padded);
++        s.ranges.push_back({address,bytes,logical});s.registered_end=logical+padded;
++    }
+     catch(...){s.fail(Status::BackendError);throw;}
+ }
+ std::uint64_t AsyncRuntime::reserve_media(std::uint64_t bytes) {
+     auto& s=*impl_;s.current();
+     if(s.prepared || s.poisoned || s.media_ranges.size()>=16)throw std::runtime_error("media registration is frozen or full");
+-    const auto base=s.backend.reserve(bytes);s.media_ranges.push_back({base,bytes});return base;
++    if(s.options.readonly_layout_bytes<s.registered_end && s.options.readonly_layout_bytes)
++        throw std::invalid_argument("readonly layout too small");
++    if(s.options.readonly_layout_bytes>s.registered_end) {
++        s.backend.reserve_gap(s.options.readonly_layout_bytes-s.registered_end);
++        s.registered_end=s.options.readonly_layout_bytes;
++    }
++    const auto base=s.backend.reserve(bytes);s.registered_end=base+bytes;s.media_ranges.push_back({base,bytes});return base;
+ }
+ ReadResult AsyncRuntime::read_media(std::uint64_t logical,std::uint32_t bytes) {
+     auto& s=*impl_;s.begin_media(logical,bytes,nullptr);const auto start=wall_ns();
+@@ -269,7 +285,7 @@
+ }
+ void AsyncRuntime::prepare(const std::vector<AsyncLaunchShape>& shapes) {
+     auto& s=*impl_;s.current();
+-    if(s.prepared || s.poisoned || s.ranges.empty() || shapes.empty() || shapes.size()>256)throw std::invalid_argument("invalid asynchronous preparation");
++    if(s.prepared || s.poisoned || (s.ranges.empty() && s.media_ranges.empty()) || shapes.empty() || shapes.size()>256)throw std::invalid_argument("invalid asynchronous preparation");
+     cudaDeviceProp prop{};ck(cudaGetDeviceProperties(&prop,s.ordinal));
+     std::uint64_t total=0;
+     for(const auto shape:shapes) {
+@@ -284,8 +300,10 @@
+         ck(cudaHostAlloc(reinterpret_cast<void**>(&s.host),total*sizeof(AsyncMailbox),cudaHostAllocMapped));
+         for(std::size_t i=0;i<total;++i)new(s.host+i)AsyncMailbox{};
+         ck(cudaHostGetDevicePointer(reinterpret_cast<void**>(&s.device),s.host,0));
+-        ck(cudaMalloc(reinterpret_cast<void**>(&s.device_ranges),s.ranges.size()*sizeof(Range)));
+-        ck(cudaMemcpy(s.device_ranges,s.ranges.data(),s.ranges.size()*sizeof(Range),cudaMemcpyHostToDevice));
++        if(!s.ranges.empty()) {
++            ck(cudaMalloc(reinterpret_cast<void**>(&s.device_ranges),s.ranges.size()*sizeof(Range)));
++            ck(cudaMemcpy(s.device_ranges,s.ranges.data(),s.ranges.size()*sizeof(Range),cudaMemcpyHostToDevice));
++        }
+         ck(cudaMalloc(reinterpret_cast<void**>(&epoch),sizeof(std::uint64_t)));
+         read_epoch<<<1,1>>>(epoch);ck(cudaGetLastError());std::uint64_t gpu=0;
+         ck(cudaMemcpy(&gpu,epoch,sizeof(gpu),cudaMemcpyDeviceToHost));ck(cudaFree(epoch));epoch=nullptr;
+--- original/src\backend.cpp
++++ integrated/src\backend.cpp
+@@ -67,6 +67,7 @@
+   std::map<GlobalRequestId, std::shared_ptr<Parent>> globals;
+   std::map<std::uint64_t, std::uint64_t> versions;
+   std::vector<std::array<std::uint64_t, 64>> contents;
++  std::vector<bool> initialized;
+   explicit Impl(BackendOptions o)
+       : options(o),
+         profile_path(std::getenv("HBFLAB_BACKEND_PROFILE") ? std::getenv("HBFLAB_BACKEND_PROFILE") : ""),
+@@ -136,7 +137,7 @@
+     for (std::uint32_t page = 0; page < options.geometry.pages_per_block;
+          ++page) {
+       const auto at = layout.encode_logical({t.block, page, 0}).value;
+-      if (at < allocated)
++      if (at < allocated && initialized.at(at/4096))
+         pages.push_back(at);
+     }
+     return pages;
+@@ -145,7 +146,7 @@
+     if(updates.empty() || updates.size()>options.geometry.pages_per_block)throw std::invalid_argument("invalid batch size");
+     std::set<std::uint64_t> seen;
+     const auto block=block_base(updates.front().logical);
+-    for(const auto& u:updates)if(u.logical%4096 || u.logical>=allocated || block_base(u.logical)!=block || !seen.insert(u.logical).second)throw std::invalid_argument("invalid batch pages");
++    for(const auto& u:updates)if(u.logical%4096 || u.logical>=allocated || !initialized.at(u.logical/4096) || block_base(u.logical)!=block || !seen.insert(u.logical).second)throw std::invalid_argument("invalid batch pages");
+   }
+   bool eligible(Parent &p) {
+     if (p.arrival > now() || p.done())
+@@ -355,6 +356,8 @@
+       if (!span.bytes || span.bytes > max_read_bytes ||
+           span.logical >= allocated || span.bytes > allocated - span.logical)
+         return false;
++      for(auto p=span.logical/4096;p<=(span.logical+span.bytes-1)/4096;++p)
++        if(!initialized.at(p))return false;
+     }
+     return bytes <= max_read_bytes;
+   }
+@@ -382,6 +385,16 @@
+   out.device = impl_->session->device().statistics();
+   out.host = impl_->session->host().statistics();
+   return out;
++}
++void TimingBackend::reserve_gap(std::uint64_t bytes) {
++  auto& s=*impl_;
++  require(!s.streaming && !s.poisoned && !s.stats.input_closed,"gap reservation unavailable");
++  const auto group=std::uint64_t(s.options.geometry.block_group_dlus())*4096;
++  if(!bytes || bytes%group || s.allocated%group || bytes>s.options.geometry.channel_bytes()-s.allocated)
++    throw std::invalid_argument("gap must preserve whole block groups and fit capacity");
++  s.contents.resize((s.allocated+bytes)/4096);
++  s.initialized.resize((s.allocated+bytes)/4096,false);
++  s.allocated+=bytes;
+ }
+ std::uint64_t TimingBackend::reserve(std::uint64_t bytes) {
+   auto &s = *impl_;
+@@ -409,6 +422,7 @@
+       for (unsigned i = 0; i < 64; ++i)
+         p->tokens[i] = (base + offset) / 64 + i + 1;
+       s.contents.push_back({});
++      s.initialized.push_back(true);
+       s.parents.emplace(1, p);
+       s.wait();
+       s.parents.clear();
+@@ -471,7 +485,7 @@
+   const auto logical=updates.front().logical;const auto& tokens=updates.front().tokens;
+   require(!s.streaming && !s.poisoned && !s.stats.input_closed,
+           "backend unavailable for synchronous writes");
+-  if (logical % 4096 || logical >= s.allocated)
++  if (logical % 4096 || logical >= s.allocated || !s.initialized.at(logical/4096))
+     throw std::invalid_argument("write requires a reserved page");
+   s.limits();
+   auto p = std::make_shared<Impl::Parent>();
+@@ -530,7 +544,7 @@
+   require(s.streaming && !s.poisoned, "no valid stream");
+   if (!id || s.parents.count(id) || s.parents.size() >= s.parent_limit ||
+       arrival == UINT64_MAX || arrival < s.last_arrival ||
+-      arrival <= now_ps() || logical % 4096 || logical >= s.allocated)
++      arrival <= now_ps() || logical % 4096 || logical >= s.allocated || !s.initialized.at(logical/4096))
+     throw std::invalid_argument("invalid stream write");
+   auto p = std::make_shared<Impl::Parent>();
+   p->write = true;
+--- original/adapters\llama_cpp\instrumented_bridge.hpp
++++ integrated/adapters\llama_cpp\instrumented_bridge.hpp
+@@ -13,6 +13,7 @@
+ struct llama_model;
+ extern "C" const ggml_tensor* hbflab_m2_find_tensor(const llama_model*,const char*);
+ extern "C" {
++HBFLAB_M2_API void hbflab_joint_bind(const ggml_tensor* const*,unsigned);
+ HBFLAB_M2_API void hbflab_m2_bind(const ggml_tensor*,const ggml_tensor*);
+ HBFLAB_M2_API void hbflab_m2_configure(const char* mode,const char* output);
+ HBFLAB_M2_API void hbflab_m2_step_begin(int step);
+--- original/adapters\llama_cpp\integrated_kv.cu
++++ integrated/adapters\llama_cpp\integrated_kv.cu
+@@ -300,7 +300,7 @@
+     need(state && !state->active,"audit requires idle step");auto& s=*state;json sequences=json::object();
+     const auto row=s.kv->row_bytes();std::vector<char> bytes(row);
+     for(const auto& entry:s.sequences){const auto seq=entry.second.sequence;const auto length=s.kv->length(seq);std::string content;content.reserve(length*integrated_profile().layers*2*row);
+-        for(std::size_t token=0;token<length;++token)for(unsigned layer=0;layer<integrated_profile().layers;++layer)for(auto kind:{KvKind::Key,KvKind::Value}){s.kv->read(seq,layer,token,kind,bytes.data(),row);content.append(bytes.data(),row);}
++        for(std::size_t token=0;token<length;++token)for(unsigned layer=0;layer<integrated_profile().layers;++layer)for(auto kind:{KvKind::Key,KvKind::Value}){s.kv->read(seq,layer,token,kind,bytes.data(),row);s.drain();content.append(bytes.data(),row);}
+         const auto prefix_bytes=std::min(prefix,length)*integrated_profile().layers*2*row;
+         sequences[std::to_string(entry.first)]={{"identity",seq.value},{"length",length},{"sha256",hbflab::sha256(content)},{"prefix_sha256",hbflab::sha256(std::string_view(content.data(),prefix_bytes))}};
+     }
+--- original/adapters\llama_cpp\integrated_runner.cpp
++++ integrated/adapters\llama_cpp\integrated_runner.cpp
+@@ -118,7 +118,9 @@
+     const fs::path out = argv[3];
+     const int count = std::stoi(argv[4]);
+     const bool observe = std::stoi(argv[5]) != 0;
+-    hbflab::platform::set_environment("HBFLAB_M4_PAGED",std::string(argv[6])=="native"?"0":"1");
++    const char* kv_setting=std::getenv("HBFLAB_JOINT_KV");
++    if(!kv_setting || (std::string(kv_setting)!="native" && std::string(kv_setting)!="paged"))throw std::runtime_error("explicit joint KV setting required");
++    hbflab::platform::set_environment("HBFLAB_M4_PAGED",std::string(kv_setting)=="paged"?"1":"0");
+     if (count < 2 || count > 448) throw std::runtime_error("token_count must be 2..448");
+     if (fs::exists(out)) throw std::runtime_error("Output directory already exists; refusing to overwrite evidence");
+     fs::create_directories(out);
+@@ -173,12 +175,22 @@
+     cp.type_k = GGML_TYPE_F16; cp.type_v = GGML_TYPE_F16;
+     cp.offload_kqv = true; cp.op_offload = true; cp.no_perf = false;
+     record_node_metadata=observe;
+-    if (observe || std::string(argv[6])!="native") { cp.cb_eval = observe_node; cp.cb_eval_user_data = nullptr; }
++    cp.cb_eval = observe_node; cp.cb_eval_user_data = nullptr;
+     std::unique_ptr<llama_context, decltype(&llama_free)> ctx(llama_init_from_model(model.get(), cp), llama_free);
+     if (!ctx) throw std::runtime_error("Context init failed");
+     hbflab_m2_configure(argv[6],argv[3]);
+     M2Cleanup m2_cleanup;
+-    hbflab_m2_bind(hbflab_m2_find_tensor(model.get(),profile.norm_name.c_str()), hbflab_m2_find_tensor(model.get(),profile.down_name.c_str()));
++    const char* scale_setting=std::getenv("HBFLAB_JOINT_SCALE");
++    const std::string scale=scale_setting?scale_setting:"";
++    if(scale!="F1" && scale!="F2")throw std::runtime_error("joint scale must be F1 or F2");
++    std::vector<const ggml_tensor*> selected;
++    const std::vector<int> selected_layers=scale=="F1"?std::vector<int>{10}:std::vector<int>{0,10,20,27};
++    for(int layer:selected_layers)for(const char* role:{"gate","up","down"}){
++        const auto name="blk."+std::to_string(layer)+".ffn_"+role+".weight";
++        selected.push_back(hbflab_m2_find_tensor(model.get(),name.c_str()));
++    }
++    hbflab_joint_bind(selected.data(),static_cast<unsigned>(selected.size()));
++    if(n!=44 || count!=8 || sequence_count!=1)throw std::runtime_error("joint scope requires 44 input and 8 output tokens, one sequence");
+     if (observe) {
+         kernel_log = output(out / "kernels.jsonl");
+         node_log = output(out / "nodes.jsonl");
+--- original/adapters\llama_cpp\integrated\CMakeLists.txt
++++ integrated/adapters\llama_cpp\integrated\CMakeLists.txt
+@@ -55,7 +55,7 @@
+ add_custom_target(realgpu_kernel DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/weight_kernel_embedded.hpp")
+ add_dependencies(ggml-cuda realgpu_kernel)
+ set_source_files_properties("${CMAKE_CURRENT_BINARY_DIR}/weight_kernel_embedded.hpp" TARGET_DIRECTORY ggml-cuda PROPERTIES GENERATED TRUE)
+-target_sources(ggml-cuda PRIVATE "${LAB_ROOT}/adapters/llama_cpp/integrated_norm_explicit.cu" "${LAB_ROOT}/adapters/llama_cpp/integrated_weights.cu" "${LAB_ROOT}/adapters/llama_cpp/integrated_kv.cu" "${LAB_ROOT}/adapters/llama_cpp/integrated_ptx.cpp" "${LAB_ROOT}/adapters/llama_cpp/integrated_profile.cpp" "${CMAKE_CURRENT_BINARY_DIR}/weight_kernel_embedded.hpp")
++target_sources(ggml-cuda PRIVATE "${LAB_ROOT}/adapters/llama_cpp/integrated_norm_explicit.cu" "${LAB_ROOT}/adapters/llama_cpp/joint_weights.cu" "${LAB_ROOT}/experiments/readonly_b2/window.cu" "${LAB_ROOT}/adapters/llama_cpp/integrated_kv.cu" "${LAB_ROOT}/adapters/llama_cpp/integrated_ptx.cpp" "${LAB_ROOT}/adapters/llama_cpp/integrated_profile.cpp" "${CMAKE_CURRENT_BINARY_DIR}/weight_kernel_embedded.hpp")
+ set_source_files_properties("${LAB_ROOT}/adapters/llama_cpp/integrated_weights.cu" TARGET_DIRECTORY ggml-cuda PROPERTIES INCLUDE_DIRECTORIES "${LLAMA_SOURCE}/ggml/src/ggml-cuda")
+ target_include_directories(ggml-cuda PRIVATE "${CMAKE_CURRENT_BINARY_DIR}" "${LAB_ROOT}/adapters/llama_cpp" "${LLAMA_SOURCE}/vendor")
+ target_compile_definitions(ggml-cuda PRIVATE HBFLAB_M2_BUILD)
+@@ -104,3 +104,9 @@
+ 
+ add_executable(hbflab_k3_capacity "${LAB_ROOT}/tests/k3.cpp")
+ target_link_libraries(hbflab_k3_capacity PRIVATE realgpu_runtime)
++
++add_executable(joint_b2_fixture "${LAB_ROOT}/experiments/readonly_b2/fixture.cpp" "${LAB_ROOT}/experiments/readonly_b2/window.cu")
++target_include_directories(joint_b2_fixture PRIVATE "${LLAMA_SOURCE}/vendor")
++target_link_libraries(joint_b2_fixture PRIVATE realgpu_runtime CUDA::cudart)
++add_executable(joint_media_gpu "${LAB_ROOT}/tests/joint_media_gpu.cpp")
++target_link_libraries(joint_media_gpu PRIVATE realgpu_runtime CUDA::cudart)
+--- original/include\hbflab\async_runtime.hpp
++++ integrated/include\hbflab\async_runtime.hpp
+@@ -8,6 +8,8 @@
+ struct AsyncLaunchShape {std::uint32_t blocks=1,threads=1;};
+ struct AsyncRuntimeOptions {
+     BackendOptions backend{};
++    std::vector<std::uint64_t> readonly_bases;
++    std::uint64_t readonly_layout_bytes=0;
+     std::uint32_t time_scale=1;
+     std::uint64_t timeout_ns=500000000;
+     std::uint64_t service_timeout_ns=10000000000ull;
+--- original/include\hbflab\backend.hpp
++++ integrated/include\hbflab\backend.hpp
+@@ -76,6 +76,7 @@
+     TimingBackend(const TimingBackend&) = delete;
+     TimingBackend& operator=(const TimingBackend&) = delete;
+     std::uint64_t reserve(std::uint64_t page_aligned_bytes);
++    void reserve_gap(std::uint64_t bytes);
+     ReadResult read(std::uint64_t logical, std::uint32_t bytes, std::uint64_t compute_gap_ps = 0);
+     // Sorted by arrival with stable ties. Parents share the Host resident budget.
+     std::vector<ReadResult> read_batch(const std::vector<TimedRead>&);
+--- original/experiments\readonly_b2\fixture.cpp
++++ integrated/experiments\readonly_b2\fixture.cpp
+@@ -16,7 +16,7 @@
+  unsigned char *input,*mirror;unsigned long long *times,*phases=nullptr;unsigned slow_ns=0;
+  ck(cudaMalloc((void**)&input,size));ck(cudaMalloc((void**)&mirror,size));ck(cudaMalloc((void**)&times,262144));
+  ck(cudaMemcpy(input,expected.data(),size,cudaMemcpyHostToDevice));
+- AsyncRuntimeOptions o;o.backend.geometry={1,1,2,16,4096,1};o.audit_limit=513;o.timeout_ns=1000000000;o.service_timeout_ns=60000000000ull;
++ AsyncRuntimeOptions o;o.backend.geometry={1,1,2,4,4096,1};o.backend.direct_device_transactions=true;o.backend.coalesce_capacity_feedback=true;o.audit_limit=513;o.timeout_ns=1000000000;o.service_timeout_ns=60000000000ull;
+  LiveTimingService service(o,2048,1);service.register_readonly(input,size);service.start();
+  if(negative){unsigned base=size,count=512;std::vector<void*> a{&input,&base,&count,&mirror,&times,&phases,&slow_ns};service.launch({1,256},b2_kernel(true,false),a,nullptr);service.synchronize();throw std::runtime_error("negative unexpectedly succeeded");}
+  json cases=json::array();uint64_t refill_overlap=0;std::vector<uint64_t> tickets(2048,0);uint64_t total=0,checks=0;

@@ -19,3 +19,4 @@ configs/enter-environment.ps1
 # Local reproduction products; source and evidence manifests are tracked.
 /build*.log
 /verification/
+/joint/source/

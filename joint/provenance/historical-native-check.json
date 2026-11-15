@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "reference": "E:\\v1_update\\output\\readonly-f-compare-a-20261108\\native-old",
+  "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+  "new_native_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+}

@@ -1,0 +1,9 @@
+{
+  "source_family": "V3",
+  "source_records_verified": 4276,
+  "source_identity": "joint/provenance/final-source-build-manifest.json",
+  "build_and_raw_data_included": false,
+  "build_and_live_reproduction": "Not validated in this migration; V1/V2 are the current reproduction scope.",
+  "historical_batch_source": "integrated/20261112-dual-line-r1",
+  "historical_statistical_batch": "integrated/20261113-dual-line-stat-r1"
+}

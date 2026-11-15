@@ -1,0 +1,52 @@
+[
+  {
+    "path": "CMakeLists.txt",
+    "original_sha256": "ea9acb6641042facf283fb2d005a48b4bd0c5c6f2ca564f215f91790947c79d5",
+    "integrated_sha256": "5cfa4ea10267bfeca0658ac21dad87117ae8965c0033904c48996daa754e6c07"
+  },
+  {
+    "path": "src\\async_runtime.cu",
+    "original_sha256": "aef53ca239c76051fa9840dfddb3591b5356d71222879042170cf8e6aff2c03b",
+    "integrated_sha256": "21251743a59e1519ef2221bf0638aa6f2fb5acf9e1bd77d51cabc1ef1df41ef9"
+  },
+  {
+    "path": "src\\backend.cpp",
+    "original_sha256": "b191b0f72689d6ae42da771dab6ddfc3ee72ed934dcdac46926ccdcbde04e15a",
+    "integrated_sha256": "c4fe4befb9b07e76345f95a0fc27d7f211c49d92e4f881b4ae7ea924b5ff438b"
+  },
+  {
+    "path": "adapters\\llama_cpp\\instrumented_bridge.hpp",
+    "original_sha256": "832ee72e07d8c722d5d1b00b531c43be77a303a04ac5cc45f7a99c0abd29d2ce",
+    "integrated_sha256": "23aedc39616d0a2fcc3c61d896beb0b2dcdf2e3ba032f09a13bf3605d670ebad"
+  },
+  {
+    "path": "adapters\\llama_cpp\\integrated_kv.cu",
+    "original_sha256": "c49223122055d3fa44264cbce2952625b5a860ddcb2ba94af771d2ba3343b84b",
+    "integrated_sha256": "d10b2db0f32c7451ac2bccd0e1eb07979da439a62abf18ccb286d834de1a493f"
+  },
+  {
+    "path": "adapters\\llama_cpp\\integrated_runner.cpp",
+    "original_sha256": "c31963c1f2c695ff6cab277e0229afdac8920cd985547a7ad10ba0452b410f49",
+    "integrated_sha256": "1efc459ec03fe886333637da085a8e976f5627934ac7dee5185f2899b5b710a5"
+  },
+  {
+    "path": "adapters\\llama_cpp\\integrated\\CMakeLists.txt",
+    "original_sha256": "a7dcde23c845f0df7d1d50248e625578a6eee76e40d064dc3ca8319eb3fa6707",
+    "integrated_sha256": "62cd116a475cec0679f2069661dcaa2aeff38f6ee94d2f1ea028297b4ce13ae2"
+  },
+  {
+    "path": "include\\hbflab\\async_runtime.hpp",
+    "original_sha256": "caceb1c8388adca4901324a7eae2bc7c91bf3e358887ed90ea421161720ea247",
+    "integrated_sha256": "979d898da9406b403f774f1ebd87004de422cec678598cf67a9633ad12fc2cb5"
+  },
+  {
+    "path": "include\\hbflab\\backend.hpp",
+    "original_sha256": "5b646143628efb531500ebecbbc05502e98dcfc624e7b992055de58c3b108e13",
+    "integrated_sha256": "cc503e40fff7e5402cc8f0d1792d2efbb0bd6c195c9c9834fca0a3a3ebb2dd52"
+  },
+  {
+    "path": "experiments\\readonly_b2\\fixture.cpp",
+    "original_sha256": "19fb49f5d699086faf8af71ad15a31be5ade618320266e4beed39ad7e86088a2",
+    "integrated_sha256": "c816b998a24b190216389bfe7f9aa42925c1361e9256e136a92142d07014b805"
+  }
+]
