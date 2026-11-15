@@ -1,5 +1,7 @@
 # GPU_RA — 第三版：只读与优化 KV 联合版本
 
+后续新实验统一使用 [实验工作流](reproduction/EXPERIMENTS.md) 和 `python reproduction/experiment.py new/start/finish/verify`，按代码提交 A、外置运行数据、报告提交 B 建立关联；规则见 [AGENTS.md](AGENTS.md)。
+
 `codex/v3-joint` 保存 B2 只读路径与选定 K1/K4/K5 优化 KV 的联合源码、依赖、历史数据清单和复现入口。实际工程为 `joint/`，源码可直接在 `joint/source/` 查看；根目录第一版代码保留为历史基线。
 
 固定范围：Qwen3-0.6B F16、原始249字节CRLF prompt、44输入/8输出、单序列、F1/F2。读取K=256KiB、W=32KiB；KV启用device写来源、可取消追加、async分页、coalesced服务和异步副本，4个GPU页框、4个pinned槽；未启用K2 flush合并或K5 prefetch。权重/KV共用服务，Host驻留256×64B，逻辑介质容量1GiB。
@@ -9,7 +11,7 @@
 使用私有仓库访问权限，在较短的Windows路径克隆：
 
 ```powershell
-git -c core.longpaths=true clone --branch codex/v3-joint https://github.com/ZeePgm/GPU_RA.git GPU_RA-v3
+git clone --config core.longpaths=true --branch codex/v3-joint https://github.com/ZeePgm/GPU_RA.git GPU_RA-v3
 cd GPU_RA-v3
 python -m venv .venv
 ./.venv/Scripts/python.exe -m pip install -r joint/reproduction/requirements-validated.txt
