@@ -1,0 +1,10 @@
+{
+  "scope": "posthoc algebraic simplification of fitted response; not preregistered theory",
+  "formula_ps": "110534 + 1667 * (bytes / 64)",
+  "checked_rows": 72,
+  "max_integer_residual_ps": 0,
+  "range_bytes": [
+    64,
+    32832
+  ]
+}

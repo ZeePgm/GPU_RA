@@ -1,0 +1,114 @@
+{
+  "status": "pass",
+  "scope": "production EventQueue + experimental FIFO mechanism, not H0 or Host/Device validation",
+  "cases": 938,
+  "requests": 15058,
+  "request_fields_exact": true,
+  "event_records_checked": 45174,
+  "max_abs_residual_ps": 0,
+  "all_cases_drained": true,
+  "byte_identical_replay": true,
+  "event_queue_probes": {
+    "same_tick_phases": [
+      "completion",
+      "arrival",
+      "deadline"
+    ],
+    "same_tick_dynamic_round": [
+      "arrival1",
+      "arrival2",
+      "dynamic_completion"
+    ],
+    "dynamic_final_tick": 0,
+    "cancel": {
+      "first": true,
+      "second": false,
+      "called": false,
+      "executed": 0,
+      "pending": 0
+    },
+    "idle_endpoint_unexecuted": true,
+    "invalid_time_rejected": [
+      true,
+      true,
+      true
+    ],
+    "limit_before_resume": {
+      "rejected": true,
+      "pending": 1,
+      "executed": 1,
+      "tick": 1
+    },
+    "limit_after_resume": {
+      "pending": 0,
+      "executed": 2,
+      "tick": 2
+    }
+  },
+  "audit_negatives": [
+    {
+      "case": "wrong_order",
+      "rejected": true
+    },
+    {
+      "case": "duplicate",
+      "rejected": true
+    },
+    {
+      "case": "missing_completion",
+      "rejected": true
+    },
+    {
+      "case": "wrong_time",
+      "rejected": true
+    },
+    {
+      "case": "wrong_wait",
+      "rejected": true
+    },
+    {
+      "case": "early_start",
+      "rejected": true
+    },
+    {
+      "case": "unknown_event",
+      "rejected": true
+    }
+  ],
+  "executor_negatives": [
+    {
+      "case": "negative_arrival",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "negative_service",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "fraction",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "duplicate_id",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "overflow",
+      "exit_code": 1,
+      "rejected": true
+    },
+    {
+      "case": "non_integer",
+      "exit_code": 1,
+      "rejected": true
+    }
+  ],
+  "MG1_executed": false,
+  "protocol_sha256": "54c6542c22a475b176057d29ea16209bc5080c61286d2ef0ba825087218d68b2",
+  "input_sha256": "24e44384f3662bfe9a493d1dc98eea6c1443eb166f1ca0c36fafe942420ba781",
+  "actual_sha256": "26fa97d5afe34397f8c21fffddd02a11da409f82f3815fa2ac2f2b58c06dbc2a"
+}

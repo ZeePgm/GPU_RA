@@ -23,7 +23,7 @@ def sources(root):
         first=root/rel.parts[0]
         if first.is_dir() and (rel.parts[0] in EXCLUDED_ROOT_DIRS or rel.parts[0].startswith('build-')):continue
         if rel.parts[:2]==('configs','integrated') and p.suffix=='.json':continue
-        if rel.as_posix()=='configs/machine.local.json':continue
+        if rel.parts[0]=='configs' and (p.name=='enter-environment.ps1' or p.match('machine*.local.json')):continue
         result.append(p)
     return result
 
@@ -49,7 +49,7 @@ def package(archive):
     if archive.is_relative_to(ROOT):raise ValueError('Choose an archive path outside the source tree')
     origin=json.loads((ROOT/'third_party/hbf-eventlab-origin.json').read_text(encoding='utf-8'))
     files=sources(ROOT)
-    manifest={'schema':2,'release':'RealGPUAcess_v0','revision':'incremental-host-72e0745',
+    manifest={'schema':2,'release':'RealGPUAcess_v0','revision':'incremental-host-'+origin['upstream_commit'][:7],
               'backend_upstream_commit':origin['upstream_commit'],
               'backend_overlay_files':len(origin['local_changes']),
               'framework_commit':'b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9',

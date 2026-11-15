@@ -1,0 +1,539 @@
+{
+  "records": {
+    "zero": [
+      {
+        "node_id": 439,
+        "step": 0,
+        "pre_ns": 1489284,
+        "gate_ns": 500,
+        "post_ns": 684701,
+        "gap_ns": 2174485,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 443,
+        "step": 0,
+        "pre_ns": 1254100,
+        "gate_ns": 600,
+        "post_ns": 698883,
+        "gap_ns": 1953583,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 1568,
+        "step": 1,
+        "pre_ns": 1281848,
+        "gate_ns": 800,
+        "post_ns": 699959,
+        "gap_ns": 1982607,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 1572,
+        "step": 1,
+        "pre_ns": 1137597,
+        "gate_ns": 300,
+        "post_ns": 645346,
+        "gap_ns": 1783243,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 2697,
+        "step": 2,
+        "pre_ns": 1307437,
+        "gate_ns": 600,
+        "post_ns": 854825,
+        "gap_ns": 2162862,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 2701,
+        "step": 2,
+        "pre_ns": 1459583,
+        "gate_ns": 400,
+        "post_ns": 849155,
+        "gap_ns": 2309138,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 3826,
+        "step": 3,
+        "pre_ns": 1148436,
+        "gate_ns": 700,
+        "post_ns": 629431,
+        "gap_ns": 1778567,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 3830,
+        "step": 3,
+        "pre_ns": 1254626,
+        "gate_ns": 300,
+        "post_ns": 717948,
+        "gap_ns": 1972874,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 4955,
+        "step": 4,
+        "pre_ns": 1074466,
+        "gate_ns": 1100,
+        "post_ns": 694104,
+        "gap_ns": 1769670,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 4959,
+        "step": 4,
+        "pre_ns": 1165149,
+        "gate_ns": 300,
+        "post_ns": 716928,
+        "gap_ns": 1882377,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 6084,
+        "step": 5,
+        "pre_ns": 1142801,
+        "gate_ns": 1000,
+        "post_ns": 724656,
+        "gap_ns": 1868457,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 6088,
+        "step": 5,
+        "pre_ns": 1192721,
+        "gate_ns": 700,
+        "post_ns": 683131,
+        "gap_ns": 1876552,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 7213,
+        "step": 6,
+        "pre_ns": 1303418,
+        "gate_ns": 500,
+        "post_ns": 709406,
+        "gap_ns": 2013324,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 7217,
+        "step": 6,
+        "pre_ns": 1214978,
+        "gate_ns": 1000,
+        "post_ns": 663135,
+        "gap_ns": 1879113,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 8342,
+        "step": 7,
+        "pre_ns": 1220884,
+        "gate_ns": 400,
+        "post_ns": 820233,
+        "gap_ns": 2041517,
+        "steady_wait_ns": 100,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 8346,
+        "step": 7,
+        "pre_ns": 1208528,
+        "gate_ns": 300,
+        "post_ns": 695725,
+        "gap_ns": 1904553,
+        "steady_wait_ns": 0,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      }
+    ],
+    "inject": [
+      {
+        "node_id": 439,
+        "step": 0,
+        "pre_ns": 1427468,
+        "gate_ns": 1000800,
+        "post_ns": 708760,
+        "gap_ns": 3137028,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 443,
+        "step": 0,
+        "pre_ns": 1066885,
+        "gate_ns": 1000300,
+        "post_ns": 695372,
+        "gap_ns": 2762557,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 1568,
+        "step": 1,
+        "pre_ns": 1305064,
+        "gate_ns": 1000700,
+        "post_ns": 789920,
+        "gap_ns": 3095684,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 1572,
+        "step": 1,
+        "pre_ns": 1242945,
+        "gate_ns": 1000200,
+        "post_ns": 721464,
+        "gap_ns": 2964609,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 2697,
+        "step": 2,
+        "pre_ns": 1782511,
+        "gate_ns": 1000500,
+        "post_ns": 1390647,
+        "gap_ns": 4173658,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 2701,
+        "step": 2,
+        "pre_ns": 1909233,
+        "gate_ns": 1000300,
+        "post_ns": 1250845,
+        "gap_ns": 4160378,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 3826,
+        "step": 3,
+        "pre_ns": 1845265,
+        "gate_ns": 1000400,
+        "post_ns": 1152534,
+        "gap_ns": 3998199,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 3830,
+        "step": 3,
+        "pre_ns": 1600760,
+        "gate_ns": 1000400,
+        "post_ns": 1105032,
+        "gap_ns": 3706192,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 4955,
+        "step": 4,
+        "pre_ns": 1313323,
+        "gate_ns": 1001000,
+        "post_ns": 887282,
+        "gap_ns": 3201605,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 4959,
+        "step": 4,
+        "pre_ns": 1201022,
+        "gate_ns": 1000100,
+        "post_ns": 721310,
+        "gap_ns": 2922432,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 6084,
+        "step": 5,
+        "pre_ns": 2046998,
+        "gate_ns": 1000400,
+        "post_ns": 1946502,
+        "gap_ns": 4993900,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 6088,
+        "step": 5,
+        "pre_ns": 2102931,
+        "gate_ns": 1000200,
+        "post_ns": 2103958,
+        "gap_ns": 5207089,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 7213,
+        "step": 6,
+        "pre_ns": 1252798,
+        "gate_ns": 1000500,
+        "post_ns": 719822,
+        "gap_ns": 2973120,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 7217,
+        "step": 6,
+        "pre_ns": 1252627,
+        "gate_ns": 1000300,
+        "post_ns": 689377,
+        "gap_ns": 2942304,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 8342,
+        "step": 7,
+        "pre_ns": 2236189,
+        "gate_ns": 1000500,
+        "post_ns": 1495510,
+        "gap_ns": 4732199,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      },
+      {
+        "node_id": 8346,
+        "step": 7,
+        "pre_ns": 1897838,
+        "gate_ns": 1000400,
+        "post_ns": 1241692,
+        "gap_ns": 4139930,
+        "steady_wait_ns": 1000000,
+        "overlap_count": 0,
+        "kernel_after_gate": true,
+        "enqueue_window_verified": true
+      }
+    ]
+  },
+  "paired": [
+    {
+      "node_id": 439,
+      "step": 0,
+      "delta_pre_ns": -61816,
+      "delta_gate_ns": 1000300,
+      "delta_post_ns": 24059,
+      "delta_gap_ns": 962543,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 443,
+      "step": 0,
+      "delta_pre_ns": -187215,
+      "delta_gate_ns": 999700,
+      "delta_post_ns": -3511,
+      "delta_gap_ns": 808974,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 1568,
+      "step": 1,
+      "delta_pre_ns": 23216,
+      "delta_gate_ns": 999900,
+      "delta_post_ns": 89961,
+      "delta_gap_ns": 1113077,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 1572,
+      "step": 1,
+      "delta_pre_ns": 105348,
+      "delta_gate_ns": 999900,
+      "delta_post_ns": 76118,
+      "delta_gap_ns": 1181366,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 2697,
+      "step": 2,
+      "delta_pre_ns": 475074,
+      "delta_gate_ns": 999900,
+      "delta_post_ns": 535822,
+      "delta_gap_ns": 2010796,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 2701,
+      "step": 2,
+      "delta_pre_ns": 449650,
+      "delta_gate_ns": 999900,
+      "delta_post_ns": 401690,
+      "delta_gap_ns": 1851240,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 3826,
+      "step": 3,
+      "delta_pre_ns": 696829,
+      "delta_gate_ns": 999700,
+      "delta_post_ns": 523103,
+      "delta_gap_ns": 2219632,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 3830,
+      "step": 3,
+      "delta_pre_ns": 346134,
+      "delta_gate_ns": 1000100,
+      "delta_post_ns": 387084,
+      "delta_gap_ns": 1733318,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 4955,
+      "step": 4,
+      "delta_pre_ns": 238857,
+      "delta_gate_ns": 999900,
+      "delta_post_ns": 193178,
+      "delta_gap_ns": 1431935,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 4959,
+      "step": 4,
+      "delta_pre_ns": 35873,
+      "delta_gate_ns": 999800,
+      "delta_post_ns": 4382,
+      "delta_gap_ns": 1040055,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 6084,
+      "step": 5,
+      "delta_pre_ns": 904197,
+      "delta_gate_ns": 999400,
+      "delta_post_ns": 1221846,
+      "delta_gap_ns": 3125443,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 6088,
+      "step": 5,
+      "delta_pre_ns": 910210,
+      "delta_gate_ns": 999500,
+      "delta_post_ns": 1420827,
+      "delta_gap_ns": 3330537,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 7213,
+      "step": 6,
+      "delta_pre_ns": -50620,
+      "delta_gate_ns": 1000000,
+      "delta_post_ns": 10416,
+      "delta_gap_ns": 959796,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 7217,
+      "step": 6,
+      "delta_pre_ns": 37649,
+      "delta_gate_ns": 999300,
+      "delta_post_ns": 26242,
+      "delta_gap_ns": 1063191,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 8342,
+      "step": 7,
+      "delta_pre_ns": 1015305,
+      "delta_gate_ns": 1000100,
+      "delta_post_ns": 675277,
+      "delta_gap_ns": 2690682,
+      "target_ns": 1000000
+    },
+    {
+      "node_id": 8346,
+      "step": 7,
+      "delta_pre_ns": 689310,
+      "delta_gate_ns": 1000100,
+      "delta_post_ns": 545967,
+      "delta_gap_ns": 2235377,
+      "target_ns": 1000000
+    }
+  ],
+  "single_pair_only": true
+}

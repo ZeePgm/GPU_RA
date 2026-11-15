@@ -1,0 +1,167 @@
+{
+  "region": {
+    "source_offset": 128,
+    "valid_bytes": 65536,
+    "registered_bytes": 65536,
+    "global_base": 0,
+    "content_id": 1
+  },
+  "cases": [
+    {
+      "name": "n64",
+      "source_offset": 128,
+      "source_bytes": 64,
+      "role": "train"
+    },
+    {
+      "name": "n128",
+      "source_offset": 128,
+      "source_bytes": 128,
+      "role": "train"
+    },
+    {
+      "name": "n512",
+      "source_offset": 128,
+      "source_bytes": 512,
+      "role": "train"
+    },
+    {
+      "name": "n1024",
+      "source_offset": 128,
+      "source_bytes": 1024,
+      "role": "train"
+    },
+    {
+      "name": "n1984",
+      "source_offset": 128,
+      "source_bytes": 1984,
+      "role": "train"
+    },
+    {
+      "name": "n2048",
+      "source_offset": 128,
+      "source_bytes": 2048,
+      "role": "train"
+    },
+    {
+      "name": "n2112",
+      "source_offset": 128,
+      "source_bytes": 2112,
+      "role": "train"
+    },
+    {
+      "name": "n4032",
+      "source_offset": 128,
+      "source_bytes": 4032,
+      "role": "train"
+    },
+    {
+      "name": "n4096",
+      "source_offset": 128,
+      "source_bytes": 4096,
+      "role": "train"
+    },
+    {
+      "name": "n4160",
+      "source_offset": 128,
+      "source_bytes": 4160,
+      "role": "train"
+    },
+    {
+      "name": "n8128",
+      "source_offset": 128,
+      "source_bytes": 8128,
+      "role": "train"
+    },
+    {
+      "name": "n8192",
+      "source_offset": 128,
+      "source_bytes": 8192,
+      "role": "train"
+    },
+    {
+      "name": "n8256",
+      "source_offset": 128,
+      "source_bytes": 8256,
+      "role": "train"
+    },
+    {
+      "name": "n16320",
+      "source_offset": 128,
+      "source_bytes": 16320,
+      "role": "train"
+    },
+    {
+      "name": "n16384",
+      "source_offset": 128,
+      "source_bytes": 16384,
+      "role": "train"
+    },
+    {
+      "name": "n16448",
+      "source_offset": 128,
+      "source_bytes": 16448,
+      "role": "train"
+    },
+    {
+      "name": "n32704",
+      "source_offset": 128,
+      "source_bytes": 32704,
+      "role": "train"
+    },
+    {
+      "name": "n32768",
+      "source_offset": 128,
+      "source_bytes": 32768,
+      "role": "train"
+    },
+    {
+      "name": "n32832",
+      "source_offset": 128,
+      "source_bytes": 32832,
+      "role": "train"
+    },
+    {
+      "name": "n1536",
+      "source_offset": 128,
+      "source_bytes": 1536,
+      "role": "holdout"
+    },
+    {
+      "name": "n3072",
+      "source_offset": 128,
+      "source_bytes": 3072,
+      "role": "holdout"
+    },
+    {
+      "name": "n6144",
+      "source_offset": 128,
+      "source_bytes": 6144,
+      "role": "holdout"
+    },
+    {
+      "name": "n12288",
+      "source_offset": 128,
+      "source_bytes": 12288,
+      "role": "holdout"
+    },
+    {
+      "name": "n24576",
+      "source_offset": 128,
+      "source_bytes": 24576,
+      "role": "holdout"
+    },
+    {
+      "name": "offset64",
+      "source_offset": 192,
+      "source_bytes": 8192,
+      "role": "offset_only"
+    },
+    {
+      "name": "left_clip",
+      "source_offset": 64,
+      "source_bytes": 4160,
+      "role": "intersection_only"
+    }
+  ]
+}

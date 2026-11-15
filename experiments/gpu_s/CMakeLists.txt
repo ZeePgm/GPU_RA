@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
 project(gpu_s_stages LANGUAGES CXX)
+# Match Ninja dependencies to localized MSVC /showIncludes output.
+if(MSVC AND CMAKE_CXX_CL_SHOWINCLUDES_PREFIX MATCHES "娉ㄦ剰")
+  set(CMAKE_CL_SHOWINCLUDES_PREFIX "注意: 包含文件:  ")
+endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MSVC_RUNTIME_LIBRARY MultiThreadedDLL)
 get_filename_component(ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
@@ -49,4 +53,12 @@ target_include_directories(gpu_s_s8 PRIVATE "${ROOT}/include" "${LLAMA}/include"
 target_link_libraries(gpu_s_s8 PRIVATE "${BASE_BUILD}/llama/src/llama.lib" "${BASE_BUILD}/llama/ggml/src/ggml.lib" "${BASE_BUILD}/llama/ggml/src/ggml-base.lib" CUDA::cudart "${CUPTI_LIBRARY}" "${BASE_BUILD}/eventlab/hbf_eventlab_tensor_bridge.lib" "${BASE_BUILD}/eventlab/hbf_eventlab.lib")
 if(MSVC)
  target_compile_options(gpu_s_s8 PRIVATE /utf-8 /EHsc)
+endif()
+
+add_executable(gpu_a1 native_a1.cpp)
+target_compile_definitions(gpu_a1 PRIVATE GPU_S_JOINT=1 GPU_S_TRANSFER_TRACE=1 GPU_S_SEGMENTS=1)
+target_include_directories(gpu_a1 PRIVATE "${ROOT}/include" "${LLAMA}/include" "${LLAMA}/ggml/include" "${LLAMA}/vendor" "${ROOT}/third_party/HBF-EventLab/include" "${CUDAToolkit_ROOT}/include")
+target_link_libraries(gpu_a1 PRIVATE "${BASE_BUILD}/llama/src/llama.lib" "${BASE_BUILD}/llama/ggml/src/ggml.lib" "${BASE_BUILD}/llama/ggml/src/ggml-base.lib" CUDA::cudart "${CUPTI_LIBRARY}" "${BASE_BUILD}/eventlab/hbf_eventlab_tensor_bridge.lib" "${BASE_BUILD}/eventlab/hbf_eventlab.lib")
+if(MSVC)
+ target_compile_options(gpu_a1 PRIVATE /utf-8 /EHsc)
 endif()

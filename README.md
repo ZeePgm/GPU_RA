@@ -1,125 +1,44 @@
-# RealGPUAcess_v0
+# GPU_RA — 第一版：新后端 F 基线
 
-A real CUDA execution frontend with the incremental HBF-EventLab backend.
-The release provides selected weight interception, asynchronous requests,
-finite frame capacity, paged F16 KV, persistent page files, bounded prefetch,
-and explicitly serviced retention/refresh modeling.
+本分支 main 保存实验总账第一版的新后端 F 基线。历史 v0 和 minexp 提交保留在 Git 历史；第二版 R3 只读和第三版联合优化使用各自分支。项目用于真实 GPU 接入的 HBF 仿真。
 
-![Architecture](docs/architecture.png)
+本源码由 2026-11-05 的冻结快照恢复，按第二次 F 的源码身份补齐完整 FFN 入口。后端固定为 HBF-EventLab `8ccb1f353630f893f761b017d621812b7b9d5bf2`（无 K5 overlay），llama.cpp 固定为 `b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9` 加当时的前端改动。历史源码与恢复记录位于 provenance/；原冻结 README 位于 [docs/README_FROZEN_20261105.md](docs/README_FROZEN_20261105.md)。
 
-The shared execution path is:
+F1/F2/F3 使用 Qwen3-0.6B F16、原始 CRLF prompt、44 输入/8 输出、greedy、原生 F16 KV、H0 512 MiB、Host 256×64 B 驻留预算。F1 覆盖第10层三个 FFN 矩阵；F2 覆盖0/10/20/27层；F3覆盖28层全部84矩阵。此实验的消费者前门控保留完整矩阵父读取和原调度，未启用分页 KV 或后续 KV 优化。
 
-    CUDA / paged KV -> LiveTimingService -> TimingBackend
-        -> SimulationSession -> HostDriver -> DeviceDriver
-        -> final Global result -> parent completion -> dependent GPU work
+## 构建与运行
 
-The backend is pinned to feat/incremental-host commit
-72e074508c462dceb7d42962c4885ecf17cc4d0d, with six recorded local patch files.
-The original synchronous, immutable TensorAccessBridge remains a tested reference.
-The shared asynchronous mutable path uses SimulationSession through the frontend
-producer adapter. See the [adapter contract](docs/INCREMENTAL_BACKEND.md).
+要求 Windows x64、Visual Studio 2022 C++ Build Tools、CMake/Ninja、Python 3.12、CUDA 13.0 含 CUPTI/cuBLAS，以及兼容 CUDA GPU。本次平台目标为 RTX 5070 / SM120a。源码和外部工具链、模型分别管理；仓库不附带 GGUF 权重。
 
-## Environment and build
+从仓库根目录启动。CudaRoot、Python 和模型路径均为调用方参数，不依赖原工作区历史库或构建目录。
 
-The validated platform is Windows x64, Visual Studio 2022 C++ Build Tools,
-CMake >= 3.24, Ninja, Python 3.12, CUDA Toolkit 13.0 with CUPTI/cuBLAS, and
-an NVIDIA RTX 5070 (SM 120a, 12 GB). The build script defaults to the local GPU
-architecture (`native`); use an explicit target for reproducible builds.
-Other operating systems and GPU architectures require separate validation.
+```powershell
+./reproduction/build.ps1 -CudaRoot '<CUDA目录>' -Python '<Python可执行文件>' -Jobs 4
+python reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output output/fresh-f-001 --cuda-root '<CUDA目录>'
+```
 
-GPU architecture, toolchain paths and build directories can be selected with a
-machine JSON file or build options. See [environment configuration](docs/ENVIRONMENT.md)
-for migration, runtime device selection and platform support boundaries.
+模型需满足 SHA-256 `74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2`（1,509,347,712字节）。输入以哈希确认，可提供已有同哈希模型；另行转换得到的 GGUF 必须先核对哈希，转换工具与权重版本相同也不自动证明字节身份相同。
 
-Run all commands from this repository root. Example paths are relative.
-Set CUDA_PATH to your external toolkit installation first; toolkit binaries and
-model weights are not bundled.
+精确转换记录见 [provenance/Qwen3-0.6B-conversion.json](provenance/Qwen3-0.6B-conversion.json)，含 HuggingFace revision 和各文件哈希。需要从原始权重重建时，先安装该源码中 `third_party/llama.cpp-integrated/requirements/requirements-convert_hf_to_gguf.txt` 的转换依赖，再使用以下可选入口（首次下载约1.5GB）：
 
-    python -m venv .venv
-    ./.venv/Scripts/python.exe -m pip install -r requirements.txt
-    ./build.ps1 -Target cuda -Python (Resolve-Path './.venv/Scripts/python.exe').Path
-    $env:PATH = "$env:CUDA_PATH/bin;$env:CUDA_PATH/bin/x64;$env:CUDA_PATH/lib;$env:PATH"
-    ctest --test-dir ./build-cuda --output-on-failure
-    ./build.ps1 -Target model -Python (Resolve-Path './.venv/Scripts/python.exe').Path
+```powershell
+python reproduction/prepare_model.py --input-dir external/Qwen3-0.6B --download --output models/Qwen3-0.6B-F16.gguf
+```
 
-The script locates Visual Studio and CMake/Ninja. Resolve-Path supplies an absolute
-Python executable to external build tools. Use -Target cpu for the CPU-only core,
-or -CudaRoot to select another toolkit. Model builds create a sealed source/build
-identity and refuse to overwrite it; use a fresh source directory for a new build.
+脚本固定原始 revision，逐项检查输入文件大小和 SHA-256，调用仓库内转换器，并拒绝与历史 GGUF 哈希不同的转换结果。已有原始权重可省略 `--download`；省略 `--output` 仅检查输入。
 
-## Model inputs and execution
+构建入口从仓库内源码新建 model 和 FFN 两个目录，封存新的构建身份，执行在线审计及 Python 检查。所有运行必须使用新输出目录。F2/F3引用本次新F1的原生轨迹，拒绝混用历史二进制身份。默认完整F3可能耗时较长；--stages F1 --tokens 1 可做有限范围的入口资格检查，不能替代正式44输入/8输出实验。
 
-Provide a supported F16 GGUF and its conversion record with gguf_sha256 and
-llama_commit. The framework commit must be
-b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9. Create ./models/ and place your
-inputs there, then generate a local profile:
+仅核对输入、布局和预期计数而不执行 GPU：
 
-    ./.venv/Scripts/python.exe ./tools/integrated_profile.py --model ./models/model.gguf --conversion ./models/conversion.json --output ./configs/integrated/model.json
-    ./.venv/Scripts/python.exe ./tools/run_llama_integrated.py --profile ./configs/integrated/model.json --prompt ./adapters/llama_cpp/prompt.txt --tokens 32 --output ./output/example
+```powershell
+python reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output output/prepare-001 --prepare-only
+```
 
-The runner executes native, paged bypass and modeled modes. It checks numerical
-contracts, complete logits, tokens, selected access coverage, GPU waits, KV
-publication, Host final outcomes, resident budgets and final close/drain.
-Every run needs a fresh output directory. Profiles are derived from actual GGUF
-metadata and hashes; editing a profile cannot weaken the capability checks.
-Generated profiles contain resolved local model paths and are excluded from the
-source archive.
+## 身份和证据
 
-For the independent operator suite, generate profiles named qwen3-0.6b.json,
-qwen3-1.7b.json and smollm2-135m.json in ./configs/integrated/, then run:
+provenance/historical-f-build-identity.json 保存历史二进制、DLL与4,222条源码哈希；provenance/source-recovery.json 记录源码恢复来源。build-reproduction/model/release-identity.json 在新构建后产生，专门标识新源码构建，和历史二进制身份分开。
 
-    ./.venv/Scripts/python.exe ./tools/check_llama_integrated.py --profiles-dir ./configs/integrated --output ./output/operators
-    ./.venv/Scripts/python.exe ./tests/integrated_validation_contract.py
+`python reproduction/verify_source.py` 可重新核对全部4,222条历史源码记录。FFN入口本身仅编译C++，CUDA目标架构由新构建model依赖库的 `-CudaArchitectures` 决定。
 
-The optional full matrix entry is ./tools/run_integrated_matrix.py. Its
---reference-matrix argument is a caller-supplied baseline dataset, not an installed
-runtime dependency; --output must select a fresh directory.
-
-## Supported scope and time interpretation
-
-The accepted model scope is Qwen3-0.6B, Qwen3-1.7B and SmolLM2-135M, dense
-Qwen3/llama architectures, one sequence, F16 matrix weights/KV, selected norm/down
-weight accesses, and all-layer paged KV. Other tensors keep native CUDA storage.
-Quantized models, MoE, multi-sequence serving and vLLM require separate work.
-
-The baseline uses FCFS Host/NAND policies, no attached statistics observer,
-and memory backing. Host resident_fragments=256 limits active logical 64-byte
-fragments; it is independent of GPU frame capacity and Device MOCS. There is no
-frontend Device command window. KV writeback creates a whole-block logical
-snapshot; HostDriver owns command splitting, retries and physical recovery replay.
-Completed Global and version history can grow with cumulative input.
-
-Real bytes stay in GPU allocations and capacity backing. HBF-EventLab models
-behavior and timing with symbolic data. The existing GPU-timestamp-driven
-frontend time policy is retained; program wall time is not a hardware throughput
-prediction. Measured compute records and TTFT/TPOT experiments are outside this
-release. File/prefetch/environment/refresh APIs are tested separately and are not
-all enabled simultaneously in model acceptance runs. Refresh requires explicit
-service calls.
-
-## Source package and documentation
-
-- ./include/hbflab and ./src: public interfaces, producer/runtime, capacity and KV.
-- ./adapters/llama_cpp/integrated: model CMake entry; adjacent files implement the
-  runner, weights, KV, PTX and profiles.
-- ./third_party/HBF-EventLab: complete backend source, including tests/docs.
-- ./third_party/hbf-eventlab-origin.json and ./third_party/hbf-eventlab-overlay.patch:
-  upstream identity and exact local changes.
-- ./third_party/llama.cpp-integrated: pinned framework with its existing overlay.
-- ./third_party/detours: Windows injection source dependency.
-- ./tests and ./examples: functional, GPU, failure and injection validation.
-- ./docs/validation: compact acceptance records.
-
-See [validation](docs/VALIDATION.md), [incremental backend contract](docs/INCREMENTAL_BACKEND.md),
-[dependencies](docs/DEPENDENCIES.md), [architecture](docs/ARCHITECTURE.md), and
-[third-party notices](THIRD_PARTY_NOTICES.md).
-
-Reproduce or check the source archive with:
-
-    ./.venv/Scripts/python.exe ./tools/package_source.py create --archive ../RealGPUAcess_v0-source.zip
-    ./.venv/Scripts/python.exe ./tools/package_source.py verify --archive ../RealGPUAcess_v0-source.zip
-
-The package preserves required build-* source filenames and excludes root build
-directories, model inputs, local profiles, toolchains and large runtime logs.
-Its release-manifest.json records every distributed file by relative path and
-SHA-256. Rebuild after extraction; prebuilt binary identities are location-bound.
+F系列历史数据与离线重建入口由 evidence/ 中的数据清单及复核说明导航。历史计时保留当时的轨迹和测量条件；新采样另存新批次，不替换历史结果。minexp/S 原始数据由 artifacts/minexp/ 的分片与恢复工具管理。已有原始F代码的详细运行与输出合同见 [experiments/gpu_ffn/README.md](experiments/gpu_ffn/README.md)。

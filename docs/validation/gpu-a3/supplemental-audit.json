@@ -1,0 +1,392 @@
+[
+  {
+    "case": "left_clip-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "left_clip-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "left_clip-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1024-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1024-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1024-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n12288-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n12288-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n12288-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n128-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n128-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n128-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1536-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1536-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1536-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16320-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16320-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16320-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16384-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16384-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16384-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16448-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16448-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n16448-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1984-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1984-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n1984-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n2048-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n2048-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n2048-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n2112-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n2112-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n2112-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n24576-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n24576-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n24576-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n3072-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n3072-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n3072-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32704-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32704-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32704-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32768-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32768-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32768-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32832-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32832-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n32832-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4032-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4032-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4032-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4096-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4096-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4096-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4160-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4160-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n4160-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n512-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n512-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n512-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n6144-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n6144-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n6144-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n64-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n64-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n64-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8128-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8128-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8128-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8192-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8192-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8192-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8256-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8256-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "n8256-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "offset64-0",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "offset64-1",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  },
+  {
+    "case": "offset64-2",
+    "attempt_ownership": true,
+    "finished_children_once": true
+  }
+]

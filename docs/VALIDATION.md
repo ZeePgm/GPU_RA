@@ -1,4 +1,11 @@
-# Release validation
+# Validation
+
+The active baseline is [8ccb1f3](BASELINE_20261104.md). Its fresh results are
+recorded in [baseline-20261104.json](validation/baseline-20261104.json).
+
+## Historical release evidence
+
+The records below describe the earlier release; they are retained as provenance.
 
 Final acceptance is recorded in [release-validation.json](validation/release-validation.json).
 Release checks use binaries built in this release directory.

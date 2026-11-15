@@ -1,0 +1,137 @@
+{
+  "count_audit": {
+    "status": "pass",
+    "points": 26,
+    "runs": 78,
+    "independent_counts_addresses_content": true,
+    "all_drained": true,
+    "deterministic_repeats": true,
+    "same_init_tick_ps": 5775275,
+    "negatives": [
+      {
+        "kind": "missing_fragment",
+        "rejected": true
+      },
+      {
+        "kind": "duplicate_fragment",
+        "rejected": true
+      },
+      {
+        "kind": "wrong_address",
+        "rejected": true
+      },
+      {
+        "kind": "wrong_global_owner",
+        "rejected": true
+      },
+      {
+        "kind": "wrong_global_size",
+        "rejected": true
+      },
+      {
+        "kind": "bad_content_result",
+        "rejected": true
+      }
+    ]
+  },
+  "response_model_status": "pass",
+  "response_criterion": "all heldout relative errors <=5%, frozen before execution",
+  "models": [
+    {
+      "lower_exclusive_B": 0,
+      "upper_inclusive_B": 2048,
+      "slope_ps_per_byte": 26.046874999999993,
+      "intercept_ps": 110533.99999999997,
+      "training_points": 6,
+      "training_max_abs_residual_ps": 5.820766091346741e-11
+    },
+    {
+      "lower_exclusive_B": 2048,
+      "upper_inclusive_B": 4096,
+      "slope_ps_per_byte": 26.046875000000053,
+      "intercept_ps": 110533.99999999997,
+      "training_points": 3,
+      "training_max_abs_residual_ps": 1.7462298274040222e-10
+    },
+    {
+      "lower_exclusive_B": 4096,
+      "upper_inclusive_B": 8192,
+      "slope_ps_per_byte": 26.04687500000001,
+      "intercept_ps": 110534.00000000007,
+      "training_points": 3,
+      "training_max_abs_residual_ps": 1.7462298274040222e-10
+    },
+    {
+      "lower_exclusive_B": 8192,
+      "upper_inclusive_B": 16384,
+      "slope_ps_per_byte": 26.046875,
+      "intercept_ps": 110534.00000000003,
+      "training_points": 3,
+      "training_max_abs_residual_ps": 0.0
+    },
+    {
+      "lower_exclusive_B": 16384,
+      "upper_inclusive_B": 65536,
+      "slope_ps_per_byte": 26.04687500000003,
+      "intercept_ps": 110533.9999999989,
+      "training_points": 4,
+      "training_max_abs_residual_ps": 6.984919309616089e-10
+    }
+  ],
+  "heldout": [
+    {
+      "case": "n1536",
+      "role": "holdout",
+      "bytes": 1536,
+      "wait_ps": 150542,
+      "predicted_ps": 150541.99999999994,
+      "residual_ps": 5.820766091346741e-11,
+      "relative_error": 3.866539631031035e-16,
+      "inside_training_residual_band": true
+    },
+    {
+      "case": "n3072",
+      "role": "holdout",
+      "bytes": 3072,
+      "wait_ps": 190550,
+      "predicted_ps": 190550.00000000012,
+      "residual_ps": -1.1641532182693481e-10,
+      "relative_error": 6.109436989080809e-16,
+      "inside_training_residual_band": true
+    },
+    {
+      "case": "n6144",
+      "role": "holdout",
+      "bytes": 6144,
+      "wait_ps": 270566,
+      "predicted_ps": 270566.0000000001,
+      "residual_ps": -1.1641532182693481e-10,
+      "relative_error": 4.3026589381864247e-16,
+      "inside_training_residual_band": true
+    },
+    {
+      "case": "n12288",
+      "role": "holdout",
+      "bytes": 12288,
+      "wait_ps": 430598,
+      "predicted_ps": 430598.0,
+      "residual_ps": 0.0,
+      "relative_error": 0.0,
+      "inside_training_residual_band": true
+    },
+    {
+      "case": "n24576",
+      "role": "holdout",
+      "bytes": 24576,
+      "wait_ps": 750662,
+      "predicted_ps": 750661.9999999995,
+      "residual_ps": 4.656612873077393e-10,
+      "relative_error": 6.203341681179269e-16,
+      "inside_training_residual_band": true
+    }
+  ],
+  "max_heldout_relative_error": 6.203341681179269e-16,
+  "error_band": "deterministic training residual envelope, not confidence interval or hardware error bound",
+  "observed_min_wait_ps": 112201,
+  "observed_max_wait_ps": 965705
+}

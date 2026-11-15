@@ -1,22 +1,16 @@
-# Release status
+# Current baseline
 
-Release: RealGPUAcess_v0.
-Revision: incremental-host-72e0745.
-Upstream backend: 72e074508c462dceb7d42962c4885ecf17cc4d0d, six recorded local patch files.
+Baseline: incremental-host-8ccb1f3 (2026-11-04).
+Backend: unmodified upstream main commit `8ccb1f353630f893f761b017d621812b7b9d5bf2`.
+Local backend patches: none. Framework: llama.cpp `b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9` with the existing frontend overlay.
 
-Release verification passed. See
-[release-validation.json](docs/validation/release-validation.json) and
-[validation scope](docs/VALIDATION.md) for the acceptance records.
+Fresh builds and validation passed: 763 CPU/CUDA/backend/injection regressions,
+18 operator cases, five Python contracts, three models in native/bypass/modeled
+modes, A1 clock/logit checks, full A2 deterministic audits and A3 fixed-H0 audits.
+Model checks generated two tokens per mode with a 45-token prompt. A1 used
+eight tokens per mode; no new statistical equivalence claim is made.
 
-Fresh release-directory builds passed 716 core CPU/CUDA/injection tests,
-18 independent operator tests and five Python validator tests. Two representative
-model cases ran in all three modes (six processes); complete logits and tokens
-match corresponding accepted candidate and prior main-backend outputs. The
-accepted nine-case, 27-process candidate matrix is retained as inherited evidence.
-
-The source archive preserves required nested build-info files. Model weights,
-local profiles, toolchains, build outputs and large traces are not distributed.
-
-The source uses functional filenames, relative build dependencies, English
-release documentation and relative README examples. The architecture image
-includes the actual SimulationSession/HostDriver/DeviceDriver path.
+Old backend code, copied build backups and migration helpers have been removed.
+Historical experiment data and original scientific records are retained.
+See [baseline details](docs/BASELINE_20261104.md) and
+[machine-readable validation](docs/validation/baseline-20261104.json).

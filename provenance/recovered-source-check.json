@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "scope": "Historical second-F source bytes only; newly rebuilt binaries have separate identities",
+  "historical_manifest_sha256": "06438668bb32a45518b70421e7115e3ff99967659ebdb2bb6470c57da016eb8f",
+  "source_records": 4222,
+  "missing": [],
+  "changed": []
+}

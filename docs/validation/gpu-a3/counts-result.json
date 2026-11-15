@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "points": 26,
+  "runs": 78,
+  "independent_counts_addresses_content": true,
+  "all_drained": true,
+  "deterministic_repeats": true,
+  "same_init_tick_ps": 5775275,
+  "negatives": [
+    {
+      "kind": "missing_fragment",
+      "rejected": true
+    },
+    {
+      "kind": "duplicate_fragment",
+      "rejected": true
+    },
+    {
+      "kind": "wrong_address",
+      "rejected": true
+    },
+    {
+      "kind": "wrong_global_owner",
+      "rejected": true
+    },
+    {
+      "kind": "wrong_global_size",
+      "rejected": true
+    },
+    {
+      "kind": "bad_content_result",
+      "rejected": true
+    }
+  ]
+}

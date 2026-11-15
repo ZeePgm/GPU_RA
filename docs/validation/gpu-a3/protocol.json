@@ -1,0 +1,48 @@
+{
+  "scope": "fixed uncalibrated S8 H0, real Bridge/Session/Host/Device; no GPU",
+  "h0_sha256": "b91705e39e83bc51cf636ce9415beb63363444e1a564f930b5727a3fea4d4ec7",
+  "repeats": 3,
+  "initial_state": "fresh Session; ordinary write initializes same 64KiB completely; no cache reset or warm/cold hardware claim",
+  "count_oracle": "raw source intersection, request-relative 4096B chunks, independent 64B addresses; single channel global_base=0",
+  "fit": {
+    "knots_bytes": [
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "model": "independent affine least-squares in five size bins, discontinuities allowed; bins right-closed",
+    "train": [
+      64,
+      128,
+      512,
+      1024,
+      1984,
+      2048,
+      2112,
+      4032,
+      4096,
+      4160,
+      8128,
+      8192,
+      8256,
+      16320,
+      16384,
+      16448,
+      32704,
+      32768,
+      32832
+    ],
+    "holdout": [
+      1536,
+      3072,
+      6144,
+      12288,
+      24576
+    ],
+    "acceptance": "all five held-out relative errors <=5%; engineering predictive tolerance, not hardware accuracy",
+    "basis": "32-fragment threshold; 4096B chunks/pages, two/four chunk boundaries and 256-fragment residency; candidate, not guaranteed true breakpoints"
+  },
+  "invalid": "any independent count/address/content/drain failure excludes point from fitting and fails audit; no silent deletion",
+  "binary_sha256": "feffd4b3f3fa5971ad69fd6485cd8580a44e68287b28c09ce4af8abaa2942425"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "frozen_before_execution",
+  "scope": "experimental single-server FIFO adapter using actual production EventQueue; no Host/Device/H0 instantiated",
+  "oracle": "Python max recurrence; stable arrival then input-position tie break; integer ps; zero service valid",
+  "conditions": {
+    "nonpreemptive": true,
+    "retry": false,
+    "parallel_servers": 1,
+    "same_tick": "production Completion/Arrival rounds; FIFO arrival ties preserve input order"
+  },
+  "cases": 938,
+  "requests": 15058,
+  "random_seeds": "2026110300..2026110499",
+  "acceptance": "exact per-request and event audit, final drain, repeat byte-identical; any mismatch fails",
+  "MG1": "optional extension not executed; deterministic finite traces only",
+  "identity": {
+    "experiments\\gpu_a2\\run.py": "b12cdb332b8574a2d1f0e0f1aed68de1aa9829de1961e03087804259b01fdbda",
+    "experiments\\gpu_a2\\fifo.cpp": "a694ed79622fe4c708cdf7290a08c25cc2cf87a7dc17d09ce4af43747aebeee3",
+    "experiments\\gpu_a2\\CMakeLists.txt": "cc64d269c12546b94a9d37251de221b1a9ca5a984d17c8e6a56d39d6f66f3389",
+    "third_party\\HBF-EventLab\\src\\infrastructure\\event_queue.cpp": "dd7955ea631b4bc8938d3bf8a3072319b4ffdbe276ab84e14a5fbe3b594c8fd1",
+    "third_party\\HBF-EventLab\\include\\hbf_eventlab\\infrastructure\\event_queue.hpp": "a2831c102a2dd890d25ecc002601d0b526817836114e5955bf7727e633ee98e5",
+    "third_party\\HBF-EventLab\\include\\hbf_eventlab\\common\\types.hpp": "7e3aab91b2bd6e2a85fe25da69edd8b85bb93078ce50abd25f180c2b2b6f552d",
+    "build-a2\\a2_fifo.exe": "2ce33b16c9c1efe38073dcb792cdc25adb48a7821bb6babf2f66ddbbaf3164cd"
+  }
+}

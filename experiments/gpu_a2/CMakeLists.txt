@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.24)
+set(CMAKE_BUILD_TYPE Release CACHE STRING "A2 release build" FORCE)
+project(a2_fifo_mechanism LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+get_filename_component(ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
+add_executable(a2_fifo fifo.cpp "${ROOT}/third_party/HBF-EventLab/src/infrastructure/event_queue.cpp")
+target_include_directories(a2_fifo PRIVATE "${ROOT}/third_party/HBF-EventLab/include" "${ROOT}/third_party/llama.cpp-integrated/vendor")
+if(MSVC)
+ target_compile_options(a2_fifo PRIVATE /utf-8 /EHsc)
+endif()
+

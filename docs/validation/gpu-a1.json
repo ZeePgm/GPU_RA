@@ -1,0 +1,588 @@
+{
+  "results": [
+    {
+      "pattern": "single",
+      "us": 10,
+      "clock_and_injection_checks": "pass",
+      "mean_error_ns": [
+        563643.3333333334,
+        983663.3333333334,
+        862883.3333333334,
+        2030986.6666666667,
+        3779410.0,
+        4849136.666666667,
+        3667513.3333333335,
+        3228326.6666666665
+      ],
+      "ci_ns": [
+        [
+          -3625040.225783989,
+          4752326.892450656
+        ],
+        [
+          -5217917.573704688,
+          7185244.240371354
+        ],
+        [
+          -8229493.162939924,
+          9955259.82960659
+        ],
+        [
+          -8761423.39917123,
+          12823396.732504562
+        ],
+        [
+          -8777793.718998842,
+          16336613.718998842
+        ],
+        [
+          -8422970.030813158,
+          18121243.36414649
+        ],
+        [
+          -10191317.140655782,
+          17526343.80732245
+        ],
+        [
+          -11852590.365628555,
+          18309243.698961888
+        ]
+      ],
+      "margin_ns": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "per_token": [
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive"
+      ],
+      "conditional_inference": "Student-t approximation; process-pair dependence/drift not ruled out"
+    },
+    {
+      "pattern": "single",
+      "us": 100,
+      "clock_and_injection_checks": "pass",
+      "mean_error_ns": [
+        -429246.6666666667,
+        -1885533.3333333333,
+        -2648803.3333333335,
+        -3207520.0,
+        -3105806.6666666665,
+        -2197496.6666666665,
+        -2331953.3333333335,
+        -1864836.6666666667
+      ],
+      "ci_ns": [
+        [
+          -5633521.199462098,
+          4775027.866128764
+        ],
+        [
+          -8647065.348609159,
+          4875998.681942493
+        ],
+        [
+          -11824872.250639005,
+          6527265.583972337
+        ],
+        [
+          -12819578.197754556,
+          6404538.197754556
+        ],
+        [
+          -13360431.61502064,
+          7148818.281687308
+        ],
+        [
+          -12468995.294139842,
+          8074001.9608065095
+        ],
+        [
+          -12984056.345056232,
+          8320149.678389564
+        ],
+        [
+          -13167311.475647628,
+          9437638.142314296
+        ]
+      ],
+      "margin_ns": [
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0
+      ],
+      "per_token": [
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive"
+      ],
+      "conditional_inference": "Student-t approximation; process-pair dependence/drift not ruled out"
+    },
+    {
+      "pattern": "single",
+      "us": 1000,
+      "clock_and_injection_checks": "pass",
+      "mean_error_ns": [
+        2451810.0,
+        2741250.0,
+        3876566.6666666665,
+        3006283.3333333335,
+        4143296.6666666665,
+        3956743.3333333335,
+        3353446.6666666665,
+        3348016.6666666665
+      ],
+      "ci_ns": [
+        [
+          -1037649.5999245583,
+          5941269.599924559
+        ],
+        [
+          -1851345.349387725,
+          7333845.349387725
+        ],
+        [
+          -1089869.3008632376,
+          8843002.63419657
+        ],
+        [
+          -3335703.2482774756,
+          9348269.914944142
+        ],
+        [
+          -2504907.9133344493,
+          10791501.246667782
+        ],
+        [
+          -3113833.1023795693,
+          11027319.769046236
+        ],
+        [
+          -3975499.564198947,
+          10682392.89753228
+        ],
+        [
+          -5239041.265719879,
+          11935074.599053212
+        ]
+      ],
+      "margin_ns": [
+        100000.0,
+        100000.0,
+        100000.0,
+        100000.0,
+        100000.0,
+        100000.0,
+        100000.0,
+        100000.0
+      ],
+      "per_token": [
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive"
+      ],
+      "conditional_inference": "Student-t approximation; process-pair dependence/drift not ruled out"
+    },
+    {
+      "pattern": "multi",
+      "us": 10,
+      "clock_and_injection_checks": "pass",
+      "mean_error_ns": [
+        -1633773.3333333333,
+        -1512610.0,
+        -1317486.6666666667,
+        19116.666666666668,
+        -996980.0,
+        -1875036.6666666667,
+        -2549776.6666666665,
+        -2723703.3333333335
+      ],
+      "ci_ns": [
+        [
+          -5997301.006059368,
+          2729754.339392702
+        ],
+        [
+          -6263586.339239895,
+          3238366.3392398953
+        ],
+        [
+          -7518310.142808052,
+          4883336.809474718
+        ],
+        [
+          -8316362.2223073775,
+          8354595.555640711
+        ],
+        [
+          -10496901.216356661,
+          8502941.216356661
+        ],
+        [
+          -13781754.063238727,
+          10031680.729905395
+        ],
+        [
+          -15196064.357971428,
+          10096511.024638096
+        ],
+        [
+          -15850680.698700802,
+          10403274.032034134
+        ]
+      ],
+      "margin_ns": [
+        2000.0,
+        4000.0,
+        6000.0,
+        8000.0,
+        10000.0,
+        12000.0,
+        14000.0,
+        16000.0
+      ],
+      "per_token": [
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive"
+      ],
+      "conditional_inference": "Student-t approximation; process-pair dependence/drift not ruled out"
+    },
+    {
+      "pattern": "multi",
+      "us": 100,
+      "clock_and_injection_checks": "pass",
+      "mean_error_ns": [
+        -1088536.6666666667,
+        -2573396.6666666665,
+        -1750326.6666666667,
+        -2087280.0,
+        -1469100.0,
+        -1255033.3333333333,
+        -1468036.6666666667,
+        -2785490.0
+      ],
+      "ci_ns": [
+        [
+          -4163581.280149634,
+          1986507.9468163003
+        ],
+        [
+          -7232218.065325739,
+          2085424.7319924063
+        ],
+        [
+          -7628564.063494205,
+          4127910.7301608706
+        ],
+        [
+          -8815988.924520811,
+          4641428.924520811
+        ],
+        [
+          -8506086.834001,
+          5567886.834000999
+        ],
+        [
+          -8775198.476702273,
+          6265131.810035607
+        ],
+        [
+          -9567562.597957205,
+          6631489.264623871
+        ],
+        [
+          -12543013.72299937,
+          6972033.72299937
+        ]
+      ],
+      "margin_ns": [
+        20000.0,
+        40000.0,
+        60000.0,
+        80000.0,
+        100000.0,
+        120000.0,
+        140000.0,
+        160000.0
+      ],
+      "per_token": [
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive"
+      ],
+      "conditional_inference": "Student-t approximation; process-pair dependence/drift not ruled out"
+    },
+    {
+      "pattern": "multi",
+      "us": 1000,
+      "clock_and_injection_checks": "pass",
+      "mean_error_ns": [
+        53123.333333333336,
+        2165363.3333333335,
+        1178763.3333333333,
+        198146.66666666666,
+        -339893.3333333333,
+        195050.0,
+        640186.6666666666,
+        935253.3333333334
+      ],
+      "ci_ns": [
+        [
+          -3542953.1456220853,
+          3649199.8122887523
+        ],
+        [
+          -3061068.262202988,
+          7391794.928869655
+        ],
+        [
+          -5117392.405461426,
+          7474919.072128092
+        ],
+        [
+          -7418897.081416127,
+          7815190.414749461
+        ],
+        [
+          -8784939.5665952,
+          8105152.8999285335
+        ],
+        [
+          -7917110.698725345,
+          8307210.698725345
+        ],
+        [
+          -8654152.902476378,
+          9934526.23580971
+        ],
+        [
+          -8983689.645970728,
+          10854196.312637396
+        ]
+      ],
+      "margin_ns": [
+        200000.0,
+        400000.0,
+        600000.0,
+        800000.0,
+        1000000.0,
+        1200000.0,
+        1400000.0,
+        1600000.0
+      ],
+      "per_token": [
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive",
+        "inconclusive"
+      ],
+      "conditional_inference": "Student-t approximation; process-pair dependence/drift not ruled out"
+    }
+  ],
+  "full_A1_acceptance": false,
+  "limitations": [
+    "Fixed-budget wall equivalence inconclusive in all 48 endpoints",
+    "No standalone high-resolution injector accuracy calibration; measured overshoot and steady_clock resolution are not hardware timing accuracy",
+    "Paired Student-t intervals use independence/distribution approximations; drift/heavy tails remain possible",
+    "Late-gate pilot not powered to demonstrate zero effect before gate"
+  ],
+  "full_trace_audit": {
+    "status": "pass",
+    "logits_match": true,
+    "consumer_checks": [
+      {
+        "node_id": 439,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 443,
+        "activities": 3,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 1568,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 1572,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 2697,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 2701,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 3826,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 3830,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 4955,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 4959,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 6084,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 6088,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 7213,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 7217,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 8342,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      },
+      {
+        "node_id": 8346,
+        "activities": 1,
+        "enqueue_within_post_gate_window": true
+      }
+    ],
+    "evidence": "segment_begin occurs after a1before returns; CUDA submissions associated with GPU activities fall inside this subsequent synchronized window. steady_clock and CUPTI timestamps are not subtracted."
+  },
+  "negative_controls": [
+    {
+      "case": "missing",
+      "exitcode": 1,
+      "rejected": true
+    },
+    {
+      "case": "reordered",
+      "exitcode": 1,
+      "rejected": true
+    },
+    {
+      "case": "wrong_step",
+      "exitcode": 1,
+      "rejected": true
+    },
+    {
+      "case": "bad_mode",
+      "exitcode": 1,
+      "rejected": true
+    }
+  ],
+  "overall_status": "mechanism/accounting checks pass; wall quantitative equivalence unestablished (underpowered), inconclusive retained",
+  "reporting_revision": "2026-11-02-r2",
+  "reporting_summary": {
+    "overall": "mechanism_and_accounting_checks_pass; wall_quantitative_equivalence_unestablished_underpowered; original_inconclusive_retained",
+    "multi16": {
+      "n": 30,
+      "target_ms": 16,
+      "mean_ms": 16.936086666666665,
+      "ratio": 1.0585054166666665,
+      "median_ms": 22.09715,
+      "quantiles": {
+        "min": -10.4355,
+        "p10": -3.2400599999999997,
+        "p25": 3.1111750000000002,
+        "p75": 29.380399999999998,
+        "p90": 32.98257,
+        "max": 37.6929
+      },
+      "orders": [
+        {
+          "order": "zero-first",
+          "n": 15,
+          "mean_ms": 13.323193333333334,
+          "median_ms": 20.4951,
+          "min_ms": -10.4355,
+          "max_ms": 37.6929
+        },
+        {
+          "order": "inject-first",
+          "n": 15,
+          "mean_ms": 20.548980000000004,
+          "median_ms": 22.1024,
+          "min_ms": -2.3538,
+          "max_ms": 36.5105
+        }
+      ]
+    },
+    "detection_note": "CI halfwidth is an operational precision scale, not a one-sided upper bound on true delay; clocks timestamp granularity is not established injector accuracy."
+  },
+  "timeline_supplement": {
+    "status": "pass",
+    "gates_each": 16,
+    "both_runs_zero_overlapping_activities": true,
+    "post_gate_kernels_and_correlated_enqueue": true,
+    "decomposition_integer_residual_ns": 0,
+    "cupti_dropped": 0,
+    "scope": "one zero/inject full-instrumentation pair, not 30-pair wall equivalence"
+  }
+}

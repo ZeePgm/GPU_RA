@@ -1,0 +1,72 @@
+{
+  "frozen_snapshot_files": 4450,
+  "second_f_source_records": 4222,
+  "overlaid_matching_sources": [
+    {
+      "path": "experiments\\gpu_ffn\\audit_tests.cpp",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\audit_tests.cpp",
+      "sha256": "98548e3f6ace6a5b9de20e7e1d81c044b473e77a3fe10dd57c108c93b7f4f312"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\build.ps1",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\build.ps1",
+      "sha256": "9409b2493e8b6cf138c79ff79d57b7592692529209185b116a398d46dd9ebce2"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\CMakeLists.txt",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\CMakeLists.txt",
+      "sha256": "49f5835538041e0b52a554446958e035d708487c2e39e414c7cac1eddbeb98d3"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\gate.hpp",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\gate.hpp",
+      "sha256": "88e1950f9c397cf6b1beb73818852854ee92b6ebd87f4ffdd1fdee3a5b69402b"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\H0-512MiB.ini",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\H0-512MiB.ini",
+      "sha256": "30a65740f9af690b204eabcb33c9f9b2cb4baf6db12a9914a70295f4739c45fe"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\online_audit.hpp",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\online_audit.hpp",
+      "sha256": "ee134a0cac7b3482d1ad65f9f328a1169aadbde49c42954232258c0ba3c0a479"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\prompt.txt",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\prompt.txt",
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\README.md",
+      "source": "experiments\\gpu_ffn\\README.md",
+      "sha256": "a08c981034e1b2f115258381906f8ba7873b8b69e3f65de40015cf1fdbc5cb08"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\run.py",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\run.py",
+      "sha256": "19681d806982e2cfb4ef5737d5a78d8fa66ac36e61c0253dbf7c5f1ba48c1997"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\segments.hpp",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\segments.hpp",
+      "sha256": "ed2e3a4f187f050422660417b5d07e1b894bebe14464ca6d41f56e6112fac70d"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\test_run.py",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\test_run.py",
+      "sha256": "9aeb785cbe28d722d7d8e45704c6b49641acb50854588569320d41b2cfe807db"
+    },
+    {
+      "path": "experiments\\gpu_ffn\\validate.py",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_ffn\\validate.py",
+      "sha256": "5abf091f7b286c5a4a9c9d2734edec4744e3af3465be50a2e839bbf8c333f9b6"
+    },
+    {
+      "path": "experiments\\gpu_s\\native_s8.cpp",
+      "source": "output\\sf-source-sync-20261109\\repo\\experiments\\gpu_s\\native_s8.cpp",
+      "sha256": "57f4da4fb675338dd6e2ce5f5f561e878b63b3cb1ca50ca99f444c6eb743a7bb"
+    }
+  ],
+  "missing_sources": []
+}

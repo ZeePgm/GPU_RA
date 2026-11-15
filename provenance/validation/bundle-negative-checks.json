@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "case": "dedup_roundtrip_and_empty_file",
+      "status": "pass"
+    },
+    {
+      "case": "differing_target_rejected",
+      "status": "pass",
+      "reason": "Refusing to overwrite differing file"
+    },
+    {
+      "case": "corrupt_compressed_shard_rejected",
+      "status": "pass",
+      "reason": "Corrupt compressed shard: part-0000.gzpart"
+    },
+    {
+      "case": "path_traversal_rejected",
+      "status": "pass",
+      "reason": "Unsafe evidence path: ../escape"
+    }
+  ]
+}

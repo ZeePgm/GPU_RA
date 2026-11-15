@@ -1,0 +1,37 @@
+{
+  "overall": "mechanism_and_accounting_checks_pass; wall_quantitative_equivalence_unestablished_underpowered; original_inconclusive_retained",
+  "multi16": {
+    "n": 30,
+    "target_ms": 16,
+    "mean_ms": 16.936086666666665,
+    "ratio": 1.0585054166666665,
+    "median_ms": 22.09715,
+    "quantiles": {
+      "min": -10.4355,
+      "p10": -3.2400599999999997,
+      "p25": 3.1111750000000002,
+      "p75": 29.380399999999998,
+      "p90": 32.98257,
+      "max": 37.6929
+    },
+    "orders": [
+      {
+        "order": "zero-first",
+        "n": 15,
+        "mean_ms": 13.323193333333334,
+        "median_ms": 20.4951,
+        "min_ms": -10.4355,
+        "max_ms": 37.6929
+      },
+      {
+        "order": "inject-first",
+        "n": 15,
+        "mean_ms": 20.548980000000004,
+        "median_ms": 22.1024,
+        "min_ms": -2.3538,
+        "max_ms": 36.5105
+      }
+    ]
+  },
+  "detection_note": "CI halfwidth is an operational precision scale, not a one-sided upper bound on true delay; clocks timestamp granularity is not established injector accuracy."
+}

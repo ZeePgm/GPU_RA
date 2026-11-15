@@ -1,0 +1,786 @@
+{
+  "date": "2026-11-04",
+  "active_backend": "8ccb1f353630f893f761b017d621812b7b9d5bf2",
+  "report": "E:\\v1_update\\docs\\EXPERIMENT_REVIEW_AND_FRONTEND_ROADMAP_20261104.md",
+  "new_experiments_executed": false,
+  "note": "Summary-support reports were consulted for the synthesis; inventory-only entries are discovery records, not a claim that every historical experiment or raw artifact was re-audited. Hashes establish source identity, not experimental validity.",
+  "sources": [
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment1-results.md",
+      "bytes": 1866,
+      "sha256": "76b61e9f740b918042303b98fa872058c3d87887ed475e30c0e1d009abdcccec",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment1-workload-contract.md",
+      "bytes": 7437,
+      "sha256": "20b013aa33b3f31a0fc342dcc9463571b7810d338b03fc637e33a30a2036f3fa",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment2-results.md",
+      "bytes": 2081,
+      "sha256": "9c3c1fdc9231c4673d453fe817dcb7b31f5f4fabe51bad7556f10a39a39ae67a",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment2-time-contract.md",
+      "bytes": 7954,
+      "sha256": "b29965daf2d696b2d1cbeaa9e9fafa9650bdc1f7f1f2f6a745db6eeda337f827",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment3-capacity-contract.md",
+      "bytes": 8732,
+      "sha256": "4431b7b51b93db797d847565b2ef8f7a335c84acbaa7ea59cbb33ea19e6f2014",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment3-results.md",
+      "bytes": 2608,
+      "sha256": "32b85f5f928182fc31d48e6d9d17cfebcecf11f507ee8694a056d10eeb4affe9",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment4-contract.md",
+      "bytes": 6409,
+      "sha256": "9a13feeb89dcbab6b35dc1919ad9454f7881cd89a924a6ba315bbc453d0724dd",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\experiment4-results.md",
+      "bytes": 4569,
+      "sha256": "f98a755e522934ffa4fd1f18746c6ff52590d1e12565f38682c092f23b1c2f17",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\GPU真实接入现状与HBFSim对照_Qwen实例.md",
+      "bytes": 21748,
+      "sha256": "e0351ec7051e3ba87d3287af87b75c04c8c72cfdfa224b1cbda2273d2709b138",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M0-M9实验验收总览_通俗版.md",
+      "bytes": 44212,
+      "sha256": "4f4b4bbd656afcb203c2459106c0a82fd59e5e475076237643a92553d95c99a6",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M0验收.md",
+      "bytes": 3713,
+      "sha256": "7b892122c7df785b80a6b86ff5547b75aa2156bb9d80e80f8b0929cabc74e69e",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M1验收.md",
+      "bytes": 5244,
+      "sha256": "004991490fb2fdeac013bb45bca3ca320e22222bbc6576e5197600684f493356",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M2验收.md",
+      "bytes": 9725,
+      "sha256": "5c6fe896194e34a92031b5afc223d0659ba6c06cd239174a77152332f954c50b",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M3验收.md",
+      "bytes": 8482,
+      "sha256": "2101e7b4b64f2cd7ab99ce70c934f8680492e54a1d42a07a35cae2e863a9dfb7",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M4验收.md",
+      "bytes": 7523,
+      "sha256": "cda8ae13d79ba934a1f03996c5fd09e0763691bf0ef13fd3f65c0a0fd88eb80a",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M5验收.md",
+      "bytes": 9391,
+      "sha256": "069975beca92777b4cc8208f8392d12b70d31409daf513869d7153695221b93f",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M6验收.md",
+      "bytes": 11929,
+      "sha256": "f631b1fe04b217a694f1a02c527afcad67d273f2038f15faf2e93bf64ed7f0ee",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M7验收.md",
+      "bytes": 10396,
+      "sha256": "19330a9ba9003703edd56e6bbd391c1d3d581df45065c9ac386800d5ac0280ba",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M8验收.md",
+      "bytes": 11996,
+      "sha256": "06c7bde7d67a8b84693fa956d22a71a436500a7fa6a4a584bd9cf04f01387427",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\M9验收.md",
+      "bytes": 10921,
+      "sha256": "fcf680e1494acf696f4a99a41f92b8dea5b6ad83b52d5b1d9d202e669063f0e6",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\完整模型训练_软硬件数据流转说明.md",
+      "bytes": 20818,
+      "sha256": "3b946abf6f033cff96501d7781e6596331931105e34928bc051e418773078a03",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\实施前_后端对接复核.md",
+      "bytes": 8455,
+      "sha256": "4b04182043ba0134f68ae5cf30d699d7b38e06f37e4546ece5bb0ab3e317b53d",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\GPU_Acess\\docs\\环境配置与验收.md",
+      "bytes": 2423,
+      "sha256": "17c2978413444fa4cd75db477044b73a0b3193fc70d7fbf91d1bba894ca28e70",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\Capacity与KV.md",
+      "bytes": 14612,
+      "sha256": "9570ad5de3ac96aeeb8ab2002c99bf177936801beb7bd699eb2e9f6ad6cb6bbf",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\HBFSim前端接入EventLab后端_完整落地实验方案.md",
+      "bytes": 23034,
+      "sha256": "e07c7780157d870aad5221b8a3c8b099948beb33e8e54f1ece3aeca7edba69e3",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\llama-M6实现与复现.md",
+      "bytes": 9306,
+      "sha256": "5cbfeb33529d6d53d6639804171d383f6efcd2fc3e5e7e4b49ff125bb9790e27",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\PTX前端与模块拦截.md",
+      "bytes": 13833,
+      "sha256": "8c105e4ca5601f553f00b82dac83c372ac762a3f3a1d86995cd965f6e823f171",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\upstream.md",
+      "bytes": 4236,
+      "sha256": "ac9e660b8f356d04d59ff4c391baa8779bf2338423aa4a07e1a424884370f7a5",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\后端上游差异与GPU前端兼容性核查-20261028.md",
+      "bytes": 11552,
+      "sha256": "c0fd8b57a96bce86277b59b9e9be09cd2dd8845127bf8e2ed8c174736fab97b4",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\异步Timing与水位线.md",
+      "bytes": 13527,
+      "sha256": "58c056f0ba91c4b592a97748a801fd5819ce3be4fdf812429994fb539313351c",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\文件Backing预取与热维护.md",
+      "bytes": 11034,
+      "sha256": "39b6fb00834d4fc7856a96635549fa63906d5b54657dcf060e196980189fd937",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\新后端升级实验方案.md",
+      "bytes": 11689,
+      "sha256": "ad99752a332c8b5180f839d5a6e3e5f3e453a060e4f5293fa96e46a0d513624b",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\架构图-20261025快照说明.md",
+      "bytes": 4361,
+      "sha256": "0ae906213fecd152436b7f42477732bbc089eb2245fee537b605116b1dea9ea4",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\架构图.md",
+      "bytes": 3575,
+      "sha256": "eac836623627d5ff9651a8882f59062b995a0eec67ebbcf2aad38dc36ef2014e",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\真实模型框架接入与后续优化方案.md",
+      "bytes": 25187,
+      "sha256": "7b3e312e23ebead1903741971dc77b2a612bd5a37b43dc9addce7b7964432155",
+      "role": "design_or_contract",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\线程协作与到达排序.md",
+      "bytes": 4378,
+      "sha256": "479e13b4a30d7456d75a09c23adcff29ff92f8756032af544d455eb2c6c7460d",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\进程级注入.md",
+      "bytes": 10862,
+      "sha256": "6bbbd46cf9ab63d27b1033d123f5ba96beefc90e88ff58522fa4d322bef2eeae",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\连接实现方案.md",
+      "bytes": 30780,
+      "sha256": "111cfa52328343e606896c0b902322a1f9d7fafcc8489b540b9f7f614522e5ef",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\阶段总结-20261028.md",
+      "bytes": 6137,
+      "sha256": "6f4b0f93f84d03623c81342eea2e73c6367eddbe944580aa3f65174139fcf6ee",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-Capacity-KV.md",
+      "bytes": 3818,
+      "sha256": "6f5ff4898fbd3b00a4abb424329d52a3ff16e38dafeaa4e4d7183a2a0e1afa66",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-llama-M0.md",
+      "bytes": 10010,
+      "sha256": "f04323775ab71c4470708ce94a8279a493ac04eb48d329bb57d3a23bd064cffa",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-llama-M1.md",
+      "bytes": 11949,
+      "sha256": "2b20790c10c726ac4422dfb0ffef5f871f38c17eb9092c31b867b8f221c52f74",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-llama-M2.md",
+      "bytes": 10778,
+      "sha256": "a8b964085bb942c09672d6af3531238c76a2bcb9cdd9e58e6be4c370182191ac",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-llama-M4.md",
+      "bytes": 9071,
+      "sha256": "af986c77a1255ae275953d48609069997dbf160fb5d7772cc596b6cdcea255d7",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-llama-M6-新后端.md",
+      "bytes": 9332,
+      "sha256": "04f5d0c42ad5f149f2795c0777d556c0388f470a44356304724c3459a50af391",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-llama-M6.md",
+      "bytes": 8683,
+      "sha256": "d368c7b18f34f37c2e71e9f34968caca5fb6f94fc0901f423c7561a1ce927bf2",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-PTX-v2.md",
+      "bytes": 5125,
+      "sha256": "c7ee5233b204f1010f1797f3f87e609d339c5a2df1105386bf4be68c36270bfa",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-PTX.md",
+      "bytes": 4772,
+      "sha256": "c76f37fd841eeeb08b9a8eafe6226dc27d6ad959d59c20cd2cdff67e8cde38fd",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-v1.md",
+      "bytes": 3799,
+      "sha256": "bf0b1afb14f6824b2e4f485fdece841986ca11dc80ce055eb41a07da653d483e",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U0.md",
+      "bytes": 6189,
+      "sha256": "add76714b637e33dacd32172d1c189507f9101b424fdf12f3dfe7c7771d566a0",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U1.md",
+      "bytes": 5367,
+      "sha256": "53330c0d5da6822652553a57c30379e1ad348fc2a7976e1c1888bbbda9463eb5",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U2.md",
+      "bytes": 4618,
+      "sha256": "745a8169245fdd45d09afd66b1354b0e5e1dafe2f427ef4d55d1e552ce163314",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U3.md",
+      "bytes": 4734,
+      "sha256": "e73a77926211423b5333f3c4fa6101a1dc718cab50272ac275ba686812ac4b30",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U4.md",
+      "bytes": 5575,
+      "sha256": "679d25203a7ac43b044f1098fcfdfc832bd85361a316b6f76b2f65bd7140429c",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U5.md",
+      "bytes": 9491,
+      "sha256": "4d235dce80c0b6a5fdbd32c8bdc4678bcfff02062a9fcdbc70bf85affb818778",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-后端升级-U6.md",
+      "bytes": 12466,
+      "sha256": "5ba03e42c4492481cb187fcd93e11c4ef259a0934117582b8e6107bbbc53433e",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-异步PTX-M5.md",
+      "bytes": 8902,
+      "sha256": "933e6ab4c719b23de76329010b747d3c89f7a1cbf3f7f9c135a19bbbd28c44b2",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-异步Timing.md",
+      "bytes": 4669,
+      "sha256": "7c60b6e41a2a5bff1897ac436e3751c526550734272232c93705b37a321b1bda",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-文件Backing预取与热维护.md",
+      "bytes": 5788,
+      "sha256": "9f7dcaf97c1d537dcf938e04e49fe9d7432ee0339a65d58f5d794a8bbc98d1a0",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-真实Kernel与异步注入M5.md",
+      "bytes": 9519,
+      "sha256": "d31a92864bf94d5ee19029221b0b9433ff0440d4acfcde6b97109106fdaa2b99",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-统一设备M3.md",
+      "bytes": 12207,
+      "sha256": "1b4b2e4bc95981220abb628b8ced14d059dd90e5518579a177c73e9837eb2def",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录-进程注入.md",
+      "bytes": 3942,
+      "sha256": "c3613899e13a336f798004884ae4347c9bbe21771f6247d2032ade263232f678",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "D:\\HBF-Sim\\HBFLab\\docs\\验证记录.md",
+      "bytes": 5286,
+      "sha256": "9e5d093d657bd43624fe2ddba2ba71152cd09739d38e539e727c177ded3a1b99",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\ARCHITECTURE.md",
+      "bytes": 22369,
+      "sha256": "a1b4c2e5f1b61c880649c2b603308c1b63fc43c995d660ae31e53a32e33dbd03",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\BASELINE_20261104.md",
+      "bytes": 3001,
+      "sha256": "2fe0754bdc64a07663ce4e86b2fc187b6b278aeed5fa83d8e52fbe176b51e88f",
+      "role": "active_baseline",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\DEPENDENCIES.md",
+      "bytes": 1457,
+      "sha256": "50a404b783fb013397ccdd5284e32499b445f8ed0646fbb241ba89e6edfc4e75",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\ENVIRONMENT.md",
+      "bytes": 4360,
+      "sha256": "4f775f67c7033cfa1a2c4468b3bf7b16968cc9723d1d63cd7bbf5dc15f1b93d0",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_A1_A3_EXPERIMENT_DESIGN.md",
+      "bytes": 9226,
+      "sha256": "21972472053b8c30f1b9c81e6f75860de98b381bbad13ac223fc947bde2d2eb6",
+      "role": "design_or_contract",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_A1_PILOT_RESULTS.md",
+      "bytes": 1463,
+      "sha256": "4c2cb21345d9dc9812b835c9d6e6d24b16a70f2e10486be4465ed8ba43e8955a",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_A1_RESULTS.md",
+      "bytes": 9320,
+      "sha256": "ce3a80125e864574bd0ad4b464383ff44468728d1024a2efdf48f5b21efa91be",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_A2_RESULTS.md",
+      "bytes": 6927,
+      "sha256": "17455d23e29b933cb06f987505c17500cd714352bc3736ab293bd3388a3fe9ca",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_A3_RESULTS.md",
+      "bytes": 8161,
+      "sha256": "e29e288e512453c92757f559e5ffbd2b7380a0b0824971da863b68437e7296f0",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_B2_CANDIDATE_20261101.md",
+      "bytes": 4542,
+      "sha256": "01a50004cd6640d2ee73cffa2b3ff3c6719e0e3c38c31225073fc0c24cf0a3ab",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_B2_DIAGNOSIS.md",
+      "bytes": 3468,
+      "sha256": "89ea6a7b9449e02e4db46ec747a069184e4df523fdc5598b5a8148116d60b120",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_B2_PROPAGATION.md",
+      "bytes": 4586,
+      "sha256": "d976d112533a0e97af09d84175adca817fb55b406ceb017f6af0aa7366d83564",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_EXPERIMENT_DESIGN.md",
+      "bytes": 43576,
+      "sha256": "2becd84cc2863561582dee1875bb138d9488493589b08652eb62241b80a72bb5",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_MINEXP_DATA_MANIFEST.md",
+      "bytes": 1376,
+      "sha256": "ee0c4f7295bd915c1f57ff0ae2b0f20cc177b24c505b7eef1a3989fe8107e96a",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S0_S2_RESULTS.md",
+      "bytes": 6089,
+      "sha256": "f684729cf063adca918d89c0304465c3078e4741dbda0af8255d653d516cff82",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S0_S9_EXPERIMENT_REPORT.md",
+      "bytes": 9858,
+      "sha256": "78802e23b4c4b363f03fd35118e93c05066913dd1b93572a64378cab1f27a057",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S2_B2_V2_RESULTS.md",
+      "bytes": 3130,
+      "sha256": "5aa4fb79d53209241dc2c4f617bc767ec4c29c71db2c1b06a26119bee76ccb47",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S3_RESULTS.md",
+      "bytes": 5387,
+      "sha256": "8f311ae723c1bbdff0dff35628ea135c1a640d56a9cee23818435e76101203ff",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S3_S5_RESULTS.md",
+      "bytes": 3901,
+      "sha256": "e35ae263bf85ee17b2f924063d60303e6c8ffa5fdc68c7c1b6c1cf217f1db86a",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S5_B_RESULTS.md",
+      "bytes": 8008,
+      "sha256": "c978d78ddc5b1e91101d1b4076443e9de2ade618c10d0bbdcb5a47056d63448d",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S6_MINIMUM_ACCEPTANCE.md",
+      "bytes": 3974,
+      "sha256": "9143a0cd12ce9a46a764d049eab170dd69c0e9f7dcdfc17f3eeedb43704e15bc",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S6_PILOT.md",
+      "bytes": 1448,
+      "sha256": "ad083a28b1a8db127ad184c928311cb26cee8a8d9a5c3205e4b56be43f5b964b",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S6_RESULTS.md",
+      "bytes": 4300,
+      "sha256": "1c1ccd24857185ba99463a1cbc01f5b2dfd9928cb0a2c0c256720402b5d50cce",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S7_RESULTS.md",
+      "bytes": 4034,
+      "sha256": "86486ac0fbefc02eef6273bafcc2ce57d81e37c7998c349aac4d41a5f9625451",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S8_RESULTS.md",
+      "bytes": 6258,
+      "sha256": "5499a74296e2b03cb582200f0a1c64f9f2ce51296a18fdd3955bba02f44fb470",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S9_RESULTS.md",
+      "bytes": 8861,
+      "sha256": "afc3e18f58c0fae78d7c256a063276606c69365cb8876cd3f0f24303f8aca878",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_S_SERIES_PLAN.md",
+      "bytes": 33678,
+      "sha256": "0b60f84d847f97b20cba0025ca77b7b273fa469dc47ffbea4880e6ff860841be",
+      "role": "design_or_contract",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\GPU_SNAPSHOT_REPRODUCTION_20261103.md",
+      "bytes": 2530,
+      "sha256": "936b237eaa6ae1f41839e424c4bab0cd535f5a390076bd23b46d67ac32078427",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\INCREMENTAL_BACKEND.md",
+      "bytes": 7102,
+      "sha256": "734e1383bc5a970605a914b61ddfc6a0cccb18a0b0c254a0ca0dc91ccc4e3a0a",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\INCREMENTAL_INTEGRATION_REVIEW.md",
+      "bytes": 5503,
+      "sha256": "452e4883043d47fa1ecbc4d3e0993c91d18a76a250504f6ead4f087b4d539dc3",
+      "role": "historical_report",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\PUBLICATION.md",
+      "bytes": 1069,
+      "sha256": "3af31c5bd589871552951cc509d987884b5d73287f316dd5606a9f9b16497e7a",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\validation\\baseline-20261104.json",
+      "bytes": 7656,
+      "sha256": "a6d8be8ea58593da022255ea881e9e4f096bac18ecda1d6ccff05c26bf68faf8",
+      "role": "active_baseline",
+      "review_use": "summary_support",
+      "original_modified": false
+    },
+    {
+      "path": "E:\\v1_update\\docs\\VALIDATION.md",
+      "bytes": 2763,
+      "sha256": "7492f56a6404d401b5ef428b81a7b6eb1969202fc03f33150cbdaa5da9532a6b",
+      "role": "historical_report",
+      "review_use": "inventory_only",
+      "original_modified": false
+    }
+  ],
+  "baseline_identity_check": {
+    "status": "source_inventory_changed",
+    "changed_paths": [
+      "tools/draw_architecture.py"
+    ],
+    "added_paths": [],
+    "removed_paths": [],
+    "action": "Recorded only; no runtime source, drawing script or sealed build identity changed by this review."
+  }
+}

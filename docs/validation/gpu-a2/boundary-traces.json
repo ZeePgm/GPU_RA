@@ -1,0 +1,1936 @@
+[
+  {
+    "name": "empty",
+    "completed": [],
+    "events": [],
+    "final_tick_ps": 0,
+    "executed_events": 0,
+    "pending": 0
+  },
+  {
+    "name": "one",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 0,
+        "service_ps": 7,
+        "start_ps": 0,
+        "completion_ps": 7,
+        "wait_ps": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 7,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 7,
+    "executed_events": 2,
+    "pending": 0
+  },
+  {
+    "name": "idle",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 0,
+        "service_ps": 10,
+        "start_ps": 0,
+        "completion_ps": 10,
+        "wait_ps": 0
+      },
+      {
+        "id": 2,
+        "arrival_ps": 100,
+        "service_ps": 20,
+        "start_ps": 100,
+        "completion_ps": 120,
+        "wait_ps": 0
+      },
+      {
+        "id": 3,
+        "arrival_ps": 300,
+        "service_ps": 30,
+        "start_ps": 300,
+        "completion_ps": 330,
+        "wait_ps": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 10,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 100,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 100,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 120,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 3,
+        "tick_ps": 300,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 3,
+        "tick_ps": 300,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 3,
+        "tick_ps": 330,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 330,
+    "executed_events": 6,
+    "pending": 0
+  },
+  {
+    "name": "simultaneous",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 4,
+        "service_ps": 0,
+        "start_ps": 4,
+        "completion_ps": 4,
+        "wait_ps": 0
+      },
+      {
+        "id": 2,
+        "arrival_ps": 4,
+        "service_ps": 1,
+        "start_ps": 4,
+        "completion_ps": 5,
+        "wait_ps": 0
+      },
+      {
+        "id": 3,
+        "arrival_ps": 4,
+        "service_ps": 2,
+        "start_ps": 5,
+        "completion_ps": 7,
+        "wait_ps": 1
+      },
+      {
+        "id": 4,
+        "arrival_ps": 4,
+        "service_ps": 0,
+        "start_ps": 7,
+        "completion_ps": 7,
+        "wait_ps": 3
+      },
+      {
+        "id": 5,
+        "arrival_ps": 4,
+        "service_ps": 4,
+        "start_ps": 7,
+        "completion_ps": 11,
+        "wait_ps": 3
+      },
+      {
+        "id": 6,
+        "arrival_ps": 4,
+        "service_ps": 3,
+        "start_ps": 11,
+        "completion_ps": 14,
+        "wait_ps": 7
+      },
+      {
+        "id": 7,
+        "arrival_ps": 4,
+        "service_ps": 0,
+        "start_ps": 14,
+        "completion_ps": 14,
+        "wait_ps": 10
+      },
+      {
+        "id": 8,
+        "arrival_ps": 4,
+        "service_ps": 7,
+        "start_ps": 14,
+        "completion_ps": 21,
+        "wait_ps": 10
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 3,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 4,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 5,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 6,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 7,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 8,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 4,
+        "round": 1
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 4,
+        "round": 1
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 5,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 3,
+        "tick_ps": 5,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 3,
+        "tick_ps": 7,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 4,
+        "tick_ps": 7,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 4,
+        "tick_ps": 7,
+        "round": 1
+      },
+      {
+        "kind": "start",
+        "id": 5,
+        "tick_ps": 7,
+        "round": 1
+      },
+      {
+        "kind": "complete",
+        "id": 5,
+        "tick_ps": 11,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 6,
+        "tick_ps": 11,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 6,
+        "tick_ps": 14,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 7,
+        "tick_ps": 14,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 7,
+        "tick_ps": 14,
+        "round": 1
+      },
+      {
+        "kind": "start",
+        "id": 8,
+        "tick_ps": 14,
+        "round": 1
+      },
+      {
+        "kind": "complete",
+        "id": 8,
+        "tick_ps": 21,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 21,
+    "executed_events": 16,
+    "pending": 0
+  },
+  {
+    "name": "backlog",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 0,
+        "service_ps": 100,
+        "start_ps": 0,
+        "completion_ps": 100,
+        "wait_ps": 0
+      },
+      {
+        "id": 2,
+        "arrival_ps": 1,
+        "service_ps": 100,
+        "start_ps": 100,
+        "completion_ps": 200,
+        "wait_ps": 99
+      },
+      {
+        "id": 3,
+        "arrival_ps": 2,
+        "service_ps": 100,
+        "start_ps": 200,
+        "completion_ps": 300,
+        "wait_ps": 198
+      },
+      {
+        "id": 4,
+        "arrival_ps": 3,
+        "service_ps": 100,
+        "start_ps": 300,
+        "completion_ps": 400,
+        "wait_ps": 297
+      },
+      {
+        "id": 5,
+        "arrival_ps": 4,
+        "service_ps": 100,
+        "start_ps": 400,
+        "completion_ps": 500,
+        "wait_ps": 396
+      },
+      {
+        "id": 6,
+        "arrival_ps": 5,
+        "service_ps": 100,
+        "start_ps": 500,
+        "completion_ps": 600,
+        "wait_ps": 495
+      },
+      {
+        "id": 7,
+        "arrival_ps": 6,
+        "service_ps": 100,
+        "start_ps": 600,
+        "completion_ps": 700,
+        "wait_ps": 594
+      },
+      {
+        "id": 8,
+        "arrival_ps": 7,
+        "service_ps": 100,
+        "start_ps": 700,
+        "completion_ps": 800,
+        "wait_ps": 693
+      },
+      {
+        "id": 9,
+        "arrival_ps": 8,
+        "service_ps": 100,
+        "start_ps": 800,
+        "completion_ps": 900,
+        "wait_ps": 792
+      },
+      {
+        "id": 10,
+        "arrival_ps": 9,
+        "service_ps": 100,
+        "start_ps": 900,
+        "completion_ps": 1000,
+        "wait_ps": 891
+      },
+      {
+        "id": 11,
+        "arrival_ps": 10,
+        "service_ps": 100,
+        "start_ps": 1000,
+        "completion_ps": 1100,
+        "wait_ps": 990
+      },
+      {
+        "id": 12,
+        "arrival_ps": 11,
+        "service_ps": 100,
+        "start_ps": 1100,
+        "completion_ps": 1200,
+        "wait_ps": 1089
+      },
+      {
+        "id": 13,
+        "arrival_ps": 12,
+        "service_ps": 100,
+        "start_ps": 1200,
+        "completion_ps": 1300,
+        "wait_ps": 1188
+      },
+      {
+        "id": 14,
+        "arrival_ps": 13,
+        "service_ps": 100,
+        "start_ps": 1300,
+        "completion_ps": 1400,
+        "wait_ps": 1287
+      },
+      {
+        "id": 15,
+        "arrival_ps": 14,
+        "service_ps": 100,
+        "start_ps": 1400,
+        "completion_ps": 1500,
+        "wait_ps": 1386
+      },
+      {
+        "id": 16,
+        "arrival_ps": 15,
+        "service_ps": 100,
+        "start_ps": 1500,
+        "completion_ps": 1600,
+        "wait_ps": 1485
+      },
+      {
+        "id": 17,
+        "arrival_ps": 16,
+        "service_ps": 100,
+        "start_ps": 1600,
+        "completion_ps": 1700,
+        "wait_ps": 1584
+      },
+      {
+        "id": 18,
+        "arrival_ps": 17,
+        "service_ps": 100,
+        "start_ps": 1700,
+        "completion_ps": 1800,
+        "wait_ps": 1683
+      },
+      {
+        "id": 19,
+        "arrival_ps": 18,
+        "service_ps": 100,
+        "start_ps": 1800,
+        "completion_ps": 1900,
+        "wait_ps": 1782
+      },
+      {
+        "id": 20,
+        "arrival_ps": 19,
+        "service_ps": 100,
+        "start_ps": 1900,
+        "completion_ps": 2000,
+        "wait_ps": 1881
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 1,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 3,
+        "tick_ps": 2,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 4,
+        "tick_ps": 3,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 5,
+        "tick_ps": 4,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 6,
+        "tick_ps": 5,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 7,
+        "tick_ps": 6,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 8,
+        "tick_ps": 7,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 9,
+        "tick_ps": 8,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 10,
+        "tick_ps": 9,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 11,
+        "tick_ps": 10,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 12,
+        "tick_ps": 11,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 13,
+        "tick_ps": 12,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 14,
+        "tick_ps": 13,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 15,
+        "tick_ps": 14,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 16,
+        "tick_ps": 15,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 17,
+        "tick_ps": 16,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 18,
+        "tick_ps": 17,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 19,
+        "tick_ps": 18,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 20,
+        "tick_ps": 19,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 100,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 100,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 200,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 3,
+        "tick_ps": 200,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 3,
+        "tick_ps": 300,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 4,
+        "tick_ps": 300,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 4,
+        "tick_ps": 400,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 5,
+        "tick_ps": 400,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 5,
+        "tick_ps": 500,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 6,
+        "tick_ps": 500,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 6,
+        "tick_ps": 600,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 7,
+        "tick_ps": 600,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 7,
+        "tick_ps": 700,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 8,
+        "tick_ps": 700,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 8,
+        "tick_ps": 800,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 9,
+        "tick_ps": 800,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 9,
+        "tick_ps": 900,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 10,
+        "tick_ps": 900,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 10,
+        "tick_ps": 1000,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 11,
+        "tick_ps": 1000,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 11,
+        "tick_ps": 1100,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 12,
+        "tick_ps": 1100,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 12,
+        "tick_ps": 1200,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 13,
+        "tick_ps": 1200,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 13,
+        "tick_ps": 1300,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 14,
+        "tick_ps": 1300,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 14,
+        "tick_ps": 1400,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 15,
+        "tick_ps": 1400,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 15,
+        "tick_ps": 1500,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 16,
+        "tick_ps": 1500,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 16,
+        "tick_ps": 1600,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 17,
+        "tick_ps": 1600,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 17,
+        "tick_ps": 1700,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 18,
+        "tick_ps": 1700,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 18,
+        "tick_ps": 1800,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 19,
+        "tick_ps": 1800,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 19,
+        "tick_ps": 1900,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 20,
+        "tick_ps": 1900,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 20,
+        "tick_ps": 2000,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 2000,
+    "executed_events": 40,
+    "pending": 0
+  },
+  {
+    "name": "exact_completion",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 0,
+        "service_ps": 5,
+        "start_ps": 0,
+        "completion_ps": 5,
+        "wait_ps": 0
+      },
+      {
+        "id": 2,
+        "arrival_ps": 5,
+        "service_ps": 3,
+        "start_ps": 5,
+        "completion_ps": 8,
+        "wait_ps": 0
+      },
+      {
+        "id": 3,
+        "arrival_ps": 8,
+        "service_ps": 7,
+        "start_ps": 8,
+        "completion_ps": 15,
+        "wait_ps": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 5,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 5,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 5,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 8,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 3,
+        "tick_ps": 8,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 3,
+        "tick_ps": 8,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 3,
+        "tick_ps": 15,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 15,
+    "executed_events": 6,
+    "pending": 0
+  },
+  {
+    "name": "out_of_order",
+    "completed": [
+      {
+        "id": 2,
+        "arrival_ps": 0,
+        "service_ps": 2,
+        "start_ps": 0,
+        "completion_ps": 2,
+        "wait_ps": 0
+      },
+      {
+        "id": 4,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 2,
+        "completion_ps": 2,
+        "wait_ps": 2
+      },
+      {
+        "id": 3,
+        "arrival_ps": 3,
+        "service_ps": 3,
+        "start_ps": 3,
+        "completion_ps": 6,
+        "wait_ps": 0
+      },
+      {
+        "id": 1,
+        "arrival_ps": 9,
+        "service_ps": 1,
+        "start_ps": 9,
+        "completion_ps": 10,
+        "wait_ps": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 4,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 2,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 4,
+        "tick_ps": 2,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 4,
+        "tick_ps": 2,
+        "round": 1
+      },
+      {
+        "kind": "arrival",
+        "id": 3,
+        "tick_ps": 3,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 3,
+        "tick_ps": 3,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 3,
+        "tick_ps": 6,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 9,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 9,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 10,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 10,
+    "executed_events": 8,
+    "pending": 0
+  },
+  {
+    "name": "zero_chain",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 2,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 3,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 4,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 5,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 6,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 7,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 8,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 9,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 10,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 11,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 12,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 13,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 14,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 15,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 16,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 17,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 18,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 19,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 20,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 21,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 22,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 23,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 24,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 25,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 26,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 27,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 28,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 29,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      },
+      {
+        "id": 30,
+        "arrival_ps": 0,
+        "service_ps": 0,
+        "start_ps": 0,
+        "completion_ps": 0,
+        "wait_ps": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 3,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 4,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 5,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 6,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 7,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 8,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 9,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 10,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 11,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 12,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 13,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 14,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 15,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 16,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 17,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 18,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 19,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 20,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 21,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 22,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 23,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 24,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 25,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 26,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 27,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 28,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 29,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 30,
+        "tick_ps": 0,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 0,
+        "round": 1
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 0,
+        "round": 1
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 0,
+        "round": 2
+      },
+      {
+        "kind": "start",
+        "id": 3,
+        "tick_ps": 0,
+        "round": 2
+      },
+      {
+        "kind": "complete",
+        "id": 3,
+        "tick_ps": 0,
+        "round": 3
+      },
+      {
+        "kind": "start",
+        "id": 4,
+        "tick_ps": 0,
+        "round": 3
+      },
+      {
+        "kind": "complete",
+        "id": 4,
+        "tick_ps": 0,
+        "round": 4
+      },
+      {
+        "kind": "start",
+        "id": 5,
+        "tick_ps": 0,
+        "round": 4
+      },
+      {
+        "kind": "complete",
+        "id": 5,
+        "tick_ps": 0,
+        "round": 5
+      },
+      {
+        "kind": "start",
+        "id": 6,
+        "tick_ps": 0,
+        "round": 5
+      },
+      {
+        "kind": "complete",
+        "id": 6,
+        "tick_ps": 0,
+        "round": 6
+      },
+      {
+        "kind": "start",
+        "id": 7,
+        "tick_ps": 0,
+        "round": 6
+      },
+      {
+        "kind": "complete",
+        "id": 7,
+        "tick_ps": 0,
+        "round": 7
+      },
+      {
+        "kind": "start",
+        "id": 8,
+        "tick_ps": 0,
+        "round": 7
+      },
+      {
+        "kind": "complete",
+        "id": 8,
+        "tick_ps": 0,
+        "round": 8
+      },
+      {
+        "kind": "start",
+        "id": 9,
+        "tick_ps": 0,
+        "round": 8
+      },
+      {
+        "kind": "complete",
+        "id": 9,
+        "tick_ps": 0,
+        "round": 9
+      },
+      {
+        "kind": "start",
+        "id": 10,
+        "tick_ps": 0,
+        "round": 9
+      },
+      {
+        "kind": "complete",
+        "id": 10,
+        "tick_ps": 0,
+        "round": 10
+      },
+      {
+        "kind": "start",
+        "id": 11,
+        "tick_ps": 0,
+        "round": 10
+      },
+      {
+        "kind": "complete",
+        "id": 11,
+        "tick_ps": 0,
+        "round": 11
+      },
+      {
+        "kind": "start",
+        "id": 12,
+        "tick_ps": 0,
+        "round": 11
+      },
+      {
+        "kind": "complete",
+        "id": 12,
+        "tick_ps": 0,
+        "round": 12
+      },
+      {
+        "kind": "start",
+        "id": 13,
+        "tick_ps": 0,
+        "round": 12
+      },
+      {
+        "kind": "complete",
+        "id": 13,
+        "tick_ps": 0,
+        "round": 13
+      },
+      {
+        "kind": "start",
+        "id": 14,
+        "tick_ps": 0,
+        "round": 13
+      },
+      {
+        "kind": "complete",
+        "id": 14,
+        "tick_ps": 0,
+        "round": 14
+      },
+      {
+        "kind": "start",
+        "id": 15,
+        "tick_ps": 0,
+        "round": 14
+      },
+      {
+        "kind": "complete",
+        "id": 15,
+        "tick_ps": 0,
+        "round": 15
+      },
+      {
+        "kind": "start",
+        "id": 16,
+        "tick_ps": 0,
+        "round": 15
+      },
+      {
+        "kind": "complete",
+        "id": 16,
+        "tick_ps": 0,
+        "round": 16
+      },
+      {
+        "kind": "start",
+        "id": 17,
+        "tick_ps": 0,
+        "round": 16
+      },
+      {
+        "kind": "complete",
+        "id": 17,
+        "tick_ps": 0,
+        "round": 17
+      },
+      {
+        "kind": "start",
+        "id": 18,
+        "tick_ps": 0,
+        "round": 17
+      },
+      {
+        "kind": "complete",
+        "id": 18,
+        "tick_ps": 0,
+        "round": 18
+      },
+      {
+        "kind": "start",
+        "id": 19,
+        "tick_ps": 0,
+        "round": 18
+      },
+      {
+        "kind": "complete",
+        "id": 19,
+        "tick_ps": 0,
+        "round": 19
+      },
+      {
+        "kind": "start",
+        "id": 20,
+        "tick_ps": 0,
+        "round": 19
+      },
+      {
+        "kind": "complete",
+        "id": 20,
+        "tick_ps": 0,
+        "round": 20
+      },
+      {
+        "kind": "start",
+        "id": 21,
+        "tick_ps": 0,
+        "round": 20
+      },
+      {
+        "kind": "complete",
+        "id": 21,
+        "tick_ps": 0,
+        "round": 21
+      },
+      {
+        "kind": "start",
+        "id": 22,
+        "tick_ps": 0,
+        "round": 21
+      },
+      {
+        "kind": "complete",
+        "id": 22,
+        "tick_ps": 0,
+        "round": 22
+      },
+      {
+        "kind": "start",
+        "id": 23,
+        "tick_ps": 0,
+        "round": 22
+      },
+      {
+        "kind": "complete",
+        "id": 23,
+        "tick_ps": 0,
+        "round": 23
+      },
+      {
+        "kind": "start",
+        "id": 24,
+        "tick_ps": 0,
+        "round": 23
+      },
+      {
+        "kind": "complete",
+        "id": 24,
+        "tick_ps": 0,
+        "round": 24
+      },
+      {
+        "kind": "start",
+        "id": 25,
+        "tick_ps": 0,
+        "round": 24
+      },
+      {
+        "kind": "complete",
+        "id": 25,
+        "tick_ps": 0,
+        "round": 25
+      },
+      {
+        "kind": "start",
+        "id": 26,
+        "tick_ps": 0,
+        "round": 25
+      },
+      {
+        "kind": "complete",
+        "id": 26,
+        "tick_ps": 0,
+        "round": 26
+      },
+      {
+        "kind": "start",
+        "id": 27,
+        "tick_ps": 0,
+        "round": 26
+      },
+      {
+        "kind": "complete",
+        "id": 27,
+        "tick_ps": 0,
+        "round": 27
+      },
+      {
+        "kind": "start",
+        "id": 28,
+        "tick_ps": 0,
+        "round": 27
+      },
+      {
+        "kind": "complete",
+        "id": 28,
+        "tick_ps": 0,
+        "round": 28
+      },
+      {
+        "kind": "start",
+        "id": 29,
+        "tick_ps": 0,
+        "round": 28
+      },
+      {
+        "kind": "complete",
+        "id": 29,
+        "tick_ps": 0,
+        "round": 29
+      },
+      {
+        "kind": "start",
+        "id": 30,
+        "tick_ps": 0,
+        "round": 29
+      },
+      {
+        "kind": "complete",
+        "id": 30,
+        "tick_ps": 0,
+        "round": 30
+      }
+    ],
+    "final_tick_ps": 0,
+    "executed_events": 60,
+    "pending": 0
+  },
+  {
+    "name": "uint64_boundary",
+    "completed": [
+      {
+        "id": 1,
+        "arrival_ps": 18446744073709551606,
+        "service_ps": 5,
+        "start_ps": 18446744073709551606,
+        "completion_ps": 18446744073709551611,
+        "wait_ps": 0
+      },
+      {
+        "id": 2,
+        "arrival_ps": 18446744073709551611,
+        "service_ps": 4,
+        "start_ps": 18446744073709551611,
+        "completion_ps": 18446744073709551615,
+        "wait_ps": 0
+      }
+    ],
+    "events": [
+      {
+        "kind": "arrival",
+        "id": 1,
+        "tick_ps": 18446744073709551606,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 1,
+        "tick_ps": 18446744073709551606,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 1,
+        "tick_ps": 18446744073709551611,
+        "round": 0
+      },
+      {
+        "kind": "arrival",
+        "id": 2,
+        "tick_ps": 18446744073709551611,
+        "round": 0
+      },
+      {
+        "kind": "start",
+        "id": 2,
+        "tick_ps": 18446744073709551611,
+        "round": 0
+      },
+      {
+        "kind": "complete",
+        "id": 2,
+        "tick_ps": 18446744073709551615,
+        "round": 0
+      }
+    ],
+    "final_tick_ps": 18446744073709551615,
+    "executed_events": 4,
+    "pending": 0
+  }
+]

@@ -1,0 +1,240 @@
+{
+  "status": "pass",
+  "baseline": "incremental-host-8ccb1f3",
+  "backend": {
+    "commit": "8ccb1f353630f893f761b017d621812b7b9d5bf2",
+    "tree": "e50641a8ca22ab1f95f4829018a9c59f3aeb15a6",
+    "path": "E:\\v1_update\\third_party\\HBF-EventLab"
+  },
+  "backend_files": 212,
+  "local_backend_patches": 0,
+  "core_tests": {
+    "tests": 763,
+    "failures": 0,
+    "skipped": 0,
+    "disabled": 0
+  },
+  "runtime": {
+    "status": "pass",
+    "backend": {
+      "commit": "8ccb1f353630f893f761b017d621812b7b9d5bf2",
+      "tree": "e50641a8ca22ab1f95f4829018a9c59f3aeb15a6",
+      "path": "E:\\v1_update\\third_party\\HBF-EventLab"
+    },
+    "operators": 18,
+    "python_contracts": 5,
+    "models": [
+      "smollm2-135m",
+      "qwen3-0.6b",
+      "qwen3-1.7b"
+    ],
+    "generated_tokens_per_model": 2,
+    "a1": {
+      "modes": 3,
+      "tokens_per_mode": 8,
+      "logits_exact_to_historical_baseline": true,
+      "clock_contracts": true,
+      "statistical_equivalence_rerun": false
+    },
+    "a2": {
+      "status": "pass",
+      "scope": "production EventQueue + experimental FIFO mechanism, not H0 or Host/Device validation",
+      "cases": 938,
+      "requests": 15058,
+      "request_fields_exact": true,
+      "event_records_checked": 45174,
+      "max_abs_residual_ps": 0,
+      "all_cases_drained": true,
+      "byte_identical_replay": true,
+      "event_queue_probes": {
+        "same_tick_phases": [
+          "completion",
+          "arrival",
+          "deadline"
+        ],
+        "same_tick_dynamic_round": [
+          "arrival1",
+          "arrival2",
+          "dynamic_completion"
+        ],
+        "dynamic_final_tick": 0,
+        "cancel": {
+          "first": true,
+          "second": false,
+          "called": false,
+          "executed": 0,
+          "pending": 0
+        },
+        "idle_endpoint_unexecuted": true,
+        "invalid_time_rejected": [
+          true,
+          true,
+          true
+        ],
+        "limit_before_resume": {
+          "rejected": true,
+          "pending": 1,
+          "executed": 1,
+          "tick": 1
+        },
+        "limit_after_resume": {
+          "pending": 0,
+          "executed": 2,
+          "tick": 2
+        }
+      },
+      "audit_negatives": [
+        {
+          "case": "wrong_order",
+          "rejected": true
+        },
+        {
+          "case": "duplicate",
+          "rejected": true
+        },
+        {
+          "case": "missing_completion",
+          "rejected": true
+        },
+        {
+          "case": "wrong_time",
+          "rejected": true
+        },
+        {
+          "case": "wrong_wait",
+          "rejected": true
+        },
+        {
+          "case": "early_start",
+          "rejected": true
+        },
+        {
+          "case": "unknown_event",
+          "rejected": true
+        }
+      ],
+      "executor_negatives": [
+        {
+          "case": "negative_arrival",
+          "exit_code": 1,
+          "rejected": true
+        },
+        {
+          "case": "negative_service",
+          "exit_code": 1,
+          "rejected": true
+        },
+        {
+          "case": "fraction",
+          "exit_code": 1,
+          "rejected": true
+        },
+        {
+          "case": "duplicate_id",
+          "exit_code": 1,
+          "rejected": true
+        },
+        {
+          "case": "overflow",
+          "exit_code": 1,
+          "rejected": true
+        },
+        {
+          "case": "non_integer",
+          "exit_code": 1,
+          "rejected": true
+        }
+      ],
+      "MG1_executed": false,
+      "protocol_sha256": "439ad36cbc26f8bb555545e75f5b65668668cbdd7ad8729ef4daf5c26adc6993",
+      "input_sha256": "24e44384f3662bfe9a493d1dc98eea6c1443eb166f1ca0c36fafe942420ba781",
+      "actual_sha256": "26fa97d5afe34397f8c21fffddd02a11da409f82f3815fa2ac2f2b58c06dbc2a"
+    },
+    "a3_counts": {
+      "status": "pass",
+      "points": 26,
+      "runs": 78,
+      "independent_counts_addresses_content": true,
+      "all_drained": true,
+      "deterministic_repeats": true,
+      "same_init_tick_ps": 5775275,
+      "negatives": [
+        {
+          "kind": "missing_fragment",
+          "rejected": true
+        },
+        {
+          "kind": "duplicate_fragment",
+          "rejected": true
+        },
+        {
+          "kind": "wrong_address",
+          "rejected": true
+        },
+        {
+          "kind": "wrong_global_owner",
+          "rejected": true
+        },
+        {
+          "kind": "wrong_global_size",
+          "rejected": true
+        },
+        {
+          "kind": "bad_content_result",
+          "rejected": true
+        }
+      ]
+    },
+    "a3_response_status": "pass"
+  },
+  "legacy_backend_pin_rejected": true,
+  "cleanup": {
+    "removed_count": 39,
+    "removed": [
+      "E:\\v1_update\\build-a2.pre-migration-20261104",
+      "E:\\v1_update\\build-a3.pre-migration-20261104",
+      "E:\\v1_update\\build-audit-incremental.pre-migration-20261104",
+      "E:\\v1_update\\build-audit-logs.pre-migration-20261104",
+      "E:\\v1_update\\build-cuda.pre-migration-20261104",
+      "E:\\v1_update\\build-model.pre-migration-20261104",
+      "E:\\v1_update\\build-portability-model.pre-migration-20261104",
+      "E:\\v1_update\\build-portability-temp.pre-migration-20261104",
+      "E:\\v1_update\\build-s0-s2-logs.pre-migration-20261104",
+      "E:\\v1_update\\build-s0-s2.pre-migration-20261104",
+      "E:\\v1_update\\build-s3-logs.pre-migration-20261104",
+      "E:\\v1_update\\build-s3.pre-migration-20261104",
+      "E:\\v1_update\\build-upstream-cpu.pre-migration-20261104",
+      "E:\\v1_update\\build-upstream-cuda-check.pre-migration-20261104",
+      "E:\\v1_update\\build-upstream-gpu.pre-migration-20261104",
+      "E:\\v1_update\\build-upstream-vs.pre-migration-20261104",
+      "E:\\v1_update\\output\\migration-20261104",
+      "E:\\v1_update\\output\\HBF-EventLab-upstream",
+      "E:\\v1_update\\output\\rebuild_e.ps1",
+      "E:\\v1_update\\docs\\WORKSPACE_MIGRATION_20261104.md",
+      "E:\\v1_update\\docs\\BACKEND_COMPATIBILITY_20261104.md",
+      "E:\\v1_update\\docs\\validation\\workspace-migration-20261104.json",
+      "E:\\v1_update\\docs\\validation\\backend-compatibility-20261104.json",
+      "E:\\v1_update\\output\\baseline-20261104\\old-backend",
+      "E:\\v1_update\\output\\baseline-20261104\\old-backend-overlay.patch",
+      "E:\\v1_update\\output\\baseline-20261104\\old-release-identity.json",
+      "E:\\v1_update\\build-a2-build.log",
+      "E:\\v1_update\\build-a3-build.log",
+      "E:\\v1_update\\a2-build.log",
+      "E:\\v1_update\\output\\eventlab-upstream-backend-tests.log",
+      "E:\\v1_update\\output\\eventlab-upstream-commit.json",
+      "E:\\v1_update\\output\\eventlab-upstream-frontend-cpu-tests.log",
+      "E:\\v1_update\\output\\eventlab-upstream-frontend-gpu-core-tests.log",
+      "E:\\v1_update\\output\\eventlab-upstream-frontend-gpu-extra-tests.log",
+      "E:\\v1_update\\output\\eventlab-upstream-main.zip",
+      "E:\\v1_update\\output\\eventlab-upstream-provenance.json",
+      "E:\\v1_update\\output\\eventlab-upstream-tree.json",
+      "E:\\v1_update\\output\\baseline-20261104\\a1-first-attempt",
+      "E:\\v1_update\\output\\baseline-20261104\\a1-first-attempt.log"
+    ],
+    "scope": "E:\\v1_update",
+    "status": "pass"
+  },
+  "historical_experiments_retained": true,
+  "source": "E:\\v1_update",
+  "validation_directory": "E:\\v1_update\\output\\baseline-20261104\\runtime"
+}

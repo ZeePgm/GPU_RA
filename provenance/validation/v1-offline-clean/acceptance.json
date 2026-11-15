@@ -1,0 +1,331 @@
+{
+  "status": "pass",
+  "version": "v1",
+  "gpu_executed": false,
+  "v1": {
+    "status": "pass",
+    "stages": [
+      {
+        "stage": "F1",
+        "raw_artifact_hashes": 37,
+        "native_table_rebuilt": true,
+        "reconstructed": {
+          "stage": "F1",
+          "status": "pass",
+          "layers": [
+            10
+          ],
+          "scope": "layers 10 full FFN gate/up/down; native GPU KV; symbolic synchronous HBF",
+          "coverage": {
+            "registered_valid_bytes": 18874368,
+            "parent_reads": 24,
+            "cumulative_read_bytes": 150994944,
+            "read_globals": 36864,
+            "read_fragments": 2359296,
+            "write_fragments": 294912
+          },
+          "native_logits_bitwise_equal": true,
+          "native_tokens_equal": true,
+          "G2": {
+            "actual_outputs": 8,
+            "ttft_ps": 6391889000,
+            "tpot_ps": 4871972285.714286,
+            "itl_ps": [
+              3694923000,
+              4010481000,
+              4927568000,
+              5563074000,
+              5403489000,
+              5561919000,
+              4942352000
+            ]
+          },
+          "G3": {
+            "actual_outputs": 8,
+            "ttft_ps": 6883838906,
+            "tpot_ps": 5363922191.714286,
+            "itl_ps": [
+              4186872906,
+              4502430906,
+              5419517906,
+              6055023906,
+              5895438906,
+              6053868906,
+              5434301906
+            ]
+          },
+          "total_wait_ps": 3935599248,
+          "compute_ps": 40495695000,
+          "all_conservation_residuals_zero": true,
+          "online_audit": {
+            "logical_failures": 0,
+            "attempt_errors": 0,
+            "read_fragments": 2359296,
+            "write_fragments": 294912,
+            "peak_live_fragments": 256,
+            "peak_live_attempts": 256
+          },
+          "events_processed": 39277556,
+          "closed_and_drained": true,
+          "measured_software_phases_seconds": {
+            "backend_initialization": 0.3112369,
+            "backend_read_calls_including_online_audit": 192.3383784,
+            "backend_finish": 1.4e-06
+          },
+          "limitations": "One native GPU activity trace; no hardware calibration, full weight offload, wall-clock slowdown or population timing claim."
+        },
+        "corrupt_record_rejections": [
+          {
+            "case": "missing_parent",
+            "rejected": true,
+            "reason": "Parent read count mismatch"
+          },
+          {
+            "case": "wrong_global_address",
+            "rejected": true,
+            "reason": "Gate interval mismatch"
+          },
+          {
+            "case": "missing_read_fragment",
+            "rejected": true,
+            "reason": "Online fragment totals mismatch"
+          },
+          {
+            "case": "wrong_token_clock",
+            "rejected": true,
+            "reason": "Token time conservation failed"
+          },
+          {
+            "case": "wrong_compute_duration",
+            "rejected": true,
+            "reason": "Compute table mismatch"
+          }
+        ]
+      },
+      {
+        "stage": "F2",
+        "raw_artifact_hashes": 36,
+        "native_table_rebuilt": true,
+        "reconstructed": {
+          "stage": "F2",
+          "status": "pass",
+          "layers": [
+            0,
+            10,
+            20,
+            27
+          ],
+          "scope": "layers 0,10,20,27 full FFN gate/up/down; native GPU KV; symbolic synchronous HBF",
+          "coverage": {
+            "registered_valid_bytes": 75497472,
+            "parent_reads": 96,
+            "cumulative_read_bytes": 603979776,
+            "read_globals": 147456,
+            "read_fragments": 9437184,
+            "write_fragments": 1179648
+          },
+          "native_logits_bitwise_equal": true,
+          "native_tokens_equal": true,
+          "G2": {
+            "actual_outputs": 8,
+            "ttft_ps": 6391889000,
+            "tpot_ps": 4871972285.714286,
+            "itl_ps": [
+              3694923000,
+              4010481000,
+              4927568000,
+              5563074000,
+              5403489000,
+              5561919000,
+              4942352000
+            ]
+          },
+          "G3": {
+            "actual_outputs": 8,
+            "ttft_ps": 8359688624,
+            "tpot_ps": 6839771909.714286,
+            "itl_ps": [
+              5662722624,
+              5978280624,
+              6895367624,
+              7530873624,
+              7371288624,
+              7529718624,
+              6910151624
+            ]
+          },
+          "total_wait_ps": 15742396992,
+          "compute_ps": 40495695000,
+          "all_conservation_residuals_zero": true,
+          "online_audit": {
+            "logical_failures": 0,
+            "attempt_errors": 0,
+            "read_fragments": 9437184,
+            "write_fragments": 1179648,
+            "peak_live_fragments": 256,
+            "peak_live_attempts": 256
+          },
+          "events_processed": 157110227,
+          "closed_and_drained": true,
+          "measured_software_phases_seconds": {
+            "backend_initialization": 1.2343075,
+            "backend_read_calls_including_online_audit": 710.9653797,
+            "backend_finish": 9e-07
+          },
+          "limitations": "One native GPU activity trace; no hardware calibration, full weight offload, wall-clock slowdown or population timing claim."
+        },
+        "corrupt_record_rejections": [
+          {
+            "case": "missing_parent",
+            "rejected": true,
+            "reason": "Parent read count mismatch"
+          },
+          {
+            "case": "wrong_global_address",
+            "rejected": true,
+            "reason": "Gate interval mismatch"
+          },
+          {
+            "case": "missing_read_fragment",
+            "rejected": true,
+            "reason": "Online fragment totals mismatch"
+          },
+          {
+            "case": "wrong_token_clock",
+            "rejected": true,
+            "reason": "Token time conservation failed"
+          },
+          {
+            "case": "wrong_compute_duration",
+            "rejected": true,
+            "reason": "Compute table mismatch"
+          }
+        ]
+      },
+      {
+        "stage": "F3",
+        "raw_artifact_hashes": 36,
+        "native_table_rebuilt": true,
+        "reconstructed": {
+          "stage": "F3",
+          "status": "pass",
+          "layers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27
+          ],
+          "scope": "layers 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27 full FFN gate/up/down; native GPU KV; symbolic synchronous HBF",
+          "coverage": {
+            "registered_valid_bytes": 528482304,
+            "parent_reads": 672,
+            "cumulative_read_bytes": 4227858432,
+            "read_globals": 1032192,
+            "read_fragments": 66060288,
+            "write_fragments": 8257536
+          },
+          "native_logits_bitwise_equal": true,
+          "native_tokens_equal": true,
+          "G2": {
+            "actual_outputs": 8,
+            "ttft_ps": 6391889000,
+            "tpot_ps": 4871972285.714286,
+            "itl_ps": [
+              3694923000,
+              4010481000,
+              4927568000,
+              5563074000,
+              5403489000,
+              5561919000,
+              4942352000
+            ]
+          },
+          "G3": {
+            "actual_outputs": 8,
+            "ttft_ps": 20166486368,
+            "tpot_ps": 18646569653.714287,
+            "itl_ps": [
+              17469520368,
+              17785078368,
+              18702165368,
+              19337671368,
+              19178086368,
+              19336516368,
+              18716949368
+            ]
+          },
+          "total_wait_ps": 110196778944,
+          "compute_ps": 40495695000,
+          "all_conservation_residuals_zero": true,
+          "online_audit": {
+            "logical_failures": 0,
+            "attempt_errors": 0,
+            "read_fragments": 66060288,
+            "write_fragments": 8257536,
+            "peak_live_fragments": 256,
+            "peak_live_attempts": 256
+          },
+          "events_processed": 1099771595,
+          "closed_and_drained": true,
+          "measured_software_phases_seconds": {
+            "backend_initialization": 9.5291433,
+            "backend_read_calls_including_online_audit": 5246.0206441,
+            "backend_finish": 8e-07
+          },
+          "limitations": "One native GPU activity trace; no hardware calibration, full weight offload, wall-clock slowdown or population timing claim."
+        },
+        "corrupt_record_rejections": [
+          {
+            "case": "missing_parent",
+            "rejected": true,
+            "reason": "Parent read count mismatch"
+          },
+          {
+            "case": "wrong_global_address",
+            "rejected": true,
+            "reason": "Gate interval mismatch"
+          },
+          {
+            "case": "missing_read_fragment",
+            "rejected": true,
+            "reason": "Online fragment totals mismatch"
+          },
+          {
+            "case": "wrong_token_clock",
+            "rejected": true,
+            "reason": "Token time conservation failed"
+          },
+          {
+            "case": "wrong_compute_duration",
+            "rejected": true,
+            "reason": "Compute table mismatch"
+          }
+        ]
+      }
+    ]
+  }
+}
