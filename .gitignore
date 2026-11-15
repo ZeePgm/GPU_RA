@@ -1,21 +1,8 @@
-build-*/
-output/
-.venv/
+/build*/
+/output/
 __pycache__/
 *.pyc
-configs/integrated/*.json
-configs/machine.local.json
+/.venv/
 /models/
-/dist/
-/build/
 /.env
 /.env.local
-/.vs/
-/.idea/
-
-configs/machine.*.local.json
-configs/enter-environment.ps1
-
-# Local reproduction products; source and evidence manifests are tracked.
-/build*.log
-/verification/

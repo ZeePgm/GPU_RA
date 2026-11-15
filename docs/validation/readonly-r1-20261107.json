@@ -1,0 +1,156 @@
+{
+  "status": "pass",
+  "experiment": "R1",
+  "date": "2026-11-07",
+  "build": "build-r1-20261107",
+  "scope": "original norm PTX scalar and selected down CUDA warp; management refactor",
+  "model_runs": 24,
+  "comparison": {
+    "status": "pass",
+    "cases": [
+      {
+        "case": "qwen-short",
+        "status": "pass",
+        "strategies": [
+          {
+            "tensor": "blk.10.ffn_norm.weight",
+            "bytes": 4096,
+            "strategy": "ptx_scalar",
+            "launches": 45,
+            "requests": 46080
+          },
+          {
+            "tensor": "blk.10.ffn_down.weight",
+            "bytes": 6144,
+            "strategy": "cuda_warp",
+            "launches": 23,
+            "requests": 2160
+          }
+        ],
+        "selected_requests": 48240,
+        "steps": 2,
+        "old_model_time_ps": 11460999853361,
+        "new_model_time_ps": 12515973153361
+      },
+      {
+        "case": "qwen-long",
+        "status": "pass",
+        "strategies": [
+          {
+            "tensor": "blk.10.ffn_norm.weight",
+            "bytes": 4096,
+            "strategy": "ptx_scalar",
+            "launches": 139,
+            "requests": 142336
+          },
+          {
+            "tensor": "blk.10.ffn_down.weight",
+            "bytes": 6144,
+            "strategy": "cuda_warp",
+            "launches": 70,
+            "requests": 6672
+          }
+        ],
+        "selected_requests": 149008,
+        "steps": 2,
+        "old_model_time_ps": 34606283653361,
+        "new_model_time_ps": 33943211153361
+      },
+      {
+        "case": "smol-short",
+        "status": "pass",
+        "strategies": [
+          {
+            "tensor": "blk.10.ffn_norm.weight",
+            "bytes": 2304,
+            "strategy": "ptx_scalar",
+            "launches": 41,
+            "requests": 23616
+          },
+          {
+            "tensor": "blk.10.ffn_down.weight",
+            "bytes": 3072,
+            "strategy": "cuda_warp",
+            "launches": 21,
+            "requests": 984
+          }
+        ],
+        "selected_requests": 24600,
+        "steps": 2,
+        "old_model_time_ps": 3434803501464,
+        "new_model_time_ps": 3670132701464
+      },
+      {
+        "case": "qwen-1.7b",
+        "status": "pass",
+        "strategies": [
+          {
+            "tensor": "blk.10.ffn_norm.weight",
+            "bytes": 8192,
+            "strategy": "ptx_scalar",
+            "launches": 45,
+            "requests": 92160
+          },
+          {
+            "tensor": "blk.10.ffn_down.weight",
+            "bytes": 12288,
+            "strategy": "cuda_warp",
+            "launches": 23,
+            "requests": 4320
+          }
+        ],
+        "selected_requests": 96480,
+        "steps": 2,
+        "old_model_time_ps": 15427071725763,
+        "new_model_time_ps": 14455955625763
+      }
+    ],
+    "faults": [
+      {
+        "binary": "old",
+        "returncode": 1,
+        "success_summary": false
+      },
+      {
+        "binary": "new",
+        "returncode": 1,
+        "success_summary": false
+      }
+    ]
+  },
+  "operator_cases": 18,
+  "python_contract_tests": 5,
+  "existing_binary_regression_tests": 50,
+  "fixed_trace_exact_reads": 12,
+  "performance": "not-evaluated",
+  "source_files": [
+    {
+      "path": "include/hbflab/readonly_access.hpp",
+      "sha256": "906dbec580a883a33516faf6a156792eb6ce6dc34861239d457f427aef0577a6"
+    },
+    {
+      "path": "adapters/llama_cpp/integrated_weights.cu",
+      "sha256": "974dc24876044635d6f962fc3422b2fae538e9340049f2313c160a2756075ead"
+    },
+    {
+      "path": "adapters/llama_cpp/integrated_ptx.cpp",
+      "sha256": "e914704acd7aa763a89baba48e04b38cd25ef1582bf267f30f0a9e8921958ae5"
+    },
+    {
+      "path": "adapters/llama_cpp/weights_bridge.hpp",
+      "sha256": "2b9fd08455862dbf3a566945640891aee3869f58efa98c00ccf68d5b347958ce"
+    },
+    {
+      "path": "adapters/llama_cpp/integrated/CMakeLists.txt",
+      "sha256": "fad6f625910426f50d66f88c8601847704b835dbc6e93c9e34d660923575bb43"
+    },
+    {
+      "path": "tests/readonly_access.cpp",
+      "sha256": "49c92cca286cc0681d0143152743840cb5dc326acbcff9a06cfccc145600cb79"
+    },
+    {
+      "path": "tools/run_readonly_r1.py",
+      "sha256": "b3cf621d957a40c96685d916f6bbb83cf07bf42719d701023590f49bdab646b7"
+    }
+  ]
+}

@@ -11,6 +11,12 @@
       "original_path": "experiments/gpu_ffn/validate.py",
       "sha256": "5abf091f7b286c5a4a9c9d2734edec4744e3af3465be50a2e839bbf8c333f9b6",
       "adaptation": "None: exact source bytes. replay_evidence.py selects offline functions/conditions at runtime and reports skipped workstation identity checks separately."
+    },
+    {
+      "path": "reproduction/evidence_validators/readonly_compare_analyze.py",
+      "original_path": "experiments/readonly_f_compare/analyze.py",
+      "sha256": "c8faf06e854f9fa6eb3786d66a046d377aad24e6a0a11e423138a7035960b4d8",
+      "adaptation": "None: exact source bytes. replay_evidence.py selects offline functions/conditions at runtime and reports skipped workstation identity checks separately."
     }
   ]
 }

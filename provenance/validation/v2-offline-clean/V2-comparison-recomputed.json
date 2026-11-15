@@ -1,0 +1,180 @@
+{
+  "status": "pass_retained_runs",
+  "baseline": "second F, 2026-11-05, sealed executable and DLLs",
+  "model": "Qwen3-0.6B F16",
+  "prompt_tokens": 44,
+  "outputs": 8,
+  "logits_count": 1215488,
+  "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+  "input_bytes": 249,
+  "kv": "original native F16",
+  "clock": "A: own GPU active work and own dependency policy; cohort approximation for 8 warp requests; no CPU solver elapsed time",
+  "sampling": "one stable wall run per system/scale and one GPU trace each; descriptive results, no confidence interval",
+  "cases": {
+    "F1": {
+      "selected_matrices": 3,
+      "read_MiB": 144.0,
+      "old_matrix_parents": 24,
+      "new_warp_parents": 294912,
+      "new_batch_count": 36864,
+      "read_fragments_each": 2359296,
+      "lane_dependency_checks": 9437184,
+      "old_sim_ms": {
+        "ttft": 6.794238906,
+        "tpot": 4.909241905999999,
+        "token8": 41.158932248
+      },
+      "new_sim_ms": {
+        "ttft": 21.105182976,
+        "tpot": 18.622231976,
+        "token8": 151.460806808
+      },
+      "old_wall_s": {
+        "ttft": 26.0125859,
+        "tpot": 25.95897438571429,
+        "token8": 207.7254066
+      },
+      "new_wall_s": {
+        "ttft": 5.9930993,
+        "tpot": 6.195266885714285,
+        "token8": 49.359967499999996
+      },
+      "old_process_s": 209.08809559990186,
+      "new_process_s": 50.60977219999768,
+      "old_backend_init_s": 0.3229595,
+      "new_adapter_setup_s": 0.2661781,
+      "old_read_calls_s": 190.6563878,
+      "new_gate_calls_s": 49.2866608,
+      "old_compute_total_ms": 37.223333,
+      "new_compute_total_ms": 143.453135,
+      "old_wait_total_ms": 3.935599248,
+      "new_wait_total_ms": 8.007671808,
+      "gpu_activity_breakdown": {
+        "copy": {
+          "count": 37164,
+          "active_ms": 10.455972
+        },
+        "read_kernel": {
+          "count": 36864,
+          "active_ms": 41.882728
+        },
+        "scatter": {
+          "count": 36864,
+          "active_ms": 59.83453
+        },
+        "model_other_kernel": {
+          "count": 6084,
+          "active_ms": 31.279905
+        }
+      },
+      "common_core_old_replay_s": 205.1139596,
+      "common_core_new_replay_s": 62.959011,
+      "wall_speedup": {
+        "ttft": 4.340422976138574,
+        "tpot": 4.190130121040192
+      },
+      "sim_slowdown": {
+        "ttft": 3.1063351271563304,
+        "tpot": 3.7933009480018076
+      }
+    },
+    "F2": {
+      "selected_matrices": 12,
+      "read_MiB": 576.0,
+      "old_matrix_parents": 96,
+      "new_warp_parents": 1179648,
+      "new_batch_count": 147456,
+      "read_fragments_each": 9437184,
+      "lane_dependency_checks": 37748736,
+      "old_sim_ms": {
+        "ttft": 8.270088624,
+        "tpot": 6.385091623999999,
+        "token8": 52.965729992
+      },
+      "new_sim_ms": {
+        "ttft": 66.221376904,
+        "tpot": 63.62915304685714,
+        "token8": 511.625448232
+      },
+      "old_wall_s": {
+        "ttft": 99.0922754,
+        "tpot": 98.84103597142858,
+        "token8": 790.9795272
+      },
+      "new_wall_s": {
+        "ttft": 25.8859275,
+        "tpot": 25.969123957142852,
+        "token8": 207.66979519999998
+      },
+      "old_process_s": 793.4896507000085,
+      "new_process_s": 209.89391250000335,
+      "old_backend_init_s": 1.3952617,
+      "new_adapter_setup_s": 1.1764346,
+      "old_read_calls_s": 773.7956408,
+      "new_gate_calls_s": 207.5885114,
+      "old_compute_total_ms": 37.223333,
+      "new_compute_total_ms": 479.594761,
+      "old_wait_total_ms": 15.742396992,
+      "new_wait_total_ms": 32.030687232,
+      "gpu_activity_breakdown": {
+        "copy": {
+          "count": 147828,
+          "active_ms": 40.577515
+        },
+        "read_kernel": {
+          "count": 147456,
+          "active_ms": 167.106736
+        },
+        "scatter": {
+          "count": 147456,
+          "active_ms": 240.33473
+        },
+        "model_other_kernel": {
+          "count": 6084,
+          "active_ms": 31.57578
+        }
+      },
+      "common_core_old_replay_s": 797.9948045,
+      "common_core_new_replay_s": 260.4271048,
+      "wall_speedup": {
+        "ttft": 3.828036503617651,
+        "tpot": 3.8060982008691204
+      },
+      "sim_slowdown": {
+        "ttft": 8.007335823684397,
+        "tpot": 9.965268596568091
+      }
+    }
+  },
+  "acceptance": {
+    "numerics": "bitwise exact logits and token IDs",
+    "inputs": "identical token IDs, CRLF bytes retained",
+    "coverage": "exact matrix, offset, byte and 64B fragment counts",
+    "dependencies": "old consumer API starts after gate completion; new lane time/data checks plus byte publication before graph submission",
+    "clock": "old token ps exactly reproduced on common backend; all token conservation residuals zero",
+    "kv": "native F16; no KV hooks",
+    "drain": "all retained completed sessions successful and drained; failed first wall batch explicitly excluded",
+    "resource_window": {
+      "native_process_samples": 253,
+      "observed_foreign_workspace_or_build_processes": 0,
+      "interval_s": 5
+    }
+  },
+  "excluded_runs": [
+    {
+      "batch": "wall",
+      "reason": "candidate F2 request timeout (status 4) after five exact outputs; K4 parallel build evidenced by object file timestamps",
+      "root_cause": "not uniquely localized; concurrent build and driver polling were removed before complete wall3 rerun",
+      "changed_gpu_binary": false,
+      "changed_timeout_threshold": false,
+      "failure_log": "E:\\v1_update\\repository-prep\\GPU_RA\\evidence-clean\\output\\readonly-f-compare-a-20261108\\candidate-F2-wall.log",
+      "partial_outputs": 5
+    },
+    {
+      "batch": "wall2",
+      "reason": "K4 test appeared during old F1 timing; stopped our own runner and baseline process",
+      "status": "excluded_resource_contention",
+      "record": "E:\\v1_update\\repository-prep\\GPU_RA\\evidence-clean\\output\\readonly-f-compare-a-20261108\\wall2-interrupted.json"
+    }
+  ]
+}

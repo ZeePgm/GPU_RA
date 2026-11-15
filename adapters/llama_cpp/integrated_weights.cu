@@ -3,6 +3,7 @@
 #include "instrumented_bridge.hpp"
 #include "paged_bridge.hpp"
 #include "weights_bridge.hpp"
+#include "hbflab/readonly_access.hpp"
 #include "common.cuh"
 #include "hbflab/async_device.cuh"
 #include "hbflab/live_runtime.hpp"
@@ -30,7 +31,8 @@ struct State {
     const void* weight[2]{};
     std::vector<unsigned char> before[2];
     AsyncAccessTrace* traces=nullptr;
-    unsigned used=0,peak_traces=0,expected[2]{},handled[2]{};
+    unsigned used=0,peak_traces=0;
+    ReadonlyAccess readonly;
     std::uint64_t total=0,launches=0,rows[2]{},host_records=0,device_records=0;
     double setup_ms=0;
     std::unique_ptr<LiveTimingService> service;
@@ -46,15 +48,7 @@ void save(const char* name,const json& value) {
 }
 int which(const ggml_tensor* t) {
     if(!t)return -1;
-    for(int i=0;i<2;++i)if(std::strcmp(t->name,names[i])==0)return i;
-    // Reject unnamed aliases overlapping a selected range as unsupported;
-    // registration is a byte-range contract, not only a tensor-name filter.
-    const auto p=reinterpret_cast<uintptr_t>(t->data);
-    if(state.bound && p)for(int i=0;i<2;++i) {
-        const auto b=reinterpret_cast<uintptr_t>(state.weight[i]);const auto n=ggml_nbytes(t);
-        if(p>=b?p-b<sizes[i]:b-p<n)return i;
-    }
-    return -1;
+    return state.readonly.find(t->name,t->data,ggml_nbytes(t));
 }
 // Derived from pinned upstream mul_mat_vec_f<half,float,1,256> (MIT).
 // Both reference and adapted paths use this F32 accumulation order in both
@@ -94,10 +88,10 @@ void launch(unsigned kind,unsigned count,unsigned row_base,const void* kernel,st
     const unsigned accesses=count*(integrated_profile().ffn/64);
     need(state.used+accesses<=trace_capacity,"M2 per-step audit capacity exceeded");
     std::uint64_t id=0;
-    if(state.mode>=2)id=state.service->launch({count,256},kernel,args,stream);
+    if(state.mode>=2)id=state.readonly.dispatch(kind,ReadonlyStrategy::CudaWarp,state.weight[kind],sizes[kind],accesses,[&]{return state.service->launch({count,256},kernel,args,stream);});
     else {
         AsyncDeviceView view{};std::vector<void*> actual{&view};actual.insert(actual.end(),args.begin(),args.end());
-        ck(cudaLaunchKernel(kernel,dim3(count),dim3(256),actual.data(),0,stream));
+        state.readonly.dispatch(kind,ReadonlyStrategy::CudaWarp,state.weight[kind],sizes[kind],0,[&]{ck(cudaLaunchKernel(kernel,dim3(count),dim3(256),actual.data(),0,stream));return std::uint64_t{0};});
     }
     line(state.calls,{{"step",state.step},{"launch",id},{"kind",kind},{"weight",names[kind]},
         {"address",reinterpret_cast<uintptr_t>(state.weight[kind])},{"range_bytes",sizes[kind]},
@@ -112,6 +106,8 @@ extern "C" void hbflab_m2_configure(const char* mode,const char* output) {
     need(name=="native" || name=="bypass" || name=="modeled" || name=="fault","unknown M2 mode");
     state.mode=name=="native"?0:name=="bypass"?1:name=="modeled"?2:3;
     const auto& p=integrated_profile();names[0]=p.norm_name.c_str();names[1]=p.down_name.c_str();sizes[0]=p.hidden*4;sizes[1]=p.ffn*2;trace_capacity=p.trace_records;
+    state.readonly.add(names[0],sizes[0],m5_strategy());
+    state.readonly.add(names[1],sizes[1],ReadonlyStrategy::CudaWarp);
     state.owner=std::this_thread::get_id();state.output=output;state.configured=true;
     state.calls.open(state.output/"hbf-calls.jsonl");state.steps.open(state.output/"hbf-steps.jsonl");
     state.host.open(state.output/"hbf-host.jsonl");state.device.open(state.output/"hbf-device.jsonl");
@@ -126,17 +122,17 @@ extern "C" void hbflab_m2_bind(const ggml_tensor* norm,const ggml_tensor* down) 
         need(t && std::strcmp(t->name,names[i])==0 && ggml_is_contiguous(t) && t->ne[2]==1 && t->ne[3]==1 &&
              t->type==(i?GGML_TYPE_F16:GGML_TYPE_F32) && t->ne[0]==(i?integrated_profile().ffn:integrated_profile().hidden) && t->ne[1]==(i?integrated_profile().hidden:1) &&
              reinterpret_cast<uintptr_t>(t->data)%16==0,"M2 selected tensor layout mismatch");
-        state.weight[i]=t->data;state.before[i].resize(sizes[i]);
+        state.readonly.bind(i,t->data);state.weight[i]=t->data;state.before[i].resize(sizes[i]);
         ck(cudaMemcpy(state.before[i].data(),t->data,sizes[i],cudaMemcpyDeviceToHost));
     }
-    state.bound=true;
+    state.bound=true;state.readonly.start();
     if(state.mode>=2) {
         ck(cudaMalloc(reinterpret_cast<void**>(&state.traces),trace_capacity*sizeof(AsyncAccessTrace)));
         AsyncRuntimeOptions options;options.timeout_ns=1000000000;options.service_timeout_ns=10000000000ull;
         options.backend.geometry=m6_geometry();
         options.audit_limit=integrated_profile().audit_records;options.backend.max_events_per_batch=state.mode==3?100:integrated_profile().max_events;
         state.service=std::make_unique<LiveTimingService>(options,512,2);
-        for(int i=0;i<2;++i)state.service->register_readonly(state.weight[i],sizes[i]);
+        for(const auto& entry:state.readonly.entries())state.service->register_readonly(entry.address,entry.bytes);
         m4_begin(state.mode,state.service.get(),state.output.string().c_str());
         // Snapshot initialization separately from inference statistics.
         const auto init=state.service->statistics().backend.device;
@@ -144,14 +140,14 @@ extern "C" void hbflab_m2_bind(const ggml_tensor* norm,const ggml_tensor* down) 
         state.service->start();
     }
     if(state.mode==1)m4_begin(state.mode,nullptr,state.output.string().c_str());
-    m5_begin(state.service.get(),state.mode,state.output.string().c_str());
+    m5_begin(state.service.get(),state.mode,state.output.string().c_str(),&state.readonly);
     state.setup_ms=std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-start).count();
 }
 extern "C" void hbflab_m2_step_begin(int step) {
     state.current();need(state.bound && step==state.step+1,"M2 step sequence mismatch");
     m4_step_begin(step);m5_step();
     state.step=step;state.used=0;
-    for(int i=0;i<2;++i)state.expected[i]=state.handled[i]=0;
+    state.readonly.begin_step(step);
 }
 extern "C" void hbflab_m2_graph_node(const ggml_tensor* t) {
     if(!state.configured || state.mode==0 || state.step<0)return;
@@ -160,7 +156,7 @@ extern "C" void hbflab_m2_graph_node(const ggml_tensor* t) {
         const int i=which(src);if(i<0)continue;
         need(src->data==state.weight[i] && std::strcmp(src->name,names[i])==0 &&
              t->op==(i?GGML_OP_MUL_MAT:GGML_OP_MUL),"M2 selected range reached unsupported graph op or alias");
-        ++state.expected[i];
+        state.readonly.expect(i);
     }
 }
 bool hbflab_m2_precision(const ggml_tensor* w,ggml_tensor* dst) {
@@ -184,7 +180,7 @@ bool hbflab_m2_mul_mat(const ggml_tensor* w,const ggml_tensor* x,ggml_tensor* ds
          x->type==GGML_TYPE_F32 && x->ne[0]==ffn && x->ne[1]>=1 && x->ne[1]<=integrated_profile().ubatch && x->ne[2]==1 && x->ne[3]==1 && ggml_is_contiguous(x) &&
          dst->type==GGML_TYPE_F32 && dst->ne[0]==hidden && dst->ne[1]==x->ne[1] && dst->ne[2]==1 && dst->ne[3]==1 && ggml_is_contiguous(dst),
          "M2 F16 matmul layout unsupported");
-    ++state.handled[1];const auto* weights=static_cast<const half*>(w->data);
+    state.readonly.handled(1);const auto* weights=static_cast<const half*>(w->data);
     // These disjoint output rows never consume the registered row-zero bytes.
     m2_down<false><<<static_cast<unsigned>(x->ne[1])*(hidden-1),256,0,stream>>>({},weights,static_cast<const float*>(x->data),static_cast<float*>(dst->data),false,nullptr,hidden,ffn);
     ck(cudaGetLastError());
@@ -200,7 +196,7 @@ bool hbflab_m2_mul_mat(const ggml_tensor* w,const ggml_tensor* x,ggml_tensor* ds
 extern "C" void hbflab_m2_step_end() {
     m4_step_end();
     state.current();
-    if(state.mode)for(int i=0;i<2;++i)need(state.expected[i]>0 && state.handled[i]==state.expected[i],"M2 incomplete selected-range coverage");
+    state.readonly.end_step(state.mode!=0);
     if(state.service) {
         state.service->synchronize();
         auto host=state.service->take_audit();need(host.size()==state.used+m5_step_requests(),"M2 host audit missing or overflowed");
@@ -221,7 +217,7 @@ extern "C" void hbflab_m2_step_end() {
         }
         state.device_records+=traces.size();
     }
-    line(state.steps,{{"step",state.step},{"expected",state.expected},{"handled",state.handled},{"requests",state.used}});
+    line(state.steps,{{"step",state.step},{"expected",state.readonly.expected()},{"handled",state.readonly.handled()},{"requests",state.used}});
 }
 extern "C" void hbflab_m2_finish() {
     state.current();json report={{"status","success"},{"mode",state.mode},{"matrix_precision","upstream per-token MMVF with GGML_PREC_F32 in all three modes; distinct from M0 default"},{"profile_sha256",integrated_profile().hash},{"range_bytes",sizes[0]+sizes[1]},{"steps",state.step+1},
@@ -230,7 +226,7 @@ extern "C" void hbflab_m2_finish() {
         {"host_records",state.host_records},{"device_records",state.device_records},
         {"scope",{{"rms_norm",names[0]},{"f16_matmul",names[1]},{"f16_byte_offset",0},{"f16_bytes",sizes[1]}}},
         {"unselected_weights_policy","native_unmodeled; other matrix rows use controlled arithmetic"},{"kv_policy",state.mode?"paged F16 KV through Capacity":"native GPU KV reference"},
-        {"semantics","M5 norm weights: original NVCC PTX scalar reads, one request per active thread; down: original M2 128B warp spans; native activation role is explicit"}};
+        {"semantics",state.readonly.entries()[0].strategy==ReadonlyStrategy::CudaScalar?"norm: explicit CUDA scalar reads, one request per active thread; down: original M2 128B warp spans; native activation role is explicit":"M5 norm weights: original NVCC PTX scalar reads, one request per active thread; down: original M2 128B warp spans; native activation role is explicit"}};
     m5_finish();m4_finish();
     if(state.service) {
         state.service->finish();const auto s=state.service->statistics();const auto b=s.backend;const auto d=b.device;
@@ -257,10 +253,14 @@ extern "C" void hbflab_m2_finish() {
     report["borrowed_unchanged"]=true;
     state.host.close();state.device.close();state.calls.close();state.steps.close();
     need(state.host && state.device && state.calls && state.steps,"M2 log close failed");
+    state.readonly.finish();
+    json strategies=json::array();
+    for(const auto& entry:state.readonly.entries())strategies.push_back({{"tensor",entry.name},{"bytes",entry.bytes},{"strategy",entry.strategy==ReadonlyStrategy::PtxScalar?"ptx_scalar":entry.strategy==ReadonlyStrategy::CudaScalar?"cuda_scalar":"cuda_warp"},{"launches",entry.launches},{"requests",entry.requests}});
+    save("readonly-summary.json",{{"status","pass"},{"strategies",strategies}});
     save("hbf-summary.json",report);state.finished=true;
 }
 extern "C" void hbflab_m2_abort() {
-    m5_abort();m4_abort();state.service.reset();if(state.traces){cudaFree(state.traces);state.traces=nullptr;}
+    state.readonly.abort();m5_abort();m4_abort();state.service.reset();if(state.traces){cudaFree(state.traces);state.traces=nullptr;}
 }
 
 bool hbflab_m5_mul(ggml_tensor* t,cudaStream_t stream) {
@@ -270,5 +270,5 @@ bool hbflab_m5_mul(ggml_tensor* t,cudaStream_t stream) {
         ggml_is_contiguous(x) && ggml_is_contiguous(w) && ggml_is_contiguous(t) &&
         x->ne[0]==integrated_profile().hidden && x->ne[1]>=1 && x->ne[1]<=integrated_profile().ubatch && x->ne[2]==1 && x->ne[3]==1 &&
         ggml_nelements(w)==integrated_profile().hidden && ggml_nelements(t)==ggml_nelements(x) && w->data==state.weight[0],"M5 multiply profile mismatch");
-    ++state.handled[0];m5_mul(static_cast<const float*>(x->data),static_cast<const float*>(w->data),static_cast<float*>(t->data),static_cast<unsigned>(x->ne[1]),stream);return true;
+    state.readonly.handled(0);m5_mul(static_cast<const float*>(x->data),static_cast<const float*>(w->data),static_cast<float*>(t->data),static_cast<unsigned>(x->ne[1]),stream);return true;
 }

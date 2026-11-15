@@ -1,5 +1,6 @@
 #pragma once
 #include "hbflab/capacity.hpp"
+#include <functional>
 namespace hbflab {
 struct KvOptions {
     std::size_t layers=1,heads=1,head_dimension=64,element_bytes=2;
@@ -27,6 +28,10 @@ public:
     // both K and V are written; sequence length publishes at commit.
     KvAppend begin_append(KvSequence,std::size_t tokens);
     void write_layer(KvAppend,std::size_t layer,const void* keys,const void* values,std::size_t bytes_each);
+    // Synchronous writer must finish all leases before returning. Source offset
+    // is relative to the submitted layer; readiness publishes after both kinds.
+    using LayerWriter = std::function<void(KvKind, KvSlice, std::size_t)>;
+    void write_layer_with(KvAppend, std::size_t layer, std::size_t bytes_each, const LayerWriter&);
     KvSlice locate_layer(KvAppend,std::size_t layer,std::size_t token,KvKind) const;
     void commit(KvAppend);
     void abort(KvAppend); // Incomplete writes poison the cache; no rollback claim.

@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "model_sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+  "prompt_sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74",
+  "candidate_sha256": "371f0962ab1c9cee309af6d4b91a287710bff0ff602d3335ecaff2f1a291bac7",
+  "outputs": 8,
+  "scope": "historical 44/8 contract",
+  "kv": "native F16; paging and later KV optimizations disabled",
+  "runs": [
+    {
+      "scale": "F1",
+      "mode": "native",
+      "process_wall_s": 1.5029832999571227,
+      "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "requests": 0,
+      "covered_bytes": 0
+    },
+    {
+      "scale": "F1",
+      "mode": "capture",
+      "process_wall_s": 3.9074016000377014,
+      "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "requests": 0,
+      "covered_bytes": 150994944,
+      "clock": "F1-clock.json",
+      "clock_wall_s": 65.44907749997219
+    },
+    {
+      "scale": "F1",
+      "mode": "live",
+      "process_wall_s": 50.05132579995552,
+      "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "requests": 294912,
+      "covered_bytes": 150994944
+    }
+  ],
+  "build_binary_sha256": {
+    "f_candidate.exe": "371f0962ab1c9cee309af6d4b91a287710bff0ff602d3335ecaff2f1a291bac7",
+    "ggml-base.dll": "aecedc8c8e2876758bf451826b33644e7e2939534570270f661b41018bcb98f2",
+    "ggml-cpu.dll": "653a9fdb274eb73c58504ae99d4b3d7f512674f3c4fcb9b102b372cfcdb99e23",
+    "ggml-cuda.dll": "22ea3f4ae4c11933a4588d4464ce4a7a868cacc21f1620a3995c328c1e240909",
+    "ggml.dll": "7a7b8b7938d474735520a858c9fb75e89a9f63bde6af2b5f8c00c60b31432587",
+    "llama.dll": "e1dc71a8c6210618b496d7940bd31e7d5342081c0f534b6d62adebb197f50933",
+    "f_clock.exe": "b2f3b7bf1b61216eecf2b7cfe596d99b89c0d41e31bb51b0f5b8b89ffb30cf67"
+  }
+}

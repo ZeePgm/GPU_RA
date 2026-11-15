@@ -1,6 +1,14 @@
 // Derived from pinned llama.cpp, MIT license: third_party/llama.cpp/LICENSE.
 #include <cuda_runtime.h>
 #include <cstdint>
+#ifdef HBFLAB_R2_EXPLICIT
+#include "hbflab/async_device.cuh"
+#define R2_VIEW hbflab::AsyncDeviceView view,
+#define R2_PASS view,
+#else
+#define R2_VIEW
+#define R2_PASS
+#endif
 __device__ __forceinline__ void ggml_cuda_pdl_lc(){}
 __device__ __forceinline__ void ggml_cuda_pdl_sync(){}
 __device__ __forceinline__ unsigned fastdiv(unsigned a,uint3 d){return a/d.z;}
@@ -12,7 +20,7 @@ template <float (*bin_op)(const float, const float),
           typename src1_t,
           typename dst_t,
           typename... src1_ptrs>
-static __device__ __forceinline__ void k_bin_bcast(const src0_t *         src0,
+static __device__ __forceinline__ void k_bin_bcast(R2_VIEW const src0_t *         src0,
                                    const src1_t *         src1,
                                    dst_t *                dst,
                                    const uint32_t         ne0,
@@ -64,13 +72,23 @@ static __device__ __forceinline__ void k_bin_bcast(const src0_t *         src0,
         // This entry has ne10.z == ne0 and the loop proves i0 < ne0.
         const uint32_t i10 = i0;
 
+#ifdef HBFLAB_R2_TIMED
+        const auto r2_begin = hbflab::gpu_now_ns();
+#endif
         float result = src0_row ? ggml_cuda_cast<float>(src0_row[size_t(i0)*s00]) : 0.0f;
         if constexpr (sizeof...(src1_ptrs) > 0) {
             result = (..., (result = bin_op(result, ggml_cuda_cast<float>(src1s[i_src1 + size_t(i10)*s10]))));
         } else {
+#ifdef HBFLAB_R2_EXPLICIT
+            const auto* selected = src1 + i_src1 + size_t(i10)*s10;
+            if(view.mailboxes && hbflab::AsyncDeviceClient(view).gate_load(selected,sizeof(src1_t),alignof(src1_t))!=hbflab::Status::Ok)return;
+#endif
             result = bin_op(result, ggml_cuda_cast<float>(src1[i_src1 + size_t(i10)*s10]));
         }
 
+#ifdef HBFLAB_R2_TIMED
+        reinterpret_cast<unsigned long long*>(reinterpret_cast<unsigned char*>(dst)+32768)[i0] = hbflab::gpu_now_ns()-r2_begin;
+#endif
         dst_row[i0] = ggml_cuda_cast<dst_t>(result);
 
         // protect i0 from overflow
@@ -81,8 +99,11 @@ static __device__ __forceinline__ void k_bin_bcast(const src0_t *         src0,
 }
 
 
-extern "C" __global__ void m6_weight_mul(const float* activation,const float* weight,float* output,unsigned width) {
-    k_bin_bcast<op_mul,float,float,float>(activation,weight,output,
+#ifndef R2_ENTRY
+#define R2_ENTRY m6_weight_mul
+#endif
+extern "C" __global__ void R2_ENTRY(R2_VIEW const float* activation,const float* weight,float* output,unsigned width) {
+    k_bin_bcast<op_mul,float,float,float>(R2_PASS activation,weight,output,
         width,1,1,make_uint3(0,0,1),make_uint3(0,0,width),make_uint3(0,0,1),make_uint3(0,0,1),make_uint3(0,0,1),
         width,width,width,1,width,width,width,1,width,width,width);
 }

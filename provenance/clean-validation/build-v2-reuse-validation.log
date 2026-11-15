@@ -1,0 +1,27 @@
+**********************************************************************
+** Visual Studio 2022 Developer PowerShell v17.14.41
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+-- llama.cpp version: 0.7.0-dev
+CMAKE_BUILD_TYPE=Release
+-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: AMD64
+-- CMAKE_GENERATOR_PLATFORM: 
+-- GGML_SYSTEM_ARCH: x86
+-- Including CPU backend
+-- x86 detected
+-- Adding CPU backend variant ggml-cpu: /arch:AVX512 GGML_AVX512
+-- CUDA Toolkit found
+-- Replacing 120-real in CMAKE_CUDA_ARCHITECTURES_NATIVE with 120a-real
+-- Using CMAKE_CUDA_ARCHITECTURES=120a-real CMAKE_CUDA_ARCHITECTURES_NATIVE=120a-real
+-- FlashAttention K-V type combinations: f16-f16;q4_0-q4_0;q8_0-q8_0;bf16-bf16
+-- Could NOT find NCCL (missing: NCCL_LIBRARY NCCL_INCLUDE_DIR) 
+-- Warning: NCCL not found, performance for multiple CUDA GPUs will be suboptimal
+-- Including CUDA backend
+-- ggml version: 0.27.0
+-- ggml commit:  f600d9d
+-- Configuring done (2.8s)
+-- Generating done (0.2s)
+-- Build files have been written to: E:/v1_update/repository-prep/GPU_RA/v2-staging/build-v2
+[0/2] Re-checking globbed directories...
+ninja: no work to do.

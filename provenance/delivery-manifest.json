@@ -3,7 +3,7 @@
   "date": "2026-11-15",
   "repository": "ZeePgm/GPU_RA",
   "visibility": "private",
-  "version_family": "V1",
+  "version_family": "V2",
   "scope": "All staged checkout files except this manifest; generated builds, model weights and restored outputs are excluded by .gitignore. Historical vocabulary-only GGUF fixtures remain vendored source inputs.",
   "files": [
     {
@@ -13,8 +13,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 335,
-      "sha256": "96450e72987a0e957a8c918954990bdccfd22b49cb833ff949e16e7a316294c4"
+      "bytes": 72,
+      "sha256": "f61c1959464fcf6d1183e1ff75fd685371f5726120ad30be95b25e5d2344ecc8"
     },
     {
       "path": "AGENTS.md",
@@ -23,13 +23,13 @@
     },
     {
       "path": "CMakeLists.txt",
-      "bytes": 21073,
-      "sha256": "359fd7bbb35bc4f60f5426cad87ae1df67fdf7c6655e5059d8393d5d74f7906b"
+      "bytes": 728,
+      "sha256": "138b7d7faaaefb426c159c2024ce27ed13e9fb3586fdb4fd0a0a66f673017c89"
     },
     {
       "path": "README.md",
-      "bytes": 6483,
-      "sha256": "c1c4908b09eb4c0567a5f2ea2cb3bedd9452a6cf67fadeed87b3e471f32860fd"
+      "bytes": 7142,
+      "sha256": "eace44eff24097fab5660e61d52fd6c753d0ddfc2a83a9a3f141db04b1f53851"
     },
     {
       "path": "RELEASE_STATUS.md",
@@ -88,8 +88,8 @@
     },
     {
       "path": "adapters/llama_cpp/integrated/CMakeLists.txt",
-      "bytes": 7090,
-      "sha256": "627a9d47963a175fdd40e8ca4aec5a24ff1a948cff4af3a259b9ec4572507c00"
+      "bytes": 7765,
+      "sha256": "59928c5b258890c976e5be074a4dc67156d0c96894a05a6e1864ef2ee03a73e2"
     },
     {
       "path": "adapters/llama_cpp/integrated_attention_test.cu",
@@ -103,8 +103,13 @@
     },
     {
       "path": "adapters/llama_cpp/integrated_kv.cu",
-      "bytes": 17581,
-      "sha256": "ff3775b3419f7190ebe61effc522ec7e3057de26b474a8d522fda8bf5d49e313"
+      "bytes": 20045,
+      "sha256": "023ecbc8b4c49744d90020266644150a0b3186cbabd408d3dee76f8bc7768cde"
+    },
+    {
+      "path": "adapters/llama_cpp/integrated_norm_explicit.cu",
+      "bytes": 289,
+      "sha256": "8ef42dc9a3c8422ea2ac8ad1d0b8b5f5ec645a6c3fbd039681afe6c793e09008"
     },
     {
       "path": "adapters/llama_cpp/integrated_profile.cpp",
@@ -118,8 +123,8 @@
     },
     {
       "path": "adapters/llama_cpp/integrated_ptx.cpp",
-      "bytes": 4246,
-      "sha256": "573d0804197d3a31a1dcce118af263bf63a9f586284ad3d4620f78e11e97addb"
+      "bytes": 5941,
+      "sha256": "cf56bd678a9fe8d8287f2cd51f256f45dffa64a565ab5c610b7668fc19304509"
     },
     {
       "path": "adapters/llama_cpp/integrated_ptx_test.cpp",
@@ -133,13 +138,13 @@
     },
     {
       "path": "adapters/llama_cpp/integrated_weight_mul.cu",
-      "bytes": 4253,
-      "sha256": "916e549203adfe3a624c09dddeb466d95dfa14bbbcff3be4e4a456d1f1b05d95"
+      "bytes": 4898,
+      "sha256": "aa22469cd2d540cac7a97167f0f803c9c1965a3797360fc1c1729d670397e1a4"
     },
     {
       "path": "adapters/llama_cpp/integrated_weights.cu",
-      "bytes": 18246,
-      "sha256": "12489afb51fff7e076edafe02341ffba186a57d35c3b9b609c3563c92d7ae278"
+      "bytes": 18651,
+      "sha256": "a516f057d3279afd1b122eb6a30fa2e5d1fa651e3a1d9ffa7ba05dc94574167d"
     },
     {
       "path": "adapters/llama_cpp/mailbox_bridge.cu",
@@ -198,8 +203,8 @@
     },
     {
       "path": "adapters/llama_cpp/weights_bridge.hpp",
-      "bytes": 372,
-      "sha256": "839c633fad68d7b34962c52eee0d4e26eb56cff5574eacc2d914aa9071714e68"
+      "bytes": 497,
+      "sha256": "b826557caf31d1a11a47513cf865c9148ed326c18d0b4749a4b896c2550dbfa8"
     },
     {
       "path": "adapters/llama_cpp/weights_weight_mul.cu",
@@ -767,6 +772,11 @@
       "sha256": "9b1a8ef79400154a22482fe50054d816e2d3b3bbd1e15d2604f55bca0b951213"
     },
     {
+      "path": "ctest-v2-validation.log",
+      "bytes": 1439,
+      "sha256": "09b81911c065244e52a615e40ffded3facd001d0f912830119a3487fee54c9db"
+    },
+    {
       "path": "docs/ARCHITECTURE.md",
       "bytes": 22369,
       "sha256": "a1b4c2e5f1b61c880649c2b603308c1b63fc43c995d660ae31e53a32e33dbd03"
@@ -942,6 +952,11 @@
       "sha256": "468527ec1527bf1f7676dbcf4a6a7d62dc927d341a0d64d4affcef72f210f414"
     },
     {
+      "path": "docs/PARALLEL_OPTIMIZATION_EXPERIMENTS_20261107.md",
+      "bytes": 25617,
+      "sha256": "1b94554766b82a91999daf6aaf3815262904dc7345cffc29c9a4fe545e459954"
+    },
+    {
       "path": "docs/PUBLICATION.md",
       "bytes": 1069,
       "sha256": "3af31c5bd589871552951cc509d987884b5d73287f316dd5606a9f9b16497e7a"
@@ -950,6 +965,31 @@
       "path": "docs/README_FROZEN_20261105.md",
       "bytes": 7168,
       "sha256": "bc019380bc41cf75b0b66085380976b9b31ace394ee7c14a70ef3c37c60d11de"
+    },
+    {
+      "path": "docs/READONLY_F_COMPARE_20261108.md",
+      "bytes": 11821,
+      "sha256": "0b2aa442989a9107cac1392123ad12def616c05fb32ce1089d4de04eaecdcbc6"
+    },
+    {
+      "path": "docs/READONLY_R1_RESULTS_20261107.md",
+      "bytes": 5672,
+      "sha256": "06f7b3807367bba993279656d25254be999ef7d5ede14ef3b643e69b19965e14"
+    },
+    {
+      "path": "docs/READONLY_R2_DOWN_RESULTS_20261107.md",
+      "bytes": 6438,
+      "sha256": "5a957e6463b3bde6a65a463b7bd690ab7b7586b395e7779d6ad1d29e7d532396"
+    },
+    {
+      "path": "docs/READONLY_R2_RESULTS_20261107.md",
+      "bytes": 8800,
+      "sha256": "93b8ebfe7b50eaaa7ad52c08508d1a975afb67aa17db705d1083b02ea36ebe5a"
+    },
+    {
+      "path": "docs/READONLY_R3_RESULTS_20261108.md",
+      "bytes": 8643,
+      "sha256": "ae4f9836a1ba0a4f2d5edf59254548bddb02c1f992f700816984b3ed210b1144"
     },
     {
       "path": "docs/VALIDATION.md",
@@ -1302,6 +1342,21 @@
       "sha256": "7aa3242b380ee2b430226e56b2cc36d90d18becab034332a5653f437a95d2f1a"
     },
     {
+      "path": "docs/validation/readonly-r1-20261107.json",
+      "bytes": 4289,
+      "sha256": "0852d16d934d70a609397ab40e0760d6a9cc38a8bf9b3c1498487163c031fb83"
+    },
+    {
+      "path": "docs/validation/readonly-r2-20261107.json",
+      "bytes": 8962,
+      "sha256": "975cd0e558b69240f54912b288d72a70cf1b4a3133b4bc73ab14e4af2ad19268"
+    },
+    {
+      "path": "docs/validation/readonly-r3-20261108.json",
+      "bytes": 1890,
+      "sha256": "a54bab60a904f5fec7f8181e4e0068ac205aa0bf65a24e97e5557aed01f4ec10"
+    },
+    {
       "path": "docs/validation/release-validation.json",
       "bytes": 1111,
       "sha256": "57c31a9670aac69dba750dccff5673b69852a6505294edce23a97dd4c78906d6"
@@ -1313,8 +1368,8 @@
     },
     {
       "path": "evidence/README.md",
-      "bytes": 2307,
-      "sha256": "adfc92a4ff32c35b7b29063393cbd3ae5a273ac40fb0d3e9e551666752a75bb1"
+      "bytes": 2701,
+      "sha256": "ba0e8f11fa94181f34c19693f370f570a2cf06efd67904fd03c11c9b90445459"
     },
     {
       "path": "evidence/v1-ffn/manifest.json",
@@ -1335,6 +1390,41 @@
       "path": "evidence/v1-migration-validation/part-0000.gzpart",
       "bytes": 8031469,
       "sha256": "73d0eecdb0ae3cfb5d8c321a9b9f34012607c766eed73064536c5c4609f46eff"
+    },
+    {
+      "path": "evidence/v2-readonly/manifest.json",
+      "bytes": 1479064,
+      "sha256": "37b10a6d1b7ec824ef43f756d9c9b043974c8b1d0be5a505d134a25557603525"
+    },
+    {
+      "path": "evidence/v2-readonly/part-0000.gzpart",
+      "bytes": 33554432,
+      "sha256": "2defce1fea77b139512b0c03c15b05a14eab8e0737636e11c5466845c8ba75cc"
+    },
+    {
+      "path": "evidence/v2-readonly/part-0001.gzpart",
+      "bytes": 33554432,
+      "sha256": "fec5bae5b0b82ee057e56d0d2fa977dcba25fe16c38137081233b6158a1e080f"
+    },
+    {
+      "path": "evidence/v2-readonly/part-0002.gzpart",
+      "bytes": 33554432,
+      "sha256": "98b7c9d10ab5bf7ea682c577d91f5b6ba4bf5f2e3fc1a1c29b77b4f9aad217f0"
+    },
+    {
+      "path": "evidence/v2-readonly/part-0003.gzpart",
+      "bytes": 33554432,
+      "sha256": "8a0c75effca84ea8f08162a916f23db4e81c4d25524f8f9f4ea17042765e0aa3"
+    },
+    {
+      "path": "evidence/v2-readonly/part-0004.gzpart",
+      "bytes": 33554432,
+      "sha256": "dc42273f4a60f75846a53cffbd8b0b869ad1696f972425857f616ded51dbd047"
+    },
+    {
+      "path": "evidence/v2-readonly/part-0005.gzpart",
+      "bytes": 11272788,
+      "sha256": "23b80a1173f3edb12af9b4aded3779cd9c05dcc751f9b881b392e86ebc306a27"
     },
     {
       "path": "examples/async_reads.cu",
@@ -1792,6 +1882,921 @@
       "sha256": "12649bce713d3b5ab398ab166ef82e4773984bca722492716d1fb384045fb3a4"
     },
     {
+      "path": "experiments/readonly_f_compare/CMakeLists.txt",
+      "bytes": 3927,
+      "sha256": "dd18f2118e39025a08502c00afdbcc3d802bd396e9f9721e80753c670be282c6"
+    },
+    {
+      "path": "experiments/readonly_f_compare/README.md",
+      "bytes": 4866,
+      "sha256": "d757bc54927636bb8e85f3a6f7dec1e94bcbf4b75f914c932cde2cf6d335e65c"
+    },
+    {
+      "path": "experiments/readonly_f_compare/analyze.py",
+      "bytes": 8146,
+      "sha256": "c8faf06e854f9fa6eb3786d66a046d377aad24e6a0a11e423138a7035960b4d8"
+    },
+    {
+      "path": "experiments/readonly_f_compare/candidate.cpp",
+      "bytes": 8950,
+      "sha256": "b7e555af3b349fc2e77604786f03e03606f1506e5c04e2ee622cc74c832f97ce"
+    },
+    {
+      "path": "experiments/readonly_f_compare/capture.hpp",
+      "bytes": 1993,
+      "sha256": "7f5c2be67e2fdf7b2bc4ef6ee5434a5950bd84a45c3768d01d91647786908a83"
+    },
+    {
+      "path": "experiments/readonly_f_compare/clock.cpp",
+      "bytes": 2833,
+      "sha256": "4cebf05530c74d14c4f0e9cc50f821ef4e67c42fc171b716afbc2d381b7a3205"
+    },
+    {
+      "path": "experiments/readonly_f_compare/local/hbf_eventlab/adapters/tensor_access_bridge.hpp",
+      "bytes": 3227,
+      "sha256": "e3d2657592f1484c491b6a9ca5860bb88e955a7248573bf654cf88adfba14ca3"
+    },
+    {
+      "path": "experiments/readonly_f_compare/process_probe.py",
+      "bytes": 1820,
+      "sha256": "a5754950b9019ae641116092304153e0e5a64c780cbf9d909573ff83053bd905"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/adapters/tensor_access_bridge.hpp",
+      "bytes": 2989,
+      "sha256": "fed19bfaeb10678b5641759b0d69c772ab85981a70ed8bd086f953efe5ddc7ee"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/adapters/workload_reader.hpp",
+      "bytes": 627,
+      "sha256": "374cdf9902cc852ae74b1adce53e30d7bbcc9e5e43f9805420a87a5bbdcc6fd1"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/architecture/device_description.hpp",
+      "bytes": 2236,
+      "sha256": "917d80ad54c0f9ad92a39fd221c56d1b077eb06df6fcc1edbe65e2a355bee436"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/architecture/execution_configuration.hpp",
+      "bytes": 1997,
+      "sha256": "917ecfa8690650c36d98679c47354b33a847004d945b5e14e8edd98f8b8d02f4"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/architecture/topology_configuration.hpp",
+      "bytes": 862,
+      "sha256": "f11e38b8a0e2df0d5740c183b03930f7d9b62489d6a1f11ab0143891f7a3e9a3"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/architecture/ucie_profile.hpp",
+      "bytes": 534,
+      "sha256": "132e72e0154d2e09e6999e94ed2a1c409340f040dfb654c92eec582610e33bf3"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/common/host_protocol.hpp",
+      "bytes": 957,
+      "sha256": "d990c2b9181b2341128bcf83fef88c3fc47c498e9629ca0c17a5c561c8d1fef7"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/common/types.hpp",
+      "bytes": 5452,
+      "sha256": "7e3aab91b2bd6e2a85fe25da69edd8b85bb93078ce50abd25f180c2b2b6f552d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/common/wait_reason.hpp",
+      "bytes": 411,
+      "sha256": "6c55010481ff07ad9ebb0412d77724a2f945c3741fc1354311b5c151ed21ecdf"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/common/write_observation.hpp",
+      "bytes": 766,
+      "sha256": "01abce208e423f42228ca4f2a02f99ff9318a902032dd161b670e887cdff20ce"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/configuration/simulation_configuration.hpp",
+      "bytes": 2969,
+      "sha256": "5d2748d135d6a14d0ed3d8c2ad6f0b63ef613953590b684e2b5f74c7e0d7feb0"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/diagnostics/runtime_profile.hpp",
+      "bytes": 3889,
+      "sha256": "09db1b946e1f6635a95bd21838eb90c056729052383c99ea093c7aa3bbb80098"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/host/global_request_splitter.hpp",
+      "bytes": 668,
+      "sha256": "e018b50f6c9145ff6b87820e4bc8540a6c60a762ff0f5fcefcbb316c6d8431b3"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/host/host_driver.hpp",
+      "bytes": 12262,
+      "sha256": "4777a4fdfa9ee7b09efe11eb52c7be6cc586fe125543c328cd79174b13922096"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/host/recovery_manager.hpp",
+      "bytes": 1451,
+      "sha256": "ebc856bb52ccdfd12ec47f212e695940df3ead16983937201db9b761738d9209"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/host/retention_store.hpp",
+      "bytes": 1013,
+      "sha256": "4c6727ea083910632d1c8835f970ca11b8662ebe29ec79e8f466919d41e77fb3"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/host/workload.hpp",
+      "bytes": 2526,
+      "sha256": "e78d49485989640eac4e5612e33dc5ba7127903d3313d7c6ac068bad6934fccb"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/infrastructure/event_queue.hpp",
+      "bytes": 2515,
+      "sha256": "a2831c102a2dd890d25ecc002601d0b526817836114e5955bf7727e633ee98e5"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/address.hpp",
+      "bytes": 885,
+      "sha256": "3c5bf9421bbc37d2dbc58f609c920bd1ce5e271e35b0377b9d47eed44bd98ed8"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/assembly_storage.hpp",
+      "bytes": 694,
+      "sha256": "8875ebb441fd9437417cfa58e1a160a6421e3548125fc25ec469813961d9da24"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/execution_policy.hpp",
+      "bytes": 960,
+      "sha256": "720a19e225414c8fa2716873ecd5f52fc07a48b229dc9e66e4fe0be76e33d72d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/host_port.hpp",
+      "bytes": 2378,
+      "sha256": "b3ada44517b3c4e6134d305185ba4169c06703948f1f5925a8dda153b45451a8"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/host_send_policy.hpp",
+      "bytes": 614,
+      "sha256": "f48115dfc86bfe4a60e502ce4bc9f68574822771c55347a090207b5cc4020efc"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/read_dispatch.hpp",
+      "bytes": 778,
+      "sha256": "6f9eaa779dfe6a41272c4486309d7d4be6f7db2b2d440ea741b89d3b1236b08e"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/read_result_storage.hpp",
+      "bytes": 2150,
+      "sha256": "f5f0a5cdacb189ac5d6ad2fe9c976910d3d289c5cdf6721ae401e9f00b94935d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/statistics_sink.hpp",
+      "bytes": 3534,
+      "sha256": "a92e46bf4fcb36d689e57006a2f255ec32abcb212b60c10190f1af95b11bc925"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/interfaces/wear_leveling.hpp",
+      "bytes": 824,
+      "sha256": "59935d159edeae6546b74df9e642baa970289ab906bf3298eea2148650ae55f0"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/policies/execution_policies.hpp",
+      "bytes": 1667,
+      "sha256": "d560e39ef3c677db48e2d769e5509714cafabe291a545f88a794f97f77467532"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/policies/host_send_policy.hpp",
+      "bytes": 1545,
+      "sha256": "c4178f45db97765ccb9b6f2f8a18dec029b0ac0ab3c0f98579b2bbc585f138f9"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/policies/read_dispatch.hpp",
+      "bytes": 2102,
+      "sha256": "8b79ad77dda63ef051b44230fc8c77ae16b5d5f10c8480076a163a69d2bf29cd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/policies/reference_address_layout.hpp",
+      "bytes": 702,
+      "sha256": "ca9f10252bc45f6e167da77b82158ae43e389842625e673bca38fd20a796b0b9"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/policies/retained_assembly_storage.hpp",
+      "bytes": 1376,
+      "sha256": "841a4c395ecc23ff903ef72937f5bb1474711dd86752c13f9914cda706ae6f93"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/policies/round_robin_interleaver.hpp",
+      "bytes": 532,
+      "sha256": "40c8eaefd8d3fe4ae3faf4e272022814050ec00f121ccab832fe8a417e197e42"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/address_resolver.hpp",
+      "bytes": 2074,
+      "sha256": "08d72b5d7f23c5ac796b3456ea5945a6005698c84191bf8eaf201fd7b7639bce"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/admission_wait_registry.hpp",
+      "bytes": 3143,
+      "sha256": "ac5a49a0fe5b6b89c9a4579ce59a12e0632406947860d0c1f44e332ef35d6998"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/bank_cache.hpp",
+      "bytes": 2252,
+      "sha256": "96d4b294512fc5bc400e1b105a712b4b26b06f1580b26f252df51e38ebe61d2a"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/block_replacement.hpp",
+      "bytes": 2181,
+      "sha256": "0825c5fb876173cb1e3a10d5dcfc0be9ce833a3c1e5d44df4be6528189cf99be"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/block_write_order.hpp",
+      "bytes": 1865,
+      "sha256": "11e17ceec3ab5cc85b68a209cd246573f58619bf2958fcf2304a300594ea061b"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/capacity_retirement_coordinator.hpp",
+      "bytes": 3783,
+      "sha256": "8fcc6d7ced8b20a37b841fd2511282f7f21a03947782a4eab45387448c31f7aa"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/command_admission.hpp",
+      "bytes": 2730,
+      "sha256": "6810b99389bad57e973b17b45758cf3651260d4783e2d43803626caaf3ec82c4"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/device_driver.hpp",
+      "bytes": 7631,
+      "sha256": "3a5e20fd7ffdc51c46be54f4a1c2554514fa232e7340efc1479bce2b225c2724"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/device_runtime_state.hpp",
+      "bytes": 1293,
+      "sha256": "4522d02f2807bad7e5078378453862b38ad1b1627f879beab3ecb0b5ab663dc7"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/link_buffers.hpp",
+      "bytes": 3010,
+      "sha256": "2564847a5d16f58d6f0159b26560c01912b71e1644da10053ac5867f5f05dc16"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/logical_access_tracker.hpp",
+      "bytes": 1879,
+      "sha256": "e2a34e4f81e2cc4ff11610e9af0398b175f6518f82afabceaa6bf3a700c938de"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/nand_media_state.hpp",
+      "bytes": 1112,
+      "sha256": "8bdebb0317548bd73bb57da0838ac498c5f8e27ae2bfae16e8be9bfc8a52021c"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/operation_candidate.hpp",
+      "bytes": 626,
+      "sha256": "72835e2125f5167bbbdbc98242429a4f7782e41d27b602dd7140ee64ac8660f8"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/read_order_tracker.hpp",
+      "bytes": 1735,
+      "sha256": "4a6cdeae2c54fa2078ee7bfea52fd99c0412590af1a4f0accc6fb902089313d9"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/read_path.hpp",
+      "bytes": 4601,
+      "sha256": "e0ccc61a9675c8d074e026d8b6816ac61a89545a0cb371f3a8c9c01e5ab2f9ab"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/replay_state.hpp",
+      "bytes": 2702,
+      "sha256": "4d8d3cbc4ea75e9a8f3d14495a054117f32949f7be473551b4dd6ba77a015bf9"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/retired_hole_map.hpp",
+      "bytes": 1023,
+      "sha256": "c887591b0451603b13fd7844459f2416d90d8f4358b7967e2bb6e6aca516aaa8"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/simulation_runner.hpp",
+      "bytes": 1134,
+      "sha256": "6250a6caadaea23608da6b1c692547ee53a9ccd676c37bd3d9a525eca2333275"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/simulation_session.hpp",
+      "bytes": 4776,
+      "sha256": "23a1fbabb6f325c1fb2072761f00625f24fa7e105368d03822e08943be197f76"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/write_assembly.hpp",
+      "bytes": 3202,
+      "sha256": "fbc7bf19cf136ee148d242073334b0d418df24be94aad10a3a78095015e167df"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/write_path.hpp",
+      "bytes": 6107,
+      "sha256": "f86685c937bbb5863c73f300762b450aecb361b4885219e74a51b24191565575"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/runtime/zone_mapping.hpp",
+      "bytes": 3101,
+      "sha256": "b6c735d6ad4cec5a3ef4ff68909fffd634312cdad2fe45e54e1cf1b773db509e"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/statistics/collector.hpp",
+      "bytes": 7002,
+      "sha256": "cd7ac085bad3917a71f6a17efd7a9818a759279ecbd33d9a20f65ff5bda5b2b7"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/include/hbf_eventlab/statistics/event_stream.hpp",
+      "bytes": 1764,
+      "sha256": "6da42b70d13b56bce2ac8a78b2301981a27acb44969794567e1ba59e1ae0f3ab"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/adapters/tensor_access_bridge.cpp",
+      "bytes": 10437,
+      "sha256": "db1a414ea767458f272dd648cd2a5ef3f4ec91ced2bab69c27ca119aea17cbab"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/adapters/workload_reader.cpp",
+      "bytes": 3514,
+      "sha256": "a9dd944eb2b906e6d7b8f22c36289091c59f27e24338297eca45a1c4b7bc9b7a"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/architecture/device_description.cpp",
+      "bytes": 3458,
+      "sha256": "7809170a9ed6f4b812f613d60db5bcfcfd21bcb4d7a7c5fe88d7107e922b1aab"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/architecture/execution_configuration.cpp",
+      "bytes": 2972,
+      "sha256": "c51b70b829e1b182a6ccaa49fd88902abf909c79f3d582c78ee019acee03f4df"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/architecture/topology_configuration.cpp",
+      "bytes": 1272,
+      "sha256": "54dc2ea78496428617033d9d9cc20ea08daa01d48d86926c958f7d30bc7778fd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/architecture/ucie_profile.cpp",
+      "bytes": 416,
+      "sha256": "2558228a98f34c428876b2551e241db7fa5d537a6bc25ced1e4230cca1a8f5f8"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/configuration/simulation_configuration.cpp",
+      "bytes": 18822,
+      "sha256": "f378ed76a2386ad93485e2469740d4eb341be7c04218b79b4f7915a3b19afc33"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/diagnostics/runtime_profile.cpp",
+      "bytes": 4201,
+      "sha256": "0fb9900ef713ceb3411f2ea982ea88505ff1bc60b327ed2599a288c7410319f9"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/global_request_splitter.cpp",
+      "bytes": 1214,
+      "sha256": "f79981b363d2b424d6bea3f13c6a406e652b5d67b2ca60529fddd87e2b0031b0"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/host_configuration.cpp",
+      "bytes": 869,
+      "sha256": "913c019a8897ec3bd54a29818b39c2e105e33d075d96c1f22901f7596805a3e2"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/host_driver.cpp",
+      "bytes": 25245,
+      "sha256": "3c61119a1b2affb1fdb55b67347428e01ea6440a5b953b8d48a908c6387f428f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/host_indices.cpp",
+      "bytes": 2832,
+      "sha256": "bae0ffb851478818cae87b4b78f0696fe4532e23b7354eae9822cf731c4e6e7d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/host_input.cpp",
+      "bytes": 10951,
+      "sha256": "81506ce4943a7639b2918788761b4ad16fe31ffb5bc6edcfc74ad91b9f5581fd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/host_storage.cpp",
+      "bytes": 6143,
+      "sha256": "5e07bc24affb0fe389f5eee9d2c4a8e65d1a525ec85a5241c5fb9411ffb2f21f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/recovery_manager.cpp",
+      "bytes": 2302,
+      "sha256": "d000d997a33a63b860993eb3ef00b89cdd10b12103c1dd5d6fa16f02b9647a09"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/retention_store.cpp",
+      "bytes": 1642,
+      "sha256": "a7942837a6540b37d5f1b8e2c3ed4018899ec89c9357bb95f4c96ca829942dbd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/host/write_retry.cpp",
+      "bytes": 9346,
+      "sha256": "c90d5d0a90cc4e9169a29e3864ef62f194ca4e10f2e41aa8fc7953debc884ac0"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/infrastructure/event_queue.cpp",
+      "bytes": 4161,
+      "sha256": "dd7955ea631b4bc8938d3bf8a3072319b4ffdbe276ab84e14a5fbe3b594c8fd1"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/policies/read_dispatch.cpp",
+      "bytes": 3812,
+      "sha256": "5bc11aedac05e685dcd683040667bb74eca6f29e338e03aff90fa7427d10ede1"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/policies/reference_address_layout.cpp",
+      "bytes": 1854,
+      "sha256": "0136d75dbdf327257dbabe948df0749d63dcc8fdd4d0f8ea968ae24b57255a05"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/policies/round_robin_interleaver.cpp",
+      "bytes": 1086,
+      "sha256": "21b0129bd724afcf185d53c93274d23128ff0aba1edb3e6d94d4945adfed6e5f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/admission_wait_registry.cpp",
+      "bytes": 3169,
+      "sha256": "6465a82a709a70bc2fe30c3dc28497a894f931e5cf40f1cee81ae0a3049d326b"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/bank_cache.cpp",
+      "bytes": 4589,
+      "sha256": "cd8197a45b5e48262d4fedc9712906c822b324515c0cf0f51a6ff31bd9f61929"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/block_replacement.cpp",
+      "bytes": 4504,
+      "sha256": "2a24c2eb32faae88e49790d72a4e57ac74ceded1cf2210e7f3eace39f4c9f978"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/block_write_order.cpp",
+      "bytes": 3008,
+      "sha256": "f79a0f3fb4fb274759ae2768964faf704112f7650397a7085464caad6790481f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/capacity_retirement_coordinator.cpp",
+      "bytes": 16550,
+      "sha256": "f2da5c63e98cf540a7a7728a8c9084d2381da8f2a6dc1fa87587d3926f73025a"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/command_admission.cpp",
+      "bytes": 4250,
+      "sha256": "f3fc4a3ae4dc974d9060153b29cfdf5d6c9c46c0e01dc586cf4bc2207a41fc64"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/device_driver.cpp",
+      "bytes": 31133,
+      "sha256": "682b47af165d83b1e9e3ee6e87baaf46e34642c9485caff1e71e6f618deac40d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/nand_media_state.cpp",
+      "bytes": 2142,
+      "sha256": "c484ed634de686729e03a1c1963cd3097651105b9e3ad9724a1cc119b57cd87d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/read_path.cpp",
+      "bytes": 15206,
+      "sha256": "85fef95201eff00ad3285b4fb29b54623e017f867bf8879fd19b6a8fd1d3cd0a"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/simulation_runner.cpp",
+      "bytes": 2320,
+      "sha256": "870c7804b61b0ee3a3201398d15b1f7bf21f76cb53aa1bfcd1542b679bf01d7b"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/simulation_session.cpp",
+      "bytes": 9250,
+      "sha256": "443b329226e980bd763c7ba40db977c414aba2dfa71d4749e1ff0c4f8485e9e3"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/write_assembly.cpp",
+      "bytes": 7916,
+      "sha256": "26e53a18601935cf6f0d92f46c3dd6f11701a88a6d60a3d5bf21cda68ac70d8d"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/write_path.cpp",
+      "bytes": 18583,
+      "sha256": "3aaa64b2f24a37074885c9011d4ce31a498188bd8e395b38f85023f1bc6cc498"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/runtime/zone_mapping.cpp",
+      "bytes": 6836,
+      "sha256": "c104dcc46c4eab4b15527c1bdaf6fe58a7d931e1a77c94e5ebf4e4016b5356d0"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/statistics/collector.cpp",
+      "bytes": 15209,
+      "sha256": "6bf7ffbf620b5492a6b16f880e645ccabce54000b7371a94e9b76949141d0c09"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/statistics/event_stream.cpp",
+      "bytes": 7803,
+      "sha256": "13f107106496b557c1989aba22d15c7014e0e30bbb60f942af5b4c1fe9ea54e1"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/statistics/media.cpp",
+      "bytes": 2127,
+      "sha256": "6db9c833d96231dcbf2c0306d3348cb203b51ef8fa16c492234e0496c0f3e9fd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/statistics/pending.cpp",
+      "bytes": 12009,
+      "sha256": "5bced50c7044a963e224de2d7a0f346d39f6ee2a2e32765a04aa5d439c418e20"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_eventlab/src/statistics/reads.cpp",
+      "bytes": 4339,
+      "sha256": "68084a5c53b2a9d06bec2efb655401d73f6d8ffb04dab069fadaf2fc0fe55784"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/async_device.cuh",
+      "bytes": 9468,
+      "sha256": "edf548bc51fd741ff361857e9e8697fcc43ccd859462879530be9349da6539d4"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/async_module.hpp",
+      "bytes": 1258,
+      "sha256": "18ad4f9b7e8c811d731046ace4b272162f476dec6eaef0ef4c7619fa27b84ded"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/async_order.hpp",
+      "bytes": 3815,
+      "sha256": "79eb57f82869d21a4554605894131d1355ce31f0d942a1c7657db964547bd893"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/async_protocol.hpp",
+      "bytes": 1175,
+      "sha256": "6e8f92b5157f523f640c52a45b93da8803c5f749d03093e8f9298022d75df521"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/async_runtime.hpp",
+      "bytes": 4173,
+      "sha256": "caceb1c8388adca4901324a7eae2bc7c91bf3e358887ed90ea421161720ea247"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/backend.hpp",
+      "bytes": 5222,
+      "sha256": "d1e270c3b4fda07f4fc79a926d8580c2bf29b1af000b87bd55c1e83e205b80b5"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/capacity.hpp",
+      "bytes": 4279,
+      "sha256": "a0b9ea73adfd7db21732d2aeb374c23014ff0346be277bef806ec2a20e28bae7"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/capacity_gpu.hpp",
+      "bytes": 2382,
+      "sha256": "5fab20bbc6416ebf05eb302e4c98a727332e7af92d1f3ddb9eca96b09b039cdd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/device.cuh",
+      "bytes": 11891,
+      "sha256": "0ec82cd221c7aa863d02ae7a5c30f61f6e46314bd52b53b25c9d7beaee9a522a"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/environment.hpp",
+      "bytes": 1294,
+      "sha256": "928b391144c452b6d21632418de422ca06a61d847077320bc4e06b03861f95ef"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/frontier.hpp",
+      "bytes": 2319,
+      "sha256": "03c0fbc7c86abecbaaf65f9a7379fc5ccf797b719b129ae0e0500c3472a39eff"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/kv.hpp",
+      "bytes": 2431,
+      "sha256": "fd969dae9b87ba70e807badad0919c0f54616c2a3682b41692003c9ba6013e54"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/live_runtime.hpp",
+      "bytes": 2050,
+      "sha256": "58b0d99e4e8da6f90257acef572f3d676251c12c6897583b743ec1f2acdce7cb"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/module.hpp",
+      "bytes": 2268,
+      "sha256": "ef2b554fdca10c5420adeafa0d4151c200bb9a83ac42e3dcc364baeb8025ae97"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/platform.hpp",
+      "bytes": 1432,
+      "sha256": "cd3495aa9e773a35c6810532d62ceb54496f7d58c95e84d3878b5c740c98e09b"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/protocol.hpp",
+      "bytes": 2191,
+      "sha256": "f9e835215817fdb2b34517e4aba72a0b2e032c0694d9a61fd8462c6eddf5657f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/ptx.hpp",
+      "bytes": 989,
+      "sha256": "7b1b9c0a5182a2f77a92bfadfc4ac48ba00cb56ca377813b90b022b3f3527279"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/ptx_binding.hpp",
+      "bytes": 433,
+      "sha256": "60e185ccbeb86389a17244229b1550561043ad04b1e00e8cf947d0f7d87b4e06"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/readonly_access.hpp",
+      "bytes": 5286,
+      "sha256": "bdd0f28df71862cef1e939fae4043a5c28c24fb24c5123754d7f1e6c76b083bf"
+    },
+    {
+      "path": "experiments/readonly_f_compare/r3_include/hbflab/runtime.hpp",
+      "bytes": 1684,
+      "sha256": "556f70ad96dce79a3663916f1eb4c593d6deba3c95f5da4d6187d8a21829cd03"
+    },
+    {
+      "path": "experiments/readonly_f_compare/run_candidate.py",
+      "bytes": 5721,
+      "sha256": "a7583de7ee8ada17e69d0a4fd339f3769bb9073ebf750b27ed1a3f62a3c290fe"
+    },
+    {
+      "path": "experiments/readonly_f_compare/run_old.py",
+      "bytes": 1837,
+      "sha256": "441a6df826cca9bb9d6c5e158fd4121e05963c84d82196c145d3ff845e1be621"
+    },
+    {
+      "path": "experiments/readonly_f_compare/run_wall.py",
+      "bytes": 5680,
+      "sha256": "3640ddca1cd668d452479f0c553f8e5df98a1c4a3298804a2ad977f2e46d91d0"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/async_module.cpp",
+      "bytes": 12464,
+      "sha256": "13339fb8ec3f020383a47dd660316da2686749f6fd6f619c2129c6188836d5b6"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/async_ptx_helper.cu",
+      "bytes": 3461,
+      "sha256": "2dc5a277949d525bd8b8cf62ac5780464567dfb0473db77aa11e4ea0e7f8e512"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/async_runtime.cu",
+      "bytes": 31214,
+      "sha256": "d78057ec579114eb8599e66552fef19f83a8a4d50d430f1e7e228a58763723e6"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/backend.cpp",
+      "bytes": 22800,
+      "sha256": "d6d1188e3c384c794d2de0fad2058f67c796530fbec09d7202f081855f8a0d6f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/live_runtime.cpp",
+      "bytes": 8005,
+      "sha256": "4701cb9e300d5f52b27a83b59a186f98ab08cbcdfd72db4301069f8f8481e246"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/ptx.cpp",
+      "bytes": 22688,
+      "sha256": "fc711d9efd33362dba6ce6dcd227bd2de6a8185fbf53cf66a9a1cb49f5ac05b7"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime/sha256.cpp",
+      "bytes": 2510,
+      "sha256": "9be6ed827807d1df47a9eda83d0d5f69326c1be7144734fe7e3842a6879d48ae"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/async_device.cuh",
+      "bytes": 9468,
+      "sha256": "edf548bc51fd741ff361857e9e8697fcc43ccd859462879530be9349da6539d4"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/async_module.hpp",
+      "bytes": 1258,
+      "sha256": "18ad4f9b7e8c811d731046ace4b272162f476dec6eaef0ef4c7619fa27b84ded"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/async_order.hpp",
+      "bytes": 3815,
+      "sha256": "79eb57f82869d21a4554605894131d1355ce31f0d942a1c7657db964547bd893"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/async_protocol.hpp",
+      "bytes": 1175,
+      "sha256": "6e8f92b5157f523f640c52a45b93da8803c5f749d03093e8f9298022d75df521"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/async_runtime.hpp",
+      "bytes": 4223,
+      "sha256": "2635d8adfaea2dee7534d9631b96d7f5b9c5f6cb3c44f167062a3d23f78dbd80"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/backend.hpp",
+      "bytes": 5398,
+      "sha256": "3a75c70624e4b476e01273f617e23c9888380654810a6dd4f218bae0d4845686"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/capacity.hpp",
+      "bytes": 4279,
+      "sha256": "a0b9ea73adfd7db21732d2aeb374c23014ff0346be277bef806ec2a20e28bae7"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/capacity_gpu.hpp",
+      "bytes": 2382,
+      "sha256": "5fab20bbc6416ebf05eb302e4c98a727332e7af92d1f3ddb9eca96b09b039cdd"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/device.cuh",
+      "bytes": 11891,
+      "sha256": "0ec82cd221c7aa863d02ae7a5c30f61f6e46314bd52b53b25c9d7beaee9a522a"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/environment.hpp",
+      "bytes": 1294,
+      "sha256": "928b391144c452b6d21632418de422ca06a61d847077320bc4e06b03861f95ef"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/frontier.hpp",
+      "bytes": 2319,
+      "sha256": "03c0fbc7c86abecbaaf65f9a7379fc5ccf797b719b129ae0e0500c3472a39eff"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/injection.h",
+      "bytes": 589,
+      "sha256": "3891fc3463d4e716af28e3e1fdf0d0bd1393a4056f603fe5b2f172aaeec225bf"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/kv.hpp",
+      "bytes": 2431,
+      "sha256": "fd969dae9b87ba70e807badad0919c0f54616c2a3682b41692003c9ba6013e54"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/live_runtime.hpp",
+      "bytes": 2050,
+      "sha256": "58b0d99e4e8da6f90257acef572f3d676251c12c6897583b743ec1f2acdce7cb"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/module.hpp",
+      "bytes": 2268,
+      "sha256": "ef2b554fdca10c5420adeafa0d4151c200bb9a83ac42e3dcc364baeb8025ae97"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/platform.hpp",
+      "bytes": 1432,
+      "sha256": "cd3495aa9e773a35c6810532d62ceb54496f7d58c95e84d3878b5c740c98e09b"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/protocol.hpp",
+      "bytes": 2191,
+      "sha256": "f9e835215817fdb2b34517e4aba72a0b2e032c0694d9a61fd8462c6eddf5657f"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/ptx.hpp",
+      "bytes": 989,
+      "sha256": "7b1b9c0a5182a2f77a92bfadfc4ac48ba00cb56ca377813b90b022b3f3527279"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/ptx_binding.hpp",
+      "bytes": 433,
+      "sha256": "60e185ccbeb86389a17244229b1550561043ad04b1e00e8cf947d0f7d87b4e06"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/readonly_access.hpp",
+      "bytes": 5286,
+      "sha256": "bdd0f28df71862cef1e939fae4043a5c28c24fb24c5123754d7f1e6c76b083bf"
+    },
+    {
+      "path": "experiments/readonly_f_compare/runtime_include/hbflab/runtime.hpp",
+      "bytes": 1684,
+      "sha256": "556f70ad96dce79a3663916f1eb4c593d6deba3c95f5da4d6187d8a21829cd03"
+    },
+    {
+      "path": "experiments/readonly_f_compare/sim_audit.hpp",
+      "bytes": 4442,
+      "sha256": "7761d1bfb6dfae755dbfbf881730ca413008dc9b3afd312c1e94e63f63164869"
+    },
+    {
+      "path": "experiments/readonly_f_compare/write_report.py",
+      "bytes": 12806,
+      "sha256": "d3b3b97da1d86df9f9528561fe72343f4beebb803cb15dc6619d60ad917bfa96"
+    },
+    {
+      "path": "experiments/readonly_r2/CMakeLists.txt",
+      "bytes": 3186,
+      "sha256": "4dc6c23de7501b4ea13632a470da5befe04f7c61b481a204bca182db9724f397"
+    },
+    {
+      "path": "experiments/readonly_r2/README.md",
+      "bytes": 5419,
+      "sha256": "35b2eecd38a85217ab9d543f4cadbc7a4431aa089141941b6682cadf4d3953b9"
+    },
+    {
+      "path": "experiments/readonly_r2/down_contract.cpp",
+      "bytes": 1181,
+      "sha256": "d04cf4b80e85e57114ec8a563b3e62ef2ac59969c1d9dabf97ed1797b8df6796"
+    },
+    {
+      "path": "experiments/readonly_r2/down_explicit.cu",
+      "bytes": 226,
+      "sha256": "99cd11b07526aaa09c3309c352f0b3d2ab8940b84cb357b6a93dfb9b38eb9557"
+    },
+    {
+      "path": "experiments/readonly_r2/down_probe.cu",
+      "bytes": 63,
+      "sha256": "0f0233b40fff88ab8de7b26e659df4278f1252e98cb3875fcfb7bcd18c1fe2c7"
+    },
+    {
+      "path": "experiments/readonly_r2/down_runner.cpp",
+      "bytes": 15639,
+      "sha256": "7baa9b68e354c69bcf3975e9a283b8c1b4ae7fe2bf6b40bc2dd51e29e2fafbc2"
+    },
+    {
+      "path": "experiments/readonly_r2/down_timed.cu",
+      "bytes": 267,
+      "sha256": "ed7fd5a78e12fe6786053bac5662bb0fcf830910f143d51a2903548824bdb69c"
+    },
+    {
+      "path": "experiments/readonly_r2/norm_timed.cu",
+      "bytes": 271,
+      "sha256": "a7436192f497307582826837752d6279fe1e9662359fdc2bdae4f448f4e932c3"
+    },
+    {
+      "path": "experiments/readonly_r2/run.py",
+      "bytes": 8255,
+      "sha256": "f3d5ed274368579c0bef686b1516f8d3af14f71bb3e4e0526823b59fb2a2daa0"
+    },
+    {
+      "path": "experiments/readonly_r2/run_down.py",
+      "bytes": 9203,
+      "sha256": "0a6791606b2e5f04ed4ac4f584ddce356bafadc33cb52785f060c391ec09e8d9"
+    },
+    {
+      "path": "experiments/readonly_r2/runner.cpp",
+      "bytes": 13052,
+      "sha256": "c961905e0fd14750c09b472dc3b90e02a70f6561b77cd4115dc77d2ca2a87469"
+    },
+    {
+      "path": "experiments/readonly_r3/CMakeLists.txt",
+      "bytes": 3251,
+      "sha256": "e6f97cb10cfab33f7d579347025ab347c44cdfa26515c1c5691efb89b73092df"
+    },
+    {
+      "path": "experiments/readonly_r3/README.md",
+      "bytes": 3311,
+      "sha256": "cc651c23822bcf3db836fdd86be05b5a1d0bb6235931f966ffbdc1fec01a8895"
+    },
+    {
+      "path": "experiments/readonly_r3/adaptive_gpu.cu",
+      "bytes": 4501,
+      "sha256": "0edc678b2c82bbb8a1476bd474de6cf7a8e7a77c4f7357d6b1a0284932877527"
+    },
+    {
+      "path": "experiments/readonly_r3/kernels.cu",
+      "bytes": 3342,
+      "sha256": "3cbd7c09aac449ca1483af863ee464c50638e2745f88bff599bea35830c774e7"
+    },
+    {
+      "path": "experiments/readonly_r3/plan_ptx.hpp",
+      "bytes": 1082,
+      "sha256": "7a80d5888e861b64d799aedfad5d9c5a57752675cb5f558815313b760c23dd7f"
+    },
+    {
+      "path": "experiments/readonly_r3/policy_test.cpp",
+      "bytes": 1138,
+      "sha256": "1c20779a966172a41f359c4dc2e4af34946964c858460e8545b09b6782b9b880"
+    },
+    {
+      "path": "experiments/readonly_r3/run.py",
+      "bytes": 12849,
+      "sha256": "10b8ee2afc9262dd4a93cdbb5e1ce447773e034f830abdc5075b65a027b7af3c"
+    },
+    {
+      "path": "experiments/readonly_r3/runner.cpp",
+      "bytes": 14683,
+      "sha256": "698d70d7b1d73a887c879761ee96a79d2d8a571099b88d842252e7165308b7bb"
+    },
+    {
+      "path": "experiments/readonly_r3_model/CMakeLists.txt",
+      "bytes": 1356,
+      "sha256": "ccdbc5794105f6caecd3ba0808587d9d83fd5a1e104f44f6a0e91e4979490a19"
+    },
+    {
+      "path": "experiments/readonly_r3_model/README.md",
+      "bytes": 1771,
+      "sha256": "334932b0e066cb070211c5ac4a732f2209ab00bb89e5909c704758b804aeb6f4"
+    },
+    {
+      "path": "experiments/readonly_r3_model/capture.cpp",
+      "bytes": 3852,
+      "sha256": "12f65d5814bd0cdf16f7ecad2b485ac884f552e906468a306624eebe6c667941"
+    },
+    {
+      "path": "experiments/readonly_r3_model/replay.cpp",
+      "bytes": 14922,
+      "sha256": "bb0b92870ed7dc11475c1e2fb1d4e0f4724c1b79d6f474f555393982a7a37c73"
+    },
+    {
+      "path": "experiments/readonly_r3_model/run.py",
+      "bytes": 4238,
+      "sha256": "65879519764e25c31556e86b352ab626df7777cb491583eb1193a2fcaf09d12c"
+    },
+    {
+      "path": "f1-v2-validation.log",
+      "bytes": 1051,
+      "sha256": "72fe15e65bc3d1fcb9f1d288f897fb8ebf8840e4cddf0a158c63ef7903984234"
+    },
+    {
       "path": "include/hbflab/async_device.cuh",
       "bytes": 7032,
       "sha256": "98f53158e1ade6841289dc3277da7c8f66ed2a367c44b6c7a41d67ad1eb55b3a"
@@ -1828,8 +2833,8 @@
     },
     {
       "path": "include/hbflab/capacity_gpu.hpp",
-      "bytes": 1433,
-      "sha256": "ca8bd0951f8a450e0b63521c888786be5e08be8ab723e7c2c2168358aafb8de9"
+      "bytes": 2382,
+      "sha256": "5fab20bbc6416ebf05eb302e4c98a727332e7af92d1f3ddb9eca96b09b039cdd"
     },
     {
       "path": "include/hbflab/device.cuh",
@@ -1853,8 +2858,8 @@
     },
     {
       "path": "include/hbflab/kv.hpp",
-      "bytes": 2072,
-      "sha256": "ec1913d292e6859e916b6965e5169cd784cc5b8dc4d8b3f3825ef0e53012611d"
+      "bytes": 2431,
+      "sha256": "fd969dae9b87ba70e807badad0919c0f54616c2a3682b41692003c9ba6013e54"
     },
     {
       "path": "include/hbflab/live_runtime.hpp",
@@ -1887,6 +2892,11 @@
       "sha256": "60e185ccbeb86389a17244229b1550561043ad04b1e00e8cf947d0f7d87b4e06"
     },
     {
+      "path": "include/hbflab/readonly_access.hpp",
+      "bytes": 5286,
+      "sha256": "bdd0f28df71862cef1e939fae4043a5c28c24fb24c5123754d7f1e6c76b083bf"
+    },
+    {
       "path": "include/hbflab/runtime.hpp",
       "bytes": 1684,
       "sha256": "556f70ad96dce79a3663916f1eb4c593d6deba3c95f5da4d6187d8a21829cd03"
@@ -1897,6 +2907,41 @@
       "sha256": "ba7a2098911000e1fdbf9b4035aef34dc4d29ce95f6e91b7b2b53688cc7d86ba"
     },
     {
+      "path": "provenance/clean-validation/build-v2-reuse-validation.log",
+      "bytes": 1329,
+      "sha256": "edc6863acf1e2da75020f4abd81a0e29354f894020cbba107e69ccc35a8cccc4"
+    },
+    {
+      "path": "provenance/clean-validation/build-v2-validation.log",
+      "bytes": 3734475,
+      "sha256": "92802a42ded6771c9a57501014616d3a5c9f7e8f5fa09e93c35ab6989a3c6131"
+    },
+    {
+      "path": "provenance/clean-validation/ctest-v2-validation.log",
+      "bytes": 1439,
+      "sha256": "09b81911c065244e52a615e40ffded3facd001d0f912830119a3487fee54c9db"
+    },
+    {
+      "path": "provenance/clean-validation/f1-v2-validation-002.log",
+      "bytes": 1922,
+      "sha256": "052f3483d7315d504049c6a204feed8ef1a56e22946582f60693245ca3b78cb9"
+    },
+    {
+      "path": "provenance/clean-validation/f1-v2-validation.log",
+      "bytes": 1051,
+      "sha256": "72fe15e65bc3d1fcb9f1d288f897fb8ebf8840e4cddf0a158c63ef7903984234"
+    },
+    {
+      "path": "provenance/clean-validation/raw-f1-entry-validation.zip",
+      "bytes": 15100892,
+      "sha256": "f7695493d8608f514fa1d16735b31c67f0c3f05cffa1e90f4859011590becce1"
+    },
+    {
+      "path": "provenance/clean-validation/validation.json",
+      "bytes": 5993,
+      "sha256": "77e622f0d9b927a9c6dd25115d43e87223bc0f7844beee8be23eec89b4b28037"
+    },
+    {
       "path": "provenance/frozen-source-manifest-20261105.json",
       "bytes": 897111,
       "sha256": "49fc0d2f477ecd70fb7a574180f999736e785dc30e897eb2ca0e0df9c39b4596"
@@ -1905,6 +2950,16 @@
       "path": "provenance/historical-f-build-identity.json",
       "bytes": 660662,
       "sha256": "06438668bb32a45518b70421e7115e3ff99967659ebdb2bb6470c57da016eb8f"
+    },
+    {
+      "path": "provenance/historical-r2-release-identity.json",
+      "bytes": 994320,
+      "sha256": "4814c69043e4e6e111c80c83971ab5fe742be715adce335104ef442e9d65209a"
+    },
+    {
+      "path": "provenance/historical/readonly_f_compare-CMakeLists.txt",
+      "bytes": 2369,
+      "sha256": "ec7839da40077052ae70ef4f9bae63ee19b82645096268b5feb6c1018c46b518"
     },
     {
       "path": "provenance/recovered-source-check.json",
@@ -1920,6 +2975,26 @@
       "path": "provenance/v1-reproduction-validation.json",
       "bytes": 1906,
       "sha256": "780acc2b8e7159b5539f90f84be710bd71f753548a2938cd131365925e991584"
+    },
+    {
+      "path": "provenance/v2-added-source-origin.json",
+      "bytes": 55871,
+      "sha256": "95c3a4d73e671085ea66f2988f117d86170b4c07d2b66ba4a53ad85770dfc159"
+    },
+    {
+      "path": "provenance/v2-build-validation.json",
+      "bytes": 266,
+      "sha256": "256d1bcdb58629f82a218aff6f5f1c9f8f1de0e7a2d39bbf476c3dcb5d0cc045"
+    },
+    {
+      "path": "provenance/v2-clock-transform-validation.json",
+      "bytes": 510,
+      "sha256": "b11142ae347b7672189c4c0f5a9402f0eb017296f24acc6cf877f8f8ab9c22c5"
+    },
+    {
+      "path": "provenance/v2-r2-source-origin.json",
+      "bytes": 1364445,
+      "sha256": "76fa16d34293b83e3d67029bde175ba04392d999d208510ac90487852cdbc6fe"
     },
     {
       "path": "provenance/validation/bundle-negative-checks.json",
@@ -1957,6 +3032,31 @@
       "sha256": "ce0c2d44c792ff96ca7db6e15277a89f99965ca22aa1af3253c987dd14558841"
     },
     {
+      "path": "provenance/validation/v2-offline-clean/F1-paired-tokens.csv",
+      "bytes": 652,
+      "sha256": "2a49723859b1705e54213858456606cf61bcf9216198df71372f38aeba4f4f6e"
+    },
+    {
+      "path": "provenance/validation/v2-offline-clean/F2-paired-tokens.csv",
+      "bytes": 665,
+      "sha256": "78e13ad9333362489fb7918efc690a64f890e9a24f16c8e3c8eb948b8a485d3c"
+    },
+    {
+      "path": "provenance/validation/v2-offline-clean/F3-paired-tokens.csv",
+      "bytes": 683,
+      "sha256": "bb8e1b1d0c9ba6dfebac7cf71d7265f15a7bec55c5d676a3e89db2f4964250c6"
+    },
+    {
+      "path": "provenance/validation/v2-offline-clean/V2-comparison-recomputed.json",
+      "bytes": 6196,
+      "sha256": "33de3709c77fc67e2c82f7885ac5b306edae5c2c804846642b59afd1ee1dcf93"
+    },
+    {
+      "path": "provenance/validation/v2-offline-clean/acceptance.json",
+      "bytes": 11539,
+      "sha256": "084cbe74a8f2eacdf9f2799caf96f7f1b35ac92d22b9794b4e8888ead5c721aa"
+    },
+    {
       "path": "provenance/validation/verify-checkout-review.json",
       "bytes": 337,
       "sha256": "f00c8f42639b2aa6cd861720b8b045ee87f68e91a292335cd4c3777abd874b75"
@@ -1965,6 +3065,36 @@
       "path": "release-manifest.json",
       "bytes": 964746,
       "sha256": "ae29e9f49797dd2c0c5e69e9d4714aff39d65a6be901642e3b32ab2f026994d5"
+    },
+    {
+      "path": "reproduce/build-v2.ps1",
+      "bytes": 1805,
+      "sha256": "e6f4df6b24a63bfda399bc430d17cd6ed7c35ddbff594bd1ed2a6e7c4fc7dbe4"
+    },
+    {
+      "path": "reproduce/inputs/H0-512MiB.ini",
+      "bytes": 2389,
+      "sha256": "30a65740f9af690b204eabcb33c9f9b2cb4baf6db12a9914a70295f4739c45fe"
+    },
+    {
+      "path": "reproduce/inputs/historical-native.json",
+      "bytes": 806,
+      "sha256": "920d33433f9e694145f66779056ff6d53165733118cbc469cca1a79e564023ee"
+    },
+    {
+      "path": "reproduce/inputs/original-prompt.txt",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "path": "reproduce/run-v2.py",
+      "bytes": 10787,
+      "sha256": "5d1ebb1f0f04e66cc18b05e1a30714c717bb385dd5d9f54c0d9f25ee03c841f1"
+    },
+    {
+      "path": "reproduce/verify-v2-source.py",
+      "bytes": 1876,
+      "sha256": "9f6f0692e204716a4bf4a67b2b425c0c3caae0d1bd9449c2d9c80dbe346f0a6e"
     },
     {
       "path": "reproduction/build.ps1",
@@ -1988,8 +3118,13 @@
     },
     {
       "path": "reproduction/evidence_validators/origin.json",
-      "bytes": 818,
-      "sha256": "6e92c1577fb22e813351fe4f5749e1d0f46e1adccb0fe995fe586112d6eb7877"
+      "bytes": 1242,
+      "sha256": "6656ab3615113841ac2c76458c0ed6da1d31d844c78d4a221d11d774a2bb201e"
+    },
+    {
+      "path": "reproduction/evidence_validators/readonly_compare_analyze.py",
+      "bytes": 8146,
+      "sha256": "c8faf06e854f9fa6eb3786d66a046d377aad24e6a0a11e423138a7035960b4d8"
     },
     {
       "path": "reproduction/prepare_model.py",
@@ -2053,8 +3188,8 @@
     },
     {
       "path": "src/capacity_gpu.cpp",
-      "bytes": 7449,
-      "sha256": "4bfce624b238bd3991c838c346aff7c5f11b3298e75f7e7775c02466a6332b5f"
+      "bytes": 10745,
+      "sha256": "45dff29501c23d10244091c291b772a502433989f131de7da8094aeff61afe53"
     },
     {
       "path": "src/environment.cpp",
@@ -2078,8 +3213,8 @@
     },
     {
       "path": "src/kv.cpp",
-      "bytes": 10379,
-      "sha256": "d6f5f50d145693456f8dcb460634918715ff59c8ff48d8ec7e70e27cb37cdbc9"
+      "bytes": 11517,
+      "sha256": "5d39c874a2be772721268a380cdd677a1941fe781a25045a241051464e78a3e9"
     },
     {
       "path": "src/live_runtime.cpp",
@@ -2240,6 +3375,11 @@
       "path": "tests/ptx_gpu.cpp",
       "bytes": 13907,
       "sha256": "46c659d2b0db2955a5b8267a1d0ee46761dc72c8ceb08c1a42cc15675eeeaf8f"
+    },
+    {
+      "path": "tests/readonly_access.cpp",
+      "bytes": 6287,
+      "sha256": "25bfd545265bef9037d057542eae138f464a47ee2d12babcec4c12d99a8f8833"
     },
     {
       "path": "tests/shared_backend.cpp",
@@ -22988,8 +24128,18 @@
     },
     {
       "path": "tools/run_llama_integrated.py",
-      "bytes": 14702,
-      "sha256": "fec01f8d26a5aa948939b98bf35ced88d717bc38015ef7d53ac509c6cc4d72ba"
+      "bytes": 15985,
+      "sha256": "e649741a9155a79a1ae28c7b0b85ef74bfa31bea5b46e545adb62a22f1e9582c"
+    },
+    {
+      "path": "tools/run_readonly_r1.py",
+      "bytes": 5845,
+      "sha256": "b3cf621d957a40c96685d916f6bbb83cf07bf42719d701023590f49bdab646b7"
+    },
+    {
+      "path": "tools/run_readonly_r2_model.py",
+      "bytes": 3876,
+      "sha256": "aca4bb2ee86f4f2f6a0d3d0ca9134b622896816615289b9635741aaa151adaf7"
     },
     {
       "path": "tools/setup_llama_baseline.py",
@@ -23002,6 +24152,6 @@
       "sha256": "b2cb949dcc6bde153699a83884d6c27abe9db9868c074b6e2a439cd1eeb1cf20"
     }
   ],
-  "file_count": 4599,
-  "total_bytes": 423323352
+  "file_count": 4829,
+  "total_bytes": 626110573
 }

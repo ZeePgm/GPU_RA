@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "compile_command_source_records": 345,
+  "source_paths_outside_restored_tree": [],
+  "old_build_import_paths_found": false,
+  "first_build_targets": 345,
+  "reentrant_build": "ninja: no work to do",
+  "ctest_registered_passed": 11
+}

@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "scale": "F1",
+      "action_count": 110608,
+      "regions": 3,
+      "matches_historical_actions_and_active_region_fields": true,
+      "batch_marker_time_checks": true,
+      "gpu_active_time_conservation": true
+    },
+    {
+      "scale": "F2",
+      "action_count": 442384,
+      "regions": 12,
+      "matches_historical_actions_and_active_region_fields": true,
+      "batch_marker_time_checks": true,
+      "gpu_active_time_conservation": true
+    }
+  ]
+}

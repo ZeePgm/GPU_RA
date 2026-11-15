@@ -1,0 +1,179 @@
+{
+  "status": "pass",
+  "date": "2026-11-15",
+  "timezone": "Asia/Shanghai",
+  "scope": "Fresh source build and full F1 44-input/8-output entry validation; not a new statistical performance campaign",
+  "source_verification": {
+    "model_records": 4225,
+    "R3_comparison_and_history_records": 198,
+    "matched": 4423
+  },
+  "build_validation": {
+    "status": "pass",
+    "compile_command_source_records": 345,
+    "source_paths_outside_restored_tree": [],
+    "old_build_import_paths_found": false,
+    "first_build_targets": 345,
+    "reentrant_build": "ninja: no work to do",
+    "ctest_registered_passed": 11
+  },
+  "gpu_tests": {
+    "registered": 11,
+    "passed": 11,
+    "includes": "10 adaptive GPU boundary/range/drain tests; uniform PTX 4 positive and 20 invalid templates"
+  },
+  "model_entry": {
+    "status": "pass",
+    "model_sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+    "prompt_sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74",
+    "candidate_sha256": "371f0962ab1c9cee309af6d4b91a287710bff0ff602d3335ecaff2f1a291bac7",
+    "outputs": 8,
+    "scope": "historical 44/8 contract",
+    "kv": "native F16; paging and later KV optimizations disabled",
+    "runs": [
+      {
+        "scale": "F1",
+        "mode": "native",
+        "process_wall_s": 1.5029832999571227,
+        "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+        "requests": 0,
+        "covered_bytes": 0
+      },
+      {
+        "scale": "F1",
+        "mode": "capture",
+        "process_wall_s": 3.9074016000377014,
+        "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+        "requests": 0,
+        "covered_bytes": 150994944,
+        "clock": "F1-clock.json",
+        "clock_wall_s": 65.44907749997219
+      },
+      {
+        "scale": "F1",
+        "mode": "live",
+        "process_wall_s": 50.05132579995552,
+        "logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+        "requests": 294912,
+        "covered_bytes": 150994944
+      }
+    ],
+    "build_binary_sha256": {
+      "f_candidate.exe": "371f0962ab1c9cee309af6d4b91a287710bff0ff602d3335ecaff2f1a291bac7",
+      "ggml-base.dll": "aecedc8c8e2876758bf451826b33644e7e2939534570270f661b41018bcb98f2",
+      "ggml-cpu.dll": "653a9fdb274eb73c58504ae99d4b3d7f512674f3c4fcb9b102b372cfcdb99e23",
+      "ggml-cuda.dll": "22ea3f4ae4c11933a4588d4464ce4a7a868cacc21f1620a3995c328c1e240909",
+      "ggml.dll": "7a7b8b7938d474735520a858c9fb75e89a9f63bde6af2b5f8c00c60b31432587",
+      "llama.dll": "e1dc71a8c6210618b496d7940bd31e7d5342081c0f534b6d62adebb197f50933",
+      "f_clock.exe": "b2f3b7bf1b61216eecf2b7cfe596d99b89c0d41e31bb51b0f5b8b89ffb30cf67"
+    }
+  },
+  "live_acceptance": {
+    "dependency_checks": 9437184,
+    "requests": 294912,
+    "covered_bytes": 150994944,
+    "drained": true,
+    "outputs": 8
+  },
+  "clock_acceptance": {
+    "status": "pass",
+    "tokens": [
+      {
+        "step": 0,
+        "ps": 21293040976,
+        "compute_ps": 20292082000,
+        "wait_ps": 1000958976
+      },
+      {
+        "step": 1,
+        "ps": 39941670952,
+        "compute_ps": 37939753000,
+        "wait_ps": 2001917952
+      },
+      {
+        "step": 2,
+        "ps": 58584011928,
+        "compute_ps": 55581135000,
+        "wait_ps": 3002876928
+      },
+      {
+        "step": 3,
+        "ps": 77245989904,
+        "compute_ps": 73242154000,
+        "wait_ps": 4003835904
+      },
+      {
+        "step": 4,
+        "ps": 95912318880,
+        "compute_ps": 90907524000,
+        "wait_ps": 5004794880
+      },
+      {
+        "step": 5,
+        "ps": 114736440856,
+        "compute_ps": 108730687000,
+        "wait_ps": 6005753856
+      },
+      {
+        "step": 6,
+        "ps": 133381864832,
+        "compute_ps": 126375152000,
+        "wait_ps": 7006712832
+      },
+      {
+        "step": 7,
+        "ps": 152132906808,
+        "compute_ps": 144125235000,
+        "wait_ps": 8007671808
+      }
+    ],
+    "compute_ps": 144125235000,
+    "wait_ps": 8007671808,
+    "bytes": 150994944,
+    "client_parents": 294912,
+    "read_fragments": 2359296,
+    "events": 39564860,
+    "run_wall_s": 65.2618053
+  },
+  "initial_loader_failure": {
+    "path": "output/f1-clean-001",
+    "exit_code": 3221225781,
+    "stage": "DLL loading before model execution",
+    "reason": "CUPTI DLL is in CUDA/lib; new wrapper initially included only CUDA/bin directories",
+    "resolution": "Portable runtime search now includes CUDA lib/lib64 and extras/CUPTI variants; separate fresh output directory used; original C++ binaries and thresholds unchanged"
+  },
+  "fresh_F2_executed": false,
+  "historical_F2": {
+    "evidence_replay": "separate historical data validator",
+    "clock_transform_actions": 442384,
+    "clock_transform_matches_historical": true
+  },
+  "raw_archive": {
+    "path": "provenance/clean-validation/raw-f1-entry-validation.zip",
+    "bytes": 15100892,
+    "sha256": "f7695493d8608f514fa1d16735b31c67f0c3f05cffa1e90f4859011590becce1",
+    "files": 24
+  },
+  "delivery_wiring": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "138b7d7faaaefb426c159c2024ce27ed13e9fb3586fdb4fd0a0a66f673017c89"
+    },
+    {
+      "path": "experiments/readonly_f_compare/CMakeLists.txt",
+      "sha256": "dd18f2118e39025a08502c00afdbcc3d802bd396e9f9721e80753c670be282c6"
+    },
+    {
+      "path": "reproduce/build-v2.ps1",
+      "sha256": "e6f4df6b24a63bfda399bc430d17cd6ed7c35ddbff594bd1ed2a6e7c4fc7dbe4"
+    },
+    {
+      "path": "reproduce/run-v2.py",
+      "sha256": "5d1ebb1f0f04e66cc18b05e1a30714c717bb385dd5d9f54c0d9f25ee03c841f1"
+    },
+    {
+      "path": "reproduce/verify-v2-source.py",
+      "sha256": "9f6f0692e204716a4bf4a67b2b425c0c3caae0d1bd9449c2d9c80dbe346f0a6e"
+    }
+  ]
+}

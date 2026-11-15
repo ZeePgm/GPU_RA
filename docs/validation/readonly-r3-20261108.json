@@ -1,0 +1,59 @@
+{
+  "experiment": "R3",
+  "date": "2026-11-08",
+  "status": "pass_declared_adapter_scope",
+  "functional": "pass",
+  "mechanism": "pass",
+  "performance": "pass_aligned_primary_conditions",
+  "coverage_scope": "actual GGUF norm/down complete tensors and declared layers, GPU mirror plus native CUDA consumers; token-batch holdout; no end-to-end llama integration or TTFT/TPOT claim",
+  "qualification_sessions": 112,
+  "negative_sessions": 8,
+  "ctest_passed": 28,
+  "full_tensor_path_runs": 32,
+  "declared_tensors": 8,
+  "declared_unique_bytes": 35013120,
+  "hybrid_holdout_runs": 4,
+  "performance_process_pairs": 160,
+  "primary_conditions": [
+    {
+      "route": "ptx",
+      "case": "aligned",
+      "pairs": 32,
+      "scalar_median_ns": 10914783.333333332,
+      "merged_median_ns": 329633.3333333334,
+      "paired_median_difference_ns": 10592983.333333334,
+      "median_interval_ns": [
+        10446333.333333332,
+        10965933.333333334
+      ],
+      "positive_pairs": 32,
+      "primary": true,
+      "gain_established": true
+    },
+    {
+      "route": "cuda",
+      "case": "aligned",
+      "pairs": 32,
+      "scalar_median_ns": 11119350.0,
+      "merged_median_ns": 319983.3333333333,
+      "paired_median_difference_ns": 10765283.333333332,
+      "median_interval_ns": [
+        10439633.333333334,
+        11200966.666666668
+      ],
+      "positive_pairs": 32,
+      "primary": true,
+      "gain_established": true
+    }
+  ],
+  "evidence": "output/r3-20261107",
+  "full_matrix_parent_requests": 4513412,
+  "context_holdout_runs": 24,
+  "context_holdout_lengths": [
+    31,
+    32,
+    33
+  ],
+  "context_holdout": "pass: native llama prefill/decode activations replayed through complete tensor adapter; no integrated end-to-end HBF claim",
+  "context_evidence": "output/r3-context-v2-20261108/result.json"
+}

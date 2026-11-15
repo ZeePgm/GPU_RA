@@ -13,7 +13,7 @@ void check(cudaError_t e){if(e!=cudaSuccess)throw std::runtime_error(cudaGetErro
 void driver(CUresult r){if(r!=CUDA_SUCCESS)throw std::runtime_error("capacity CUDA context/stream error");}
 }
 struct CapacityGpu::Impl {
-    struct Held {PageLease host;PageInfo info;cudaStream_t stream;};
+    struct Held {PageLease host;PageInfo info;cudaStream_t stream;bool mirror_current;};
     CapacityStore store;
     unsigned char* device=nullptr;
     CUcontext context=nullptr;
@@ -68,6 +68,13 @@ CapacityGpu::CapacityGpu(CapacityOptions o,CapacityMedia* media):impl_(std::make
 CapacityGpu::~CapacityGpu()=default;
 CapacityStore& CapacityGpu::store(){impl_->current();return impl_->store;}
 GpuPageLease CapacityGpu::acquire(Allocation a,std::size_t page,PageAccess access,cudaStream_t stream) {
+    return acquire_impl(a,page,access,stream,false);
+}
+GpuPageLease CapacityGpu::acquire_read_device(Allocation a,std::size_t page,const void* source,cudaStream_t stream) {
+    if(!source)throw std::invalid_argument("null GPU read replica");
+    return acquire_impl(a,page,PageAccess::Read,stream,false,source);
+}
+GpuPageLease CapacityGpu::acquire_impl(Allocation a,std::size_t page,PageAccess access,cudaStream_t stream,bool overwrite,const void* read_source) {
     auto& s=*impl_;s.current();
     CUcontext context=s.context;
     if(stream)driver(cuStreamGetCtx(reinterpret_cast<CUstream>(stream),&context));
@@ -78,8 +85,20 @@ GpuPageLease CapacityGpu::acquire(Allocation a,std::size_t page,PageAccess acces
     const auto start=Clock::now();const auto before=s.store.model_time_ps();
     const auto host=s.store.pin(a,page,access);const auto info=s.store.info(host);
     try {
-        s.upload(host,info,stream);
-        s.pace(start,before);const auto id=s.serial=hbf_eventlab::checked_add(s.serial,1);s.held.emplace(id,Impl::Held{host,info,stream});return {s.identity,id};
+        auto& mirror=s.mirrors[info.frame];
+        bool current=mirror.generation==info.generation && mirror.revision==info.revision;
+        if(overwrite) ++s.stats.overwrite_uploads_skipped;
+        else if(read_source && !current) {
+            const auto copy_start=Clock::now();
+            check(cudaMemcpyAsync(s.device+info.frame*4096,read_source,info.bytes,cudaMemcpyDeviceToDevice,stream));
+            if(info.bytes<4096)check(cudaMemsetAsync(s.device+info.frame*4096+info.bytes,0,4096-info.bytes,stream));
+            check(cudaStreamSynchronize(stream));
+            s.stats.copy_wall_ns+=std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now()-copy_start).count();
+            s.stats.read_source_d2d_bytes+=info.bytes;++s.stats.read_source_fills;
+            mirror={info.generation,info.revision};current=true;
+        }
+        else s.upload(host,info,stream);
+        s.pace(start,before);const auto id=s.serial=hbf_eventlab::checked_add(s.serial,1);s.held.emplace(id,Impl::Held{host,info,stream,current || !overwrite});return {s.identity,id};
     } catch(...) {cudaStreamSynchronize(stream);s.store.unpin(host);s.poisoned=true;s.store.abort();throw;}
 }
 const void* CapacityGpu::data(GpuPageLease l) const {auto& s=*impl_;return s.device+s.get(l).info.frame*4096;}
@@ -89,20 +108,58 @@ void* CapacityGpu::writable_data(GpuPageLease l) const {
 }
 std::size_t CapacityGpu::bytes(GpuPageLease l) const {return impl_->get(l).info.bytes;}
 void CapacityGpu::finish(GpuPageLease l) {
+    finish_range(l,0,impl_->get(l).info.bytes);
+}
+void CapacityGpu::finish_range(GpuPageLease l,std::size_t offset,std::size_t bytes) {
     auto& s=*impl_;const auto h=s.get(l);
+    if(offset>h.info.bytes || bytes>h.info.bytes-offset)throw std::invalid_argument("GPU finish range");
     try {
         check(cudaStreamSynchronize(h.stream));
         if(h.info.access==PageAccess::Write) {
             std::array<unsigned char,4096> staging{};
             const auto copy_start=Clock::now();
-            check(cudaMemcpy(staging.data(),s.device+h.info.frame*4096,h.info.bytes,cudaMemcpyDeviceToHost));
+            check(cudaMemcpy(staging.data(),s.device+h.info.frame*4096+offset,bytes,cudaMemcpyDeviceToHost));
             s.stats.copy_wall_ns+=std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now()-copy_start).count();
-            ++s.stats.downloads;s.stats.d2h_bytes+=h.info.bytes;
-            s.store.write_pinned(h.host,0,staging.data(),h.info.bytes);
-            const auto latest=s.store.info(h.host);s.mirrors[h.info.frame]={latest.generation,latest.revision};
+            ++s.stats.downloads;s.stats.d2h_bytes+=bytes;
+            s.store.write_pinned(h.host,offset,staging.data(),bytes);
+            const auto latest=s.store.info(h.host);
+            if(h.mirror_current || (offset==0 && bytes==h.info.bytes))s.mirrors[h.info.frame]={latest.generation,latest.revision};
+            else s.mirrors[h.info.frame]={};
         }
         s.store.unpin(h.host);s.held.erase(l.value);
     } catch(...){s.poisoned=true;s.store.abort();throw;}
+}
+void CapacityGpu::write_device(Allocation allocation, std::size_t offset, const void* source,
+                               std::size_t bytes, cudaStream_t stream) {
+    auto& s = *impl_;
+    s.current();
+    const auto size = s.store.size(allocation);
+    if ((!source && bytes) || offset > size || bytes > size - offset)
+        throw std::invalid_argument("GPU write source/range");
+    for (std::size_t at = 0; at < bytes;) {
+        const auto position = offset + at;
+        const auto page = position / 4096;
+        const auto within = position % 4096;
+        const auto valid = (std::min)(std::size_t{4096}, size - page * 4096);
+        const auto count = (std::min)(bytes - at, valid - within);
+        const auto lease = acquire_impl(allocation,page,PageAccess::Write,stream,true);
+        try {
+            check(cudaMemcpyAsync(static_cast<unsigned char*>(writable_data(lease)) + within,
+                                  static_cast<const unsigned char*>(source) + at,count,cudaMemcpyDeviceToDevice,stream));
+            s.stats.d2d_bytes += count;
+            finish_range(lease,within,count);
+        } catch (...) {
+            cudaStreamSynchronize(stream);
+            // Failure is terminal; release the borrowed page without publishing
+            // a partially copied GPU value to the host authority.
+            auto held = s.held.find(lease.value);
+            if (held != s.held.end()) { s.store.unpin(held->second.host); s.held.erase(held); }
+            s.poisoned = true;
+            s.store.abort();
+            throw;
+        }
+        at += count;
+    }
 }
 void CapacityGpu::flush(){auto& s=*impl_;s.current();const auto start=Clock::now();const auto before=s.store.model_time_ps();s.store.flush_all();s.pace(start,before);}
 std::size_t CapacityGpu::prefetch(Allocation a,std::size_t first,std::size_t count){

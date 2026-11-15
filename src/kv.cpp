@@ -136,6 +136,27 @@ void KvCache::write_layer(KvAppend h,std::size_t layer,const void* keys,const vo
         q.ready[layer]=true;
     }catch(...){s.failed=true;throw;}
 }
+void KvCache::write_layer_with(KvAppend h, std::size_t layer, std::size_t bytes, const LayerWriter& writer) {
+    auto& s = *impl_;
+    auto& q = s.transaction(h);
+    if (layer >= s.options.layers || q.ready[layer] || !writer || bytes != q.pending * s.row)
+        throw std::invalid_argument("invalid or duplicate KV layer writer");
+    s.unpinned(q);
+    if (s.store.statistics().pins) throw CapacityBusy("KV layer write requires idle frame pool");
+    try {
+        for (std::size_t i = 0; i < q.pending;) {
+            const auto token = q.length + i;
+            const auto& pair = q.blocks[token / s.options.tokens_per_block][layer];
+            const auto count = (std::min)(q.pending - i, s.options.tokens_per_block - token % s.options.tokens_per_block);
+            const auto offset = token % s.options.tokens_per_block * s.row;
+            writer(KvKind::Key, {pair.key, offset, count * s.row}, i * s.row);
+            writer(KvKind::Value, {pair.value, offset, count * s.row}, i * s.row);
+            i += count;
+        }
+        s.unpinned(q);
+        q.ready[layer] = true;
+    } catch (...) { s.failed = true; throw; }
+}
 KvSlice KvCache::locate_layer(KvAppend h,std::size_t layer,std::size_t token,KvKind kind) const {
     auto& s=*impl_;const auto& q=s.transaction(h);
     if(layer>=s.options.layers || token>=q.length+(q.ready[layer]?q.pending:0) ||

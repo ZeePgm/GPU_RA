@@ -79,7 +79,21 @@ def validate(out):
         require(kv['allocated_pages']==allocated and kv['frame_bytes']==p['frames']*4096 and kv['native_gpu_kv_bytes']==0,'finite frames/allocations')
         require(allocated>p['frames'] and kv['evictions']>0 and kv['writebacks']>0 and kv['faults']>allocated,'missing eviction/writeback/reread')
         require(kv['dirty_frames']==kv['pins']==0 and all(v==0 for v in released.values()),'resource leak')
-        require(kv['kv_commit_d2h_bytes']==layers*length*p['row_bytes']*2,'KV copy count')
+        expected_kv_bytes=layers*length*p['row_bytes']*2
+        write_mode=kv.get('kv_write_mode','host')
+        require(write_mode in ('host','device'),'unknown KV write mode')
+        if write_mode=='host':
+            require(kv['kv_commit_d2h_bytes']==expected_kv_bytes,'KV copy count')
+        else:
+            require(kv['kv_commit_d2h_bytes']==0 and kv['capacity_d2d_bytes']==expected_kv_bytes,'KV GPU write count')
+        if kv.get('kv_transfer_version')==2:
+            require(kv['packed_buffer_bytes']==2*p['ubatch']*p['row_bytes'],'packed buffer budget')
+            require(kv['kv_reuse_packed'] in ('0','1'),'packed reuse setting')
+            require(kv['capacity_d2h_bytes']==(expected_kv_bytes if write_mode=='device' else 0),'exact range collection count')
+            require(0<=kv['read_source_d2d_bytes']<=kv['read_source_fills']*4096,'read replica ledger')
+            require((kv['read_source_fills']==0)==(kv['read_source_d2d_bytes']==0),'read replica fill count')
+            if write_mode=='host' or kv['kv_reuse_packed']=='0':
+                require(kv['read_source_d2d_bytes']==kv['read_source_fills']==0,'unexpected GPU replica use')
         calls=rows(folder/'kv-attention.jsonl');require(len(calls)==layers*len(tx),'layer coverage')
         total_pairs=0;total_split=0
         for i,c in enumerate(calls):
@@ -118,7 +132,11 @@ def validate(out):
     init=read(folder/'hbf-initialization.json');programs=p['logical_pages']+logical_base//4096
     require(init['programs']==programs and backend['accepted']==programs+backend['sectors']+backend['replayed_pages'],'unified command accounting')
     module=read(folder/'ptx-module.json');ptx=rows(folder/'ptx-calls.jsonl');ps=read(folder/'ptx-summary.json')
-    require(module['frontend']==4 and module['protocol']==1 and module['source_sha256']==sha(folder/'weight_mul.ptx') and module['rewritten_sha256']==sha(folder/'weight_mul.rewritten.ptx'),'PTX identities')
+    norm_strategy=module.get('strategy','ptx_scalar')
+    if norm_strategy=='ptx_scalar':
+        require(module['frontend']==4 and module['protocol']==1 and module['source_sha256']==sha(folder/'weight_mul.ptx') and module['rewritten_sha256']==sha(folder/'weight_mul.rewritten.ptx'),'PTX identities')
+    else:
+        require(norm_strategy=='cuda_scalar' and module['kernel']=='m6_weight_mul_explicit' and module['launch_shape']==[2,128] and module['source_sha256']==sha(folder/'weight_mul.ptx'),'explicit norm identities')
     require(len(ptx)==ps['rows']==length and ps['modeled_requests']==length*hidden,'PTX rows')
     launches={}
     for t in host:launches.setdefault(t['launch'],[]).append(t)
@@ -141,7 +159,7 @@ def validate(out):
     require(sum('m6_weight_mul' in k['name'] for k in kernels)==length,'actual PTX kernels')
     result={'status':'pass','model_id':p['model_id'],'architecture':p['architecture'],'profile_sha256':identity,'tokens':count,'prompt_tokens':prompt,
             'numerical_contract':p['numerical'],'comparisons':reports,'paged_bypass_modeled_logits_bitwise_equal':True,
-            'ptx_weight_requests':length*hidden,'helper_weight_requests':len(device),'media_reads':reads,'media_writes':writes,
+            'norm_strategy':norm_strategy,'norm_weight_requests':length*hidden,'ptx_weight_requests':length*hidden,'helper_weight_requests':len(device),'media_reads':reads,'media_writes':writes,
             'shared_arrival_clock_billing_verified':True,'backend':backend,'scope':p['coverage']}
     write(out/'validation.json',result);return result
 

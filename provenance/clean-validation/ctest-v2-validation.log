@@ -1,0 +1,28 @@
+Internal ctest changing into directory: E:/v1_update/repository-prep/GPU_RA/v2-staging/build-v2
+Test project E:/v1_update/repository-prep/GPU_RA/v2-staging/build-v2
+      Start  1: v2_adaptive_u8
+ 1/11 Test  #1: v2_adaptive_u8 ...................   Passed    0.15 sec
+      Start  2: v2_adaptive_u16
+ 2/11 Test  #2: v2_adaptive_u16 ..................   Passed    0.10 sec
+      Start  3: v2_adaptive_u32
+ 3/11 Test  #3: v2_adaptive_u32 ..................   Passed    0.09 sec
+      Start  4: v2_adaptive_u64
+ 4/11 Test  #4: v2_adaptive_u64 ..................   Passed    0.10 sec
+      Start  5: v2_adaptive_u128
+ 5/11 Test  #5: v2_adaptive_u128 .................   Passed    0.09 sec
+      Start  6: v2_adaptive_partial
+ 6/11 Test  #6: v2_adaptive_partial ..............   Passed    0.09 sec
+      Start  7: v2_adaptive_sparse
+ 7/11 Test  #7: v2_adaptive_sparse ...............   Passed    0.10 sec
+      Start  8: v2_adaptive_layout
+ 8/11 Test  #8: v2_adaptive_layout ...............   Passed    0.10 sec
+      Start  9: v2_adaptive_range
+ 9/11 Test  #9: v2_adaptive_range ................   Passed    0.10 sec
+      Start 10: v2_adaptive_drain
+10/11 Test #10: v2_adaptive_drain ................   Passed    0.19 sec
+      Start 11: v2_uniform_ptx_policy
+11/11 Test #11: v2_uniform_ptx_policy ............   Passed    0.05 sec
+
+100% tests passed, 0 tests failed out of 11
+
+Total Test time (real) =   1.17 sec

@@ -129,9 +129,23 @@ void m4_attention(ggml_tensor* dst,cudaStream_t stream){
         s.batch=n;s.tx=s.kv->begin_append(s.sequence,n);
     }else need(n==s.batch,"M6 inconsistent layer batch");
     pack<<<(n*ke+255)/256,256,0,stream>>>(static_cast<const float*>(k->data),static_cast<const float*>(v->data),s.packed,s.packed+p.ubatch*ke,n*ke);ck(cudaGetLastError());
+    const char* write_mode=std::getenv("HBFLAB_KV_WRITE_MODE");
+    need(!write_mode || std::string(write_mode)=="host" || std::string(write_mode)=="device","invalid KV write mode");
+    const bool device_write=write_mode && std::string(write_mode)=="device";
+    const char* reuse_setting=std::getenv("HBFLAB_KV_REUSE_PACKED");
+    need(!reuse_setting || std::string(reuse_setting)=="0" || std::string(reuse_setting)=="1","invalid packed reuse setting");
+    const bool reuse_packed=device_write && (!reuse_setting || std::string(reuse_setting)=="1");
+    if(device_write) {
+        s.kv->write_layer_with(s.tx,layer,n*row_bytes,[&](KvKind kind,KvSlice slice,std::size_t offset) {
+            const auto* source=reinterpret_cast<const unsigned char*>(s.packed+(kind==KvKind::Key?0:p.ubatch*ke));
+            s.gpu->write_device(slice.allocation,slice.offset,source+offset,slice.bytes,stream);
+        });
+        s.drain();
+    } else {
     s.keys.resize(n*ke);s.values.resize(n*ke);
     ck(cudaMemcpyAsync(s.keys.data(),s.packed,n*row_bytes,cudaMemcpyDeviceToHost,stream));ck(cudaMemcpyAsync(s.values.data(),s.packed+p.ubatch*ke,n*row_bytes,cudaMemcpyDeviceToHost,stream));ck(cudaStreamSynchronize(stream));
     s.copy_bytes+=n*row_bytes*2;s.kv->write_layer(s.tx,layer,s.keys.data(),s.values.data(),n*row_bytes);s.drain();
+    }
     auto out=static_cast<float*>(dst->data);init_attention<<<(n*qe+255)/256,256,0,stream>>>(out,s.ml,n*p.q_heads,p.head_dim);ck(cudaGetLastError());
     const auto before=s.gpu->store().statistics();unsigned pairs=0,cross=0;
     for(unsigned first=0;first<s.past+n;){
@@ -142,11 +156,24 @@ void m4_attention(ggml_tensor* dst,cudaStream_t stream){
         count=std::min(count,std::min(s.past+n-first,p.block_tokens-first%p.block_tokens));
         need(count>0&&pages<=3&&ks.offset==vs.offset,"M6 invalid page plan");
         PageRow kr{},vr{};kr.offset=vr.offset=offset/2;std::vector<GpuPageLease> leases;
+        // The pack buffer already exists in both paths and lives through this
+        // layer's attention. Only wholly covered current-batch pages qualify;
+        // old-prefix/mixed/tail pages use the normal host-authority upload.
+        auto acquire_read=[&](KvSlice slice,unsigned page,KvKind kind) {
+            const auto index=slice.offset/4096+page;
+            const auto valid=std::min(std::size_t{4096},s.gpu->store().size(slice.allocation)-index*4096);
+            const auto origin=(std::int64_t(first-first%p.block_tokens)-s.past)*row_bytes+std::int64_t(index*4096);
+            if(reuse_packed && origin>=0 && std::uint64_t(origin)+valid<=std::uint64_t(n)*row_bytes) {
+                const auto* source=reinterpret_cast<const unsigned char*>(s.packed+(kind==KvKind::Key?0:p.ubatch*ke));
+                return s.gpu->acquire_read_device(slice.allocation,index,source+origin,stream);
+            }
+            return s.gpu->acquire(slice.allocation,index,PageAccess::Read,stream);
+        };
         try {
             for(unsigned page=0;page<pages;++page){
                 if(s.storage->prefetch){s.gpu->prefetch(ks.allocation,ks.offset/4096+page,1);s.gpu->prefetch(vs.allocation,vs.offset/4096+page,1);}
-                auto kl=s.gpu->acquire(ks.allocation,ks.offset/4096+page,PageAccess::Read,stream);leases.push_back(kl);
-                auto vl=s.gpu->acquire(vs.allocation,vs.offset/4096+page,PageAccess::Read,stream);leases.push_back(vl);
+                auto kl=acquire_read(ks,page,KvKind::Key);leases.push_back(kl);
+                auto vl=acquire_read(vs,page,KvKind::Value);leases.push_back(vl);
                 kr.pages[page]=static_cast<const half*>(s.gpu->data(kl));vr.pages[page]=static_cast<const half*>(s.gpu->data(vl));
             }
             page_attention<<<n*p.q_heads,p.head_dim,0,stream>>>(static_cast<const float*>(q->data),kr,vr,out,s.ml,s.past,first,count,p.q_heads,p.kv_heads,p.head_dim,1.0f/std::sqrt(float(p.head_dim)));ck(cudaGetLastError());
@@ -169,7 +196,9 @@ void m4_finish(){if(!state)return;auto& s=*state;need(!s.active,"M4 unfinished b
     std::ofstream f(s.output/"kv-summary.json");f<<json({{"steps",s.step},{"length",s.kv->length(s.sequence)},{"profile_sha256",integrated_profile().hash},{"layers",integrated_profile().layers},{"transactions",s.transactions},{"cross_page_rows",s.cross_page_rows},{"appended_layer_tokens",s.appended},
       {"page_pairs",s.page_pairs},{"frame_bytes",g.device_bytes},{"logical_pages",integrated_profile().logical_pages},{"pages_per_block",m6_geometry().pages_per_block},{"blocks_per_bank",m6_geometry().blocks_per_bank},{"allocated_pages",c.allocated_pages},{"faults",c.faults},{"hits",c.hits},
       {"evictions",c.evictions},{"writebacks",c.writebacks},{"dirty_frames",c.dirty_frames},{"pins",c.pins},{"media_records",s.media_count},
-      {"kv_commit_d2h_bytes",s.copy_bytes},{"h2d_bytes",g.h2d_bytes},{"native_gpu_kv_bytes",0}}).dump(2)<<'\n';f.close();need(bool(f),"M4 summary failed");
+      {"kv_write_mode",std::getenv("HBFLAB_KV_WRITE_MODE")?std::getenv("HBFLAB_KV_WRITE_MODE"):"host"},{"kv_commit_d2h_bytes",s.copy_bytes},{"h2d_bytes",g.h2d_bytes},{"capacity_d2h_bytes",g.d2h_bytes},{"capacity_d2d_bytes",g.d2d_bytes},{"overwrite_uploads_skipped",g.overwrite_uploads_skipped},
+      {"kv_transfer_version",2},{"read_source_d2d_bytes",g.read_source_d2d_bytes},{"read_source_fills",g.read_source_fills},{"packed_buffer_bytes",2*integrated_profile().ubatch*integrated_profile().kv_elements()*sizeof(half)},
+      {"kv_reuse_packed",std::getenv("HBFLAB_KV_REUSE_PACKED")?std::getenv("HBFLAB_KV_REUSE_PACKED"):"1"},{"native_gpu_kv_bytes",0}}).dump(2)<<'\n';f.close();need(bool(f),"M4 summary failed");
     if(s.storage->active){std::ofstream storage(s.output/"storage-summary.json");storage<<json({
         {"file_read_bytes",c.file_read_bytes},{"file_write_bytes",c.file_write_bytes},{"checkpoints",c.checkpoints},
         {"prefetch_fills",c.prefetch_fills},{"prefetch_useful",c.prefetch_useful},{"prefetch_wasted",c.prefetch_wasted},{"prefetch_skipped",c.prefetch_skipped},

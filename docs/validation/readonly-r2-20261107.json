@@ -1,0 +1,314 @@
+{
+  "experiment": "R2",
+  "date": "2026-11-07",
+  "overall": "pass",
+  "norm_functional": "pass",
+  "performance": "inconclusive",
+  "down": "pass_operator_scalar_comparison",
+  "build": "build-r2-final-20261107",
+  "model_runs": 24,
+  "model_cases": [
+    {
+      "case": "qwen-short",
+      "status": "pass",
+      "selected_requests": 48240,
+      "norm_requests": 46080,
+      "audited_kernel_durations": {
+        "ptx": {
+          "count": 45,
+          "cupti_sum_kernel_ns": 1956610875
+        },
+        "cuda_scalar": {
+          "count": 45,
+          "cupti_sum_kernel_ns": 1968967877
+        }
+      }
+    },
+    {
+      "case": "qwen-long",
+      "status": "pass",
+      "selected_requests": 149008,
+      "norm_requests": 142336,
+      "audited_kernel_durations": {
+        "ptx": {
+          "count": 139,
+          "cupti_sum_kernel_ns": 6042598127
+        },
+        "cuda_scalar": {
+          "count": 139,
+          "cupti_sum_kernel_ns": 6177658758
+        }
+      }
+    },
+    {
+      "case": "smol-short",
+      "status": "pass",
+      "selected_requests": 24600,
+      "norm_requests": 23616,
+      "audited_kernel_durations": {
+        "ptx": {
+          "count": 41,
+          "cupti_sum_kernel_ns": 1069180695
+        },
+        "cuda_scalar": {
+          "count": 41,
+          "cupti_sum_kernel_ns": 1064223055
+        }
+      }
+    },
+    {
+      "case": "qwen-1.7b",
+      "status": "pass",
+      "selected_requests": 96480,
+      "norm_requests": 92160,
+      "audited_kernel_durations": {
+        "ptx": {
+          "count": 45,
+          "cupti_sum_kernel_ns": 3773056686
+        },
+        "cuda_scalar": {
+          "count": 45,
+          "cupti_sum_kernel_ns": 3994372678
+        }
+      }
+    }
+  ],
+  "faults": [
+    {
+      "strategy": "ptx",
+      "returncode": 1,
+      "expected_failure": "shared read terminal failure"
+    },
+    {
+      "strategy": "cuda_scalar",
+      "returncode": 1,
+      "expected_failure": "shared read terminal failure"
+    },
+    {
+      "strategy": "unsupported",
+      "returncode": 1,
+      "expected_failure": "unsupported norm access strategy"
+    }
+  ],
+  "operator_correctness_sessions": 60,
+  "norm_widths": 10,
+  "steady_ab_process_pairs": 72,
+  "steady_conditions": [
+    {
+      "width": 576,
+      "mode": "bypass",
+      "process_pairs": 12,
+      "ptx_mean_wall_ns": 10966.666666666666,
+      "cuda_mean_wall_ns": 22058.333333333332,
+      "ptx_minus_cuda_mean_ns": -11091.666666666666,
+      "simultaneous_interval_ns": [
+        -45340.289351851854,
+        5775.983796296298
+      ],
+      "order_means_ns": {
+        "ptx": -19250.0,
+        "cuda": -2933.333333333334
+      }
+    },
+    {
+      "width": 576,
+      "mode": "modeled",
+      "process_pairs": 12,
+      "ptx_mean_wall_ns": 25649597.222222224,
+      "cuda_mean_wall_ns": 25109352.777777776,
+      "ptx_minus_cuda_mean_ns": 540244.4444444446,
+      "simultaneous_interval_ns": [
+        -621826.7129629632,
+        1670016.3657407402
+      ],
+      "order_means_ns": {
+        "ptx": 584827.7777777774,
+        "cuda": 495661.11111111194
+      }
+    },
+    {
+      "width": 1024,
+      "mode": "bypass",
+      "process_pairs": 12,
+      "ptx_mean_wall_ns": 10091.666666666666,
+      "cuda_mean_wall_ns": 11775.0,
+      "ptx_minus_cuda_mean_ns": -1683.3333333333337,
+      "simultaneous_interval_ns": [
+        -6737.974537037038,
+        2234.2824074074083
+      ],
+      "order_means_ns": {
+        "ptx": -5111.111111111111,
+        "cuda": 1744.4444444444441
+      }
+    },
+    {
+      "width": 1024,
+      "mode": "modeled",
+      "process_pairs": 12,
+      "ptx_mean_wall_ns": 40837927.777777776,
+      "cuda_mean_wall_ns": 41671005.55555555,
+      "ptx_minus_cuda_mean_ns": -833077.7777777774,
+      "simultaneous_interval_ns": [
+        -1910137.6388888895,
+        204868.73842592796
+      ],
+      "order_means_ns": {
+        "ptx": -236550.0,
+        "cuda": -1429605.5555555548
+      }
+    },
+    {
+      "width": 2048,
+      "mode": "bypass",
+      "process_pairs": 12,
+      "ptx_mean_wall_ns": 28602.777777777777,
+      "cuda_mean_wall_ns": 15161.111111111111,
+      "ptx_minus_cuda_mean_ns": 13441.666666666666,
+      "simultaneous_interval_ns": [
+        -12678.935185185186,
+        44988.00925925926
+      ],
+      "order_means_ns": {
+        "ptx": 13005.555555555553,
+        "cuda": 13877.777777777777
+      }
+    },
+    {
+      "width": 2048,
+      "mode": "modeled",
+      "process_pairs": 12,
+      "ptx_mean_wall_ns": 77999286.1111111,
+      "cuda_mean_wall_ns": 78073850.0,
+      "ptx_minus_cuda_mean_ns": -74563.88888889302,
+      "simultaneous_interval_ns": [
+        -1755352.500000002,
+        1703638.5416666623
+      ],
+      "order_means_ns": {
+        "ptx": -584538.8888888955,
+        "cuda": 435411.11111110944
+      }
+    }
+  ],
+  "study_process_sessions": 220,
+  "fixed_replay_requests_per_path": 13698,
+  "common_strategy_fixed_reads": 18,
+  "independent_operator_checks": 18,
+  "python_checks": 5,
+  "r1_default_logits_exact_pairs": 12,
+  "compile_observations": {
+    "status": "pass",
+    "interpretation": "three descriptive compiler-process observations per source, no statistical selection claim",
+    "results": [
+      {
+        "source": "raw",
+        "repeat": 1,
+        "wall_ns": 608724300,
+        "command": [
+          "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0\\bin\\nvcc.exe",
+          "--ptx",
+          "-std=c++17",
+          "-arch=compute_75",
+          "-IE:\\v1_update\\include",
+          "E:\\v1_update\\adapters\\llama_cpp\\integrated_weight_mul.cu",
+          "-o",
+          "output\\r2-20261107\\compile-cost\\raw-1.ptx"
+        ]
+      },
+      {
+        "source": "raw",
+        "repeat": 2,
+        "wall_ns": 385598900,
+        "command": [
+          "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0\\bin\\nvcc.exe",
+          "--ptx",
+          "-std=c++17",
+          "-arch=compute_75",
+          "-IE:\\v1_update\\include",
+          "E:\\v1_update\\adapters\\llama_cpp\\integrated_weight_mul.cu",
+          "-o",
+          "output\\r2-20261107\\compile-cost\\raw-2.ptx"
+        ]
+      },
+      {
+        "source": "raw",
+        "repeat": 0,
+        "wall_ns": 381618200,
+        "command": [
+          "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0\\bin\\nvcc.exe",
+          "--ptx",
+          "-std=c++17",
+          "-arch=compute_75",
+          "-IE:\\v1_update\\include",
+          "E:\\v1_update\\adapters\\llama_cpp\\integrated_weight_mul.cu",
+          "-o",
+          "output\\r2-20261107\\compile-cost\\raw-0.ptx"
+        ]
+      },
+      {
+        "source": "explicit",
+        "repeat": 2,
+        "wall_ns": 861798200,
+        "command": [
+          "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0\\bin\\nvcc.exe",
+          "--ptx",
+          "-std=c++17",
+          "-arch=compute_75",
+          "-IE:\\v1_update\\include",
+          "E:\\v1_update\\adapters\\llama_cpp\\integrated_norm_explicit.cu",
+          "-o",
+          "output\\r2-20261107\\compile-cost\\explicit-2.ptx"
+        ]
+      },
+      {
+        "source": "explicit",
+        "repeat": 0,
+        "wall_ns": 861096500,
+        "command": [
+          "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0\\bin\\nvcc.exe",
+          "--ptx",
+          "-std=c++17",
+          "-arch=compute_75",
+          "-IE:\\v1_update\\include",
+          "E:\\v1_update\\adapters\\llama_cpp\\integrated_norm_explicit.cu",
+          "-o",
+          "output\\r2-20261107\\compile-cost\\explicit-0.ptx"
+        ]
+      },
+      {
+        "source": "explicit",
+        "repeat": 1,
+        "wall_ns": 881200100,
+        "command": [
+          "D:\\HBF-Sim\\HBFLab\\tools\\cuda-13.0.2-m0\\bin\\nvcc.exe",
+          "--ptx",
+          "-std=c++17",
+          "-arch=compute_75",
+          "-IE:\\v1_update\\include",
+          "E:\\v1_update\\adapters\\llama_cpp\\integrated_norm_explicit.cu",
+          "-o",
+          "output\\r2-20261107\\compile-cost\\explicit-1.ptx"
+        ]
+      }
+    ]
+  },
+  "scope": "F32 norm multiply, fixed 2x128, 4-byte scalar reads; original down selected-row PTX rejected before launch",
+  "initial_overall": "partial",
+  "initial_down_rejection": "PTX line 73: unsupported character",
+  "down_completion": {
+    "report": "docs/READONLY_R2_DOWN_RESULTS_20261107.md",
+    "functional_conditions": 48,
+    "normal_sessions": 448,
+    "failure_cases": 8,
+    "fixed_replay_requests_per_path": 92748,
+    "performance": "inconclusive",
+    "model_default_down": "unchanged_cuda_warp",
+    "supplement": {
+      "status": "pass",
+      "norm_runs": 60,
+      "cupti_sessions": 18,
+      "norm_rewritten_identity_unchanged": true
+    }
+  }
+}
