@@ -6,13 +6,17 @@ from pathlib import Path
 import subprocess
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'reproduction'))
+from data_paths import require_external_directory
+
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repository',type=Path,default=Path(__file__).resolve().parents[2])
-    parser.add_argument('--bundle',type=Path)
+    parser.add_argument('--bundle',type=Path,required=True,help='Fresh external bundle output directory')
     args=parser.parse_args();root=args.repository.resolve()
-    dest=args.bundle or root/'joint/evidence/v3-migration-validation'
+    dest=args.bundle.resolve()
+    require_external_directory(dest)
     paths=['joint/output/correctness-new-001','joint/output/correctness-new-002',
            'joint/output/statistics-prepare-001','joint/reproduction-validation',
            'joint/build-reproduction-host/build-acceptance.json',

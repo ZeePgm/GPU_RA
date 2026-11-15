@@ -6,8 +6,12 @@ import io
 import json
 from pathlib import Path, PurePosixPath
 import shutil
+import sys
 import tarfile
 import tempfile
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'reproduction'))
+from data_paths import require_external_directory, resolve_payload
 
 BLOCK = 1024 * 1024
 
@@ -88,6 +92,7 @@ class ShardReader(io.RawIOBase):
 
 def pack(args):
     root, out = args.source_root.resolve(), args.bundle.resolve()
+    require_external_directory(out)
     if out.exists():
         raise ValueError('Use a fresh bundle directory')
     files, omissions = [], []
@@ -133,6 +138,8 @@ def pack(args):
 
 def restore(args):
     bundle = args.bundle.resolve()
+    if args.dest is not None:
+        args.dest = require_external_directory(args.dest)
     manifest = json.loads((bundle / 'manifest.json').read_text(encoding='utf-8'))
     targets = {}
     for row in manifest['files']:
@@ -141,7 +148,7 @@ def restore(args):
             safe(args.dest.resolve(), row['path'])
     parts = []
     for row in manifest['parts']:
-        p = safe(bundle, row['path'])
+        p = resolve_payload(bundle, row['path'], args.data_root)
         if p.stat().st_size != row['bytes'] or sha(p) != row['sha256']:
             raise ValueError('Corrupt compressed shard: ' + row['path'])
         parts.append(p)
@@ -196,6 +203,7 @@ if __name__ == '__main__':
     p.add_argument('paths', nargs='+')
     p = commands.add_parser('restore')
     p.add_argument('--bundle', type=Path, required=True)
+    p.add_argument('--data-root', type=Path, help='External payload root; otherwise use GPU_RA_DATA_ROOT or data.local.json')
     p.add_argument('--dest', type=Path)
     p.add_argument('--verify-only', action='store_true')
     args = parser.parse_args()

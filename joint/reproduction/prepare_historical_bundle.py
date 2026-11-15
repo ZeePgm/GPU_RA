@@ -6,12 +6,16 @@ from pathlib import Path
 import subprocess
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'reproduction'))
+from data_paths import require_external_directory
+
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--workspace', type=Path, required=True)
     p.add_argument('--bundle', type=Path, required=True)
     args = p.parse_args()
+    args.bundle = require_external_directory(args.bundle)
     root = args.workspace.resolve()
     first = 'integrated/20261112-dual-line-r1'
     second = 'integrated/20261113-dual-line-stat-r1'

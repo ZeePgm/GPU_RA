@@ -3,12 +3,18 @@ import argparse
 import gzip
 import hashlib
 import json
+import sys
 import tempfile
 import zipfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'reproduction'))
+from data_paths import require_external_directory, resolve_payload
 
-def restore(bundle, destination=None):
+
+def restore(bundle, destination=None, data_root=None):
+    if destination is not None:
+        destination = require_external_directory(destination)
     manifest_bytes = gzip.decompress((bundle/'file-index.json.gz').read_bytes())
     assert hashlib.sha256(manifest_bytes).hexdigest() == json.loads((bundle/'summary.json').read_text())['file_index_sha256']
     m = json.loads(manifest_bytes)
@@ -20,7 +26,7 @@ def restore(bundle, destination=None):
     with tempfile.TemporaryFile() as combined:
         total = hashlib.sha256()
         for part in m['parts']:
-            b = (bundle/part['path']).read_bytes()
+            b = resolve_payload(bundle, part['path'], data_root).read_bytes()
             assert len(b) == part['bytes'] and hashlib.sha256(b).hexdigest() == part['sha256'], part['path']
             combined.write(b); total.update(b)
         assert total.hexdigest() == m['archive_sha256']
@@ -49,8 +55,9 @@ def restore(bundle, destination=None):
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--bundle', type=Path, default=Path(__file__).resolve().parent)
+    p.add_argument('--data-root', type=Path, help='External data root; overrides GPU_RA_DATA_ROOT and data.local.json')
     p.add_argument('--destination', type=Path)
     p.add_argument('--verify-only', action='store_true')
     a = p.parse_args()
     if not a.verify_only and a.destination is None: p.error('Use --verify-only or specify --destination')
-    restore(a.bundle.resolve(), None if a.verify_only else a.destination.resolve())
+    restore(a.bundle.resolve(), None if a.verify_only else a.destination.resolve(), a.data_root)

@@ -20,3 +20,9 @@ configs/enter-environment.ps1
 /build*.log
 /verification/
 /external/
+
+# Experiment payloads are external; keep manifests, reports and source bundles.
+/data.local.json
+/evidence/**/*.gzpart
+/joint/evidence/**/*.gzpart
+/artifacts/minexp/payload.zip.part*

@@ -2,12 +2,14 @@
 
 以下命令在 `codex/v3-joint` 仓库根目录执行。源码随 Git 直接检出；若 `joint/source` 缺失，先运行 `python joint/restore_source.py` 从原字节备份恢复。模型、CUDA 与构建目录均显式传入，不使用原工作区的 `integrated` 二进制或绝对数据路径。
 
+以下示例先设置 `$env:GPU_RA_DATA_ROOT = '<外部数据根目录>'`，运行结果、恢复数据和复核报告均写到该根目录同级的本地目录。分片取数也支持 `data.local.json` 或恢复命令的 `--data-root`。
+
 运行前检查新构建的 `build-acceptance.json`、4276 项历史源码、全部新 exe/DLL、固定模型和原始 prompt 身份。配置由冻结 JSON 生成，只改 `model_path` 和 `conversion` 路径；数值容差、预算和模型形状不可由命令行放宽。模型获取与转换入口沿用仓库 `reproduction/prepare_model.py` 及固定转换记录。
 
 ## 正确性：F1 后 F2，共 16 个模型进程
 
 ```powershell
-python joint/reproduction/run_correctness.py --model <Qwen3-0.6B-F16.gguf> --cuda-root <CUDA目录> --build-dir joint/build-reproduction/model --output joint/output/correctness-new-001
+python joint/reproduction/run_correctness.py --model <Qwen3-0.6B-F16.gguf> --cuda-root <CUDA目录> --build-dir joint/build-reproduction/model --output "$env:GPU_RA_DATA_ROOT/../runs/v3-correctness-new-001"
 ```
 
 默认 F1/F2 各运行 native、readonly bypass/modeled、KV bypass/modeled、joint bypass/modeled 和 joint host 写来源八组。F2 必须在同一新批次 F1 八组完整验收后启动；`--scales F1` 只执行 F1。`--prepare-only` 仅核验输入、构建及身份并生成配置，不启动模型。
@@ -21,8 +23,8 @@ python joint/reproduction/run_correctness.py --model <Qwen3-0.6B-F16.gguf> --cud
 ## 固定 142 进程统计协议：先 prepare，再显式 run
 
 ```powershell
-python joint/reproduction/run_statistics.py prepare --model <Qwen3-0.6B-F16.gguf> --cuda-root <CUDA目录> --build-dir joint/build-reproduction/model --correctness-dir joint/output/correctness-new-001 --output joint/output/statistics-new-001
-python joint/reproduction/run_statistics.py check --output joint/output/statistics-new-001
+python joint/reproduction/run_statistics.py prepare --model <Qwen3-0.6B-F16.gguf> --cuda-root <CUDA目录> --build-dir joint/build-reproduction/model --correctness-dir "$env:GPU_RA_DATA_ROOT/../runs/v3-correctness-new-001" --output "$env:GPU_RA_DATA_ROOT/../runs/v3-statistics-new-001"
+python joint/reproduction/run_statistics.py check --output "$env:GPU_RA_DATA_ROOT/../runs/v3-statistics-new-001"
 ```
 
 prepare 启动 **零个模型进程**，先验收 F1/F2 新正确性参考，将 14 组参考的 `summary.json`、`logits.f32` 及已有的 `kv-content.json`（KV 内容校验摘要和哈希）复制到新批次输入包，冻结新模型、脚本、二进制、配置及参考身份。准备后的协议不借用历史批准时间或历史构建身份。固定种子 131113 的完整 142 行顺序与历史设计逐项核对。
@@ -30,7 +32,7 @@ prepare 启动 **零个模型进程**，先验收 F1/F2 新正确性参考，将
 只有下面的显式 run 动作会执行约 142 个独立模型进程的长批次：
 
 ```powershell
-python joint/reproduction/run_statistics.py run --output joint/output/statistics-new-001
+python joint/reproduction/run_statistics.py run --output "$env:GPU_RA_DATA_ROOT/../runs/v3-statistics-new-001"
 ```
 
 每规模 7 组，分别 1 次预热、8 个配对区块及 4 对 joint-modeled A/A；F1 完整验收后进入 F2。主指标为包含 prefill、7 次 decode、最终审计/排空而排除模型加载/初始化的 `generation_wall_ms`。重用原统计函数，按 8 个配对差值 min/max 区间、共同 A/A 最大绝对差及原判定门槛分析，交互效应仅作描述性记录。
@@ -41,13 +43,15 @@ python joint/reproduction/run_statistics.py run --output joint/output/statistics
 
 ## 本次新批次归档的独立离线复核
 
-先按 `joint/evidence/README.md` 分别恢复历史与本次迁移数据，然后运行：
+先按 `joint/evidence/README.md` 配置 `GPU_RA_DATA_ROOT`（或 `data.local.json`、恢复命令的 `--data-root`），分别从外部归档恢复历史与本次迁移数据，然后运行：
 
 ```powershell
-python joint/reproduction/evidence_bundle.py restore --bundle joint/evidence/v3-migration-validation --dest joint/output/fresh-restored
-python joint/reproduction/replay_fresh.py --root joint/output/fresh-restored --historical-root joint/output/historical-restored --report-dir joint/output/fresh-replay-001
+python joint/reproduction/evidence_bundle.py restore --bundle joint/evidence/v3-migration-validation --dest "$env:GPU_RA_DATA_ROOT/../restored/v3-fresh"
+python joint/reproduction/replay_fresh.py --root "$env:GPU_RA_DATA_ROOT/../restored/v3-fresh" --historical-root "$env:GPU_RA_DATA_ROOT/../restored/v3-historical" --report-dir "$env:GPU_RA_DATA_ROOT/../reports/v3-fresh-001"
 ```
 
 此入口核验本次固定命名的 `correctness-new-001/002` 和 `statistics-prepare-001`，不启动模型或加载 DLL。独立核验归档的 8 个新 exe/DLL、16 组原始正确性记录、逐请求读取和 KV 介质流、80 条实际加载模块身份、进程退出/资源/不重叠顺序，以及 14 组统计 gold、142 行计划与零样本状态。新旧各模式/规模的 logits 逐字节比较单独留证；若存在差异会输出明确的哈希、最大差和 RMS，并拒绝把它记为完整逐字节复现。
 
 失败的首次正确性尝试独立记录，不混入完整 16 组。原始数据未导出每个 lane 的全部时间数组和 KV 字节本体，离线检查仅重算实际存在的 warp 最大消费时刻、逐 lane 内部校验计数及 KV 哈希；新 GPU 字节校验由新正确性运行执行。报告目录必须不存在，所有输入保持只读。
+
+实验打包工具要求明确的仓库外 `--bundle` 输出目录，拒绝把新实验分片写回源码工作树。新的数据清单、配置和报告经核验后单独纳入版本控制，实际 payload 继续保留本地。

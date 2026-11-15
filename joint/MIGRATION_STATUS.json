@@ -43,5 +43,32 @@
   "fresh_offline_replay": "pass",
   "historical_offline_replay": "pass",
   "clean_Git_checkout": "pass",
-  "clean_checkout_receipt": "joint/provenance/migration-validation/clean-checkout/acceptance.json"
+  "clean_checkout_receipt": "joint/provenance/migration-validation/clean-checkout/acceptance.json",
+  "data_storage": {
+    "mode": "external",
+    "payloads_tracked_by_Git": false,
+    "catalog": "DATASETS.json",
+    "manifest_locations": [
+      "joint/evidence/v3-historical/manifest.json",
+      "joint/evidence/v3-migration-validation/manifest.json"
+    ],
+    "data_root_precedence": [
+      "restore --data-root",
+      "GPU_RA_DATA_ROOT",
+      "data.local.json:data_root"
+    ],
+    "payload_layout": "<data_root>/<repository-relative bundle directory>/<part name>",
+    "source_bundle_policy": "joint/source-bundle is source backup and remains tracked",
+    "historical_and_fresh_data_bytes_changed": false,
+    "entry_validation": {
+      "status": "pass",
+      "historical_unique_objects": 919,
+      "historical_paths": 2685,
+      "fresh_unique_objects": 192,
+      "fresh_paths": 406,
+      "scope": "External compressed-shard hashes, decompressed object size/SHA-256, archive membership and gzip CRC",
+      "checkout_write_rejection_cases": 6,
+      "model_or_GPU_processes_executed": 0
+    }
+  }
 }

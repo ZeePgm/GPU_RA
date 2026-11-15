@@ -9,6 +9,8 @@ import shutil
 import tarfile
 import tempfile
 
+from data_paths import require_external_directory, resolve_payload
+
 BLOCK = 1024 * 1024
 
 
@@ -87,7 +89,7 @@ class ShardReader(io.RawIOBase):
 
 
 def pack(args):
-    root, out = args.source_root.resolve(), args.bundle.resolve()
+    root, out = args.source_root.resolve(), require_external_directory(args.bundle)
     if out.exists():
         raise ValueError('Use a fresh bundle directory')
     files, omissions = [], []
@@ -133,6 +135,8 @@ def pack(args):
 
 def restore(args):
     bundle = args.bundle.resolve()
+    if args.dest is not None:
+        args.dest = require_external_directory(args.dest)
     manifest = json.loads((bundle / 'manifest.json').read_text(encoding='utf-8'))
     targets = {}
     for row in manifest['files']:
@@ -141,7 +145,7 @@ def restore(args):
             safe(args.dest.resolve(), row['path'])
     parts = []
     for row in manifest['parts']:
-        p = safe(bundle, row['path'])
+        p = resolve_payload(bundle, row['path'], getattr(args, 'data_root', None))
         if p.stat().st_size != row['bytes'] or sha(p) != row['sha256']:
             raise ValueError('Corrupt compressed shard: ' + row['path'])
         parts.append(p)
@@ -196,6 +200,7 @@ if __name__ == '__main__':
     p.add_argument('paths', nargs='+')
     p = commands.add_parser('restore')
     p.add_argument('--bundle', type=Path, required=True)
+    p.add_argument('--data-root', type=Path, help='External data root; overrides GPU_RA_DATA_ROOT and data.local.json')
     p.add_argument('--dest', type=Path)
     p.add_argument('--verify-only', action='store_true')
     args = parser.parse_args()
