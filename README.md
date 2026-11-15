@@ -1,5 +1,7 @@
 # GPU_RA — 第一版：新后端 F 基线
 
+后续新实验统一使用 [实验工作流](reproduction/EXPERIMENTS.md) 和 `python reproduction/experiment.py new/start/finish/verify`，按代码提交 A、外置运行数据、报告提交 B 建立关联；规则见 [AGENTS.md](AGENTS.md)。
+
 本分支 main 保存实验总账第一版的新后端 F 基线。历史 v0 和 minexp 提交保留在 Git 历史；第二版 R3 只读位于 `codex/v2-readonly`，第三版联合优化位于 `codex/v3-joint`，具体状态见 [VERSION_MAP.md](VERSION_MAP.md)。项目用于真实 GPU 接入的 HBF 仿真。
 
 本源码由 2026-11-05 的冻结快照恢复，按第二次 F 的源码身份补齐完整 FFN 入口。后端固定为 HBF-EventLab `8ccb1f353630f893f761b017d621812b7b9d5bf2`（无 K5 overlay），llama.cpp 固定为 `b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9` 加当时的前端改动。历史源码与恢复记录位于 provenance/；原冻结 README 位于 [docs/README_FROZEN_20261105.md](docs/README_FROZEN_20261105.md)。
@@ -15,7 +17,7 @@ F1/F2/F3 使用 Qwen3-0.6B F16、原始 CRLF prompt、44 输入/8 输出、greed
 Windows 建议选择短克隆目录（例如 E:/GPU_RA）；源码包含 llama.cpp UI 长文件名，克隆时启用 core.longpaths。新源码校验入口支持 Windows 扩展路径。
 
 ```powershell
-git -c core.longpaths=true clone https://github.com/ZeePgm/GPU_RA.git
+git clone --config core.longpaths=true https://github.com/ZeePgm/GPU_RA.git
 cd GPU_RA
 python -m venv .venv
 ./.venv/Scripts/python.exe -m pip install -r requirements.txt

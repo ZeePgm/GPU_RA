@@ -13,13 +13,13 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 538,
-      "sha256": "e81cd558873c21550b8911d004172ad4115c7e40835145479f3da94596521c8e"
+      "bytes": 757,
+      "sha256": "2146c295258b28a00eaf86c4c1b28d62e170a7480ff411d2c2ab6cddf17e6bca"
     },
     {
       "path": "AGENTS.md",
-      "bytes": 541,
-      "sha256": "68bda04818de813d87a658951d1eb62a2c3d718d6636f14cd4cb9d11c4f43f86"
+      "bytes": 4019,
+      "sha256": "59d97e6c8b80944523fc0abb3c0f40a1cb3a946f4b4af1000fd5777852dcf616"
     },
     {
       "path": "CMakeLists.txt",
@@ -33,8 +33,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7723,
-      "sha256": "bfeb730eb904e88d673c2eb2a971a9cea66a01708d4970a98341be1f360d9a68"
+      "bytes": 7980,
+      "sha256": "1fc8f8a7cbdf861b4fe00227ba92e0d6df6ddf63b78b838dbdcee6d606606354"
     },
     {
       "path": "RELEASE_STATUS.md",
@@ -1392,6 +1392,11 @@
       "sha256": "7ae28ce1fca0c2e6bc4b86d5519ff11ee05a44e9b8547e3e91d9d76339aa2efd"
     },
     {
+      "path": "provenance/experiment-workflow-validation.json",
+      "bytes": 1900,
+      "sha256": "682b8d8ef14f14cf0e4b0dbe79854060932dbf816233913e89904b70c373ee8b"
+    },
+    {
       "path": "provenance/frozen-source-manifest-20261105.json",
       "bytes": 897111,
       "sha256": "49fc0d2f477ecd70fb7a574180f999736e785dc30e897eb2ca0e0df9c39b4596"
@@ -1462,6 +1467,11 @@
       "sha256": "ae29e9f49797dd2c0c5e69e9d4714aff39d65a6be901642e3b32ab2f026994d5"
     },
     {
+      "path": "reproduction/EXPERIMENTS.md",
+      "bytes": 9333,
+      "sha256": "e93afec75652f97c7e676ba96ab68a81e6d3fa5777de9d00227615f1004753e3"
+    },
+    {
       "path": "reproduction/build.ps1",
       "bytes": 4371,
       "sha256": "82d268b9013f861688370551723206588775b6cb9c13244975b4443e9abdc20e"
@@ -1492,6 +1502,11 @@
       "sha256": "6e92c1577fb22e813351fe4f5749e1d0f46e1adccb0fe995fe586112d6eb7877"
     },
     {
+      "path": "reproduction/experiment.py",
+      "bytes": 37287,
+      "sha256": "e57d80fbabea224caeb1c242e7fca20fb1a2b6c75b306fe0261d20d7d4601158"
+    },
+    {
       "path": "reproduction/prepare_model.py",
       "bytes": 2977,
       "sha256": "079f56262700dc8f8f4baa1982e33daec30bc84d75deb4c7b122391d18ba6501"
@@ -1505,6 +1520,16 @@
       "path": "reproduction/run_f.py",
       "bytes": 2667,
       "sha256": "720456db6ee2403451b39637e5df9902156dc8fe290b2af1d388a391cfd9a025"
+    },
+    {
+      "path": "reproduction/run_job.cs",
+      "bytes": 21056,
+      "sha256": "533389f216641b9cf998bb23bc8d87c396acf1c601fa285db14ffe9956423ee2"
+    },
+    {
+      "path": "reproduction/tests/test_experiment_workflow.py",
+      "bytes": 18695,
+      "sha256": "3be2d59d4141cda57bc4dda2c45cd36bfca0c59acf27f834a50aed2a777b3e24"
     },
     {
       "path": "reproduction/verify_checkout.py",
@@ -22502,6 +22527,6 @@
       "sha256": "b2cb949dcc6bde153699a83884d6c27abe9db9868c074b6e2a439cd1eeb1cf20"
     }
   ],
-  "file_count": 4499,
-  "total_bytes": 191460744
+  "file_count": 4504,
+  "total_bytes": 191552969
 }

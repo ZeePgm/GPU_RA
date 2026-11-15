@@ -25,3 +25,13 @@ configs/enter-environment.ps1
 /artifacts/minexp/payload.zip.part*
 /evidence/v1-ffn/part-*.gzpart
 /evidence/v1-migration-validation/part-*.gzpart
+
+# New experiment payloads remain outside every source worktree.
+/runs/
+/inputs/
+/seals/
+/evidence/**/part-*.gzpart
+/joint/evidence/**/part-*.gzpart
+/experiments/**/data/
+/experiments/**/raw/
+/reports/**/raw/
