@@ -1,13 +1,14 @@
 # 第三版独立源码构建与组件资格
 
-本入口从 `joint/source-bundle` 恢复的 4,276 项封存源码构建第三版，不使用原 `integrated`、`build-r*` 或历史 lib/DLL/PTX。源文件保持原始字节；新构建编译的程序及库单独生成身份记录。
+本入口使用 Git 直接跟踪的 `joint/source` 中 4,276 项封存源码构建第三版。`joint/source-bundle` 保留同一源码的原字节备份，源码缺失时可运行 `python joint/restore_source.py` 恢复。构建不使用原 `integrated`、`build-r*` 或历史 lib/DLL/PTX。源文件保持原始字节；新构建编译的程序及库单独生成身份记录。
 
 环境：Windows x64、Visual Studio 2022 C++ Build Tools、CMake/Ninja、Python 3.12+、CUDA 13.0（含 CUPTI/cuBLAS）及匹配的 GPU。Python 使用调用方指定的解释器，并显式传给 CMake 的 Python 实验测试。
 
 在 GPU_RA 第三版分支根目录运行，推荐较短的本机目录：
 
 ```powershell
-python joint/restore_source.py
+# 仅在 joint/source 缺失时从冻结备份恢复；正常 Git 克隆可跳过。
+# python joint/restore_source.py
 python joint/reproduction/verify_source.py
 ./joint/reproduction/build.ps1 -CudaRoot <CUDA目录> -Python <Python解释器> -BuildRoot ./joint/build-reproduction -CudaArchitectures 120a-real -Jobs 4
 ```

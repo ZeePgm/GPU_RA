@@ -1,6 +1,6 @@
 # 第三版参数化运行入口
 
-以下命令在 `codex/v3-joint` 仓库根目录执行。`joint/source` 必须先从原字节归档恢复；模型、CUDA 与构建目录均显式传入，不使用原工作区的 `integrated` 二进制或绝对数据路径。
+以下命令在 `codex/v3-joint` 仓库根目录执行。源码随 Git 直接检出；若 `joint/source` 缺失，先运行 `python joint/restore_source.py` 从原字节备份恢复。模型、CUDA 与构建目录均显式传入，不使用原工作区的 `integrated` 二进制或绝对数据路径。
 
 运行前检查新构建的 `build-acceptance.json`、4276 项历史源码、全部新 exe/DLL、固定模型和原始 prompt 身份。配置由冻结 JSON 生成，只改 `model_path` 和 `conversion` 路径；数值容差、预算和模型形状不可由命令行放宽。模型获取与转换入口沿用仓库 `reproduction/prepare_model.py` 及固定转换记录。
 
@@ -25,7 +25,7 @@ python joint/reproduction/run_statistics.py prepare --model <Qwen3-0.6B-F16.gguf
 python joint/reproduction/run_statistics.py check --output joint/output/statistics-new-001
 ```
 
-prepare 启动 **零个模型进程**，先验收 F1/F2 新正确性参考，将 14 组 summary/logits/KV 内容复制到新批次输入包，冻结新模型、脚本、二进制、配置及参考身份。准备后的协议不借用历史批准时间或历史构建身份。固定种子 131113 的完整 142 行顺序与历史设计逐项核对。
+prepare 启动 **零个模型进程**，先验收 F1/F2 新正确性参考，将 14 组参考的 `summary.json`、`logits.f32` 及已有的 `kv-content.json`（KV 内容校验摘要和哈希）复制到新批次输入包，冻结新模型、脚本、二进制、配置及参考身份。准备后的协议不借用历史批准时间或历史构建身份。固定种子 131113 的完整 142 行顺序与历史设计逐项核对。
 
 只有下面的显式 run 动作会执行约 142 个独立模型进程的长批次：
 
