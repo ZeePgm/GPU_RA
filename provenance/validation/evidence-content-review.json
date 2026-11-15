@@ -1,0 +1,117 @@
+{
+  "status": "reviewed",
+  "findings": [
+    {
+      "bundle": "v1-ffn",
+      "archived_build_artifact_paths": 0,
+      "archived_build_artifact_logical_bytes": 0,
+      "archived_build_artifact_unique_bytes": 0,
+      "build_artifacts": [],
+      "model_gguf_files": 0,
+      "credential_container_or_private_key_filenames": []
+    },
+    {
+      "bundle": "v2-readonly",
+      "archived_build_artifact_paths": 15,
+      "archived_build_artifact_logical_bytes": 145983966,
+      "archived_build_artifact_unique_bytes": 118171492,
+      "build_artifacts": [
+        {
+          "path": "output/r1-20261107/baseline/bin/ggml-base.dll",
+          "bytes": 678912,
+          "sha256": "110168f9b0b1be09be42d632ce86fa472f5e5b95f4541e3db7320486b59c3e07"
+        },
+        {
+          "path": "output/r1-20261107/baseline/bin/ggml-cpu.dll",
+          "bytes": 1173504,
+          "sha256": "07265e1883dd4f6b21c5ecc90618fa6e2492217617367247244a2d2e233785dd"
+        },
+        {
+          "path": "output/r1-20261107/baseline/bin/ggml-cuda.dll",
+          "bytes": 29864960,
+          "sha256": "b28777723a8f11d7e543ef6bf79bdc09e5ce44df851272997b93951109f5a893"
+        },
+        {
+          "path": "output/r1-20261107/baseline/bin/ggml.dll",
+          "bytes": 61440,
+          "sha256": "5607755e9f1b60dd5179f08eb3fe57344b3f90b50a1c60e6c841c30624e61f76"
+        },
+        {
+          "path": "output/r1-20261107/baseline/bin/llama.dll",
+          "bytes": 3075072,
+          "sha256": "99d05015f6e497de3628c4c3ff20be35c4c943cec15cfb75c075ebd0f54a2c57"
+        },
+        {
+          "path": "output/r1-20261107/baseline/bin/realgpu_llama.exe",
+          "bytes": 204800,
+          "sha256": "1305daf80742c4c5dd0cf0eff9efd36eacfac624ac06f32c87501cdbd2e9e9ec"
+        },
+        {
+          "path": "output/r2-20261107/pilot-inputs/artifacts/hbf_eventlab.lib",
+          "bytes": 27812170,
+          "sha256": "f4b0290760768760975c8943829c77153cb0168a2390d54da764799cdd94fd0b"
+        },
+        {
+          "path": "output/r2-20261107/pilot-inputs/artifacts/readonly_r2.exe",
+          "bytes": 943616,
+          "sha256": "92e6c415b7da28843cd1d36d99a035f740373c2f7223a3ab5aa8f522d917979c"
+        },
+        {
+          "path": "output/r2-20261107/pilot-inputs/artifacts/realgpu_runtime.lib",
+          "bytes": 9104430,
+          "sha256": "3360da33f3cc886565b7c69cb307c88e28882a474aec6dcd42397eafab6a3d0d"
+        },
+        {
+          "path": "output/r3-20261107/coverage-bounded/source-snapshot/build-r3-current-20261107/eventlab/hbf_eventlab.lib",
+          "bytes": 27812474,
+          "sha256": "b15a1412f7cf23554a75e3dd96eb0660cad44d39faf28c29bc60f6c9ffa6f1db"
+        },
+        {
+          "path": "output/r3-20261107/coverage-bounded/source-snapshot/build-r3-current-20261107/r3_run.exe",
+          "bytes": 969728,
+          "sha256": "6894373c324d3af83a039f862d62331ac787bec7294f165d83580f8dee0d64a0"
+        },
+        {
+          "path": "output/r3-20261107/coverage-bounded/source-snapshot/build-r3-current-20261107/r3_runtime.lib",
+          "bytes": 7736170,
+          "sha256": "1f6b46b451af4405810da03395b1dd3fce357fff96a146e81dc32b21517c7b00"
+        },
+        {
+          "path": "output/r3-20261107/final-snapshot/build-r3-current-20261107/eventlab/hbf_eventlab.lib",
+          "bytes": 27812474,
+          "sha256": "b15a1412f7cf23554a75e3dd96eb0660cad44d39faf28c29bc60f6c9ffa6f1db"
+        },
+        {
+          "path": "output/r3-20261107/final-snapshot/build-r3-current-20261107/r3_run.exe",
+          "bytes": 971264,
+          "sha256": "64dd310aecda462d57f47e98d24707542a125f683aabac8274149800337261ab"
+        },
+        {
+          "path": "output/r3-20261107/final-snapshot/build-r3-current-20261107/r3_runtime.lib",
+          "bytes": 7762952,
+          "sha256": "36bc0ef6d2ea2488efb25bf8d73d9685a927c9bb89955a90ccea0cbd100a3354"
+        }
+      ],
+      "model_gguf_files": 0,
+      "credential_container_or_private_key_filenames": []
+    }
+  ],
+  "metadata": [
+    "Original absolute Windows workspace/model/toolchain paths appear in historical JSON, logs, configurations and source snapshots.",
+    "GPU/driver/toolchain versions and process-observation records are retained.",
+    "R3 raw tensor slices and activation outputs remain experimental inputs; no full GGUF is in these bundles."
+  ],
+  "credential_pattern_scan": {
+    "scope": "All non-binary text in the eight archived historical directories",
+    "patterns": [
+      "github_pat_",
+      "ghp_ plus >=30 token characters",
+      "sk- plus >=20 token characters",
+      "PEM PRIVATE KEY header",
+      "Authorization: Bearer"
+    ],
+    "matching_files": 0,
+    "limit": "Pattern scan only; not a proof about every possible secret encoding."
+  },
+  "disposition": "Keep historical binary/source evidence as archived provenance, do not link it into source builds; preserve metadata because repository is private and changing bytes breaks original identity."
+}

@@ -1,0 +1,132 @@
+{
+  "status": "pass",
+  "version_family": "V1",
+  "date": "2026-11-15",
+  "historical_source_records": 4222,
+  "fresh_source_build": "pass",
+  "final_parameterized_wrapper": "pass",
+  "live_batch": "output/reproduction-f1-001/F1",
+  "scale": "F1",
+  "outputs": 8,
+  "input_tokens": 44,
+  "new_sample_is_historical_sample": false,
+  "audit_result": {
+    "stage": "F1",
+    "status": "pass",
+    "layers": [
+      10
+    ],
+    "scope": "layers 10 full FFN gate/up/down; native GPU KV; symbolic synchronous HBF",
+    "coverage": {
+      "registered_valid_bytes": 18874368,
+      "parent_reads": 24,
+      "cumulative_read_bytes": 150994944,
+      "read_globals": 36864,
+      "read_fragments": 2359296,
+      "write_fragments": 294912
+    },
+    "native_logits_bitwise_equal": true,
+    "native_tokens_equal": true,
+    "G2": {
+      "actual_outputs": 8,
+      "ttft_ps": 6330907000,
+      "tpot_ps": 5228321428.571428,
+      "itl_ps": [
+        3878112000,
+        4918871000,
+        5445083000,
+        5460203000,
+        5750080000,
+        5752544000,
+        5393357000
+      ]
+    },
+    "G3": {
+      "actual_outputs": 8,
+      "ttft_ps": 6822856906,
+      "tpot_ps": 5720271334.571428,
+      "itl_ps": [
+        4370061906,
+        5410820906,
+        5937032906,
+        5952152906,
+        6242029906,
+        6244493906,
+        5885306906
+      ]
+    },
+    "total_wait_ps": 3935599248,
+    "compute_ps": 42929157000,
+    "all_conservation_residuals_zero": true,
+    "online_audit": {
+      "logical_failures": 0,
+      "attempt_errors": 0,
+      "read_fragments": 2359296,
+      "write_fragments": 294912,
+      "peak_live_fragments": 256,
+      "peak_live_attempts": 256
+    },
+    "events_processed": 39277556,
+    "closed_and_drained": true,
+    "measured_software_phases_seconds": {
+      "backend_initialization": 0.3013531,
+      "backend_read_calls_including_online_audit": 178.9313362,
+      "backend_finish": 1.3e-06
+    },
+    "limitations": "One native GPU activity trace; no hardware calibration, full weight offload, wall-clock slowdown or population timing claim.",
+    "software_costs": {
+      "native": {
+        "argv": [
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\build-reproduction-host\\ffn\\bin\\gpu_ffn.exe",
+          "E:\\v1_update\\models\\Qwen3-0.6B-F16.gguf",
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\output\\reproduction-f1-001\\F1\\prompt.txt",
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\output\\reproduction-f1-001\\F1\\native",
+          "8",
+          "timing",
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\output\\reproduction-f1-001\\F1\\native-config.json"
+        ],
+        "returncode": 0,
+        "process_wall_seconds": 18.571946499985643,
+        "peak_working_set_bytes": 1807167488,
+        "wall_scope": "Whole process including load, initialization, inference, CUPTI and recording; never simulated HBF time."
+      },
+      "F1": {
+        "argv": [
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\build-reproduction-host\\ffn\\bin\\gpu_ffn.exe",
+          "E:\\v1_update\\models\\Qwen3-0.6B-F16.gguf",
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\output\\reproduction-f1-001\\F1\\prompt.txt",
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\output\\reproduction-f1-001\\F1\\F1",
+          "8",
+          "timing",
+          "E:\\v1_update\\repository-prep\\GPU_RA\\main\\output\\reproduction-f1-001\\F1\\F1-config.json"
+        ],
+        "returncode": 0,
+        "process_wall_seconds": 200.56255480000982,
+        "peak_working_set_bytes": 1839124480,
+        "wall_scope": "Whole process including load, initialization, inference, CUPTI and recording; never simulated HBF time."
+      }
+    }
+  },
+  "historical_numerical_comparison": [
+    {
+      "group": "native",
+      "new_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "historical_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "same": true,
+      "bytes": 4861952
+    },
+    {
+      "group": "F1",
+      "new_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "historical_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+      "same": true,
+      "bytes": 4861952
+    }
+  ],
+  "other_scales": "F2/F3 prepare and historical offline deep audit passed; no new full F2/F3 GPU run in this migration.",
+  "minexp_restoration": {
+    "original_paths_verified": 22379,
+    "status": "pass"
+  },
+  "clean_clone_offline": "verification/clean-main-001 source path handling repaired; full F1/F2/F3 historical replay passed."
+}

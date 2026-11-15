@@ -2,9 +2,12 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if os.name == 'nt' and not str(ROOT).startswith('\\\\?\\'):
+    ROOT = Path('\\\\?\\'+str(ROOT))
 
 
 def main():

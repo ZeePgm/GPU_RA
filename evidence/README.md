@@ -22,3 +22,14 @@ python reproduction/evidence_bundle.py restore --bundle evidence/v1-ffn --verify
 ```
 
 新构建/新 GPU 采样与此历史离线复核分别记录；新采样入口见根 README。
+
+## 迁移时的新构建验证
+
+`v1-migration-validation` 保存本次从源码构建后的 F1 44 输入/8 输出原始轨迹、审计和构建日志，路径与历史批次区分。它不包含编译产物和模型权重。
+
+```powershell
+python reproduction/evidence_bundle.py restore --bundle evidence/v1-migration-validation --dest .
+python experiments/gpu_ffn/validate.py --output output/reproduction-f1-001/F1 --negative-checks
+```
+
+摘要见 `provenance/validation/v1-fresh-live-validation.json`。历史 F2/F3 以完整归档及离线重建验证，本轮未新增完整 GPU 采样。

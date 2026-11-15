@@ -13,7 +13,45 @@
   ],
   "gpu_experiments_executed": false,
   "model_download_executed": false,
-  "fresh_build_status": "running",
+  "fresh_build_status": "pass",
   "build_root": "build-reproduction-host",
-  "source_snapshot_sha256": "187bc470f43452451debb91ae196c1ceb7f677724685c2a73ebba5aba3081e9c"
+  "source_snapshot_sha256": "187bc470f43452451debb91ae196c1ceb7f677724685c2a73ebba5aba3081e9c",
+  "build_log": "build-host-validation.log",
+  "python_runner_tests": 10,
+  "cpp_online_audit_tests": 1,
+  "model_source_build_objects": 317,
+  "ffn_source_build_objects": 4,
+  "prior_sandbox_attempt": {
+    "status": "stopped_at_compiler_abi_detection",
+    "log": "build-source-validation.log"
+  },
+  "model_conversion_executed": false,
+  "external_dependencies": [
+    "Windows x64",
+    "Visual Studio 2022 C++ Build Tools",
+    "CUDA 13.0.88 with CUPTI/cuBLAS",
+    "Python 3.12"
+  ],
+  "new_artifacts": [
+    {
+      "path": "build-reproduction-host/ffn/bin/gpu_ffn.exe",
+      "bytes": 765952,
+      "sha256": "a91a967b80fd505e2514ed2e02012a50c8d90a83f6bd3d2fcaaae11f803510b2"
+    },
+    {
+      "path": "build-reproduction-host/model/bin/ggml-cuda.dll",
+      "bytes": 29869056,
+      "sha256": "78185fb78d25967ace362a3acd898ce9a2078bcce00f5bf9cef66ae85ea727f1"
+    },
+    {
+      "path": "build-reproduction-host/model/bin/llama.dll",
+      "bytes": 3079168,
+      "sha256": "acd3a2b8ad9bd2991220ecb64a39409cc1687a5c48fb03dd066447d05618cd7e"
+    },
+    {
+      "path": "build-reproduction-host/model/release-identity.json",
+      "bytes": 1125028,
+      "sha256": "07348c2d42cbd4a8d71c76e642711dbab27b49f8fe976e5d2ede88dac2eaf458"
+    }
+  ]
 }

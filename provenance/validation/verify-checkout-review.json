@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "case": "correct_bytes",
+      "status": "pass"
+    },
+    {
+      "case": "same_size_modified",
+      "status": "pass"
+    },
+    {
+      "case": "missing",
+      "status": "pass"
+    },
+    {
+      "case": "outside_root_rejected",
+      "status": "pass"
+    }
+  ]
+}

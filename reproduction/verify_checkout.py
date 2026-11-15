@@ -2,11 +2,14 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 
 
 def verify(root, manifest):
     root = root.resolve()
+    if os.name == "nt" and not str(root).startswith("\\\\?\\"):
+        root = Path("\\\\?\\" + str(root))
     data = json.loads(manifest.read_text(encoding="utf-8"))
     seen = set()
     total = 0

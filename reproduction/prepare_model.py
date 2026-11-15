@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -47,9 +48,11 @@ def main():
     print('PASS', len(source['source']['files']), 'pinned HF input files')
     if a.output:
         a.output.parent.mkdir(parents=True, exist_ok=True)
+        conversion_env = dict(os.environ)
+        conversion_env.pop('NO_LOCAL_GGUF', None)
         subprocess.run([sys.executable, str(ROOT/'third_party/llama.cpp-integrated/convert_hf_to_gguf.py'),
                         str(a.input_dir.resolve()), '--outtype', 'f16', '--outfile', str(a.output.resolve())],
-                       cwd=ROOT, check=True)
+                       cwd=ROOT, env=conversion_env, check=True)
         if a.output.stat().st_size != source['gguf_bytes'] or digest(a.output) != source['gguf_sha256']:
             raise ValueError('Converted GGUF differs from historical input; retained for diagnosis')
         print('PASS historical GGUF byte identity:', source['gguf_sha256'])
