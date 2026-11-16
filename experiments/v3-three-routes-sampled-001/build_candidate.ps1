@@ -3,7 +3,8 @@ param(
  [Parameter(Mandatory=$true)][string]$BuildRoot,
  [Parameter(Mandatory=$true)][string]$Python,
  [string[]]$Targets=@('sampled_inventory'),
- [int]$Jobs=4
+ [int]$Jobs=4,
+ [switch]$Stage2
 )
 $ErrorActionPreference='Stop'
 $taskRepo=(Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
@@ -19,7 +20,18 @@ $env:CUDA_PATH=$CudaRoot
 $env:PATH=(Join-Path $CudaRoot 'bin')+';'+(Join-Path $CudaRoot 'bin/x64')+';'+$env:PATH
 & $taskCmake -S $taskSource -B $BuildRoot -G Ninja '-DCMAKE_BUILD_TYPE=Release' "-DCMAKE_MAKE_PROGRAM=$taskNinja" "-DPython3_EXECUTABLE=$Python" "-DCUDAToolkit_ROOT=$CudaRoot" "-DCMAKE_CUDA_COMPILER=$CudaRoot/bin/nvcc.exe" '-DCMAKE_CUDA_ARCHITECTURES=120a-real' '-DHBFLAB_PTX_ARCHITECTURE=compute_75' '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 if($LASTEXITCODE -ne 0){throw 'Candidate configure failed'}
+if($Stage2){$Targets=@('sampled_inventory','sampled_registration','realgpu_llama','joint_b2_fixture','joint_media_gpu')}
 & $taskCmake --build $BuildRoot --target @Targets --parallel $Jobs
 if($LASTEXITCODE -ne 0){throw 'Candidate build failed'}
+if($Stage2){
+ $taskCore=Join-Path $BuildRoot 'core'
+ & $taskCmake -S (Join-Path $taskRepo 'joint/source') -B $taskCore -G Ninja '-DCMAKE_BUILD_TYPE=Release' "-DCMAKE_MAKE_PROGRAM=$taskNinja" "-DPython3_EXECUTABLE=$Python" '-DHBFLAB_ENABLE_CUDA=OFF' '-DBUILD_TESTING=ON' '-DHBFLAB_BACKEND_TESTS=ON' '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+ if($LASTEXITCODE -ne 0){throw 'Core configure failed'}
+ & $taskCmake --build $taskCore --parallel $Jobs
+ if($LASTEXITCODE -ne 0){throw 'Core build failed'}
+ $taskCtest=Join-Path (Split-Path $taskCmake) 'ctest.exe'
+ & $taskCtest --test-dir $taskCore --output-on-failure --parallel 2 --timeout 120 *> (Join-Path $BuildRoot 'core-tests.log')
+ if($LASTEXITCODE -ne 0){throw 'Core regression failed'}
+}
 & $Python (Join-Path $PSScriptRoot 'stage1.py') --record-build $BuildRoot
 if($LASTEXITCODE -ne 0){throw 'Candidate build receipt failed'}

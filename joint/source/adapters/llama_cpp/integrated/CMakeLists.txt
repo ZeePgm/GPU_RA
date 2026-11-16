@@ -40,6 +40,7 @@ add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/weight_kernel_embedded.hp
  DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/weight_kernel.ptx" "${LAB_ROOT}/cmake/embed_ptx.cmake" VERBATIM)
 
 add_library(realgpu_runtime STATIC "${LAB_ROOT}/src/backend.cpp" "${LAB_ROOT}/src/async_runtime.cu" "${LAB_ROOT}/src/live_runtime.cpp" "${LAB_ROOT}/src/capacity.cpp" "${LAB_ROOT}/src/page_file.cpp" "${LAB_ROOT}/src/environment.cpp" "${LAB_ROOT}/src/kv.cpp" "${LAB_ROOT}/src/capacity_gpu.cpp" "${LAB_ROOT}/src/async_module.cpp" "${LAB_ROOT}/src/ptx.cpp" "${LAB_ROOT}/src/sha256.cpp" "${CMAKE_CURRENT_BINARY_DIR}/async_ptx_helper_embedded.hpp")
+target_sources(realgpu_runtime PRIVATE "${LAB_ROOT}/src/sampled_readonly.cpp")
 target_include_directories(realgpu_runtime PRIVATE "${CMAKE_CURRENT_BINARY_DIR}" PUBLIC "${LAB_ROOT}/include")
 target_link_libraries(realgpu_runtime PUBLIC HBFEventLab::core CUDA::cudart CUDA::cuda_driver)
 set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
@@ -69,6 +70,9 @@ target_compile_definitions(realgpu_llama PRIVATE M0_LLAMA_COMMIT="${LLAMA_BUILD_
 add_executable(sampled_inventory "${LAB_ROOT}/adapters/llama_cpp/sampled_inventory.cpp")
 target_include_directories(sampled_inventory PRIVATE "${LAB_ROOT}/adapters/llama_cpp" "${LLAMA_SOURCE}/vendor")
 target_link_libraries(sampled_inventory PRIVATE llama ggml-cuda CUDA::cudart)
+add_executable(sampled_registration "${LAB_ROOT}/tests/sampled_registration.cpp")
+target_include_directories(sampled_registration PRIVATE "${LLAMA_SOURCE}/vendor")
+target_link_libraries(sampled_registration PRIVATE realgpu_runtime CUDA::cudart)
 if(MSVC)
   target_compile_options(realgpu_llama PRIVATE /utf-8 /W4)
 endif()

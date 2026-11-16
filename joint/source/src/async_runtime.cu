@@ -53,7 +53,9 @@ struct AsyncRuntime::Impl {
     std::uint64_t next_launch=1;
     explicit Impl(AsyncRuntimeOptions o):options(o),backend(o.backend) {
         if(!session || !o.time_scale || o.time_scale>1000000 || !o.timeout_ns || o.timeout_ns>1000000000 ||
-           !o.service_timeout_ns || o.service_timeout_ns>60000000000ull || o.audit_limit>1000000)
+           !o.service_timeout_ns || o.service_timeout_ns>60000000000ull || o.audit_limit>1000000 ||
+           o.readonly_reservation_alignment<4096 || o.readonly_reservation_alignment%4096 ||
+           (o.readonly_reservation_alignment&(o.readonly_reservation_alignment-1)))
             throw std::invalid_argument("invalid asynchronous runtime limits");
         ck(cudaFree(nullptr));ck(cudaGetDevice(&ordinal));
         if(cuCtxGetCurrent(&context)!=CUDA_SUCCESS || !context)throw std::runtime_error("missing CUDA context");
@@ -209,7 +211,8 @@ void AsyncRuntime::register_readonly(const void* source,std::size_t bytes) {
         throw std::invalid_argument("borrow requires device allocation bounds in this context");
     for(const auto& r:s.ranges)if(address>=r.gpu_base?address-r.gpu_base<r.bytes:r.gpu_base-address<bytes)
         throw std::invalid_argument("borrow overlaps registered range");
-    const auto padded=hbf_eventlab::checked_mul(hbf_eventlab::checked_add(bytes,4095)/4096,4096);
+    const auto alignment=s.options.readonly_reservation_alignment;
+    const auto padded=hbf_eventlab::checked_mul(hbf_eventlab::checked_add(bytes,alignment-1)/alignment,alignment);
     try{
         if(!s.options.readonly_bases.empty()) {
             if(s.ranges.size()>=s.options.readonly_bases.size())throw std::invalid_argument("missing readonly base");
@@ -273,7 +276,8 @@ void AsyncRuntime::abort(){auto& s=*impl_;s.current();s.fail(Status::BackendErro
 const void* AsyncRuntime::upload(const void* source,std::size_t bytes) {
     auto& s=*impl_;s.current();
     if(s.prepared || s.poisoned || !source || !bytes || s.ranges.size()==max_ranges)throw std::invalid_argument("invalid asynchronous upload");
-    const auto padded=hbf_eventlab::checked_mul(hbf_eventlab::checked_add(bytes,4095)/4096,4096);
+    const auto alignment=s.options.readonly_reservation_alignment;
+    const auto padded=hbf_eventlab::checked_mul(hbf_eventlab::checked_add(bytes,alignment-1)/alignment,alignment);
     void* p=nullptr;ck(cudaMalloc(&p,bytes));
     try {
         ck(cudaMemcpy(p,source,bytes,cudaMemcpyHostToDevice));const auto logical=s.backend.reserve(padded);

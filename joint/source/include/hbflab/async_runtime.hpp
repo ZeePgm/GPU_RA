@@ -10,6 +10,7 @@ struct AsyncRuntimeOptions {
     BackendOptions backend{};
     std::vector<std::uint64_t> readonly_bases;
     std::uint64_t readonly_layout_bytes=0;
+    std::uint64_t readonly_reservation_alignment=4096;
     std::uint32_t time_scale=1;
     std::uint64_t timeout_ns=500000000;
     std::uint64_t service_timeout_ns=10000000000ull;
