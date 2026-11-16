@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage2-regression-20261116-001",
+  "version": "v3",
+  "code_commit": "a8d720f8e199293fe8434e02e7f02cff26ed92d9",
+  "code_tree": "44b132a35733d9e712d7280696979766c10939bf",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "阶段2历史功能回归通过：F1后F2各8组共16模型进程全部通过原字节冻结验收器；完整logits/token、读取发布与逐lane依赖、KV全内容及前缀、预算和全部资源排空符合原合同。未修改历史清单/验收器/阈值；三入口代表权重实际读取及模型接入仍待阶段3/4。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage2-regression-20261116-001/manifest.json",
+  "manifest_sha256": "d415edee6cb8f42eeb1838705ec5a4f13982c780f2ec17667bdfdb8602e9b531",
+  "created_utc": "2026-11-16T05:45:37.169333+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
