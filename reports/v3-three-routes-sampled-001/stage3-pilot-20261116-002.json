@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage3-pilot-20261116-002",
+  "version": "v3",
+  "code_commit": "29af8b835171750b9746a6c5710aa8daebf54554",
+  "code_tree": "0ae4b6eb75de112a1e243dd9a64823791f3ddb11",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "三入口组件先导通过：各4650请求、148767 lane依赖；PTX/CUDA各2369534字节返回与发布一致，symbolic不执行载荷发布；8负例/入口及有界缓冲/正常排空通过。每进程11.69–11.92秒，CPU11.55–11.80秒，峰值Host小于699MB，输出3.23–3.39MB。仅为成本与边界先导，完整14张量/模型合同待验，共同时钟未合格。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage3-pilot-20261116-002/manifest.json",
+  "manifest_sha256": "a66e2bf513d9123aa0a4398e1531c4ffcd6617629865c9c3d20d00abe4e8fb59",
+  "created_utc": "2026-11-16T06:27:08.404542+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
