@@ -103,6 +103,12 @@ def validate_reader(folder, spans, inventory, route, addresses):
             and summary['requested_bytes'] == total_bytes and summary['payload_bytes'] == payload
             and summary['publication_bytes'] == payload and summary['byte_checks'] == 2 * payload
             and summary['lane_checks'] == total_lanes and summary['launches'] == total_chunks, 'Reader summary accounting')
+    activities = [json.loads(line) for line in (folder.parent / 'gpu-activity.jsonl').read_text(encoding='utf-8').splitlines()]
+    ptx_kernels = [r['name'] for r in activities if r['kind'] == 'kernel' and 'sampled_copy' in r['name']]
+    cuda_kernels = [r['name'] for r in activities if r['kind'] == 'kernel' and 'sampled_window' in r['name']]
+    require((len(ptx_kernels) == total_chunks and not cuda_kernels) if route == 'ptx'
+            else (len(cuda_kernels) == total_chunks and not ptx_kernels), 'Actual GPU reader route differs from declared entrance')
     return {'status': 'pass', 'requests': request_position, 'requested_bytes': total_bytes, 'payload_bytes': payload,
             'publication_bytes': payload, 'lane_checks': total_lanes, 'chunks': total_chunks,
-            'all_lane_times_recomputed': True, 'chunk_publication_hashes_equal': route != 'symbolic'}
+            'all_lane_times_recomputed': True, 'chunk_publication_hashes_equal': route != 'symbolic',
+            'actual_reader_kernel_names': sorted(set(ptx_kernels + cuda_kernels))}
