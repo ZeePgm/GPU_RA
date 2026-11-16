@@ -138,6 +138,8 @@ def validate_model(folder, inventory, frozen, route, kv, reference_native=None, 
                   runtime['mailbox_slots'] == 2048 and runtime['launch_limit'] == 1 and runtime['audit_dropped'] == runtime['host_failed'] == 0 and
                   runtime['registered_globals'] == runtime['completed_globals'], 'Shared service resources/drain')
     kv_result = validate_kv(folder, inventory, len(frozen['prompt_tokens']), kv)
+    if adapter['runtime'] is not None:
+        S.require(adapter['runtime']['media_requests'] == (kv_result['media_records'] if kv == 'modeled' else 0), 'KV media/runtime request accounting')
     logits = np.fromfile(folder / 'logits.f32', dtype='<f4')
     S.require(logits.size == 8*151936 and np.isfinite(logits).all(), 'Complete logits missing/nonfinite')
     numerical = {'logits_sha256': S.sha(folder / 'logits.f32')}
