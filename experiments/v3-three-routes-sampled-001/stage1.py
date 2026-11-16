@@ -121,7 +121,16 @@ def audit_build(build):
             raise ValueError('Foreign compiled source: ' + str(path))
     ninja = (build / 'build.ninja').read_text(encoding='utf-8')
     require(not any(s in ninja for s in ('build-r2-final', 'build-r3-current', 'build-reproduction-host')), 'Historical binary dependency')
-    return {'compiled_source_paths': sorted(compiled),
+    cache = (build / 'CMakeCache.txt').read_text(encoding='utf-8')
+    toolchains = []
+    for key in ('CMAKE_C_COMPILER', 'CMAKE_CXX_COMPILER', 'CMAKE_CUDA_COMPILER', 'CMAKE_MAKE_PROGRAM'):
+        match = re.search(r'^' + key + r':[^=]+=(.+)$', cache, re.M)
+        require(match is not None, 'Build compiler/tool identity missing: ' + key)
+        toolchains.append({'role': key, **identity(Path(match[1].strip()))})
+    metadata = [build / name for name in ('CMakeCache.txt', 'compile_commands.json', 'build.ninja')]
+    metadata += [p for p in (build / 'core-tests.log',) if p.is_file()]
+    return {'compiled_source_paths': sorted(compiled), 'toolchains': toolchains,
+            'metadata': [identity(p) for p in metadata],
             'binaries': [identity(p) for p in sorted((build / 'bin').iterdir()) if p.suffix.lower() in ('.exe', '.dll')],
             'historical_verifiers_modified': False}
 
