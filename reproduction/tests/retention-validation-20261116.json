@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "models_or_GPU_executed": 0,
+  "real_experiment_data_deleted_in_tests": 0,
+  "checks": 65,
+  "suites": [
+    {
+      "receipt": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\maintenance-tests\\workflow-retention\\e2e-38e5eb32db\\acceptance.json",
+      "sha256": "1daf10e33cde665dc8a918d9151cb5eb4bb620aa2313eb5ab57e463c5b389e00",
+      "checks": 43
+    },
+    {
+      "receipt": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\maintenance-tests\\retention-final\\e2e-7cf7450c5b\\acceptance.json",
+      "sha256": "dc6de2e299e908cebfd2a46360346b2be02a6efdca6a86a0c1e44faa507ddc2c",
+      "checks": 22
+    }
+  ],
+  "source_sha256": {
+    "reproduction/experiment.py": "794bc16b6ebb364266ee0802e7beed87a1e4e32f44f2a1d8f294a1a35828a1bc",
+    "reproduction/retention.py": "009d666af63be59329b3bf2fe6845a3916d2e4c2f966dc2397aa34e669669491",
+    "reproduction/tests/test_retention.py": "d058393d101aa8916bfc8b07256fd526e09bd60f3cbb9a5dbae8483e5e83b506",
+    "reproduction/tests/test_experiment_workflow.py": "3be2d59d4141cda57bc4dda2c45cd36bfca0c59acf27f834a50aed2a777b3e24"
+  },
+  "scope": "CPU fixtures only; full verification remains strict; approved retained-evidence verification explicitly reports loss of full raw-trace recheck."
+}
