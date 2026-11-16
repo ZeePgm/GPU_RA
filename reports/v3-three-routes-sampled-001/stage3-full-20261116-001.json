@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage3-full-20261116-001",
+  "version": "v3",
+  "code_commit": "4193240cc074cf9bf502fa4d67789cac673851e4",
+  "code_tree": "f5fd3745258c62bd2e6684941f8386d0d3c73b56",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "三入口完整组件通过：每入口1278748请求、40919653 lane依赖、654621194请求字节；14张量全范围含embedding151936行、合法typed尾部/非零偏移、7个页/窗口边界、重复行和缓冲复用；8负例/入口拒绝。PTX/CUDA返回与发布逐块哈希一致，实际内核确认无路线替代；symbolic无载荷发布。进程259.141/309.187/268.281秒，总输出约2.41GB，共同时钟未合格、模型合同待正式矩阵。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage3-full-20261116-001/manifest.json",
+  "manifest_sha256": "d504abf8e4d63cebf171e3562537da180ec11792dd7e08f4e407eb1afb65ce3f",
+  "created_utc": "2026-11-16T06:46:07.711361+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
