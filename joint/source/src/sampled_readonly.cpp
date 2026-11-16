@@ -28,7 +28,7 @@ SampledRegistration::SampledRegistration(SampledOptions options):options_(option
     need(hbf_eventlab::checked_add(options.layout_bytes,options.kv_bytes)<=options.geometry.channel_bytes(),"sampled media capacity insufficient");
 }
 void SampledRegistration::current() const{
-    if(owner_!=std::this_thread::get_id() || closed_)throw std::logic_error("sampled owner or lifecycle mismatch");
+    if(owner_!=std::this_thread::get_id() || closed_ || failed_)throw std::logic_error("sampled owner or lifecycle mismatch");
 }
 void SampledRegistration::add(SampledRange range){
     current();need(!prepared_ && ranges_.size()<max_ranges,"sampled registration frozen or full");
@@ -42,12 +42,14 @@ void SampledRegistration::add(SampledRange range){
         need(!(address>=base?address-base<other.bytes:base-address<range.bytes),"sampled physical range overlap");
         need(!(range.logical>=other.logical?range.logical-other.logical<padded(other.bytes):other.logical-range.logical<reserved),"sampled logical range overlap");
     }
-    registered_bytes_=hbf_eventlab::checked_add(registered_bytes_,range.bytes);
-    initialized_bytes_=hbf_eventlab::checked_add(initialized_bytes_,reserved);
+    const auto registered=hbf_eventlab::checked_add(registered_bytes_,range.bytes);
+    const auto initialized=hbf_eventlab::checked_add(initialized_bytes_,reserved);
     ranges_.push_back(std::move(range));
+    registered_bytes_=registered;initialized_bytes_=initialized;
 }
 void SampledRegistration::prepare(){
     current();need(!prepared_ && !ranges_.empty(),"sampled prepare invalid");
+    try {
     std::sort(ranges_.begin(),ranges_.end(),[](const auto &a,const auto &b){return a.logical<b.logical;});
     AsyncRuntimeOptions runtime;runtime.backend.geometry=options_.geometry;
     runtime.backend.max_events_per_batch=2000000000ull;
@@ -60,24 +62,30 @@ void SampledRegistration::prepare(){
     for(const auto &range:ranges_)service_->register_readonly(range.address,range.bytes);
     need(service_->statistics().backend.device.programs==initialized_bytes_/4096,"sampled weight initialization count");
     prepared_=true;
+    } catch(...) {failed_=true;throw;}
 }
 void SampledRegistration::prepare_kv(const std::function<void(LiveTimingService *)> &initialize){
     current();need(prepared_ && !started_ && !kv_prepared_ && options_.kv_bytes,"sampled KV registration order");
+    try {
     initialize(service_.get());
     need(service_->statistics().backend.device.programs==(initialized_bytes_+options_.kv_bytes)/4096,"sampled KV reservation budget mismatch");
     kv_prepared_=true;
+    } catch(...) {failed_=true;throw;}
 }
 void SampledRegistration::start(){
     current();need(prepared_ && !started_ && (!options_.kv_bytes || kv_prepared_),"sampled service start order");
-    service_->start();started_=true;
+    try {service_->start();started_=true;}catch(...){failed_=true;throw;}
 }
 LiveTimingService &SampledRegistration::service(){current();need(prepared_,"sampled service not prepared");return *service_;}
 void SampledRegistration::close(){
-    current();need(started_,"sampled close before start");service_->finish();
+    current();need(started_,"sampled close before start");
+    try {
+    service_->finish();
     const auto stats=service_->statistics();
     need(service_->drained() && stats.submitted==stats.completed && stats.media_submitted==stats.media_completed &&
          !stats.audit_dropped && stats.backend.peak_resident_fragments<=256 &&
          stats.backend.registered_globals==stats.backend.completed_globals && !stats.backend.host.logical_failed,"sampled shared service not drained");
     service_.reset();closed_=true;
+    }catch(...){failed_=true;throw;}
 }
 }

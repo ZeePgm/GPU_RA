@@ -49,6 +49,7 @@ int main(int argc,char **argv)try{
     {
         SampledRegistration r(options);int host=0;r.add({"host",&host,sizeof(host),0});
         rejects([&]{r.prepare();});++negatives;
+        rejects([&]{r.add({"after-failure",reinterpret_cast<void *>(0x80000000),512,32768});});++negatives;
     }
     const auto start=std::chrono::steady_clock::now();
     Memory allocation;const auto selected_bytes=inventory.at("selected_bytes").get<size_t>();ck(cudaMalloc(&allocation.pointer,selected_bytes));

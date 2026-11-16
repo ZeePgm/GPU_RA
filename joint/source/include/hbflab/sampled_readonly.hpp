@@ -39,6 +39,6 @@ private:
     std::unique_ptr<LiveTimingService> service_;
     std::thread::id owner_=std::this_thread::get_id();
     std::uint64_t registered_bytes_=0,initialized_bytes_=0;
-    bool prepared_=false,started_=false,closed_=false,kv_prepared_=false;
+    bool prepared_=false,started_=false,closed_=false,kv_prepared_=false,failed_=false;
 };
 }
