@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-004",
+  "version": "v3",
+  "code_commit": "773639a1b114b23b4e7546fca2e99bf4ba8c901e",
+  "code_tree": "12f91c3869dbab41c78f0aca239973ef31b03068",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "阶段1清单与需求计划通过：实际14个连续CUDA0张量、297个未选原生张量，原44/短15输入各8步112个执行前后消费者匹配；embedding分别51次/36行与22次/16行；图和放置变化对原输入完整logits/token逐字节一致，三入口缓冲分配及6篡改负例通过。三入口功能、联合KV与性能仍待后续阶段。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage1-20261116-004/manifest.json",
+  "manifest_sha256": "165342f9a5ee21d7921ca381ddcfcad5409dc96d82d1cf720a70c72d923887ca",
+  "created_utc": "2026-11-16T05:09:23.757725+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

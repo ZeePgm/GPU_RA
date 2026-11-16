@@ -1,0 +1,4890 @@
+{
+  "schema": 1,
+  "model": {
+    "bytes": 1509347712,
+    "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+  },
+  "all_tensors": [
+    {
+      "name": "blk.0.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 647164800,
+      "logical_base": 0,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 647164288,
+      "logical_base": 2097152,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 628281728,
+      "logical_base": 2129920,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 649261952,
+      "logical_base": 2162688,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 653456768,
+      "logical_base": 6356992,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 653456256,
+      "logical_base": 10551296,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 657651072,
+      "logical_base": 10584064,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 628285824,
+      "logical_base": 12681216,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 634577280,
+      "logical_base": 18972672,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 647160192,
+      "logical_base": 25264128,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.0.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 640868736,
+      "logical_base": 25296896,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 678631296,
+      "logical_base": 31588352,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 678630784,
+      "logical_base": 33685504,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 659748224,
+      "logical_base": 33718272,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 680728448,
+      "logical_base": 33751040,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 684923264,
+      "logical_base": 37945344,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 684922752,
+      "logical_base": 42139648,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 689117568,
+      "logical_base": 42172416,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 659752320,
+      "logical_base": 44269568,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 666043776,
+      "logical_base": 50561024,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 678626688,
+      "logical_base": 56852480,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.1.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 672335232,
+      "logical_base": 56885248,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.10.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 710097792,
+      "logical_base": 63176704,
+      "reserved_bytes": 2097152,
+      "selected": true,
+      "category": "attention",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.10.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 710097280,
+      "logical_base": 65273856,
+      "reserved_bytes": 32768,
+      "selected": true,
+      "category": "norm",
+      "expected_op": "MUL",
+      "expected_source_slot": 1
+    },
+    {
+      "name": "blk.10.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 691214720,
+      "logical_base": 65306624,
+      "reserved_bytes": 32768,
+      "selected": true,
+      "category": "norm",
+      "expected_op": "MUL",
+      "expected_source_slot": 1
+    },
+    {
+      "name": "blk.10.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 712194944,
+      "logical_base": 65339392,
+      "reserved_bytes": 4194304,
+      "selected": true,
+      "category": "attention",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.10.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 716389760,
+      "logical_base": 69533696,
+      "reserved_bytes": 4194304,
+      "selected": true,
+      "category": "attention",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.10.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 716389248,
+      "logical_base": 73728000,
+      "reserved_bytes": 32768,
+      "selected": true,
+      "category": "norm",
+      "expected_op": "MUL",
+      "expected_source_slot": 1
+    },
+    {
+      "name": "blk.10.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 720584064,
+      "logical_base": 73760768,
+      "reserved_bytes": 2097152,
+      "selected": true,
+      "category": "attention",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.10.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 691218816,
+      "logical_base": 75857920,
+      "reserved_bytes": 6291456,
+      "selected": true,
+      "category": "ffn",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.10.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 697510272,
+      "logical_base": 82149376,
+      "reserved_bytes": 6291456,
+      "selected": true,
+      "category": "ffn",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.10.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 710093184,
+      "logical_base": 88440832,
+      "reserved_bytes": 32768,
+      "selected": true,
+      "category": "norm",
+      "expected_op": "MUL",
+      "expected_source_slot": 1
+    },
+    {
+      "name": "blk.10.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 703801728,
+      "logical_base": 88473600,
+      "reserved_bytes": 6291456,
+      "selected": true,
+      "category": "ffn",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "blk.11.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 741564288,
+      "logical_base": 94765056,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 741563776,
+      "logical_base": 96862208,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 722681216,
+      "logical_base": 96894976,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 743661440,
+      "logical_base": 96927744,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 747856256,
+      "logical_base": 101122048,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 747855744,
+      "logical_base": 105316352,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 752050560,
+      "logical_base": 105349120,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 722685312,
+      "logical_base": 107446272,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 728976768,
+      "logical_base": 113737728,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 741559680,
+      "logical_base": 120029184,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.11.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 735268224,
+      "logical_base": 120061952,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 773030784,
+      "logical_base": 126353408,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 773030272,
+      "logical_base": 128450560,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 754147712,
+      "logical_base": 128483328,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 775127936,
+      "logical_base": 128516096,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 779322752,
+      "logical_base": 132710400,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 779322240,
+      "logical_base": 136904704,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 783517056,
+      "logical_base": 136937472,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 754151808,
+      "logical_base": 139034624,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 760443264,
+      "logical_base": 145326080,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 773026176,
+      "logical_base": 151617536,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.12.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 766734720,
+      "logical_base": 151650304,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 804497280,
+      "logical_base": 157941760,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 804496768,
+      "logical_base": 160038912,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 785614208,
+      "logical_base": 160071680,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 806594432,
+      "logical_base": 160104448,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 810789248,
+      "logical_base": 164298752,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 810788736,
+      "logical_base": 168493056,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 814983552,
+      "logical_base": 168525824,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 785618304,
+      "logical_base": 170622976,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 791909760,
+      "logical_base": 176914432,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 804492672,
+      "logical_base": 183205888,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.13.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 798201216,
+      "logical_base": 183238656,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 835963776,
+      "logical_base": 189530112,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 835963264,
+      "logical_base": 191627264,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 817080704,
+      "logical_base": 191660032,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 838060928,
+      "logical_base": 191692800,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 842255744,
+      "logical_base": 195887104,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 842255232,
+      "logical_base": 200081408,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 846450048,
+      "logical_base": 200114176,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 817084800,
+      "logical_base": 202211328,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 823376256,
+      "logical_base": 208502784,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 835959168,
+      "logical_base": 214794240,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.14.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 829667712,
+      "logical_base": 214827008,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 867430272,
+      "logical_base": 221118464,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 867429760,
+      "logical_base": 223215616,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 848547200,
+      "logical_base": 223248384,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 869527424,
+      "logical_base": 223281152,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 873722240,
+      "logical_base": 227475456,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 873721728,
+      "logical_base": 231669760,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 877916544,
+      "logical_base": 231702528,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 848551296,
+      "logical_base": 233799680,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 854842752,
+      "logical_base": 240091136,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 867425664,
+      "logical_base": 246382592,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.15.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 861134208,
+      "logical_base": 246415360,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 898896768,
+      "logical_base": 252706816,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 898896256,
+      "logical_base": 254803968,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 880013696,
+      "logical_base": 254836736,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 900993920,
+      "logical_base": 254869504,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 905188736,
+      "logical_base": 259063808,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 905188224,
+      "logical_base": 263258112,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 909383040,
+      "logical_base": 263290880,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 880017792,
+      "logical_base": 265388032,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 886309248,
+      "logical_base": 271679488,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 898892160,
+      "logical_base": 277970944,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.16.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 892600704,
+      "logical_base": 278003712,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 930363264,
+      "logical_base": 284295168,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 930362752,
+      "logical_base": 286392320,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 911480192,
+      "logical_base": 286425088,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 932460416,
+      "logical_base": 286457856,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 936655232,
+      "logical_base": 290652160,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 936654720,
+      "logical_base": 294846464,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 940849536,
+      "logical_base": 294879232,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 911484288,
+      "logical_base": 296976384,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 917775744,
+      "logical_base": 303267840,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 930358656,
+      "logical_base": 309559296,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.17.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 924067200,
+      "logical_base": 309592064,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 961829760,
+      "logical_base": 315883520,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 961829248,
+      "logical_base": 317980672,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 942946688,
+      "logical_base": 318013440,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 963926912,
+      "logical_base": 318046208,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 968121728,
+      "logical_base": 322240512,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 968121216,
+      "logical_base": 326434816,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 972316032,
+      "logical_base": 326467584,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 942950784,
+      "logical_base": 328564736,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 949242240,
+      "logical_base": 334856192,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 961825152,
+      "logical_base": 341147648,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.18.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 955533696,
+      "logical_base": 341180416,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 993296256,
+      "logical_base": 347471872,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 993295744,
+      "logical_base": 349569024,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 974413184,
+      "logical_base": 349601792,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 995393408,
+      "logical_base": 349634560,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 999588224,
+      "logical_base": 353828864,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 999587712,
+      "logical_base": 358023168,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1003782528,
+      "logical_base": 358055936,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 974417280,
+      "logical_base": 360153088,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 980708736,
+      "logical_base": 366444544,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 993291648,
+      "logical_base": 372736000,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.19.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 987000192,
+      "logical_base": 372768768,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1024762752,
+      "logical_base": 379060224,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1024762240,
+      "logical_base": 381157376,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1005879680,
+      "logical_base": 381190144,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1026859904,
+      "logical_base": 381222912,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1031054720,
+      "logical_base": 385417216,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1031054208,
+      "logical_base": 389611520,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1035249024,
+      "logical_base": 389644288,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1005883776,
+      "logical_base": 391741440,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1012175232,
+      "logical_base": 398032896,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1024758144,
+      "logical_base": 404324352,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.2.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1018466688,
+      "logical_base": 404357120,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1056229248,
+      "logical_base": 410648576,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1056228736,
+      "logical_base": 412745728,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1037346176,
+      "logical_base": 412778496,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1058326400,
+      "logical_base": 412811264,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1062521216,
+      "logical_base": 417005568,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1062520704,
+      "logical_base": 421199872,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1066715520,
+      "logical_base": 421232640,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1037350272,
+      "logical_base": 423329792,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1043641728,
+      "logical_base": 429621248,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1056224640,
+      "logical_base": 435912704,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.20.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1049933184,
+      "logical_base": 435945472,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1087695744,
+      "logical_base": 442236928,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1087695232,
+      "logical_base": 444334080,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1068812672,
+      "logical_base": 444366848,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1089792896,
+      "logical_base": 444399616,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1093987712,
+      "logical_base": 448593920,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1093987200,
+      "logical_base": 452788224,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1098182016,
+      "logical_base": 452820992,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1068816768,
+      "logical_base": 454918144,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1075108224,
+      "logical_base": 461209600,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1087691136,
+      "logical_base": 467501056,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.21.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1081399680,
+      "logical_base": 467533824,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1119162240,
+      "logical_base": 473825280,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1119161728,
+      "logical_base": 475922432,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1100279168,
+      "logical_base": 475955200,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1121259392,
+      "logical_base": 475987968,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1125454208,
+      "logical_base": 480182272,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1125453696,
+      "logical_base": 484376576,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1129648512,
+      "logical_base": 484409344,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1100283264,
+      "logical_base": 486506496,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1106574720,
+      "logical_base": 492797952,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1119157632,
+      "logical_base": 499089408,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.22.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1112866176,
+      "logical_base": 499122176,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1150628736,
+      "logical_base": 505413632,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1150628224,
+      "logical_base": 507510784,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1131745664,
+      "logical_base": 507543552,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1152725888,
+      "logical_base": 507576320,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1156920704,
+      "logical_base": 511770624,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1156920192,
+      "logical_base": 515964928,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1161115008,
+      "logical_base": 515997696,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1131749760,
+      "logical_base": 518094848,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1138041216,
+      "logical_base": 524386304,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1150624128,
+      "logical_base": 530677760,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.23.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1144332672,
+      "logical_base": 530710528,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1182095232,
+      "logical_base": 537001984,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1182094720,
+      "logical_base": 539099136,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1163212160,
+      "logical_base": 539131904,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1184192384,
+      "logical_base": 539164672,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1188387200,
+      "logical_base": 543358976,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1188386688,
+      "logical_base": 547553280,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1192581504,
+      "logical_base": 547586048,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1163216256,
+      "logical_base": 549683200,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1169507712,
+      "logical_base": 555974656,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1182090624,
+      "logical_base": 562266112,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.24.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1175799168,
+      "logical_base": 562298880,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1213561728,
+      "logical_base": 568590336,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1213561216,
+      "logical_base": 570687488,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1194678656,
+      "logical_base": 570720256,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1215658880,
+      "logical_base": 570753024,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1219853696,
+      "logical_base": 574947328,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1219853184,
+      "logical_base": 579141632,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1224048000,
+      "logical_base": 579174400,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1194682752,
+      "logical_base": 581271552,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1200974208,
+      "logical_base": 587563008,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1213557120,
+      "logical_base": 593854464,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.25.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1207265664,
+      "logical_base": 593887232,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1245028224,
+      "logical_base": 600178688,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1245027712,
+      "logical_base": 602275840,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1226145152,
+      "logical_base": 602308608,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1247125376,
+      "logical_base": 602341376,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1251320192,
+      "logical_base": 606535680,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1251319680,
+      "logical_base": 610729984,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1255514496,
+      "logical_base": 610762752,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1226149248,
+      "logical_base": 612859904,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1232440704,
+      "logical_base": 619151360,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1245023616,
+      "logical_base": 625442816,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.26.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1238732160,
+      "logical_base": 625475584,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1276494720,
+      "logical_base": 631767040,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1276494208,
+      "logical_base": 633864192,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1257611648,
+      "logical_base": 633896960,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1278591872,
+      "logical_base": 633929728,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1282786688,
+      "logical_base": 638124032,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1282786176,
+      "logical_base": 642318336,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1286980992,
+      "logical_base": 642351104,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1257615744,
+      "logical_base": 644448256,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1263907200,
+      "logical_base": 650739712,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1276490112,
+      "logical_base": 657031168,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.27.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1270198656,
+      "logical_base": 657063936,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1307961216,
+      "logical_base": 663355392,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1307960704,
+      "logical_base": 665452544,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1289078144,
+      "logical_base": 665485312,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1310058368,
+      "logical_base": 665518080,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1314253184,
+      "logical_base": 669712384,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1314252672,
+      "logical_base": 673906688,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1318447488,
+      "logical_base": 673939456,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1289082240,
+      "logical_base": 676036608,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1295373696,
+      "logical_base": 682328064,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1307956608,
+      "logical_base": 688619520,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.3.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1301665152,
+      "logical_base": 688652288,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1339427712,
+      "logical_base": 694943744,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1339427200,
+      "logical_base": 697040896,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1320544640,
+      "logical_base": 697073664,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1341524864,
+      "logical_base": 697106432,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1345719680,
+      "logical_base": 701300736,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1345719168,
+      "logical_base": 705495040,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1349913984,
+      "logical_base": 705527808,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1320548736,
+      "logical_base": 707624960,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1326840192,
+      "logical_base": 713916416,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1339423104,
+      "logical_base": 720207872,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.4.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1333131648,
+      "logical_base": 720240640,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1370894208,
+      "logical_base": 726532096,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1370893696,
+      "logical_base": 728629248,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1352011136,
+      "logical_base": 728662016,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1372991360,
+      "logical_base": 728694784,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1377186176,
+      "logical_base": 732889088,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1377185664,
+      "logical_base": 737083392,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1381380480,
+      "logical_base": 737116160,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1352015232,
+      "logical_base": 739213312,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1358306688,
+      "logical_base": 745504768,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1370889600,
+      "logical_base": 751796224,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.5.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1364598144,
+      "logical_base": 751828992,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1402360704,
+      "logical_base": 758120448,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1402360192,
+      "logical_base": 760217600,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1383477632,
+      "logical_base": 760250368,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1404457856,
+      "logical_base": 760283136,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1408652672,
+      "logical_base": 764477440,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1408652160,
+      "logical_base": 768671744,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1412846976,
+      "logical_base": 768704512,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1383481728,
+      "logical_base": 770801664,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1389773184,
+      "logical_base": 777093120,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1402356096,
+      "logical_base": 783384576,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.6.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1396064640,
+      "logical_base": 783417344,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1433827200,
+      "logical_base": 789708800,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1433826688,
+      "logical_base": 791805952,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1414944128,
+      "logical_base": 791838720,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1435924352,
+      "logical_base": 791871488,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1440119168,
+      "logical_base": 796065792,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1440118656,
+      "logical_base": 800260096,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1444313472,
+      "logical_base": 800292864,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1414948224,
+      "logical_base": 802390016,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1421239680,
+      "logical_base": 808681472,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1433822592,
+      "logical_base": 814972928,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.7.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1427531136,
+      "logical_base": 815005696,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1465293696,
+      "logical_base": 821297152,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1465293184,
+      "logical_base": 823394304,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1446410624,
+      "logical_base": 823427072,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1467390848,
+      "logical_base": 823459840,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1471585664,
+      "logical_base": 827654144,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1471585152,
+      "logical_base": 831848448,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1475779968,
+      "logical_base": 831881216,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1446414720,
+      "logical_base": 833978368,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1452706176,
+      "logical_base": 840269824,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1465289088,
+      "logical_base": 846561280,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.8.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1458997632,
+      "logical_base": 846594048,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_k.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1496760192,
+      "logical_base": 852885504,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_k_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1496759680,
+      "logical_base": 854982656,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1477877120,
+      "logical_base": 855015424,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_output.weight",
+      "shape": [
+        2048,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1498857344,
+      "logical_base": 855048192,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_q.weight",
+      "shape": [
+        1024,
+        2048
+      ],
+      "dtype": "F16",
+      "bytes": 4194304,
+      "file_offset": 1503052160,
+      "logical_base": 859242496,
+      "reserved_bytes": 4194304,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_q_norm.weight",
+      "shape": [
+        128
+      ],
+      "dtype": "F32",
+      "bytes": 512,
+      "file_offset": 1503051648,
+      "logical_base": 863436800,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.attn_v.weight",
+      "shape": [
+        1024,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 2097152,
+      "file_offset": 1507246464,
+      "logical_base": 863469568,
+      "reserved_bytes": 2097152,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.ffn_down.weight",
+      "shape": [
+        3072,
+        1024
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1477881216,
+      "logical_base": 865566720,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.ffn_gate.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1484172672,
+      "logical_base": 871858176,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.ffn_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1496755584,
+      "logical_base": 878149632,
+      "reserved_bytes": 32768,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "blk.9.ffn_up.weight",
+      "shape": [
+        1024,
+        3072
+      ],
+      "dtype": "F16",
+      "bytes": 6291456,
+      "file_offset": 1490464128,
+      "logical_base": 878182400,
+      "reserved_bytes": 6291456,
+      "selected": false,
+      "category": "unselected_native",
+      "expected_op": null,
+      "expected_source_slot": null
+    },
+    {
+      "name": "output.weight",
+      "shape": [
+        1024,
+        151936
+      ],
+      "dtype": "F16",
+      "bytes": 311164928,
+      "file_offset": 5951872,
+      "logical_base": 884473856,
+      "reserved_bytes": 311164928,
+      "selected": true,
+      "category": "output",
+      "expected_op": "MUL_MAT",
+      "expected_source_slot": 0
+    },
+    {
+      "name": "output_norm.weight",
+      "shape": [
+        1024
+      ],
+      "dtype": "F32",
+      "bytes": 4096,
+      "file_offset": 1509343616,
+      "logical_base": 1195638784,
+      "reserved_bytes": 32768,
+      "selected": true,
+      "category": "norm",
+      "expected_op": "MUL",
+      "expected_source_slot": 1
+    },
+    {
+      "name": "token_embd.weight",
+      "shape": [
+        1024,
+        151936
+      ],
+      "dtype": "F16",
+      "bytes": 311164928,
+      "file_offset": 317116800,
+      "logical_base": 1195671552,
+      "reserved_bytes": 311164928,
+      "selected": true,
+      "category": "embedding",
+      "expected_op": "GET_ROWS",
+      "expected_source_slot": 0
+    }
+  ],
+  "selected_count": 14,
+  "unselected_count": 297,
+  "selected_bytes": 653800448,
+  "logical_weight_layout_bytes": 1506836480,
+  "file_alias_groups": [],
+  "kv_base": 1506836480,
+  "kv_reserved_bytes": 58720256,
+  "media_geometry": {
+    "pages_per_block": 4,
+    "blocks_per_bank": 65536,
+    "banks": 2,
+    "capacity_bytes": 2147483648,
+    "old_capacity_bytes": 1073741824,
+    "spare_blocks_per_bank": 1,
+    "physical_spare_bytes": 32768,
+    "logical_alignment_bytes": 32768
+  },
+  "scope": "Frozen independent GGUF inventory and complete logical layout for approved sampled experiment"
+}

@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-three-routes-sampled-001",
   "parameters": {
-    "status": "approved_stage1",
+    "status": "stage1_passed_stage2_in_progress",
     "model": "Qwen3-0.6B-F16",
     "layer": 10,
     "routes": [
@@ -30,7 +30,9 @@
     },
     "embedding_buffer": "CUDA0 explicit override",
     "logical_range_alignment_bytes": 32768,
-    "media_capacity_bytes": 2147483648
+    "media_capacity_bytes": 2147483648,
+    "inventory": "inventory.json",
+    "demand_plan": "demand-plan.json"
   },
   "acceptance": {
     "status": "approved",
