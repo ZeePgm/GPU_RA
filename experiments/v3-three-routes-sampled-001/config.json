@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "parameters": {
+    "status": "approved_stage1",
+    "model": "Qwen3-0.6B-F16",
+    "layer": 10,
+    "routes": [
+      "symbolic",
+      "ptx",
+      "cuda"
+    ],
+    "kv_modes": [
+      "native",
+      "modeled"
+    ],
+    "scope": "representative weights; all other weights native",
+    "protocol": "PLAN.md",
+    "inputs": [
+      "prompt-44.txt",
+      "prompt-short.txt"
+    ],
+    "graph_switches": {
+      "cuda_graphs": false,
+      "fusion": false,
+      "flash": false,
+      "matrix_precision": "F32",
+      "graph_reuse": false
+    }
+  },
+  "acceptance": {
+    "status": "approved",
+    "criteria": "See PLAN.md; independent scientific validation required"
+  }
+}

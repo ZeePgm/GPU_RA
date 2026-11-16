@@ -1,0 +1,1 @@
+Count the colors: red, blue, red, green. Answer briefly.
