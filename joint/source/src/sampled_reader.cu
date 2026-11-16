@@ -56,16 +56,16 @@ std::string ptx_copy(unsigned unit){
  .param .u64 input, .param .u64 output, .param .u64 times, .param .u32 bytes
 ) {
  .reg .pred %valid;
- .reg .b32 %tid, %bid, %threads, %index, %offset, %n, %a, %b, %c, %d;
+ .reg .b32 %thread_index, %block_index, %thread_count, %index, %offset, %n, %a, %b, %c, %d;
  .reg .b64 %src, %dst, %timer, %wide, %timeoff, %before, %after;
  ld.param.u64 %src, [input];
  ld.param.u64 %dst, [output];
  ld.param.u64 %timer, [times];
  ld.param.u32 %n, [bytes];
- mov.u32 %tid, %tid.x;
- mov.u32 %bid, %ctaid.x;
- mov.u32 %threads, %ntid.x;
- mad.lo.u32 %index, %bid, %threads, %tid;
+ mov.u32 %thread_index, %tid.x;
+ mov.u32 %block_index, %ctaid.x;
+ mov.u32 %thread_count, %ntid.x;
+ mad.lo.u32 %index, %block_index, %thread_count, %thread_index;
 )";
     text<<" mul.lo.u32 %offset, %index, "<<unit<<";\n";
     text<<R"( cvt.u64.u32 %wide, %offset;
@@ -120,9 +120,9 @@ struct SampledReader::Impl {
             for(unsigned i=0;i<2;++i){
                 const unsigned unit=i?2:16;const auto source=ptx_copy(unit);
                 std::ofstream(path/("copy-"+std::to_string(unit)+".ptx"),std::ios::binary)<<source;
+                std::ofstream(path/("copy-"+std::to_string(unit)+".rewritten.ptx"),std::ios::binary)<<rewrite_async_ptx(source,true).text;
                 modules[i]=loader->load_ptx(source);functions[i]=loader->function(modules[i],"sampled_copy");
                 const auto id=loader->identity(modules[i]);
-                std::ofstream(path/("copy-"+std::to_string(unit)+".rewritten.ptx"),std::ios::binary)<<rewrite_async_ptx(source,true).text;
                 identities.push_back({{"unit",unit},{"source_sha256",id.source_sha256},{"rewritten_sha256",id.rewritten_sha256},
                     {"helper_sha256",id.helper_sha256},{"artifact_sha256",id.artifact_sha256},{"cubin_sha256",id.cubin_sha256},
                     {"instance",id.instance},{"context",id.context_id},{"target_sm",id.target_sm},{"driver",id.driver_version},
