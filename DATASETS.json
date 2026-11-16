@@ -915,6 +915,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-three-routes-sampled-001/stage1-20261116-002"
       }
+    },
+    {
+      "experiment_id": "v3-three-routes-sampled-001",
+      "run_id": "stage1-20261116-003",
+      "code_commit": "dfc0c9ba9d3522c499e9395727d192b8ab816960",
+      "manifest": {
+        "path": "evidence/v3-three-routes-sampled-001/stage1-20261116-003/manifest.json",
+        "bytes": 87093,
+        "sha256": "4b7417b46aec0e68bab71dc353c6cf2f359406943b0c746b6404bbaecaa7ff47"
+      },
+      "report": {
+        "path": "reports/v3-three-routes-sampled-001/stage1-20261116-003.json",
+        "bytes": 1054,
+        "sha256": "3b8c2bed0d49c05dbbef15d65a208bfb9bfe3d020e5ba2fc0e0abfc8d4ee5a38"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-three-routes-sampled-001/stage1-20261116-003"
+      }
     }
   ]
 }

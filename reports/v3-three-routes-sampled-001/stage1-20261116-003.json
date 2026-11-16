@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-003",
+  "version": "v3",
+  "code_commit": "dfc0c9ba9d3522c499e9395727d192b8ab816960",
+  "code_tree": "0cced6ee6618c324b73d84e6fcc0c4d343002496",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "interrupted",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "原44输入模型完成8步；实际embedding为CPU_Mapped，且图包含两条embedding gather，当前GPU注册与单消费者预期被拒绝。构建残留PDB服务经cancel.request结束，Job树排空。该诊断不计通过样本；下一修订显式固定GPU embedding及token-only图并重新验收。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage1-20261116-003/manifest.json",
+  "manifest_sha256": "4b7417b46aec0e68bab71dc353c6cf2f359406943b0c746b6404bbaecaa7ff47",
+  "created_utc": "2026-11-16T04:59:52.571479+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

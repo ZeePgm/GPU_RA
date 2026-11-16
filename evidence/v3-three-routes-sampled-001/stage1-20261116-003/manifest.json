@@ -1,0 +1,2055 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-003",
+  "version": "v3",
+  "code_commit": "dfc0c9ba9d3522c499e9395727d192b8ab816960",
+  "code_tree": "0cced6ee6618c324b73d84e6fcc0c4d343002496",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-three-routes-sampled-001/stage1-20261116-003"
+  },
+  "files": [
+    {
+      "path": "cancel.request",
+      "bytes": 100,
+      "sha256": "80f4571bbbb36800d889d15b3683aae14686528f6eb5e4719be7dfd5bd3edd03"
+    },
+    {
+      "path": "config.json",
+      "bytes": 780,
+      "sha256": "f3f2704b8069317da0c15da5923ba80a1e1311fea44653780faf08bd06b1156a"
+    },
+    {
+      "path": "data/build/.ninja_deps",
+      "bytes": 430012,
+      "sha256": "1bf04c1d967e34e2cb5713e40d962eed0bca87973401ca206e7ae59cc2620493"
+    },
+    {
+      "path": "data/build/.ninja_log",
+      "bytes": 36468,
+      "sha256": "1eeed20243c0cf39a99dcdbdd176ed376a4101479980bcc8793594baede2a057"
+    },
+    {
+      "path": "data/build/async_ptx_helper.ptx",
+      "bytes": 56468,
+      "sha256": "a991054c8478d95d803efb0203e8530521329b6785de70d803746af651f2daf3"
+    },
+    {
+      "path": "data/build/async_ptx_helper_embedded.hpp",
+      "bytes": 56870,
+      "sha256": "25556184ccccad17a6eb085a8a5f22405226144be5d7fd7f076d54368f2fa145"
+    },
+    {
+      "path": "data/build/bin/ggml-base.dll",
+      "bytes": 679424,
+      "sha256": "1dd47a908187c37683d9a2446b80191bf2789fcab4d8cf7afe2fab156ef4d2f5"
+    },
+    {
+      "path": "data/build/bin/ggml-cpu.dll",
+      "bytes": 1174016,
+      "sha256": "9d5eb52500ec1d8322344244ba31b8c5211a9929890cd8766e6262f5205a2681"
+    },
+    {
+      "path": "data/build/bin/ggml-cuda.dll",
+      "bytes": 29836288,
+      "sha256": "1ec1da99fbe0f73f025a4ba9b769d79454cc4a6b46d79c124f6488a946d3e8bc"
+    },
+    {
+      "path": "data/build/bin/ggml.dll",
+      "bytes": 61440,
+      "sha256": "57d7db6fc59412f7ae0b63adbf484fd0eaa4e68aad000e31e2a876e675804181"
+    },
+    {
+      "path": "data/build/bin/llama.dll",
+      "bytes": 3088384,
+      "sha256": "8dbd0da83b8468507d620039ddfeb36a4fbf09ee5e82146fa92efb7010acb4c1"
+    },
+    {
+      "path": "data/build/bin/sampled_inventory.exe",
+      "bytes": 198656,
+      "sha256": "093882b09065575e7189f41df1c3e6b5149f6af4abbfe8e2f7e442b2b366e185"
+    },
+    {
+      "path": "data/build/build.ninja",
+      "bytes": 910981,
+      "sha256": "56bffb7d6e58baa4db32608a28f66ac18fb38a98318251c42f009bbc85ed7fda"
+    },
+    {
+      "path": "data/build/cmake_install.cmake",
+      "bytes": 2659,
+      "sha256": "d4833249a504d38594a9d57aa7188395fdbe34ca29bbf042219092c4b6cc815a"
+    },
+    {
+      "path": "data/build/CMakeCache.txt",
+      "bytes": 54780,
+      "sha256": "82b0ac5bdd32728eae6d1883de4969f047abf558542bcae1c4acb9889bb88906"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeASMCompiler.cmake",
+      "bytes": 1266,
+      "sha256": "3fe93b7ce3647d21cf5e6731ed7b4779b23d74f5c536e64a920425b9f116ef2d"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeCCompiler.cmake",
+      "bytes": 3198,
+      "sha256": "e2b79179c4402a5242c73ad936e08c65c3d27be3cdbe3a6ff337112c9dc87e30"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeCUDACompiler.cmake",
+      "bytes": 4215,
+      "sha256": "788516eea40bfe1739815a0aff65e9fdaf8d4550acf71dec4073b8e83eab8f0c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeCXXCompiler.cmake",
+      "bytes": 6545,
+      "sha256": "d75b26d4f0c9d6139ac79d9e8b7e4ea224d641bbe579e4f008c163f35e7f3345"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeDetermineCompilerABI_C.bin",
+      "bytes": 53248,
+      "sha256": "165480476d463deabf08d8a5660e3269308a5b1f5b2d25d2bb19f0e6a783d3f0"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeDetermineCompilerABI_CUDA.bin",
+      "bytes": 775168,
+      "sha256": "22ef0ed4f27bb2db3a742b16b522acc4c58ada4431ece79e8e5d2e3096ec81bc"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeDetermineCompilerABI_CXX.bin",
+      "bytes": 53248,
+      "sha256": "5d2b3abb89b806fe678733635abcc44d6aadc6f98e036e7dc4142ba655fc2ab8"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeRCCompiler.cmake",
+      "bytes": 276,
+      "sha256": "f1c96e7b6bc035d04a44733638743f28bf70450e870a3095a55cff6ad81924fa"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeSystem.cmake",
+      "bytes": 395,
+      "sha256": "cf05e982232c22b6fe58288ef10f11c1d5ba2af1e7e050ea9d8037095b59d948"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.c",
+      "bytes": 28524,
+      "sha256": "980da23c61453fa1da0dbc5d11ea9dbb34deaa7210a24b1b6c5a007ad0b546a6"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.exe",
+      "bytes": 108032,
+      "sha256": "d173ae800c058378479d707d5264946a5b946878198235b9e3437279b16c5fbd"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.obj",
+      "bytes": 2023,
+      "sha256": "e58366ddfbba13c1b4c5910b559ec78427745e215767451388833b639745f2d7"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/a.exe",
+      "bytes": 125440,
+      "sha256": "7b6b61f380d88558db2aec00fa478b606cdfefd7eb3a76415e3fc404a50d5102"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/CMakeCUDACompilerId.cu",
+      "bytes": 30635,
+      "sha256": "978a5e798d02f8056201d5b50c13dfab3fcf20200dd0e2f4a11cb5a753c2d2fd"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a.exe.res",
+      "bytes": 496,
+      "sha256": "491b4abafeb4ae0ab8121f3fe2c267b2760f2b219316f4819a9d146727d0cc87"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.fatbin",
+      "bytes": 1408,
+      "sha256": "c1698dc6f9cadcdcc184e035a175032f949c561e3946f143ff557ec72a9bb049"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.fatbin.c",
+      "bytes": 4695,
+      "sha256": "e2d3083a4911166d7fc2046cd87f67ac6eaa7ecefb07cf8a2e7f043c5fa63116"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.obj",
+      "bytes": 2500,
+      "sha256": "f636238a9102af6c11dea6ba4fb62de4df79d664494dbb239fc1989cfa4fc89d"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.obj.res",
+      "bytes": 630,
+      "sha256": "71f36fd01015f14ce8f6834cf39972aeaca437b9d3261f981298ce70ecf67e73"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.reg.c",
+      "bytes": 33,
+      "sha256": "377e0c156093e118d786c8e7a7452a3c786e1d830b8bc1ebbe8ebb57c86a8256"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.sm_75.cubin",
+      "bytes": 1328,
+      "sha256": "7d4f15b510865df1161fd981b6ef4d7c2b5149e30162ef7a03481529d0c9e4a0"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.sm_75.cubin.optf",
+      "bytes": 222,
+      "sha256": "867a5da11213672ad1abbe16994c3d2927920915759518777aaa23e7d0212e84"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii",
+      "bytes": 2149353,
+      "sha256": "65844bd7f9ffe7832ae9acd311d04a9204b3b6963e3574843f0f807ddd8f7afc"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii.res",
+      "bytes": 496,
+      "sha256": "2ee9ff45de4f4858e55fc8c93f619073f888e926813343239d0e66166aa07091"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii",
+      "bytes": 1625474,
+      "sha256": "7f8a23b70abc6cf433d74e8582f5a5bc9df9b96a72c4e2728e711a0318bc369c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii.res",
+      "bytes": 446,
+      "sha256": "d6d41cf889ac3f3b35c35725a7f114f8a0fda2509f15b7c19304e21d4c3423c2"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.c",
+      "bytes": 3401,
+      "sha256": "3c458133be942d74a51a2c748dbe2a2285cb42359fadd404b6de9a085f4839b0"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.cpp",
+      "bytes": 844154,
+      "sha256": "c84359c90020057a630a7687cc96d8d42ad39932fa3c9e5b8e9d965872063f3d"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.gpu",
+      "bytes": 597,
+      "sha256": "89dd08e4a6afe849cf268de12f639f67b65f3a3792dff65fa1f5bf8a03107720"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.stub.c",
+      "bytes": 745,
+      "sha256": "58334cccf00663f7e6b78cbabaad302d595feb73639ebdae96f525ef04c56a8b"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin",
+      "bytes": 1696,
+      "sha256": "0a1718d93800f59a8fca6902bf4de02cd628afda533f738d2b8a32dddec26ac5"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin.c",
+      "bytes": 5476,
+      "sha256": "9b677be71026114aa4c910af35c1447238f83feb5bb483b3c5ac62aeb6da953c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.module_id",
+      "bytes": 44,
+      "sha256": "e4060b251d60f0ee9dc1c3cc11bc300035aa5472015196efb7acdb83a6f9c53e"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.obj",
+      "bytes": 38554,
+      "sha256": "405461fcab071a9a0be14e6cd72a7bef8992f70cfbefb499dbb24b857ffd96e3"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.obj.res",
+      "bytes": 409,
+      "sha256": "d32fe7ccea80a4f2c317b2b09223fc06e49686eacf2365fb168f45beff9afb20"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.ptx",
+      "bytes": 215,
+      "sha256": "bc267a3b2a3db41b3b0b58e39553f798e28c5dea10e7a55dd5079a38b75382a9"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.sm_75.cubin",
+      "bytes": 1464,
+      "sha256": "7a6dd2eeac7a7b4312726614130fdd70fb6e0d537f321573c8b8cc4ae87b42cc"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+      "bytes": 29376,
+      "sha256": "889dac6c9713176b009c4e2662f38728ec305d6f8fa8d308392f53ff7237fc1c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.exe",
+      "bytes": 108032,
+      "sha256": "b5adbfb70d0c9a61c5a36b7e8f2bae3a9d4d0db71015781b8be86afefda3e081"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.obj",
+      "bytes": 2090,
+      "sha256": "9e31c9cb58460622b4b7b1485c1c16137e2053f9febfebbd6a47f359dcc0d480"
+    },
+    {
+      "path": "data/build/CMakeFiles/cmake.check_cache",
+      "bytes": 86,
+      "sha256": "95079b44bcef481d601432c2fd3c654d7fe85b9c8386c355f2874502b47441d7"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeConfigureLog.yaml",
+      "bytes": 157338,
+      "sha256": "af00c3bd9313c78e0725e5493cab58ad5cc9c996df072a55152066a1a20feca1"
+    },
+    {
+      "path": "data/build/CMakeFiles/FindOpenMP/ompver_C.bin",
+      "bytes": 53248,
+      "sha256": "43a2b24a91d88080d5f0a5c52b03131982f9a33544d35b8edd4a80c8612c4eb5"
+    },
+    {
+      "path": "data/build/CMakeFiles/FindOpenMP/ompver_CUDA.bin",
+      "bytes": 156672,
+      "sha256": "65e42091395f236fbbffc86bb30ee0da4b16085431ae14416eb018aba0343c87"
+    },
+    {
+      "path": "data/build/CMakeFiles/FindOpenMP/ompver_CXX.bin",
+      "bytes": 53248,
+      "sha256": "aad37f65453414a77e5d42a8fd58a33fb60c3b5f519e339a4f3f48378890f47e"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/2d3d78bd5f0d10e155a07744d2ebcab8/v3-three-routes-sampled-001/joint/source/src/async_module.cpp.obj",
+      "bytes": 806236,
+      "sha256": "140bb72549e079225222be19e9f2ffe58a980124c736355614fa9c5743726302"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/2d3d78bd5f0d10e155a07744d2ebcab8/v3-three-routes-sampled-001/joint/source/src/async_runtime.cu.obj",
+      "bytes": 803371,
+      "sha256": "089d4a77a330f3bf717f3be024fc41c1b539c0ffdb1532325dee0eec5db11103"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/2d3d78bd5f0d10e155a07744d2ebcab8/v3-three-routes-sampled-001/joint/source/src/capacity_gpu.cpp.obj",
+      "bytes": 322257,
+      "sha256": "7b40685b89528910c8fc5f0851003dee9678b0dc8433a6a70e3ab1db58b3037a"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/2d3d78bd5f0d10e155a07744d2ebcab8/v3-three-routes-sampled-001/joint/source/src/environment.cpp.obj",
+      "bytes": 30341,
+      "sha256": "1bfdaf39ac0eff04117c093de662c4352db3a1e4c087d5d215fe76aae896c615"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/2d3d78bd5f0d10e155a07744d2ebcab8/v3-three-routes-sampled-001/joint/source/src/live_runtime.cpp.obj",
+      "bytes": 1833427,
+      "sha256": "78057a7891b07f8bf1902f16043cb273cdb17907a8f4305c583fc0efa6003381"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/2d3d78bd5f0d10e155a07744d2ebcab8/v3-three-routes-sampled-001/joint/source/src/page_file.cpp.obj",
+      "bytes": 86994,
+      "sha256": "8dcf351ae1b815e6e887320100a3699ce47b7a6cf8c7b387fff53acc3d5f600b"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/89789ba8e915c1acd03c7bcdee832098/experiments/v3-three-routes-sampled-001/joint/source/src/backend.cpp.obj",
+      "bytes": 1242449,
+      "sha256": "d9802a72ff9bf76bddc8d9fce07191c16da7bf35073aba2605adbf8a9eff57df"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/89789ba8e915c1acd03c7bcdee832098/experiments/v3-three-routes-sampled-001/joint/source/src/capacity.cpp.obj",
+      "bytes": 705016,
+      "sha256": "7349ca9784a3f237a3c397a99ea036133a2d365e8fc21b455f31af8c1201be8e"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/89789ba8e915c1acd03c7bcdee832098/experiments/v3-three-routes-sampled-001/joint/source/src/sha256.cpp.obj",
+      "bytes": 103425,
+      "sha256": "496016e5874ce55d0f4b0f455059fa0320f9b337348cb68ede909628946f824f"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/E_/v1_update/repository-prep/GPU_RA/experiments/v3-three-routes-sampled-001/joint/source/src/kv.cpp.obj",
+      "bytes": 479320,
+      "sha256": "9b065b6626a1d2f62a4fa62de68a0bdd4e70bd1081ceaeadc7f8d9ea85fd8e35"
+    },
+    {
+      "path": "data/build/CMakeFiles/realgpu_runtime.dir/E_/v1_update/repository-prep/GPU_RA/experiments/v3-three-routes-sampled-001/joint/source/src/ptx.cpp.obj",
+      "bytes": 1484318,
+      "sha256": "9babe21a24913c8af9c20b164f3e6468fcb4578df8e24f0f2b2dd5163c57260c"
+    },
+    {
+      "path": "data/build/CMakeFiles/rules.ninja",
+      "bytes": 39900,
+      "sha256": "a078ca63b0d2f60d0f3e0761f6e91302696221aaa95e8eb53818aa34318839d1"
+    },
+    {
+      "path": "data/build/CMakeFiles/sampled_inventory.dir/a3aa6119c9e2aec890b8cbd70325314a/joint/source/adapters/llama_cpp/sampled_inventory.cpp.obj",
+      "bytes": 4502861,
+      "sha256": "725a2b1b767893b7dfd5ece59d47060daea98682b6ab5f19b1bdc98e27474800"
+    },
+    {
+      "path": "data/build/CMakeFiles/ShowIncludes/foo.h",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "data/build/CMakeFiles/ShowIncludes/main.c",
+      "bytes": 33,
+      "sha256": "cdfab295fc8e12c3ecfb6982f99058f032ee8284926ad71a829e70ea3bf02549"
+    },
+    {
+      "path": "data/build/CMakeFiles/ShowIncludes/main.obj",
+      "bytes": 706,
+      "sha256": "afbfa37a94fcd30e80bd9e9804307978a78ee6f2044affd53015a0abb2722ee9"
+    },
+    {
+      "path": "data/build/CMakeFiles/TargetDirectories.txt",
+      "bytes": 15537,
+      "sha256": "6e19f8c2f4af5072a40660f29f6fff074d90f38c1c0630c63c4abed92aabb0b3"
+    },
+    {
+      "path": "data/build/compile_commands.json",
+      "bytes": 790353,
+      "sha256": "c471b358809f1a1229616dd2c6419df55aa80a9b9040da4d92429228875b4e2d"
+    },
+    {
+      "path": "data/build/eventlab/cmake_install.cmake",
+      "bytes": 1475,
+      "sha256": "dc90e122f29c42bd563c3eb4a24acd2c7f8649fda042c99baa9531f0b3153432"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/architecture/device_description.cpp.obj",
+      "bytes": 43900,
+      "sha256": "115a23fc014406fdc071bcd425d7576bd453bf7fd7eef8eaa6f4d3c2991c4dc3"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/architecture/execution_configuration.cpp.obj",
+      "bytes": 30141,
+      "sha256": "bd55665a5ef635eb61ffc84fce8624e2b8723de4b81f13ff823dd264d73aa040"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/architecture/topology_configuration.cpp.obj",
+      "bytes": 56810,
+      "sha256": "ae98d0c6fbfd89f99bbbc1424441acb645753f5aa72c144241cd5b486482ea71"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/architecture/ucie_profile.cpp.obj",
+      "bytes": 13109,
+      "sha256": "f127410ade66c8463461b016455b5fb5406075b8b4c04e73970de162a62f547d"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/configuration/simulation_configuration.cpp.obj",
+      "bytes": 1721505,
+      "sha256": "dfac60399488fe7c890a3e06015231a158e1b16520e570344df94c99559e236a"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/diagnostics/runtime_profile.cpp.obj",
+      "bytes": 130403,
+      "sha256": "0adc70368a85d36da68f6ff7c9f6a1b1aa7c96a0045a0516871ac25f6059084a"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/global_request_splitter.cpp.obj",
+      "bytes": 63851,
+      "sha256": "27f1a8be1d405fba29dda2eaae273ede99280d5ad829c217fd677b82a5f9204c"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/host_configuration.cpp.obj",
+      "bytes": 13600,
+      "sha256": "7170ee13b2121b76616f90991aa47c6826db582dc28ce471d5b5ad50f5a11eb8"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/host_driver.cpp.obj",
+      "bytes": 2419190,
+      "sha256": "3dd97835f5b227184746f0dd0da4be709209b33970e31bb132a31a498a71e645"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/host_indices.cpp.obj",
+      "bytes": 517975,
+      "sha256": "017264efdff3b5cf785205c245c3266c2177ef377646c509cd3b91195a54e7c5"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/host_input.cpp.obj",
+      "bytes": 1641582,
+      "sha256": "43aa623eddb16162da2265350aaf08f3441ac124a039954727924fc79c74733a"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/host_storage.cpp.obj",
+      "bytes": 650346,
+      "sha256": "0ebd3109578f4b5674f88f74ca13b31e5c91f159a80e65c45a2d3fd8b1753e3b"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/recovery_manager.cpp.obj",
+      "bytes": 236521,
+      "sha256": "757a1b7be00a0fd10e2b3c7e154d9353647b4b2982028cc3d6e892c96a74aa88"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/retention_store.cpp.obj",
+      "bytes": 230531,
+      "sha256": "53d1c7b25a3d06657dfc37b7213900511f470c0e503f6efaac3673ec5ffd16ad"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/host/write_retry.cpp.obj",
+      "bytes": 338596,
+      "sha256": "59c8b0f93c9dae0eca7456410977ce1146cf6d6770933ab3ba7f639070165f2e"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/infrastructure/event_queue.cpp.obj",
+      "bytes": 238488,
+      "sha256": "9c21797b4f09859a1e9830ef66496d360faab033af484105cb4c400db776fa51"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/policies/read_dispatch.cpp.obj",
+      "bytes": 191681,
+      "sha256": "9af001ac39f972152960b62fed0084fca2a1ea4275ed1549e5bd30c780e70cbe"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/policies/reference_address_layout.cpp.obj",
+      "bytes": 20411,
+      "sha256": "23a535b7fae65be631f12a975a1d0e736cb66a8350b86b1a56f973a75095f67b"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/policies/round_robin_interleaver.cpp.obj",
+      "bytes": 31063,
+      "sha256": "605604e62126c5f284a404680a0c3763e670e77e6f5751b0ab76a971cb67018e"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/admission_wait_registry.cpp.obj",
+      "bytes": 487064,
+      "sha256": "57348f17bedb665efe3103e4c15cbcf592a324628d9702aac9c459f64f6c4796"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/bank_cache.cpp.obj",
+      "bytes": 235541,
+      "sha256": "43090212ec285658896850ab8147c342f22870204750dec51ead16839ae37163"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/block_replacement.cpp.obj",
+      "bytes": 456445,
+      "sha256": "e382c1bb482ef5acac547f28b56d409b10cc4e1418aab4c91c66ec6544b066e2"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/block_write_order.cpp.obj",
+      "bytes": 134756,
+      "sha256": "0cd9ab19b1001dc1f78bc56a71eb7be7e6852e1629ea7e3a8eac3abad21b5120"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/capacity_retirement_coordinator.cpp.obj",
+      "bytes": 1235760,
+      "sha256": "61f9ae91eedf6169ae46f290804ce63eb999ceac77524a423d39eb0fa785ff19"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/command_admission.cpp.obj",
+      "bytes": 331117,
+      "sha256": "57aee18242ee0957144329d1f7e2a78238db5c88a07d86a7bcd59ad589558c2f"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/device_driver.cpp.obj",
+      "bytes": 2568024,
+      "sha256": "0494eca97c3922d2664a9fe133de109039a52599f91fc58d39aff78cd465a490"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/nand_media_state.cpp.obj",
+      "bytes": 193040,
+      "sha256": "507c2c852f9851a4348a196b48b96e2fed3136aacdb61a11060b97370d95b5c9"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/read_path.cpp.obj",
+      "bytes": 813324,
+      "sha256": "05a3f5a914639224ca114e1c77b3093cb86dc6768e4783f62cfbd650406869df"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/simulation_runner.cpp.obj",
+      "bytes": 61862,
+      "sha256": "efe7a1b53a53d74586ea1ac4c4e00609719f6b090ea817468ec1beb7a1730a17"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/simulation_session.cpp.obj",
+      "bytes": 419619,
+      "sha256": "c0fa750114ea2e56ca214c8497cbec3ef9da94797bd709a6acbe4bb0dd6e0b63"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/write_assembly.cpp.obj",
+      "bytes": 246730,
+      "sha256": "4b8ec9c985cd32c1981276a467bcafd130a60a5ba2b291b7bcb360e98d1ef8af"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/write_path.cpp.obj",
+      "bytes": 1333858,
+      "sha256": "3873c7c88621d47d49ff98c3a76338b0501493abf3fadc5fd239354412583e45"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/runtime/zone_mapping.cpp.obj",
+      "bytes": 167583,
+      "sha256": "92377e0a48a5de72b26d2294434961b9806e60d4148141ae5e0f50e508b6ac3c"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/statistics/collector.cpp.obj",
+      "bytes": 1235222,
+      "sha256": "483eaee7c4ca01bd071c03eccd90082e677c23baf4402bbc4f6ce40a5682a101"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/statistics/event_stream.cpp.obj",
+      "bytes": 477835,
+      "sha256": "320092964ec143cfcd5c121d168838b93ebe2d0b2d2aa2eafe4e7159c0ee7886"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/statistics/media.cpp.obj",
+      "bytes": 147651,
+      "sha256": "c828c32c83513d19edd0c536d73bfcfbf6d00888065b93b20c21d35f537ef1fa"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/statistics/pending.cpp.obj",
+      "bytes": 505499,
+      "sha256": "a13300f6f2fd25587cd5d27dc370470e49f8a8fdc4f096737791a8319544df8f"
+    },
+    {
+      "path": "data/build/eventlab/CMakeFiles/hbf_eventlab.dir/src/statistics/reads.cpp.obj",
+      "bytes": 197373,
+      "sha256": "e3d5f1e5295fbf39b83a986679feb3965610054e06172888d939a93e6733c485"
+    },
+    {
+      "path": "data/build/eventlab/hbf_eventlab.lib",
+      "bytes": 27871098,
+      "sha256": "fa99337f04eac7a89456e6470f933983595f9c4180caa75622e3dd657e2d6cd5"
+    },
+    {
+      "path": "data/build/llama/cmake_install.cmake",
+      "bytes": 4134,
+      "sha256": "1ccadc633b4812352dcbec410ac27a9fe079f2de5eab8b68b383aa7b16fe7762"
+    },
+    {
+      "path": "data/build/llama/ggml/cmake_install.cmake",
+      "bytes": 6462,
+      "sha256": "d4e1b9a6e9377cb6124c0aa5a3d18abd67eb49fb9ec6cd9c0bbe90dbe7f43100"
+    },
+    {
+      "path": "data/build/llama/ggml/ggml-config-version.cmake",
+      "bytes": 2830,
+      "sha256": "4d96eecc34e61877fb6dbe9ed7fdbe6251fd3ed72e619ac1cf32d0d22fc29be2"
+    },
+    {
+      "path": "data/build/llama/ggml/ggml-config.cmake",
+      "bytes": 13630,
+      "sha256": "e5f9e6eb6868a8c0b65d8525174030194952478d5dfd0a10286ac55c6fc57815"
+    },
+    {
+      "path": "data/build/llama/ggml/src/cmake_install.cmake",
+      "bytes": 2673,
+      "sha256": "315be9c21c571d63aaf431771e2fcdff4b99e666359c969c60af03389e4dde62"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.obj",
+      "bytes": 58481,
+      "sha256": "6af8132ee1737d45ee32730fd9581be2504f04b9d87b41d4fae88f2027954a18"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml-backend-meta.cpp.obj",
+      "bytes": 1357190,
+      "sha256": "fa68be87d5676a9ff2d57d8bff1efddca4f292b76f8e2c82566a65374aa1d795"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.obj",
+      "bytes": 489674,
+      "sha256": "0fb072376e44e8ab30b071d51d8ebd1a561147e1457b437d5fcdfa5bfdcfa05a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.obj",
+      "bytes": 276489,
+      "sha256": "601675965b6c05e8dfa6e83390642ac68e9360fe471313b9348f160d68b0f478"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.obj",
+      "bytes": 439735,
+      "sha256": "67bb98b435c9113b6fb34ed4d37b2e5efabc91461f3df15bc55f18a82439ee27"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.obj",
+      "bytes": 3513,
+      "sha256": "9ae020cd722bfeb3056924dde75b6e9b1a7bcf5049e6e977e70b18276db225ce"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml.c.obj",
+      "bytes": 510745,
+      "sha256": "be21889f8b27fb068d6fae00da8e00a3560eff6c551ca47f2206f4d080624f8e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.obj",
+      "bytes": 4864,
+      "sha256": "84b137eda64adbf3a6f528711f95407ae2ca3907da5c2d733d110f8695aa994a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.obj",
+      "bytes": 1577395,
+      "sha256": "401d980b3b8c45b59486da39c57ce9ef270a9658f67121bfb79e4ac393461d76"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.obj",
+      "bytes": 1169,
+      "sha256": "0db97e52552f86c53d07d20a54dbf8e7f256a6255080908e98313594d3fa0bc8"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.obj",
+      "bytes": 1169,
+      "sha256": "59cb8d36d842732cb0e1622fd8a29ed3b54b667ea1f30171069588e7eeb84c3a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/quants.c.obj",
+      "bytes": 106094,
+      "sha256": "8d05a01c0c2f62bf6b799eab95e6124fdfcd200331e6e9e9e618d0a3c03d7fca"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/repack.cpp.obj",
+      "bytes": 129379,
+      "sha256": "a880bb4606e85eae6481d6139744ebe9c4d2df86d3fd45f4cd2130c5c2ce9e48"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.obj",
+      "bytes": 185349,
+      "sha256": "add16ea2ef939110bdf76b3a240b58ff19554dffdb3209eb6b61648f7551d6d0"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.obj",
+      "bytes": 113641,
+      "sha256": "43fbfe4e297e59d7813e068d1f07350f5caa6d0a052368db9bbcc3f1468213b7"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.obj",
+      "bytes": 170046,
+      "sha256": "f9b73359437f5423db7e5c46b9b5158fcf9faa93808cdd5e1e67827d84ca866f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/hbm.cpp.obj",
+      "bytes": 703,
+      "sha256": "7ababbd5cebe78f8d285f3ecd017c744a4336f996e8373f6f723876b7259045f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/llamafile/sgemm.cpp.obj",
+      "bytes": 330974,
+      "sha256": "50d12264988dd80f945a8fa185be362f38c39bd9c81fce24f4c8c6f720a363b3"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.obj",
+      "bytes": 817150,
+      "sha256": "be791933cb1d44c67974e3918fa97898494be0bd65b7950a3517180d22e97cb9"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/quants.c.obj",
+      "bytes": 110850,
+      "sha256": "a34bf53befb72513f74b583679b884471d924aadd5b69240f754d588693ce43a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/repack.cpp.obj",
+      "bytes": 486629,
+      "sha256": "4066b984ec92b148e7527364430919d067e53c73a0e30992f46a0a65f0ad4738"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled-kernel.cpp.obj",
+      "bytes": 38035,
+      "sha256": "911fe94251e0d7a6808c60797c75229b727c09f6e7caaa82b7c508118937d891"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled.cpp.obj",
+      "bytes": 257974,
+      "sha256": "a098f866351b2758834e76f6246a6d3ae3cfa1db66c55d54fe7b218ff9a886d3"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.obj",
+      "bytes": 7529,
+      "sha256": "416712faf1012e858398642111477de08dbfec895c2e663eadf91f8ee89858bf"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.obj",
+      "bytes": 524517,
+      "sha256": "cebdd528749c9b9302bf2d30bb540e52ce1593308aab3e757b3df4ff1402036e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.obj",
+      "bytes": 20736,
+      "sha256": "d4c550f92132cf1f2c59648e6b813e233b8a13086f5879ecb5c38a340b7b299a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml.dir/ggml-backend-dl.cpp.obj",
+      "bytes": 36601,
+      "sha256": "ab6cec0efb979401a79146c1953522a221d2b420cf98170ac9066d5b44959b87"
+    },
+    {
+      "path": "data/build/llama/ggml/src/CMakeFiles/ggml.dir/ggml-backend-reg.cpp.obj",
+      "bytes": 466675,
+      "sha256": "e2f3ed086919f28817a012307140497d3fed74a37c79abae8d2518078ee8717a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-base.exp",
+      "bytes": 93147,
+      "sha256": "835bfc2b44fc0517fa56f57014a1bd016726ea9cabcf4c81f37bae1548bfeb29"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-base.lib",
+      "bytes": 155484,
+      "sha256": "ba8519a6c0bc4d3e71cdc4b9ac9abcceccac05077d38b5c94bfa59b783b931e0"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cpu/cmake_install.cmake",
+      "bytes": 1516,
+      "sha256": "d65b9ac111eaaf557eae27979506fdb226675808dc14712d7c9373602cc23459"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cpu.exp",
+      "bytes": 9233,
+      "sha256": "e0a6dcae255b98aff8c94ae3277920be22f0f203c1cfcd111fc025f221a178ad"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cpu.lib",
+      "bytes": 15744,
+      "sha256": "3978d27a1a79bf10a499e6764d4a3e93e3ac701db6692ca4c6adb07fca46416e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/cmake_install.cmake",
+      "bytes": 2168,
+      "sha256": "61c835cc63197fac24ea98cb67ffc3403c2375112e2edf73b8db5ffce301ab07"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a3aa6119c9e2aec890b8cbd70325314a/joint/source/adapters/llama_cpp/integrated_kv.cu.obj",
+      "bytes": 5259520,
+      "sha256": "b89833ce44eacaa3d7884b97e6a6ef7963fc515f98de997ed9e212692a5fb03f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a3aa6119c9e2aec890b8cbd70325314a/joint/source/adapters/llama_cpp/integrated_ptx.cpp.obj",
+      "bytes": 2908660,
+      "sha256": "f3637fd9c88328165ce5350a6ee9e195df8c4d7fc134bead28fc3cec11dd29aa"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a3aa6119c9e2aec890b8cbd70325314a/joint/source/adapters/llama_cpp/joint_weights.cu.obj",
+      "bytes": 3251686,
+      "sha256": "d9c15979254681f820bd66e9b798bb6832f61ef33b7d895f99ae668b30e18937"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a3aa6119c9e2aec890b8cbd70325314a/joint/source/experiments/readonly_b2/window.cu.obj",
+      "bytes": 56789,
+      "sha256": "b926083a310b7aee346dae1e567dc7b2621a89644b8afe720324575a73c54a70"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/a6db841fae1c8ce1c7b78b6e41f7b587/adapters/llama_cpp/integrated_norm_explicit.cu.obj",
+      "bytes": 25690,
+      "sha256": "fb32857076c3bb3c04f8831294561f771176e424529a67ceb16cedc496a72ded"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/acc.cu.obj",
+      "bytes": 70767,
+      "sha256": "e1fff3444f22d0feec28c8e24d158053ea32b558138d127f306be25e8a416886"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/add-id.cu.obj",
+      "bytes": 69097,
+      "sha256": "758f110b47384285b5d1c797acef8ffdf66abd5eb1aa7cb7cd5c0d694aa616c6"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/allreduce.cu.obj",
+      "bytes": 193525,
+      "sha256": "0b4a6bd2307f7fc22287f84154f4b0a63c1d83f4df02c21228376d66cb86a603"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/arange.cu.obj",
+      "bytes": 67037,
+      "sha256": "5bb411ff7530bd4a8e382728b7d686fca25f3cf3fc544d4a3bd45858aafd77f4"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/argmax.cu.obj",
+      "bytes": 67892,
+      "sha256": "eb10d93201626f8522da5c5b28103de6871f57cc6a75d47aa5c9ab76eef84f08"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/argsort.cu.obj",
+      "bytes": 1249027,
+      "sha256": "3a0909ee9c3c4081d3afd552447cd78456398dcb149a0e400fb798855ad02f76"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/binbcast.cu.obj",
+      "bytes": 4066341,
+      "sha256": "c8c7e5a4adb72beb3919f7fe29cbff54d7356ff02e44fae1d2e8b1b4c4e10d51"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/c4fe6a7580c78fe25f653074427aeaa3/source/adapters/llama_cpp/integrated_profile.cpp.obj",
+      "bytes": 3616923,
+      "sha256": "995fd5ee9845aceefc632b2b1653033a8d9fdfb2da45ab24bddb1f15c25bb954"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/clamp.cu.obj",
+      "bytes": 82859,
+      "sha256": "2a4dcfedb2d2996ef83c5e848c7717a81756c33a87c4d9cfaa891972cc1a7c92"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/col2im-1d.cu.obj",
+      "bytes": 84298,
+      "sha256": "81a919b1a900fdef66d083ded8ac0b587dbeadcc0a897c92a9c521f8fc46591d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/concat.cu.obj",
+      "bytes": 483894,
+      "sha256": "12d238d278b914c452b3c4703b833568db9e34d474bd1aa0284111fb1e1ec8eb"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv-transpose-1d.cu.obj",
+      "bytes": 71692,
+      "sha256": "b3f8c53d088afac67e5847873b46c4c9d83312628310fe835f607faff05d5f11"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv2d-dw.cu.obj",
+      "bytes": 96335,
+      "sha256": "789fb6d1dfed261756f6cc65d6675c24100efcda6a8738d87a8f4d492a9c5bae"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv2d-transpose.cu.obj",
+      "bytes": 80449,
+      "sha256": "98c08b464bce301f8d59e348cb780e80ecf73c8590f0adad60b6098314ba9a70"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv2d.cu.obj",
+      "bytes": 180990,
+      "sha256": "a0a44eadba100b0ce200a6b9d728d681c748d782ffe67ecf3410aa0a5ae48284"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv3d.cu.obj",
+      "bytes": 218377,
+      "sha256": "f8d31e029707fbe0c00f839e33ef4fff126506e9cd3001ca8903c765a5c0eb98"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/convert.cu.obj",
+      "bytes": 685501,
+      "sha256": "e9ca581614bbc22ff8a772825ca1529a8523cac42556c1865997554cd7db5374"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/count-equal.cu.obj",
+      "bytes": 72399,
+      "sha256": "4b81c976e5daf64d085da8e4b2ac91e56835092e13d9df804ce8895fd1d22ff0"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/cpy.cu.obj",
+      "bytes": 597846,
+      "sha256": "d7ca96cf75980840f3528417da5b7b290cfafaf364c4008906df8fc7e579062b"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/cross-entropy-loss.cu.obj",
+      "bytes": 109394,
+      "sha256": "2e7fe42116a6707a3244a17896b68422a2fc5e6dc8c4aafcc4f30b69cb4e5ff5"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/cumsum.cu.obj",
+      "bytes": 276130,
+      "sha256": "a9b47a25d2edd28e5f674a100b5b8846b63c8315aab33b09e2890a7a468ed123"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/diag.cu.obj",
+      "bytes": 77074,
+      "sha256": "db482856bc5991800c384ba05489845228f8fbb3e4c4f01fa57eaab8370f62f8"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/diagmask.cu.obj",
+      "bytes": 67999,
+      "sha256": "c65bd66171be5a9f93f7bb705257d59704b03f81242045dcd51facf9c8dcc14c"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/dsv4-hc.cu.obj",
+      "bytes": 303772,
+      "sha256": "10e6b2a78751f4f59b1a9efbfc200cbe7c0bbc07d3f79f335eadc03d14c60957"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fattn-tile.cu.obj",
+      "bytes": 60748,
+      "sha256": "9ea6ee6b2426bc3b3ad70fdde6233228170b3a66b3f590feb4cfe5f85db52925"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fattn.cu.obj",
+      "bytes": 770188,
+      "sha256": "cc26d406eedbb33353717915c475e11dfc0f6600dba424aa7dac7756b7f5335c"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fill.cu.obj",
+      "bytes": 74750,
+      "sha256": "89c48add2cde9da974579cf704b2eb89d246c8bde7f1651255e775032b1ad06e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fwht.cu.obj",
+      "bytes": 338735,
+      "sha256": "83bbec2118a93cff86e59bcdf724f3ac974191d6bdbcacfc1a2a1efca65929fd"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/gated-delta-net-mma.cu.obj",
+      "bytes": 138428,
+      "sha256": "f3ae5a3abafa274e51b110cedf8553316b7ed6a85b0bfe50e0abd878a73708a1"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/gated_delta_net.cu.obj",
+      "bytes": 377346,
+      "sha256": "6a530f3ad6cc92d17c4910c44a2c6a30b64e21efeb582d4103b119920eadd790"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/getrows.cu.obj",
+      "bytes": 1444335,
+      "sha256": "a689b048afe3180537a75abc4ecec8ff8d774769afb7cbfd5775c4cf4d0fcac1"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/ggml-cuda.cu.obj",
+      "bytes": 1393531,
+      "sha256": "9f8f413e0d3f5679fb4c5a9b16f38607f54f7a1df765790c4e7382eaf0697edd"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/gla.cu.obj",
+      "bytes": 80079,
+      "sha256": "6e2130603076150120023d8aed210b5331b015491f00f0e9758f9ae79eb183f6"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/im2col.cu.obj",
+      "bytes": 117043,
+      "sha256": "6b015de7bdba160ce1ab84c5d9da14eae72eab3ebbe3788d1226d73db6c4afd1"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/lightning-indexer.cu.obj",
+      "bytes": 456777,
+      "sha256": "2c80545075c6961d4647bf670459145767dbf98b0f0b5e3272080410110d11b9"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mean.cu.obj",
+      "bytes": 456802,
+      "sha256": "1772859082021f79b9182bfc121da452d98e2dd253a6041377c3f99de785a868"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmf.cu.obj",
+      "bytes": 116650,
+      "sha256": "141f9281a22344a108c00d38ae6c9296eaff5f95af9583e0e8a1944e19f1e590"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmid.cu.obj",
+      "bytes": 149412,
+      "sha256": "109499e9d7b6ee19cf966837681dcccd7582ccdaab79259330eaca01dec7999e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmq.cu.obj",
+      "bytes": 224166,
+      "sha256": "cb2a8fd3e3adfd1afa63afbc619747eb647cca133823d2c0763ebf0c318bba3d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmvf.cu.obj",
+      "bytes": 3738792,
+      "sha256": "cad19728ac74fb290b79aabf6a80558e408a3ebe18a879e5d2bf643708e1e728"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmvq.cu.obj",
+      "bytes": 3974851,
+      "sha256": "8c15e3e2c4f85ec313286651d50f38ea5965e5e8250ce718f8362d0fcb227130"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/moe-weighted-reduction.cu.obj",
+      "bytes": 72878,
+      "sha256": "2ba40885b2b9592e34499166d00c4443e2feb2080d84ee6bf33b659a90febb4b"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/norm.cu.obj",
+      "bytes": 575390,
+      "sha256": "9a9bcf775345030d597877f9c93cf50921cd0f8bf39882e78dba918a1f7a65d0"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/opt-step-adamw.cu.obj",
+      "bytes": 71310,
+      "sha256": "2b04684380c67b55184ede32e9bc46de05b1784f912f92b3f6e90f424c7a683d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/opt-step-sgd.cu.obj",
+      "bytes": 69147,
+      "sha256": "4f1b98a0260526d218a2c59dab8d44a3a7dfda8dba6d045c26cbb882387d60bf"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/out-prod.cu.obj",
+      "bytes": 89792,
+      "sha256": "97ce55db7546180acd70b9481160553a85413d49afecbe5be1b28ced58c72a81"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pad.cu.obj",
+      "bytes": 71605,
+      "sha256": "d04b3af3148ca32f0c884a37d324e8c6b806ac10b687222f723cf9cee3cf1134"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pad_reflect_1d.cu.obj",
+      "bytes": 70457,
+      "sha256": "03188c5caaf5c540ad06f9027ebef866cc90ce1f30214777bc070d3da3fce6e8"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pool1d.cu.obj",
+      "bytes": 68874,
+      "sha256": "d2012606215bb5678bd37f9fdd3332df1509cd5e9311c19fbe8090eade64d3be"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pool2d.cu.obj",
+      "bytes": 83757,
+      "sha256": "07e0684298c95df52044bee52bf6b4e80307f4e2fd798bb6bfe8533d5f6c2fd5"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/quantize.cu.obj",
+      "bytes": 341231,
+      "sha256": "4ad27f72a685c608d047fb1b0a8694a695caa4d96183bcd016b8d6fa991d366f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/roll.cu.obj",
+      "bytes": 68798,
+      "sha256": "9c5b3d6a75b79995699a4f2f7a638a3f0e3d4b2b2b241b57164026f3ee1fff7d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/rope.cu.obj",
+      "bytes": 724039,
+      "sha256": "605aef1b3fc48a7825b91baff47266eaf3dd5af480eee55dec5f71b4ffc13128"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/scale.cu.obj",
+      "bytes": 247528,
+      "sha256": "40a52a5db71c959d30dd1d4cd2e5a50e866c6b3d76b3c3e7dee418c61459ae1b"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/set-rows.cu.obj",
+      "bytes": 543945,
+      "sha256": "c69c92aa4e2c9498a375abcb8ad82bd91584734b0dc95a00468beacb8063a2ca"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/set.cu.obj",
+      "bytes": 59489,
+      "sha256": "133966b500cb830120f6d8d92d6f20b50c18f04eccd925c2e0767a00c6ee37e0"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/snake.cu.obj",
+      "bytes": 81629,
+      "sha256": "71e694056b9174a28651c96c68fb0e9bccc8bc85a54dded3d3adbf74002f68e7"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/softcap.cu.obj",
+      "bytes": 232196,
+      "sha256": "63f02b6c7e5f32983018f586936d11fb07072f44b046b7c1c103523f82c42ccd"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/softmax.cu.obj",
+      "bytes": 289860,
+      "sha256": "5480a47179d6f015808c876943981bfe7048126edd1b34d19c69ae8bceda4dd8"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/solve_tri.cu.obj",
+      "bytes": 175662,
+      "sha256": "b27876033013a1719530a30abbf51853f23102aa16b4bf7e132a54f8b00a9016"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/ssm-conv.cu.obj",
+      "bytes": 456403,
+      "sha256": "1c2d1b663ef92aec1fe37a56a43999aa898720361158e35b248099b08cb511cd"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/ssm-scan.cu.obj",
+      "bytes": 448886,
+      "sha256": "dc356dc167daef58494385284473f202d93b96c32283c940fe5ab5638be73e5d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/sum.cu.obj",
+      "bytes": 271839,
+      "sha256": "a247e660c40b9c03bac80cdec7dfc654b93889a5b42488b835bdf0291088287e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/sumrows.cu.obj",
+      "bytes": 249863,
+      "sha256": "d069cba94a9feb333b9dbc609841e10777977e26d14da670a76fe584001a4524"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_1-ncols2_16.cu.obj",
+      "bytes": 406085,
+      "sha256": "a16ff6368a9eaa981496220fb080fdc071ff2684ac51e5b0da05f5a84ea4f8e9"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_1-ncols2_32.cu.obj",
+      "bytes": 397765,
+      "sha256": "1ab04a344dfea98cac3ede2ba72ef3b1b6ea1293556174602993ade54c54b58c"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_1-ncols2_8.cu.obj",
+      "bytes": 659858,
+      "sha256": "b0e935b8be1036405446f356d387891f907cee284e05576a8c2a58dd5824da48"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_16-ncols2_1.cu.obj",
+      "bytes": 581146,
+      "sha256": "d68e893cb247e317fa33d036a0528b8b3bbc3ba1ad4226cff0e33e695ac5d3bf"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_16-ncols2_2.cu.obj",
+      "bytes": 626878,
+      "sha256": "8101a9aa2b107bf5fedb491704a35e0e5525f2ffdf0c464e62acc5c1da5e3381"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_16-ncols2_4.cu.obj",
+      "bytes": 644683,
+      "sha256": "ffef7a5384d32f75f45d1059d693d1bb704f375c1e93e7c2fbc5046210bc8ac6"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_16.cu.obj",
+      "bytes": 397975,
+      "sha256": "70debdd96ded17ca40ddb260a62a95443edc77dc5845e5a001d5aa94ae52d523"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_32.cu.obj",
+      "bytes": 397980,
+      "sha256": "90802cdbe9e35663a68aa4dd76615382e55e3f3fa36e94cae99862fb63a0c83c"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_4.cu.obj",
+      "bytes": 643473,
+      "sha256": "1ebea6ff9e6ce5a96db82786b42c3592e86f2535c0b0ae97cd87cd439421026e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_8.cu.obj",
+      "bytes": 643565,
+      "sha256": "fbd4e99c3976a5f2b2e7e403a960739238bfaa6cea377efc4e288470ff718eb6"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_32-ncols2_1.cu.obj",
+      "bytes": 581252,
+      "sha256": "8efb004cfaafbc7e55f642677bec43c3e4043c776e8f86fb50b74ebaf03fe506"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_32-ncols2_2.cu.obj",
+      "bytes": 627127,
+      "sha256": "53a745c1f6b2411c36d13a7157b898fdd212be7740c5045655ac40c986628ddd"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_16.cu.obj",
+      "bytes": 398067,
+      "sha256": "5045b4477ba049994062803b3a178bd899fc4d8ca5e78aef666532ce9addc473"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_2.cu.obj",
+      "bytes": 625873,
+      "sha256": "3eaf93d542e4d9857124740a0eadd4a03dcc258c042ea5200734662e3e52539a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_4.cu.obj",
+      "bytes": 643765,
+      "sha256": "15af3d2b576ada2c38126f314e8df68780612791523cb4c31799bb831dbc659e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_8.cu.obj",
+      "bytes": 643825,
+      "sha256": "09113e2d4247098e855f8d3ebfc19bc83c5cf6633db8be834fafeb2e064af38d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_64-ncols2_1.cu.obj",
+      "bytes": 581869,
+      "sha256": "1911077182daa2a19db8a11664d935bb16ecf03f88ba14740e69b65ba40e9a70"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_1.cu.obj",
+      "bytes": 580351,
+      "sha256": "ccd108439743c8fc030db8fa95b826311552ef0b825685de04b491af92059b4b"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_2.cu.obj",
+      "bytes": 625799,
+      "sha256": "22de49a4cb722846c9baee3cc95c839a0908e981de0d552903eb9f7de507f59a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_4.cu.obj",
+      "bytes": 643696,
+      "sha256": "36e39fc8be5773b1fe7d24358f4ff469a69f5983076c231ee7b34da2b19f9829"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_8.cu.obj",
+      "bytes": 652091,
+      "sha256": "69692b6da6865ba48f1a8c3e7ed4ff9da0c8d3525880bcbd7842326bd6faf777"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq112-dv112.cu.obj",
+      "bytes": 983657,
+      "sha256": "211229f4f0735e9048fe264bb3355517aa3cb59b83493ceb162268697f6c8204"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq128-dv128.cu.obj",
+      "bytes": 982335,
+      "sha256": "843c58a77848bd6892b7002cf50324d7c20ac2eba8e8e3d6a245853e6a363f53"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq192-dv128.cu.obj",
+      "bytes": 513360,
+      "sha256": "58417c6e9262a22046225cb6fc090c2bb7a956b2d84830364673c917d721c703"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq256-dv256.cu.obj",
+      "bytes": 983420,
+      "sha256": "7f5ec9ae878d0f2f71aeef0ea1f5afc1f3fb420db0459ba9a798254386f16b43"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq320-dv256.cu.obj",
+      "bytes": 348344,
+      "sha256": "6024cdf4f596478bede13da155582d8a6ab21b94d79a779a85833be52442764f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq40-dv40.cu.obj",
+      "bytes": 982817,
+      "sha256": "9588440c2283f6011941f3ce6ba2b622cacf61147dff8a706dc9491087e8c137"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq512-dv512.cu.obj",
+      "bytes": 666505,
+      "sha256": "4c2ab5d95d1c9c033475415c0328fc8302c1716efad7b1d6ec69b70a4cf80e4d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq576-dv512.cu.obj",
+      "bytes": 473877,
+      "sha256": "6fbde17e8ce89e6c745c6382b005ad67ec707cd22ff10ca3100655121e26bc88"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq64-dv64.cu.obj",
+      "bytes": 981501,
+      "sha256": "7650c3d266be76b441664ba373b9dcf033cd1fc6fdbec4ce157bd01268950210"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq72-dv72.cu.obj",
+      "bytes": 981735,
+      "sha256": "f75bdd15055c453f08f370fc27db7ce6ef95911680212b690e2c0e04b5fcddc5"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq80-dv80.cu.obj",
+      "bytes": 982761,
+      "sha256": "a6ae44ba74bb168f24aab869f967e46f83f3391095d2f7ec8d0b21c1fe0d54ed"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq96-dv96.cu.obj",
+      "bytes": 982720,
+      "sha256": "5a6a991fd865d4c97ef46925848a313d7fdd9faa07a42b5604948d2f618648f5"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-bf16-bf16.cu.obj",
+      "bytes": 556734,
+      "sha256": "e29d78fad29fdb83934327dd68685bdc7b85e38ebf4bc45fd37a2e771588198f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-f16-f16.cu.obj",
+      "bytes": 555978,
+      "sha256": "3ede2f7c22dc7b983411df896a5b5759456bd24d08a6e88b371336109af61530"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-q4_0-q4_0.cu.obj",
+      "bytes": 555972,
+      "sha256": "d3ab069439180411ca1773adfa1302eaaf8e32523df7247240daf5322ecc9174"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-q8_0-q8_0.cu.obj",
+      "bytes": 555986,
+      "sha256": "94e79f30bbdaaa6a222ce5000e782c28b5b0119200a57b1c368e5b05bd228bed"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_1.cu.obj",
+      "bytes": 1184723,
+      "sha256": "f62b3e775e3632609734bd80df88d062f3227febbc422301016786c16962c974"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_10.cu.obj",
+      "bytes": 1217439,
+      "sha256": "5aba860f7a444073983f547a17b3ee4aad8aae13e5f46b55c7e5eb62e57bd367"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_11.cu.obj",
+      "bytes": 1220144,
+      "sha256": "be96c8db62a6307f807af9d53403d29c7bd33e1bbfc47b138a9ebb3598bf935f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_12.cu.obj",
+      "bytes": 1220845,
+      "sha256": "e98aa0f4910c0ed3fb0f81f0086d1e3d8db1c4f3541a01a7ae19c4b4f7cb0213"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_13.cu.obj",
+      "bytes": 1224080,
+      "sha256": "6304c69b5315f786da07b2dec7f8f44988950a085cfa54445e58961251164034"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_14.cu.obj",
+      "bytes": 1225777,
+      "sha256": "8195ef2a9c055b8a7e9db7c6152f9e8ae3766794b80e13c71af7f4f4b0a0a172"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_15.cu.obj",
+      "bytes": 1230022,
+      "sha256": "284377dc2ebd5be2e167b2035c87a943a64214cd7469ebb40b81ce617d408874"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_16.cu.obj",
+      "bytes": 1229940,
+      "sha256": "496032d901a76fc6fa0808c94249fce0358f1fe1bc31918ef89511da1c6aec35"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_2.cu.obj",
+      "bytes": 1190874,
+      "sha256": "4b650b7d7f63fe22d373dd546bdd7dfefd4a796c5a1597ab64f6c74144ed2aca"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_3.cu.obj",
+      "bytes": 1200289,
+      "sha256": "0c660cfb2558dbd783d1b33255f6ea731b32e4ece02cc0d3d4e3d10a6f6a3d1b"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_4.cu.obj",
+      "bytes": 1201909,
+      "sha256": "ba0dd683dd33669ba6b3aa817c2221e9147fc92a0bd9030220697a4d0896005c"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_5.cu.obj",
+      "bytes": 1208066,
+      "sha256": "689bac16bf7b5fe363837092ba091b866aa0700c82118ebb9f1ab17b28f31ff5"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_6.cu.obj",
+      "bytes": 1209710,
+      "sha256": "714fc1fd959c590125311fd8b3c3a76594d4c212e02ce1d97c3f717e9cdd94b6"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_7.cu.obj",
+      "bytes": 1212515,
+      "sha256": "53db95f5cae6d42cf79ee3add555aa3b80bf05c9edf2dafde588665401d16e76"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_8.cu.obj",
+      "bytes": 1211149,
+      "sha256": "c4a917e333e9574c8c6e9449725815064c4a09ef12bbacb16b0b10712177d9e4"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_9.cu.obj",
+      "bytes": 1211179,
+      "sha256": "a4be9879f44954ccd41759cdf9f2694312703a3f8924eb7a40a1c5279d7adc63"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq1_s.cu.obj",
+      "bytes": 1103071,
+      "sha256": "87fc3bc09c4ecd752d22b42db9d1abb4cd68d10a12ec3d760acaff3e2ce1c679"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq2_s.cu.obj",
+      "bytes": 1166340,
+      "sha256": "a5c8b4a2508537772a227a2ce4b45af36af22da5806a9a0e7084d09cc7466931"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq2_xs.cu.obj",
+      "bytes": 1164971,
+      "sha256": "978ff21801568ba91af911ac70c7e10c49469236409c7bcc7f88431745e7fd76"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq2_xxs.cu.obj",
+      "bytes": 1064973,
+      "sha256": "a0029a322452bc308bca6612d69d417a1ff387b71e186b02ebf6bbc5b0214d04"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq3_s.cu.obj",
+      "bytes": 1099228,
+      "sha256": "d1b614039b552e676fa226f9c82403ee0673bd0115d8cdba4718d7224001655f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq3_xxs.cu.obj",
+      "bytes": 1080969,
+      "sha256": "7e7cf019931a2938105c9fe518843eb560c8058242aec38c776eb4bd4740f25f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq4_nl.cu.obj",
+      "bytes": 1076386,
+      "sha256": "9c7fa005cd49511a28935ff365030fdab104ef3bcc2071aec2fbab6cd45a6213"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq4_xs.cu.obj",
+      "bytes": 1073851,
+      "sha256": "a4f83e708827d352e207a3c19135c36a9b0fac80bb8923dd528dbdf66fc59c09"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-mxfp4.cu.obj",
+      "bytes": 1831558,
+      "sha256": "a4e7493aa27a1682ccf742292b16cfbf20aa8aa675290c99d47e28ea817c16eb"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-nvfp4.cu.obj",
+      "bytes": 1897009,
+      "sha256": "952375beb0647aeb95d912b98ea8fc74fb0eadde75c29589427f2571f5fe7d68"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q1_0.cu.obj",
+      "bytes": 1060338,
+      "sha256": "1846838e537eeaf25feeafbc17b6e8359e39f7b9b3fffa31cff59878f93e6869"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q2_0.cu.obj",
+      "bytes": 1057602,
+      "sha256": "fb95e6432c2a01fb1561355a8a563221135255225b9bb9412621d86ed5066862"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q2_k.cu.obj",
+      "bytes": 1254072,
+      "sha256": "58a77e3f72316337f71275dbff34b2762424bfd3adb0ee3348b96bcabf52072a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q3_k.cu.obj",
+      "bytes": 1149378,
+      "sha256": "6e717639405993025a0f4b4c244aae83a857b31f81278836f4bbbab5f6367505"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q4_0.cu.obj",
+      "bytes": 1065672,
+      "sha256": "f0de4acae6df969fb3902077c1140fe50cb9667b5470ccc966c33295bb2b4c6d"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q4_1.cu.obj",
+      "bytes": 1105908,
+      "sha256": "d150f600c543f78e81543410d0027f570c32d532176f2f09ca64e41e8f6c56c8"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q4_k.cu.obj",
+      "bytes": 1106571,
+      "sha256": "dbbc4549df53a43e460183bd31cf77abb4de5e66754ca4cd8c2e9c41911bf23f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q5_0.cu.obj",
+      "bytes": 1102240,
+      "sha256": "00d676152fffc4056df21b785a35e345eb7447487beac5a41497a780c215cb3e"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q5_1.cu.obj",
+      "bytes": 1139625,
+      "sha256": "90ce557992e0a275751f1fa21a6aa8def4efe0c1802f5ebd01f3ea255235a012"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q5_k.cu.obj",
+      "bytes": 1119593,
+      "sha256": "04bef72dae958ce4af55c28ce63359aaf7ba5dfdc6233efa858960b6f7879fd1"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q6_k.cu.obj",
+      "bytes": 1155953,
+      "sha256": "4f96f817a58110741d17beafbc5c8e19601c3761607a444c5f64e72a60e23406"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q8_0.cu.obj",
+      "bytes": 1042317,
+      "sha256": "2adadfad1f515a766b04f7bd2821841e55014101b74af0bb6fa1175d9e33c32f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/top-k-mask.cu.obj",
+      "bytes": 276469,
+      "sha256": "c7e4929d55f071c22edbc784fe52fc5f1e0efead090ef3ce8889072ae1886d7f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/top-k.cu.obj",
+      "bytes": 133782,
+      "sha256": "a4af0e2b38c8ae0df2429b8b9d4a4d514f12d5d93dc23b80a3fb6731187b6100"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/topk-moe.cu.obj",
+      "bytes": 423917,
+      "sha256": "708ce9912fd6f5cb85abf68af5b0f8cc71ba1382d860fc61b0d33cc5cc70c74a"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/tri.cu.obj",
+      "bytes": 147346,
+      "sha256": "ac355eafd553db67f20f2978c06d2488097b1ff055493511b6a71e42dfd12a38"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/tsembd.cu.obj",
+      "bytes": 67617,
+      "sha256": "03c747236954854c097900729b0943784ed64f434b47af69e79774092b633374"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/unary.cu.obj",
+      "bytes": 1661288,
+      "sha256": "ebc3c5a0c87d6585e86d26ca9194b56f8db723c10d19e26fd94e8ea95202ffe4"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/upscale.cu.obj",
+      "bytes": 91561,
+      "sha256": "0a6573a4d3865f5b42473584129ebf0df99c3e9192c6e7581fa5eb0472710b24"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/wkv.cu.obj",
+      "bytes": 105494,
+      "sha256": "f84d4e4793bbfe5e869c926ebd4da0ec8458274745bc1198257aabbce264547f"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/ggml-cuda.exp",
+      "bytes": 4466,
+      "sha256": "6ce34271db38b0f153297d7de5300ced974c3e192d37ad8197d2d92297b8ad73"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-cuda/ggml-cuda.lib",
+      "bytes": 7892,
+      "sha256": "4d832a21f1550add44c02917687ed4c0acceacfae0655c0cb97e2cd68fdd8ce5"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml-version.h",
+      "bytes": 79,
+      "sha256": "a5819f505a610cbe726c57455e03af2602a29f8619dc98e2cb32e98e8a862870"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml.exp",
+      "bytes": 2963,
+      "sha256": "572a1065361e7e17b001d4989a1babde3d3b60072a990edbf6dc1d2fa7700512"
+    },
+    {
+      "path": "data/build/llama/ggml/src/ggml.lib",
+      "bytes": 5288,
+      "sha256": "727634f92d5f5e8d3201c3019c544bc09214a56d3233ac8a43b5dd89b88293e7"
+    },
+    {
+      "path": "data/build/llama/llama-config-version.cmake",
+      "bytes": 2839,
+      "sha256": "75e74d1078af55cc60835b2c112276b2256bb2f7ff21e637ca6086c6675d23e2"
+    },
+    {
+      "path": "data/build/llama/llama-config.cmake",
+      "bytes": 1903,
+      "sha256": "50f1654646973400cedd62b3660c55e607d8a94f583d5270ddc282393896dcd1"
+    },
+    {
+      "path": "data/build/llama/llama.pc",
+      "bytes": 361,
+      "sha256": "8f6178a2bf3e82122e2ded1d40af79ba2fae99cef392df79f46a9fdd041df188"
+    },
+    {
+      "path": "data/build/llama/src/cmake_install.cmake",
+      "bytes": 1488,
+      "sha256": "34f397fed2218ef5e9669c44a3c8b2c909fdf6a9ebdab8e016a1de2a520dcf81"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-adapter.cpp.obj",
+      "bytes": 990402,
+      "sha256": "e8131e20af6d839451c8d92456c6f028b9d0c402c77360647c0ed686ffb903e3"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-arch.cpp.obj",
+      "bytes": 542504,
+      "sha256": "8016c3cc8776f378694d6d198b5de8a22c9eb1b3313a296da1f2dd0dfd41f650"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-batch.cpp.obj",
+      "bytes": 987005,
+      "sha256": "c2ec356faef7565b9598404fdf7b8d1d91b2b5cac16ef31f7351e1d6ad9c913a"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-chat.cpp.obj",
+      "bytes": 408695,
+      "sha256": "52b0fc4bf36b2de7fb30a0aab5462f1fc8aa47630699fde3fa5d94a95c00fbbd"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-context.cpp.obj",
+      "bytes": 2224958,
+      "sha256": "4b958b8f2695626311d12e9119bc4ea03afb20357a4054e8e7c9c29e9d969266"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-cparams.cpp.obj",
+      "bytes": 1317,
+      "sha256": "a998a562f39244e37c1457aef72e5db213d8e624b52d7744bca2ebdb3f52f19b"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-grammar.cpp.obj",
+      "bytes": 1803492,
+      "sha256": "70e5e2b92c48caebb1e889d4c79dcc768a48a842ccc9211f444b2f5ede27a95f"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-graph.cpp.obj",
+      "bytes": 1458457,
+      "sha256": "1081b958388100f6be51f60daa38ae2e0b179ad93955c6a00dcb32381041894d"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-hparams.cpp.obj",
+      "bytes": 24581,
+      "sha256": "ec1fbfaaa7a0b6e8eed1dbfb95d635ed9a1248385dee8378b7b30d3704116712"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-impl.cpp.obj",
+      "bytes": 182322,
+      "sha256": "9985105c3043e5c4fa246970cf6d603a7fe6fdfa94209b5e8dbc3e117b768f26"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-io.cpp.obj",
+      "bytes": 46244,
+      "sha256": "caeb727ecd9980d53ea73253213aad54cd15f650682ea50139de5aeb01d8109d"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-kv-cache-dsa-iswa.cpp.obj",
+      "bytes": 286409,
+      "sha256": "4ee861a71491b571b3596e3c42b6ad03eb4cdd6094ca253792744ba4b009e8d1"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-kv-cache-dsa.cpp.obj",
+      "bytes": 264224,
+      "sha256": "f8532500faafa0eb57f9fb17acb43ac8d9f0c7ae162e65c412707f943855bf8c"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-kv-cache-dsv4.cpp.obj",
+      "bytes": 1779664,
+      "sha256": "d524c2966adf6a84cab99946f4984cdbfd3e723df3273a71fdea9df8e2a82dbd"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-kv-cache-iswa.cpp.obj",
+      "bytes": 276449,
+      "sha256": "2e0537db9f8aded65b56cc7ade608a53557b7a7257d62e1a4e3e48629b7b1ad7"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-kv-cache-msa.cpp.obj",
+      "bytes": 301205,
+      "sha256": "d551489f953c586e552354352d8cb6234d2b99854a462d5d620a9444bd4cbe0c"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-kv-cache.cpp.obj",
+      "bytes": 2167315,
+      "sha256": "e974781027b876a452db748fefedccbaeaec8f8fd92a3270eb2d22f4154a1e20"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-memory-hybrid-idx.cpp.obj",
+      "bytes": 694232,
+      "sha256": "121380c5f07d1c88464a23fccea29b164851d85cdfc3ec4eda11bbee4e7da3ae"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-memory-hybrid-iswa.cpp.obj",
+      "bytes": 271182,
+      "sha256": "a54d1800c7ef1f6595a7d6fc431719bd5c22ee912c9f6a6093bc08de8232a2c9"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-memory-hybrid.cpp.obj",
+      "bytes": 269881,
+      "sha256": "878bb428220557fa85c4ecef59f8223c2fc1add7930125a1d8e8fbe731d36fd5"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-memory-recurrent.cpp.obj",
+      "bytes": 732305,
+      "sha256": "969a067a92c1f839b3eae36175d610b7111751692d75e5b37e16559d25aa4263"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-memory.cpp.obj",
+      "bytes": 97017,
+      "sha256": "1f461a422b650b1c7f9b1032a6a5b1ef1e2604bd6f0684f46b0394bb5d7a8ed5"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-mmap.cpp.obj",
+      "bytes": 306389,
+      "sha256": "3014757b54bee7db538dd987cfed0f84c800aae47d00cfc2725b25d463691ccd"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-model-loader.cpp.obj",
+      "bytes": 2981458,
+      "sha256": "41246aa24040e8f37bb02a29958ff81f4bb2e5a72ca941c248670c111d5a33e4"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-model-saver.cpp.obj",
+      "bytes": 406172,
+      "sha256": "10b678f5a08aa416f9843b5bf7eb8692cdf2a7f533279695974729d29228fca7"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-model.cpp.obj",
+      "bytes": 4897742,
+      "sha256": "0e104a80ba38cd32fc12e6104a822f344468b6aaef18ded85b88d7f02c79df1f"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-moe-cache.cpp.obj",
+      "bytes": 765923,
+      "sha256": "9dc22a9084bc23b865236496e186b0daa615ee39287ef50d35e110e51ea440ba"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-quant.cpp.obj",
+      "bytes": 1787532,
+      "sha256": "96cf7c5d2de7ccf27600f6fadb91e721607b11257c0eec0dd86dc1eecaabcd82"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-sampler.cpp.obj",
+      "bytes": 1791209,
+      "sha256": "49849604fd2fddc8a7bc38f9e06e781158916022c63575b3b477ee9d8c9f5df1"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama-vocab.cpp.obj",
+      "bytes": 2305564,
+      "sha256": "5c179f85d914a0789f6fd8b6db69d2cab36b26a2138336d868bdca01c33f5349"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/llama.cpp.obj",
+      "bytes": 480810,
+      "sha256": "5234f19ed0d47ef88e293e6f1f4a5027827a990d1b09c9752d2826fdb0b77d2a"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/unicode-data.cpp.obj",
+      "bytes": 828010,
+      "sha256": "e5ec88211075a67818b25bcc4568cd784353975b043e0126d7ea28ed97ef9083"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/unicode.cpp.obj",
+      "bytes": 2172056,
+      "sha256": "ac588d976e55569b2c64a1281f43a07256ac75daf818419302375bacb32eac0a"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_0_cxx.cxx",
+      "bytes": 3720,
+      "sha256": "e91183b4c19953f9464aab3791fc60faf94fcae03ab4585b805f7f920f7ab4bc"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_0_cxx.cxx.obj",
+      "bytes": 757843,
+      "sha256": "f3b21096d631ae95f9e5b1f0c2cb882302250390cedc01d7b6c6e3b6f3a3545e"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_10_cxx.cxx",
+      "bytes": 1889,
+      "sha256": "03867f2e8fa7f36e39fd5981ac75a34d7cee7ece1f7a9e9a9e06d3137b1333ee"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_10_cxx.cxx.obj",
+      "bytes": 369365,
+      "sha256": "ade23b385c8aeab700a491119cf80534bf98944376954619e106bd6e74879d09"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_1_cxx.cxx",
+      "bytes": 3743,
+      "sha256": "df9e356a1527b5d4da4ef62fafbf9fb6607ed06e3eebb1ce2a362d6441f89996"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_1_cxx.cxx.obj",
+      "bytes": 1189604,
+      "sha256": "5cfa48f97899a0a9245bcb77735eb7b673d996934823579cf0d20cb4d6431d41"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_2_cxx.cxx",
+      "bytes": 3744,
+      "sha256": "93e119df40b4b975beae37a8d86fc7f6b441ecac9b02b5a9a5e79f897df999b3"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_2_cxx.cxx.obj",
+      "bytes": 466722,
+      "sha256": "faa6d42e100d0400c660cafd97e38f7625ca3c1d487ec2d2832f60af1ade1dab"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_3_cxx.cxx",
+      "bytes": 3749,
+      "sha256": "5059795526e4fea8f53d93a84ae97fb953a139df22bf0ecfc2b23752fb9fd8f0"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_3_cxx.cxx.obj",
+      "bytes": 971751,
+      "sha256": "b0b5660552c5df090080281f78087b3148246d76e16f7fc1793b749ba3208ec1"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_4_cxx.cxx",
+      "bytes": 3740,
+      "sha256": "32967bc03fafb7657a4ecb86505f370d682223fe054484b2a9679dcb77b0c739"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_4_cxx.cxx.obj",
+      "bytes": 515266,
+      "sha256": "de9c0bc9f5c93d0345b91f20c75f4cf79b2af49f9e5049e00495057311ab2e3e"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_5_cxx.cxx",
+      "bytes": 3733,
+      "sha256": "362ab0825a4d997af0e5a016f44696015f65759d172f7b2da28cd75cedb9ae70"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_5_cxx.cxx.obj",
+      "bytes": 619325,
+      "sha256": "920fbdbe3912efff0517c8f8e4a85ce9ebf078938aa4953d16349d7748ac8f6c"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_6_cxx.cxx",
+      "bytes": 3747,
+      "sha256": "49f8fbac06f4fd084bf0014473338769d310006a0a7c658a52c2994feab072a9"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_6_cxx.cxx.obj",
+      "bytes": 656326,
+      "sha256": "8f64d2567259d78ea03b8e5234330f3ae532141c064d32ee0e35813ed06dc8d5"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_7_cxx.cxx",
+      "bytes": 3732,
+      "sha256": "77d94465c94865ac79a421be67890e4c7a2e946062c9a6d8a2e2901186c1c57c"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_7_cxx.cxx.obj",
+      "bytes": 435623,
+      "sha256": "c8f70192caf233a8545c404e644560282056ea5daf19955cf6896bf895c3ea63"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_8_cxx.cxx",
+      "bytes": 3717,
+      "sha256": "6ee7949b8ae3850777d04d7dff7261cb419c9c6b2d6bae823d28f43a0cfaceb8"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_8_cxx.cxx.obj",
+      "bytes": 614371,
+      "sha256": "14bcd8dc4d3d50588c2cbd9e1b2637e3e1603d5bd3ca7652fdb86d4172a66fe8"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_9_cxx.cxx",
+      "bytes": 3744,
+      "sha256": "2070033ecde094fc61ec97afff88496278212349e822fef0c68e35778db1275d"
+    },
+    {
+      "path": "data/build/llama/src/CMakeFiles/llama.dir/Unity/unity_9_cxx.cxx.obj",
+      "bytes": 680305,
+      "sha256": "0ac171131c70078258c37f2648e8b386eb229b451b2485cf8caf310a1e062778"
+    },
+    {
+      "path": "data/build/llama/src/llama-version.h",
+      "bytes": 117,
+      "sha256": "1180f6565cf84fcd93b44676dfc1c5d183954fef89e8d8bf9265af7de97c9e8d"
+    },
+    {
+      "path": "data/build/llama/src/llama.exp",
+      "bytes": 45253,
+      "sha256": "52993d0b146f934192947c06db3219f2b5ba16e8526ca833120d8d2467aa68bc"
+    },
+    {
+      "path": "data/build/llama/src/llama.lib",
+      "bytes": 74506,
+      "sha256": "78cef68263dfd74fb82eb25cabe7b3a8917bf715294e8c6700f2e92675f9eb55"
+    },
+    {
+      "path": "data/build/llama/vendor/cmake_install.cmake",
+      "bytes": 2816,
+      "sha256": "87cf8b72a85914e840a339987a11d952e7f316b031691aeb489d23a4d8f1551d"
+    },
+    {
+      "path": "data/build/llama/vendor/hash/cmake_install.cmake",
+      "bytes": 1504,
+      "sha256": "a0dbfc537b67ee013fd1546c74d01f05de102b191a01ee4286359044ec9a7b12"
+    },
+    {
+      "path": "data/build/llama/vendor/miniaudio/cmake_install.cmake",
+      "bytes": 1514,
+      "sha256": "c9d052a33c747b7855fc7d9cff457e54d308a5e6ccc105b37b7caebe14a0309a"
+    },
+    {
+      "path": "data/build/llama/vendor/nlohmann/cmake_install.cmake",
+      "bytes": 1512,
+      "sha256": "b56ac4d7fad1182d5204f1667d53165916ab18b8305acf4669433c8425a3e41f"
+    },
+    {
+      "path": "data/build/llama/vendor/sheredom/cmake_install.cmake",
+      "bytes": 1512,
+      "sha256": "b094606719df07bd80cba998bcf69494c5d102f3374f97ec79e793fd2245b955"
+    },
+    {
+      "path": "data/build/llama/vendor/stb/cmake_install.cmake",
+      "bytes": 1502,
+      "sha256": "9c052f26cb19052afce80aacd0bc7cf24d56cb4e22261b74b3aab3556b587b01"
+    },
+    {
+      "path": "data/build/realgpu_runtime.lib",
+      "bytes": 10138200,
+      "sha256": "db05eaef187f628b30802c477fd0a7b88da47ae59d37d10bf1c3acdad0b3e49d"
+    },
+    {
+      "path": "data/build/weight_kernel.ptx",
+      "bytes": 1956,
+      "sha256": "ccdb3ed8fbcdc872204dbb00ab47ded1ef44452c00281e2d9b53feb8f57567dd"
+    },
+    {
+      "path": "data/build/weight_kernel_embedded.hpp",
+      "bytes": 2139,
+      "sha256": "766fc4b38df63681e3e21c1aaacb47b36fe3fd7ae984cf606b5d719fa510d906"
+    },
+    {
+      "path": "data/build.log",
+      "bytes": 578331,
+      "sha256": "b7cd6008ba8edcd20c580be5894ebdba7880e5f3f39223b80d078d6cdd05f4e3"
+    },
+    {
+      "path": "data/candidate-build.json",
+      "bytes": 40467,
+      "sha256": "1265beb14a76efb5b103ffec739ec94ad4724b13836dec1d9c45019a35a5e30b"
+    },
+    {
+      "path": "data/candidate-source.json",
+      "bytes": 1307083,
+      "sha256": "c0b3adaa505b8156e63ae76c47eb5e0db53e2ecc50ed2ad173fcdf2b165d726a"
+    },
+    {
+      "path": "data/original44/consumers.jsonl",
+      "bytes": 79638,
+      "sha256": "55f0fabde02eba8c21ed5ccabaebc4f72f8d40831bb1ab4992a98cb8c2a9d08a"
+    },
+    {
+      "path": "data/original44/loaded-tensors.json",
+      "bytes": 139814,
+      "sha256": "d6110c2e76a87730b72d9ef6f66fbb5f04643864995d1d2c52636501b5b32ba7"
+    },
+    {
+      "path": "data/original44/logits.f32",
+      "bytes": 4861952,
+      "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835"
+    },
+    {
+      "path": "data/original44/resources.json",
+      "bytes": 1163,
+      "sha256": "64b575b01d71f930fbbb67c9503141329c15db65d42d8a276be2c48a4e6074d4"
+    },
+    {
+      "path": "data/original44/summary.json",
+      "bytes": 2464,
+      "sha256": "96ab90e9fb738595dbdc65439f058b1c8abc341447b4e0a96dfc57249c847c1a"
+    },
+    {
+      "path": "data/original44.log",
+      "bytes": 203141,
+      "sha256": "7a6f724e5cff7a7b731037a7acbba0424f514029c1c10eb3024362d0c68dfe0f"
+    },
+    {
+      "path": "data/original44.process.json",
+      "bytes": 2821,
+      "sha256": "a54aa2b131a6440f2bf5526aae13714bf6150d1948544244227861e26a23a806"
+    },
+    {
+      "path": "data/selection.json",
+      "bytes": 120058,
+      "sha256": "5d8b60d4b778d5dc249131c57bc7a479a515611890db1ae6b8733e774b83c347"
+    },
+    {
+      "path": "data/stage1-failure.json",
+      "bytes": 896,
+      "sha256": "7af69f25d1bca192ff042a2996334ce9ee31f82b960399e4df72643354f44eaf"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 466,
+      "sha256": "94eefe2561cbfc72c82f21a2bc377e49687fb8a70bae496ef99c907aa84934d9"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 991,
+      "sha256": "2411fcb1d6ed123ee35c70e613ee3d1a78ba524bb03cf64e5278d31ce9fd9ad9"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "ddbbd24d962b600916f0966dd411bf3d8d983ebff662572836922ef798db6afb"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 4997,
+      "sha256": "1f684158f93e677cfb5a3c89bd56a64b53659b00ca39d77ce35da126b9906a2c"
+    },
+    {
+      "path": "run.json",
+      "bytes": 8626,
+      "sha256": "e3366408d325514eb36719695d91b2e3d1c957aa6d2ef238379cba4fb2799127"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 993,
+      "sha256": "3b3f4a88820157bae67d80554d0920d3927d8c6ae348951f35f0cdabb9204f6a"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 404,
+  "total_bytes": 288296974,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "storage_path": "inputs/c37676856268ba68ad4a438bf92ac3062da7c967423ab4ccfde1e6aa44fcb45a",
+      "bytes": 57,
+      "sha256": "c37676856268ba68ad4a438bf92ac3062da7c967423ab4ccfde1e6aa44fcb45a"
+    }
+  ]
+}
