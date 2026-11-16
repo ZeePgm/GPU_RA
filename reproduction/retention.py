@@ -9,7 +9,7 @@ from types import SimpleNamespace
 
 import experiment as E
 
-TRACE_NAMES = {'lane-times.bin', 'requests.bin', 'gpu-activity.jsonl', 'chunks.jsonl', 'kv-media.jsonl'}
+TRACE_NAMES = {'lane-times.bin', 'requests.bin', 'weight-requests.jsonl', 'gpu-activity.jsonl', 'chunks.jsonl', 'kv-media.jsonl'}
 
 
 def require(value, message):
