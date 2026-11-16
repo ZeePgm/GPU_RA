@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage4-smoke-20261116-001",
+  "version": "v3",
+  "code_commit": "43dd4df46bd20278bdb3288356b56654e59e5f60",
+  "code_tree": "a45936ffe063867cc0c2d44d45ddacaadf5f58ae",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "四进程参考诊断通过（两输入×两KV）；原输入分页对native max_abs=0.016895、RMS=0.0028075，满足冻结0.2/0.025合同；实际112消费者GPU区间、KV字节/版本1..8/排空通过。仅诊断原生权重参考，不计正式16模型矩阵或三入口通过。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage4-smoke-20261116-001/manifest.json",
+  "manifest_sha256": "0e9bedb587d942d73a93f6070cc98edfee2087e688d065686d63b814fa820af0",
+  "created_utc": "2026-11-16T06:30:34.673222+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
