@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage2-registration-20261116-002",
+  "version": "v3",
+  "code_commit": "7eac3c17a096d878ed68139558cb9e367151d681",
+  "code_tree": "52768a14b13e26f59a93b31cf33cb7f40c108094",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "阶段2公共注册子验收通过：三入口配置各自完成14实际范围/653800448B权重注册、固定KV预留、共享读写读及排空，25负例/入口被拒绝；608 CPU、28 B2场景/6244请求/199808检查、B2越界负例与共享介质夹具通过。历史F1/F2及各入口读取/模型接入另行验收。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage2-registration-20261116-002/manifest.json",
+  "manifest_sha256": "164e6a6c5ce5dd2a727fe7f8ba6407a0257ef3a85fe1b1e80072f78c7c89fcd4",
+  "created_utc": "2026-11-16T05:25:29.530496+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
