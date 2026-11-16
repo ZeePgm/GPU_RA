@@ -56,7 +56,7 @@ void SampledRegistration::prepare(){
     runtime.backend.resident_fragments=256;
     runtime.backend.coalesce_capacity_feedback=true;runtime.backend.direct_device_transactions=true;
     runtime.readonly_layout_bytes=options_.layout_bytes;runtime.readonly_reservation_alignment=alignment;
-    runtime.audit_limit=8193;runtime.timeout_ns=1000000000ull;runtime.service_timeout_ns=60000000000ull;
+    runtime.audit_limit=513;runtime.timeout_ns=1000000000ull;runtime.service_timeout_ns=60000000000ull;
     for(const auto &range:ranges_)runtime.readonly_bases.push_back(range.logical);
     service_=std::make_unique<LiveTimingService>(runtime,2048,1);
     for(const auto &range:ranges_)service_->register_readonly(range.address,range.bytes);

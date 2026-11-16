@@ -75,7 +75,10 @@ void sampled_model_configure(const char *mode,const char *output){
     need(consumed==tokens.size() && s.prefill>0 && s.prefill<=256,"sampled prefill scope");
     s.output=output;std::ifstream input(env("HBFLAB_SAMPLED_INVENTORY"));input>>s.inventory;
     m6_load_profile(env("HBFLAB_SAMPLED_PROFILE").c_str(),output);
-    need(integrated_profile().blocks_per_bank==65536 && integrated_profile().pages_per_block==4 && integrated_profile().frames==4,"sampled profile geometry/frames");
+    const auto &p=integrated_profile();
+    need(p.architecture=="qwen3" && p.layers==28 && p.hidden==1024 && p.ffn==3072 && p.q_heads==16 &&
+         p.kv_heads==8 && p.head_dim==128 && p.context==512 && p.batch==256 && p.ubatch==256 && p.block_tokens==2 &&
+         p.logical_pages==14336 && p.blocks_per_bank==65536 && p.pages_per_block==4 && p.frames==4,"sampled fixed model/KV profile");
     s.gates.open(s.output/"sampled-gates.jsonl");s.consumers.open(s.output/"sampled-consumers.jsonl");
     need(bool(s.gates)&&bool(s.consumers),"sampled logs open");ck(cudaMalloc(reinterpret_cast<void **>(&s.stamp),8));
 }
@@ -109,7 +112,7 @@ void sampled_model_bind(const ggml_tensor *const *tensors,unsigned count){
     }else if(s.paged){
         AsyncRuntimeOptions options;options.backend.geometry=m6_geometry();options.backend.max_events_per_batch=2000000000ull;
         options.backend.coalesce_capacity_feedback=true;options.backend.direct_device_transactions=true;
-        options.readonly_layout_bytes=s.inventory.at("logical_weight_layout_bytes");options.audit_limit=8193;
+        options.readonly_layout_bytes=s.inventory.at("logical_weight_layout_bytes");options.audit_limit=513;
         options.timeout_ns=1000000000ull;options.service_timeout_ns=60000000000ull;
         s.reference_service=std::make_unique<LiveTimingService>(options,2048,1);s.service=s.reference_service.get();
         m4_begin(2,s.service,s.output.string().c_str());s.service->start();
@@ -174,7 +177,11 @@ void sampled_model_finish(){
                  !final.backend.host.logical_failed && final.backend.peak_resident_fragments<=256,"reference KV not drained");
         }
         runtime={{"drained",true},{"requests",stats.submitted},{"media_requests",stats.media_submitted},
-            {"peak_resident_fragments",stats.backend.peak_resident_fragments},{"backend_model_now_ps",stats.model_now_ps}};
+            {"peak_resident_fragments",stats.backend.peak_resident_fragments},{"backend_model_now_ps",stats.model_now_ps},
+            {"peak_inflight",stats.peak_inflight},{"peak_active_launches",stats.peak_active_launches},
+            {"registered_globals",stats.backend.registered_globals},{"completed_globals",stats.backend.completed_globals},
+            {"host_failed",stats.backend.host.logical_failed},{"audit_dropped",stats.audit_dropped},
+            {"mailbox_slots",2048},{"launch_limit",1},{"audit_limit",513}};
     }
     const double drain_ms=std::chrono::duration<double,std::milli>(Clock::now()-drain_start).count();
     const auto hash_start=Clock::now();

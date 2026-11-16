@@ -113,6 +113,18 @@ static int run(int argc, char **argv) {
     std::ifstream prompt_file(argv[2], std::ios::binary); need(bool(prompt_file), "prompt missing");
     const std::string prompt((std::istreambuf_iterator<char>(prompt_file)), {});
     json budgets = {{"before_model", memory()}};
+    if (sampled) {
+        const char *profile_path = std::getenv("HBFLAB_SAMPLED_PROFILE"); need(profile_path, "sampled profile required");
+        std::ifstream file(profile_path); json profile; file >> profile;
+        const auto gpu_required=profile.at("budgets").at("gpu_required_bytes").get<uint64_t>();
+        const auto host_required=profile.at("budgets").at("host_required_bytes").get<uint64_t>();
+        need(gpu_required>=2308702208ull && host_required>=1006632960ull,"sampled profile weakens original minimum budgets");
+        const auto host_available=hbflab::platform::available_host_memory();
+        need(host_available>=host_required && budgets.at("before_model").at("free_bytes").get<uint64_t>()>=gpu_required,"sampled model memory budget unavailable");
+        budgets["host_available_before_model"]=host_available;
+        need(profile.at("numerical").at("max_abs")==0.2 && profile.at("numerical").at("rms")==0.025 &&
+             profile.at("numerical").at("tokens_exact")==true,"sampled numerical policy changed");
+    }
     llama_backend_init(); auto mp = llama_model_default_params();
     mp.n_gpu_layers = 999; mp.split_mode = LLAMA_SPLIT_MODE_NONE; mp.main_gpu = 0;
     auto *gpu = ggml_backend_dev_by_type(GGML_BACKEND_DEVICE_TYPE_GPU); need(gpu, "GPU backend missing");

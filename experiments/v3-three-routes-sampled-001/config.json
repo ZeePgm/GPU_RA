@@ -45,7 +45,7 @@
       "cuda": 262144
     },
     "gpu_timing_peak_bytes": 262144,
-    "audit_limit_per_queue": 8193,
+    "audit_limit_per_queue": 513,
     "request_trace_format": "<11Q4I",
     "gpu_activity_kinds": [
       "kernel",
