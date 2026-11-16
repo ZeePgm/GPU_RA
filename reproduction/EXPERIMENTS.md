@@ -114,3 +114,23 @@ B 引用真实执行代码的 A；不要把报告中尚不存在的自身提交�
 ## 工作流自身的回归检查
 
 `python reproduction/tests/test_experiment_workflow.py --output-root <仓库外验证目录>` 在隔离临时Git库中核验完整流程和拒绝条件，不启动GPU或修改真实版本引用，保留全部检查日志。
+
+## 验收后的日志保留
+
+每次实验结束后，先完成验收、报告B和完整verify，再列出可清理文件、预计字节和必要保留项，主动询问用户是否清理。仅明确批准后执行，批准只适用于当次所列范围；未回复不清理。代码、配置、输入身份、报告和必要参考结果长期保留，大量原始轨迹不默认长期保留。失败/中断及未验收证据默认保留。
+
+当前工具只处理已判passed运行中的lane-times.bin、requests.bin、gpu-activity.jsonl、chunks.jsonl、kv-media.jsonl；不删除引用结果或共享输入，不执行递归删除。先把实际用户批准写入精确计划：
+
+```powershell
+python reproduction/retention.py plan --id ID --run RUN --approval-text '用户本次明确批准的原文'
+git add evidence/ID/RUN/retention-plan.json
+git commit -m 'Record approved exact trace-retention plan'
+python reproduction/retention.py apply --id ID --run RUN
+git add evidence/ID/RUN/retention-result.json
+git commit -m 'Record approved trace cleanup'
+python reproduction/experiment.py verify --id ID --run RUN --retained
+```
+
+与原入口一样使用GPU_RA_DATA_ROOT或--data-root定位外部数据。apply要求干净工作树、已提交的精确计划，并在删除前重新核对文件哈希及路径，拒绝重解析点/越界，只unlink列明的普通轨迹文件。外部retentions/ID/RUN保存计划、逐文件删除日志和完成锚点；中断可按原计划恢复，不能扩大清理范围。
+
+原始manifest、报告、DATASETS索引和seals保持原字节。默认verify在原文件缺失时仍失败；--retained仅核验批准清理后的保留文件和清理凭据，输出full_payload_present=false、full_raw_trace_recheck_available=false。最终须同时report_committed=true和retention_committed=true；这不会重新批准科学结论，也不声称还能逐条复算原始轨迹。

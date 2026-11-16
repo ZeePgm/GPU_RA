@@ -574,7 +574,11 @@ def verify(args):
     if manifest['storage'] != expected_storage or manifest['experiment_id'] != args.id or manifest['run_id'] != args.run:
         raise ValueError('Manifest storage/ID mismatch')
     rows = scan_run(run_dir)
-    if rows != manifest['files'] or len(rows) != manifest['file_count'] or sum(r['bytes'] for r in rows) != manifest['total_bytes']:
+    retention = None
+    if getattr(args, 'retained', False):
+        from retention import verify_retained
+        retention = verify_retained(root, home, paths, manifest, report, rows)
+    elif rows != manifest['files'] or len(rows) != manifest['file_count'] or sum(r['bytes'] for r in rows) != manifest['total_bytes']:
         raise ValueError('Run data changed, is missing, or contains additional files')
     for key in ('code_commit', 'code_tree', 'base_commit'):
         if manifest[key] != record[key] or report[key] != record[key]:
@@ -598,8 +602,10 @@ def verify(args):
     print(json.dumps({'status': 'pass', 'experiment_id': args.id, 'run_id': args.run,
                       'code_commit': record['code_commit'], 'current_commit': git_text(root, 'rev-parse', 'HEAD'),
                       'report_commit': report_commit, 'report_committed': report_commit is not None,
-                      'files': len(rows), 'bytes': manifest['total_bytes'],
-                      'scope': 'Traceability and data integrity; scientific verdict is recorded separately.'}))
+                      'files': len(rows), 'bytes': sum(r['bytes'] for r in rows),
+                      **(retention or {'mode': 'full', 'full_payload_present': True}),
+                      'scope': ('Retained evidence integrity after explicitly approved trace deletion; full raw trace recheck unavailable.'
+                                if retention else 'Traceability and data integrity; scientific verdict is recorded separately.')}))
 
 
 def main():
@@ -636,6 +642,8 @@ def main():
         elif action == 'finish':
             p.add_argument('--verdict', choices=('passed', 'failed', 'inconclusive'), required=True)
             p.add_argument('--conclusion', required=True)
+        elif action == 'verify':
+            p.add_argument('--retained', action='store_true', help='Verify retained evidence and explicit cleanup receipts; does not claim complete original traces')
     args = parser.parse_args()
     try:
         return {'new': new, 'start': start, 'finish': finish, 'verify': verify}[args.action](args) or 0
