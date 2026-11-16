@@ -41,19 +41,28 @@ struct Observation {
     uint64_t sequence = 0;
     std::map<const ggml_tensor *, std::string> selected;
     std::ofstream consumers;
+    std::ofstream completed;
     std::string failure;
 };
 static bool observe(ggml_tensor *node, bool ask, void *opaque) {
     auto &s = *static_cast<Observation *>(opaque);
-    if (!ask || s.step < 0) return true;
+    if (s.step < 0) return false;
+    if (!ask) {
+        for (const auto *src : node->src) if (src && s.selected.count(src))
+            s.completed << json({{"step", s.step}, {"weight", s.selected.at(src)},
+                {"node_name", node->name}, {"op", ggml_op_name(node->op)}}).dump() << '\n';
+        return true;
+    }
     // Preserve the V3 F32 arithmetic choice for every matrix multiplication.
     hbflab_m2_graph_node(node);
+    bool selected = false;
     try {
         for (int slot = 0; slot < GGML_MAX_SRC; ++slot) {
             const auto *src = node->src[slot];
             if (!src) continue;
             const auto found = s.selected.find(src);
             if (found == s.selected.end()) continue;
+            selected = true;
             json row = {{"sequence", s.sequence++}, {"step", s.step},
                 {"phase", s.step == 0 ? "prefill" : "decode"},
                 {"weight", found->second}, {"source_slot", slot},
@@ -76,10 +85,12 @@ static bool observe(ggml_tensor *node, bool ask, void *opaque) {
             s.consumers << row.dump() << '\n'; need(bool(s.consumers), "consumer log failed");
         }
     } catch (const std::exception &e) { s.failure = e.what(); }
-    return false;
+    return selected;
 }
 static int run(int argc, char **argv) {
     need(argc == 6, "usage: sampled_inventory model prompt output selection.json outputs");
+    const char *token_only = std::getenv("HBFLAB_SAMPLED_TOKEN_ONLY");
+    need(token_only && std::string(token_only) == "1", "explicit token-only graph setting required");
     const fs::path out = argv[3]; need(!fs::exists(out), "output already exists"); fs::create_directories(out);
     const int outputs = std::stoi(argv[5]); need(outputs == 8, "inventory freezes eight outputs");
     std::ifstream spec_file(argv[4]); json spec; spec_file >> spec;
@@ -88,6 +99,9 @@ static int run(int argc, char **argv) {
     json budgets = {{"before_model", memory()}};
     llama_backend_init(); auto mp = llama_model_default_params();
     mp.n_gpu_layers = 999; mp.split_mode = LLAMA_SPLIT_MODE_NONE; mp.main_gpu = 0;
+    auto *gpu = ggml_backend_dev_by_type(GGML_BACKEND_DEVICE_TYPE_GPU); need(gpu, "GPU backend missing");
+    llama_model_tensor_buft_override overrides[] = {{"^token_embd\\.weight$", ggml_backend_dev_buffer_type(gpu)}, {nullptr, nullptr}};
+    mp.tensor_buft_overrides = overrides;
     std::unique_ptr<llama_model, decltype(&llama_model_free)> model(llama_model_load_from_file(argv[1], mp), llama_model_free);
     need(bool(model), "model load failed"); budgets["after_model"] = memory();
     Observation observations; json tensors = json::array();
@@ -104,6 +118,7 @@ static int run(int argc, char **argv) {
     need(observations.selected.size() == 14, "selected tensor identity mismatch");
     save(out / "loaded-tensors.json", tensors);
     observations.consumers.open(out / "consumers.jsonl"); need(bool(observations.consumers), "consumer log open failed");
+    observations.completed.open(out / "consumers-completed.jsonl"); need(bool(observations.completed), "completion log open failed");
     const auto *vocab = llama_model_get_vocab(model.get());
     int n = -llama_tokenize(vocab, prompt.data(), int32_t(prompt.size()), nullptr, 0, true, true);
     need(n > 0 && n + outputs <= 512, "prompt outside context");
@@ -150,14 +165,15 @@ static int run(int argc, char **argv) {
         steps.push_back({{"step", step}, {"input_tokens", input}, {"output_token", token}});
         generated.push_back(token); input.assign(1, token);
     }
-    observations.step = -1; observations.consumers.close(); logits_file.close();
-    need(bool(observations.consumers) && bool(logits_file), "output close failed");
+    observations.step = -1; observations.consumers.close(); observations.completed.close(); logits_file.close();
+    need(bool(observations.consumers) && bool(observations.completed) && bool(logits_file), "output close failed");
     budgets["after_generation"] = memory(); save(out / "resources.json", budgets);
     save(out / "summary.json", {{"status", "pass"}, {"purpose", "stage1_inventory_only"},
         {"prompt_tokens", tokens}, {"generated_tokens", generated}, {"steps", steps},
         {"selected_tensors", 14}, {"consumer_records", observations.sequence},
         {"arithmetic", "F32 MUL_MAT"}, {"kv", "native F16"}, {"graphs", false}, {"fusion", false}, {"flash", false},
-        {"context", 512}, {"batch", 256}, {"ubatch", 256}, {"threads", 8}});
+        {"context", 512}, {"batch", 256}, {"ubatch", 256}, {"threads", 8},
+        {"embedding_buffer_override", "CUDA0"}, {"token_only_graph", true}});
     return 0;
 }
 int main(int argc, char **argv) {

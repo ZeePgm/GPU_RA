@@ -75,7 +75,7 @@ def inventory(model):
             require(shape == expected_shape and t.tensor_type.name == dtype, 'Selected layout mismatch: ' + t.name)
         else:
             category, op, slot = 'unselected_native', None, None
-        padded = (int(t.n_bytes) + 4095) // 4096 * 4096
+        padded = (int(t.n_bytes) + 32767) // 32768 * 32768
         rows.append({'name': t.name, 'shape': shape, 'dtype': t.tensor_type.name, 'bytes': int(t.n_bytes),
                      'file_offset': int(t.data_offset), 'logical_base': logical, 'reserved_bytes': padded,
                      'selected': selected, 'category': category, 'expected_op': op, 'expected_source_slot': slot})
@@ -129,7 +129,7 @@ def launch_probe(args, build, selection, prompt, label):
     frozen = R.correctness_module()
     frozen.BIN, frozen.CUDA = build / 'bin', args.cuda_root
     env = frozen.environment()
-    env.update(HBFLAB_M4_PAGED='0', LLAMA_GRAPH_REUSE_DISABLE='1')
+    env.update(HBFLAB_M4_PAGED='0', LLAMA_GRAPH_REUSE_DISABLE='1', HBFLAB_SAMPLED_TOKEN_ONLY='1')
     command = [str(build / 'bin/sampled_inventory.exe'), str(args.model), str(prompt), str(output), str(selection), '8']
     record = {'command': command, 'prompt': identity(prompt), 'resource_probes': [before], 'loaded_modules': []}
     start = time.monotonic()
@@ -183,6 +183,9 @@ def demand_plan(selection, case):
             aliases.append([a[2], b[2]])
     summary = read(case / 'summary.json')
     rows = [json.loads(line) for line in (case / 'consumers.jsonl').read_text(encoding='utf-8').splitlines()]
+    completed = [json.loads(line) for line in (case / 'consumers-completed.jsonl').read_text(encoding='utf-8').splitlines()]
+    require(Counter((r['step'], r['weight'], r['node']['name'], r['op']) for r in rows) ==
+            Counter((r['step'], r['weight'], r['node_name'], r['op']) for r in completed), 'Consumer post-execution evidence missing')
     require(Counter((r['step'], r['weight']) for r in rows) == Counter((step, name) for step in range(8) for name in expected),
             'Consumer multiplicity mismatch; graph path needs explicit support')
     demands = []
@@ -224,6 +227,8 @@ def main():
     ap.add_argument('--cuda-root', type=Path, required=True)
     ap.add_argument('--resource-root', type=Path, required=True)
     ap.add_argument('--output', type=Path, required=True)
+    ap.add_argument('--build-dir', type=Path, required=True)
+    ap.add_argument('--reference-native', type=Path, required=True)
     args = ap.parse_args()
     args.output = args.output.resolve()
     require(not args.output.exists(), 'Use a new output directory')
@@ -234,12 +239,12 @@ def main():
         write(args.output / 'selection.json', selection)
         source = source_identity()
         write(args.output / 'candidate-source.json', source)
-        build = args.output / 'build'
-        with (args.output / 'build.log').open('w', encoding='utf-8') as log:
-            subprocess.run(['pwsh', '-NoProfile', '-File', str(HERE / 'build_candidate.ps1'),
-                            '-CudaRoot', str(args.cuda_root), '-BuildRoot', str(build), '-Python', sys.executable],
-                           stdout=log, stderr=log, check=True, timeout=1200)
-        write(args.output / 'candidate-build.json', audit_build(build))
+        build = args.build_dir.resolve()
+        receipt = read(build / 'candidate-receipt.json')
+        require(receipt['source'] == source, 'Build source identity differs from current candidate')
+        current_build = audit_build(build)
+        require(current_build == receipt['build'], 'Build binary or compilation identity changed')
+        write(args.output / 'candidate-build.json', receipt)
         plans = {}
         for label, prompt in [('original44', HERE / 'prompt-44.txt'), ('short', HERE / 'prompt-short.txt')]:
             case = launch_probe(args, build, args.output / 'selection.json', prompt, label)
@@ -248,7 +253,13 @@ def main():
         require(len(plans['original44']['prompt_tokens']) == 44, 'Original token count changed')
         require(1 < len(plans['short']['prompt_tokens']) < 44, 'Short prompt token scope')
         require(set(plans['short']['prompt_tokens']) - set(plans['original44']['prompt_tokens']), 'Short input adds no embedding rows')
+        reference_summary = read(args.reference_native / 'summary.json')
+        require(reference_summary['prompt_tokens'] == plans['original44']['prompt_tokens'] and
+                reference_summary['generated_tokens'] == plans['original44']['generated_tokens'], 'Placement/graph change altered tokens')
+        require(sha(args.reference_native / 'logits.f32') == sha(args.output / 'original44/logits.f32'),
+                'Placement/graph change altered complete logits')
         require(source == source_identity(), 'Candidate source identity changed during inventory')
+        require(current_build == audit_build(build), 'Candidate binaries changed during inventory')
         total = selection['logical_weight_layout_bytes'] + selection['kv_reserved_bytes']
         require(total <= selection['media_geometry']['capacity_bytes'], 'Complete logical layout does not fit')
         write(args.output / 'stage1-acceptance.json', {
@@ -262,6 +273,8 @@ def main():
                 'gpu_kv_frames': 4, 'pinned_slots': 4, 'gpu_mirror_peak_bytes': 262144, 'gpu_validation_peak_bytes': 262144,
                 'host_verification_buffers_bytes': 2 * 262144, 'runtime_cost_budget': 'pilot_required_before_full_matrix'},
             'observed_gates': 'not installed; required GET_ROWS/MUL/MUL_MAT mapped for stage2',
+            'placement_graph_change_vs_initial_native': {'tokens_equal': True, 'complete_logits_bitwise': True,
+                'reference': identity(args.reference_native / 'logits.f32')},
             'numerical_contract': {'same_arithmetic_logits': 'bitwise', 'paged_vs_native_max_abs': .2, 'paged_vs_native_rms': .025, 'tokens': 'exact'},
             'scope': 'Stage1 inventory and demand only; no route correctness or performance verdict'})
         print(json.dumps(read(args.output / 'stage1-acceptance.json'), ensure_ascii=False), flush=True)
@@ -271,4 +284,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) == 3 and sys.argv[1] == '--record-build':
+        build = Path(sys.argv[2]).resolve()
+        write(build / 'candidate-receipt.json', {'source': source_identity(), 'build': audit_build(build),
+              'code_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()})
+    else:
+        main()

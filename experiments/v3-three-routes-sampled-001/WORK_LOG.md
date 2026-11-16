@@ -1,0 +1,17 @@
+# v3-three-routes-sampled-001 工作记录
+
+2026-11-16：用户批准完整计划，阶段1先行，后续接入与验收继续按阶段门控。
+
+- `stage1-20261116-001`：Windows长路径扫描失败，未构建或启动模型。修复使用扩展路径访问源码，失败报告已提交核验。
+- `stage1-20261116-002`：沙箱构建停在编译器ABI探测；确认无法看到System进程后用cancel.request中断，Job树结束，报告已提交核验。
+- `stage1-20261116-003`：主机可见环境独立构建完成；44输入/8输出模型执行完成。实际token_embd为CPU_Mapped，其他13个选定权重为CUDA0；embedding图还包含普通和mixed两条GET_ROWS。单GPU注册与单gather假设被拒绝，此诊断不计通过样本。构建遗留PDB服务经Job取消清理，原始现场保留。
+
+据实际模型修订阶段1的显式固定配置：
+
+1. 使用llama.cpp已有tensor_buft_overrides将token_embd显式加载至CUDA0，所有参考与候选使用同一配置。
+2. 新增仅在HBFLAB_SAMPLED_TOKEN_ONLY=1时生效的图选项，固定为纯token输入图，省去本实验范围外的mixed输入备用分支。默认历史图保持原行为。该变化与embedding放置变化必须对首次native诊断的全部logits和token逐字节核对。
+3. 对选定消费者请求post-execution回调，独立核对执行前与执行后消费者集合；不能把图查询回调当成执行证据。
+4. 完整GGUF逻辑布局按32KiB block group对齐，KV单独置于其后，使用2GiB介质。阶段2需使注册预留与该对齐一致。Host resident_fragments=256，KV frames=4、pinned slots=4保持。
+5. 候选构建移至外部独立build目录，运行前固定完整候选源码和编译/二进制receipt。模型科学runner不再启动编译器，避免常驻PDB辅助进程混入运行Job；历史清单和验收器不修改。
+
+这些是已批准适配范围内、由实际模型揭示的显式配置选择；尚不构成三入口通过结论。三入口的实际请求成本、日志成本和全表embedding夹具成本仍需先导，之后冻结正式批次预算。

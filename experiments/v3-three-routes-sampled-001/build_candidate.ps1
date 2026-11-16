@@ -21,3 +21,5 @@ $env:PATH=(Join-Path $CudaRoot 'bin')+';'+(Join-Path $CudaRoot 'bin/x64')+';'+$e
 if($LASTEXITCODE -ne 0){throw 'Candidate configure failed'}
 & $taskCmake --build $BuildRoot --target @Targets --parallel $Jobs
 if($LASTEXITCODE -ne 0){throw 'Candidate build failed'}
+& $Python (Join-Path $PSScriptRoot 'stage1.py') --record-build $BuildRoot
+if($LASTEXITCODE -ne 0){throw 'Candidate build receipt failed'}

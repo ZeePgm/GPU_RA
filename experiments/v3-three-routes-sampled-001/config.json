@@ -25,8 +25,12 @@
       "fusion": false,
       "flash": false,
       "matrix_precision": "F32",
-      "graph_reuse": false
-    }
+      "graph_reuse": false,
+      "token_only_graph": true
+    },
+    "embedding_buffer": "CUDA0 explicit override",
+    "logical_range_alignment_bytes": 32768,
+    "media_capacity_bytes": 2147483648
   },
   "acceptance": {
     "status": "approved",
