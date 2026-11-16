@@ -40,8 +40,13 @@ def require(value, message):
 
 
 def sha(path):
-    with Path(path).open('rb') as f:
+    with io_path(path).open('rb') as f:
         return hashlib.file_digest(f, 'sha256').hexdigest()
+
+
+def io_path(path):
+    path = Path(path).resolve()
+    return Path('\\\\?\\' + str(path)) if os.name == 'nt' and not str(path).startswith('\\\\?\\') else path
 
 
 def write(path, value):
@@ -54,7 +59,7 @@ def read(path):
 
 def identity(path):
     path = Path(path)
-    return {'path': str(path.resolve()), 'bytes': path.stat().st_size, 'sha256': sha(path)}
+    return {'path': str(path.resolve()), 'bytes': io_path(path).stat().st_size, 'sha256': sha(path)}
 
 
 def inventory(model):
