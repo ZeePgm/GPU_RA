@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage3-pilot-20261116-001",
+  "version": "v3",
+  "code_commit": "8932ed56f5629a24be4ce82861132e6765c0f567",
+  "code_tree": "7303a0b69ec96a8f440031cd9584a53826e7a91a",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "symbolic先导的实际范围、尾部、重复embedding行和全lane时间独立审计通过；PTX在JIT前因模板局部寄存器%tid遮蔽特殊寄存器%tid.x而被拒绝，CUDA尚未执行。保留PTX原文、JIT错误、symbolic数据和进程身份；修复本实验模板后用新提交/新运行重验，不改改写器或阈值。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage3-pilot-20261116-001/manifest.json",
+  "manifest_sha256": "5f457ea76b28e7c9269b7f9a265a1ae85772f03f961bbdb8812940f8e2b1ade8",
+  "created_utc": "2026-11-16T06:12:37.806108+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
