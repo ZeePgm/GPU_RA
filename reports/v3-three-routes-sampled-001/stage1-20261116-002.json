@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-002",
+  "version": "v3",
+  "code_commit": "5f4dca1630da9f8abad62731d0a9a925f4a34f8c",
+  "code_tree": "2fd917c3418a435eb1ac1a491a4d12578abeff3f",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "interrupted",
+  "exit_code": 130,
+  "verdict": "inconclusive",
+  "conclusion": "沙箱未提供System进程可见性，构建停留在编译器ABI探测；已通过cancel.request停止并确认Job树结束，未启动模型。保留中断现场，使用主机可见执行环境新建运行，不改变资源守卫。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage1-20261116-002/manifest.json",
+  "manifest_sha256": "aaa23c33efc7f3ed68c5f99f27502b547e477d5ccf8f5353a946cfc38a9c9036",
+  "created_utc": "2026-11-16T04:51:42.886877+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

@@ -1,0 +1,340 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-002",
+  "version": "v3",
+  "code_commit": "5f4dca1630da9f8abad62731d0a9a925f4a34f8c",
+  "code_tree": "2fd917c3418a435eb1ac1a491a4d12578abeff3f",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-three-routes-sampled-001/stage1-20261116-002"
+  },
+  "files": [
+    {
+      "path": "cancel.request",
+      "bytes": 120,
+      "sha256": "c73831d4b226fc5537f8845c3b40564012b53e3fc20a71c8c55b22235a623b15"
+    },
+    {
+      "path": "config.json",
+      "bytes": 780,
+      "sha256": "f3f2704b8069317da0c15da5923ba80a1e1311fea44653780faf08bd06b1156a"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeCCompiler.cmake",
+      "bytes": 2868,
+      "sha256": "d5c2c282716352dec948307ecefe154823dc52ab286ffda3b2f99d15e182b50b"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeCUDACompiler.cmake",
+      "bytes": 3926,
+      "sha256": "7d3582cb055b3ec0f0b3599641fd3113cfcbbebdde2c6065a6d15b07215c1cb3"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeCXXCompiler.cmake",
+      "bytes": 3515,
+      "sha256": "544bf816cae8863b8f1c5e20557b84835c52419b2054f8906ec04d20773f0e2d"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeRCCompiler.cmake",
+      "bytes": 276,
+      "sha256": "f1c96e7b6bc035d04a44733638743f28bf70450e870a3095a55cff6ad81924fa"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CMakeSystem.cmake",
+      "bytes": 395,
+      "sha256": "cf05e982232c22b6fe58288ef10f11c1d5ba2af1e7e050ea9d8037095b59d948"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.c",
+      "bytes": 28524,
+      "sha256": "980da23c61453fa1da0dbc5d11ea9dbb34deaa7210a24b1b6c5a007ad0b546a6"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.exe",
+      "bytes": 108032,
+      "sha256": "fd3df86affeb3ec5555d9fe039431bf0efac8bec5f3e6abe9c0a8c7a8d7484c7"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdC/CMakeCCompilerId.obj",
+      "bytes": 2023,
+      "sha256": "c5c2fde7d8c57ff40101dac08510615d99ef72261f296982e6d69a248c3f7d35"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/a.exe",
+      "bytes": 125440,
+      "sha256": "5c9509f679831ded0294fdd527199415996a9bf64520bd1baf1ed3338baae11f"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/CMakeCUDACompilerId.cu",
+      "bytes": 30635,
+      "sha256": "978a5e798d02f8056201d5b50c13dfab3fcf20200dd0e2f4a11cb5a753c2d2fd"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a.exe.res",
+      "bytes": 496,
+      "sha256": "9ddea23546861d59f325d2825e002251f889958b578a08758139106acf1770f6"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.fatbin",
+      "bytes": 1408,
+      "sha256": "c1698dc6f9cadcdcc184e035a175032f949c561e3946f143ff557ec72a9bb049"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.fatbin.c",
+      "bytes": 4695,
+      "sha256": "e2d3083a4911166d7fc2046cd87f67ac6eaa7ecefb07cf8a2e7f043c5fa63116"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.obj",
+      "bytes": 2500,
+      "sha256": "a778d2dbfee3c70e52019903fc8fd371d6b2e2b4f4a6ac237e2620051764dd21"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.obj.res",
+      "bytes": 630,
+      "sha256": "71f36fd01015f14ce8f6834cf39972aeaca437b9d3261f981298ce70ecf67e73"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.reg.c",
+      "bytes": 33,
+      "sha256": "377e0c156093e118d786c8e7a7452a3c786e1d830b8bc1ebbe8ebb57c86a8256"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.sm_75.cubin",
+      "bytes": 1328,
+      "sha256": "7d4f15b510865df1161fd981b6ef4d7c2b5149e30162ef7a03481529d0c9e4a0"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/a_dlink.sm_75.cubin.optf",
+      "bytes": 222,
+      "sha256": "867a5da11213672ad1abbe16994c3d2927920915759518777aaa23e7d0212e84"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii",
+      "bytes": 2149353,
+      "sha256": "65844bd7f9ffe7832ae9acd311d04a9204b3b6963e3574843f0f807ddd8f7afc"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp1.ii.res",
+      "bytes": 496,
+      "sha256": "2ee9ff45de4f4858e55fc8c93f619073f888e926813343239d0e66166aa07091"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii",
+      "bytes": 1625474,
+      "sha256": "7f8a23b70abc6cf433d74e8582f5a5bc9df9b96a72c4e2728e711a0318bc369c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cpp4.ii.res",
+      "bytes": 446,
+      "sha256": "d6d41cf889ac3f3b35c35725a7f114f8a0fda2509f15b7c19304e21d4c3423c2"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.c",
+      "bytes": 3401,
+      "sha256": "3c458133be942d74a51a2c748dbe2a2285cb42359fadd404b6de9a085f4839b0"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.cpp",
+      "bytes": 844154,
+      "sha256": "248709e6f4860af16f1d2bf16c0ae3ccb6e80258daab3b4c06fea9e9a3779e24"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.gpu",
+      "bytes": 597,
+      "sha256": "89dd08e4a6afe849cf268de12f639f67b65f3a3792dff65fa1f5bf8a03107720"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.cudafe1.stub.c",
+      "bytes": 745,
+      "sha256": "58334cccf00663f7e6b78cbabaad302d595feb73639ebdae96f525ef04c56a8b"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin",
+      "bytes": 1696,
+      "sha256": "0a1718d93800f59a8fca6902bf4de02cd628afda533f738d2b8a32dddec26ac5"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.fatbin.c",
+      "bytes": 5476,
+      "sha256": "9b677be71026114aa4c910af35c1447238f83feb5bb483b3c5ac62aeb6da953c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.module_id",
+      "bytes": 44,
+      "sha256": "fd44695357faca805259f37652e363642815bfb2435176d7548de4c7d368680a"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.obj",
+      "bytes": 38554,
+      "sha256": "f0498e4c0811a0f2d5852dd1c8df19f3b8d24596355f2714f691f6138912f1da"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.obj.res",
+      "bytes": 409,
+      "sha256": "4664a69893db1fffb3777936d0541945a14a607d87517b937285e06173662dee"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.ptx",
+      "bytes": 215,
+      "sha256": "bc267a3b2a3db41b3b0b58e39553f798e28c5dea10e7a55dd5079a38b75382a9"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCUDA/tmp/CMakeCUDACompilerId.sm_75.cubin",
+      "bytes": 1464,
+      "sha256": "7a6dd2eeac7a7b4312726614130fdd70fb6e0d537f321573c8b8cc4ae87b42cc"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+      "bytes": 29376,
+      "sha256": "889dac6c9713176b009c4e2662f38728ec305d6f8fa8d308392f53ff7237fc1c"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.exe",
+      "bytes": 108032,
+      "sha256": "aac0e03aeade4f3081faa757bb5f094499f59ccd51ea987c2d7784d5b11deddb"
+    },
+    {
+      "path": "data/build/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CMakeCXXCompilerId.obj",
+      "bytes": 2090,
+      "sha256": "ca97932d217db94f160d6feecfac5a6244be7fd01a3334fbd7830c125110a1f0"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeConfigureLog.yaml",
+      "bytes": 56295,
+      "sha256": "d3458fd26a4eed554afab6bf9fc399c80f357b853f783c8524ec66fbc9e68379"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/.ninja_lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/build.ninja",
+      "bytes": 6085,
+      "sha256": "6b6a6f5a1246414f2265fca8d8c14b2ffcfc4a99a03ece33cb03db69ae8f527b"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/cmake_install.cmake",
+      "bytes": 2276,
+      "sha256": "001aad017c6e8457b72935c5eba2287e79ec415468b469ad7d3ddfece7607e37"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/CMakeCache.txt",
+      "bytes": 13537,
+      "sha256": "2791d5debca2a2ba0ab33f75d2575b4e5592095d6b3bc7b33170aeecd98ac16c"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/CMakeFiles/cmake.check_cache",
+      "bytes": 86,
+      "sha256": "95079b44bcef481d601432c2fd3c654d7fe85b9c8386c355f2874502b47441d7"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/CMakeFiles/rules.ninja",
+      "bytes": 2565,
+      "sha256": "a3c0993b721c9661e322158ca1cbaee58c8e9b13c9494f12fb4bffa1f7f354bd"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/CMakeFiles/TargetDirectories.txt",
+      "bytes": 543,
+      "sha256": "a5ff415a2125f96fb464cd76f55f45bcca7c1f58244cdb3c92254ff4440119a5"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/CMakeLists.txt",
+      "bytes": 1381,
+      "sha256": "90c958f6c2856dc13962e4e99992369219b6d80bf00cf54249f125160a9950bb"
+    },
+    {
+      "path": "data/build/CMakeFiles/CMakeScratch/TryCompile-h7s3vq/cmTC_3ecb7_loc",
+      "bytes": 167,
+      "sha256": "3b5b50a3893e949137393e66190489e04a641a654c6a2a3af492c3879c0c2121"
+    },
+    {
+      "path": "data/build/CMakeFiles/ShowIncludes/foo.h",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "data/build/CMakeFiles/ShowIncludes/main.c",
+      "bytes": 33,
+      "sha256": "cdfab295fc8e12c3ecfb6982f99058f032ee8284926ad71a829e70ea3bf02549"
+    },
+    {
+      "path": "data/build/CMakeFiles/ShowIncludes/main.obj",
+      "bytes": 706,
+      "sha256": "abf7f8dd125cb703d3c35c8cdf8642e307e329b69006b089cedace8bcc2ab377"
+    },
+    {
+      "path": "data/build.log",
+      "bytes": 480,
+      "sha256": "fc5c2c2d69385c0e3c79c6feab6fcc612ee080ee599a1efad843b17db41d7d8d"
+    },
+    {
+      "path": "data/candidate-source.json",
+      "bytes": 1307083,
+      "sha256": "c0b3adaa505b8156e63ae76c47eb5e0db53e2ecc50ed2ad173fcdf2b165d726a"
+    },
+    {
+      "path": "data/selection.json",
+      "bytes": 120058,
+      "sha256": "5d8b60d4b778d5dc249131c57bc7a479a515611890db1ae6b8733e774b83c347"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 468,
+      "sha256": "13c22a39333d1b96c298de4b6405bc543b5ecb59f5846124e60862643c7b7c03"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 991,
+      "sha256": "2411fcb1d6ed123ee35c70e613ee3d1a78ba524bb03cf64e5278d31ce9fd9ad9"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "9339e95edcb3207678110de5babd1d667a37a68a033d75351f1e8a33e3c5350c"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 4997,
+      "sha256": "131ec8cd4dab9f32955393fe4493ede9e9382b71d5b2d34ffa93940bca2eefad"
+    },
+    {
+      "path": "run.json",
+      "bytes": 8628,
+      "sha256": "1f26b2c0fca754815b1eb0171c346b17d9521c28112f56b454f23dc8b4da98c1"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 61,
+  "total_bytes": 6656352,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "storage_path": "inputs/c37676856268ba68ad4a438bf92ac3062da7c967423ab4ccfde1e6aa44fcb45a",
+      "bytes": 57,
+      "sha256": "c37676856268ba68ad4a438bf92ac3062da7c967423ab4ccfde1e6aa44fcb45a"
+    }
+  ]
+}
