@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage2-registration-20261116-001",
+  "version": "v3",
+  "code_commit": "1523d84c11095186a12835fef4d02cdd4f1b12a9",
+  "code_tree": "abfd824675cc1ce6e24d6a98f5e506b8df9402b9",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "symbolic公共注册夹具完成并输出通过，但runner在保存进程命令时将Path对象直接写入JSON导致失败，后续入口与回归未执行。保留原始夹具及异常，修复命令序列化后新建运行。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage2-registration-20261116-001/manifest.json",
+  "manifest_sha256": "efe20aef10915e7595375f4b3680b76586583a39343c862e610e3a60631a6773",
+  "created_utc": "2026-11-16T05:23:09.068203+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
