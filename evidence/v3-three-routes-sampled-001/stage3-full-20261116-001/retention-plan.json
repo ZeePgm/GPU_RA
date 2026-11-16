@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "kind": "approved-trace-retention",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage3-full-20261116-001",
+  "created_utc": "2026-11-16T12:54:16.419403+00:00",
+  "approval": {
+    "source": "explicit_user_message",
+    "text": "那就把验收后不再需要的全量日志清理掉，保留代码、配置、报告和必要参考结果。后续实验也按这个策略来，不要默认长期保留几十 GiB 的原始轨迹。每次实验结束后向我询问是否清理日志，我批准后开始清理，同时将这个规则写入Agents.md文件中"
+  },
+  "manifest_sha256": "d504abf8e4d63cebf171e3562537da180ec11792dd7e08f4e407eb1afb65ce3f",
+  "report_sha256": "ff282ddc8568de8ad316fac54f7a8976f06d378f05b36a256ac74b2760cd56da",
+  "full_verification_before_cleanup": {
+    "status": "pass",
+    "experiment_id": "v3-three-routes-sampled-001",
+    "run_id": "stage3-full-20261116-001",
+    "code_commit": "4193240cc074cf9bf502fa4d67789cac673851e4",
+    "current_commit": "7194d5213226d428d8122a15caaed3428776d6f6",
+    "report_commit": "8da8fa0f0d0f1c1ba8212faa3aa7625508c442b4",
+    "report_committed": true,
+    "files": 55,
+    "bytes": 2412956290,
+    "mode": "full",
+    "full_payload_present": true,
+    "scope": "Traceability and data integrity; scientific verdict is recorded separately."
+  },
+  "remove": [
+    {
+      "path": "data/cuda/gpu-activity.jsonl",
+      "bytes": 4346111,
+      "sha256": "ffbee2467c8e1e0267ef73d2b2f18b3e111ea5880d430904979ec9ada85cd19f"
+    },
+    {
+      "path": "data/cuda/reader/chunks.jsonl",
+      "bytes": 1194562,
+      "sha256": "eb0c096534d03f01200c571d783d12cd6c712a1c13a5368eae440b67a8a25024"
+    },
+    {
+      "path": "data/cuda/reader/lane-times.bin",
+      "bytes": 654714448,
+      "sha256": "d484aa89015e78a3c1cc6d3b6e9a4bd427d325f47fd21306a1e434d741b462a3"
+    },
+    {
+      "path": "data/cuda/reader/requests.bin",
+      "bytes": 132989792,
+      "sha256": "3f794522e49c42e6d35b23a265f3cfa46c151bdf8282945fc3ba0d463f4e8076"
+    },
+    {
+      "path": "data/ptx/gpu-activity.jsonl",
+      "bytes": 30007531,
+      "sha256": "e92997e50be71831bae2bbf95dd412de564822180913e13c831125979f89a950"
+    },
+    {
+      "path": "data/ptx/reader/chunks.jsonl",
+      "bytes": 9423670,
+      "sha256": "2274eb69c6d75dcd3cf23cd4c3507b4f064452b845311708ece920a85cde8541"
+    },
+    {
+      "path": "data/ptx/reader/lane-times.bin",
+      "bytes": 654714448,
+      "sha256": "441307edba06e613a5611b1a9cec24cb05c6e7ecf92fd034586d58913494dca4"
+    },
+    {
+      "path": "data/ptx/reader/requests.bin",
+      "bytes": 132989792,
+      "sha256": "00089b5e2009f012afe6f70375caf1efbdb25feb3c52672112db675597748957"
+    },
+    {
+      "path": "data/symbolic/gpu-activity.jsonl",
+      "bytes": 2621784,
+      "sha256": "4b89bdd164c296fb35ab10f9de04d6654b2a8462cf306d21857908c31669f6f9"
+    },
+    {
+      "path": "data/symbolic/reader/chunks.jsonl",
+      "bytes": 608762,
+      "sha256": "6c296745bb86a957c7d0a9172187d11e6a70afc778bfe81dee1cae6cd8c7fe78"
+    },
+    {
+      "path": "data/symbolic/reader/lane-times.bin",
+      "bytes": 654714448,
+      "sha256": "0a75718a0c9d01c558cbf560baadb17d6381d0484535dfbf9972cf7db3eb6e40"
+    },
+    {
+      "path": "data/symbolic/reader/requests.bin",
+      "bytes": 132989792,
+      "sha256": "644b449790c7b5bfbfc30910143baabf83474797a3a94b8703fdbc5a1cf4ef9c"
+    }
+  ],
+  "remove_bytes": 2411315140,
+  "retained_inventory_sha256": "c21a3dbe637f664847d57502a77ab8f56262d8d72f454d2fae8d5f4dbf5263bb",
+  "scope_after_cleanup": "Retained references and reports remain verifiable; complete raw trace replay/recalculation is unavailable."
+}

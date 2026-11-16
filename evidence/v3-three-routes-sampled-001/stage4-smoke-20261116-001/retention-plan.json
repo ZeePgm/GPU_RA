@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "kind": "approved-trace-retention",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage4-smoke-20261116-001",
+  "created_utc": "2026-11-16T12:54:14.472806+00:00",
+  "approval": {
+    "source": "explicit_user_message",
+    "text": "那就把验收后不再需要的全量日志清理掉，保留代码、配置、报告和必要参考结果。后续实验也按这个策略来，不要默认长期保留几十 GiB 的原始轨迹。每次实验结束后向我询问是否清理日志，我批准后开始清理，同时将这个规则写入Agents.md文件中"
+  },
+  "manifest_sha256": "0e9bedb587d942d73a93f6070cc98edfee2087e688d065686d63b814fa820af0",
+  "report_sha256": "a638d84b34071a936df81025cc1ab50837044d0d9ccde72b01adbc7689afbdc9",
+  "full_verification_before_cleanup": {
+    "status": "pass",
+    "experiment_id": "v3-three-routes-sampled-001",
+    "run_id": "stage4-smoke-20261116-001",
+    "code_commit": "43dd4df46bd20278bdb3288356b56654e59e5f60",
+    "current_commit": "7194d5213226d428d8122a15caaed3428776d6f6",
+    "report_commit": "5cfaaf516e1a43af8ab5ff3333bb47cec581c1fb",
+    "report_committed": true,
+    "files": 97,
+    "bytes": 84810006,
+    "mode": "full",
+    "full_payload_present": true,
+    "scope": "Traceability and data integrity; scientific verdict is recorded separately."
+  },
+  "remove": [
+    {
+      "path": "data/original44-native-modeled/gpu-activity.jsonl",
+      "bytes": 5747175,
+      "sha256": "064d440220c70904d6e9dec2135802e168d0850ce7a1f26ef364313dee626492"
+    },
+    {
+      "path": "data/original44-native-modeled/kv-media.jsonl",
+      "bytes": 6350394,
+      "sha256": "02fa37b56f9151cb07a7abc43193d280ea5afc7c04af4838e06f257fed90566d"
+    },
+    {
+      "path": "data/original44-native-native/gpu-activity.jsonl",
+      "bytes": 6411940,
+      "sha256": "b295c5fef2ca0c0ddf510ba59aa89ffb5fecb02389cebe3b0d3bca5ad28de10c"
+    },
+    {
+      "path": "data/short-native-modeled/gpu-activity.jsonl",
+      "bytes": 3717187,
+      "sha256": "09db1173231dafcfa91b60ebb437056f36cdde5d3da5e84b95f2a2609263f741"
+    },
+    {
+      "path": "data/short-native-modeled/kv-media.jsonl",
+      "bytes": 2818474,
+      "sha256": "1599c308cba427995eac7732d9a891cbf636ddb88cc4c7b1210a3fc4e00661ca"
+    },
+    {
+      "path": "data/short-native-native/gpu-activity.jsonl",
+      "bytes": 6279625,
+      "sha256": "d75d7d7cdaf2cf4d3f48907be3636c1b234c9207a6abc1fc53aa3b273f78fb3b"
+    }
+  ],
+  "remove_bytes": 31324795,
+  "retained_inventory_sha256": "903dfab706082cc6a4c0a227b61ba75e62345c24d7b37404dab65888fc3e5ed8",
+  "scope_after_cleanup": "Retained references and reports remain verifiable; complete raw trace replay/recalculation is unavailable."
+}

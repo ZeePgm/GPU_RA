@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "kind": "approved-trace-retention",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage2-regression-20261116-001",
+  "created_utc": "2026-11-16T12:54:15.738237+00:00",
+  "approval": {
+    "source": "explicit_user_message",
+    "text": "那就把验收后不再需要的全量日志清理掉，保留代码、配置、报告和必要参考结果。后续实验也按这个策略来，不要默认长期保留几十 GiB 的原始轨迹。每次实验结束后向我询问是否清理日志，我批准后开始清理，同时将这个规则写入Agents.md文件中"
+  },
+  "manifest_sha256": "d415edee6cb8f42eeb1838705ec5a4f13982c780f2ec17667bdfdb8602e9b531",
+  "report_sha256": "b12f81d770969997424ce6946df28e89e56bb14ee73fbae81f8d758f16423568",
+  "full_verification_before_cleanup": {
+    "status": "pass",
+    "experiment_id": "v3-three-routes-sampled-001",
+    "run_id": "stage2-regression-20261116-001",
+    "code_commit": "a8d720f8e199293fe8434e02e7f02cff26ed92d9",
+    "current_commit": "7194d5213226d428d8122a15caaed3428776d6f6",
+    "report_commit": "53465f9bc758b3260811bd58e542f7cdecffde63",
+    "report_committed": true,
+    "files": 266,
+    "bytes": 1204089241,
+    "mode": "full",
+    "full_payload_present": true,
+    "scope": "Traceability and data integrity; scientific verdict is recorded separately."
+  },
+  "remove": [
+    {
+      "path": "data/cases/F1-joint-bypass/kv-media.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-joint-bypass/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-joint-host/kv-media.jsonl",
+      "bytes": 6367076,
+      "sha256": "2f554e34c375c240602195422b1efd665c64cc016e00f76d5d2eb3530b963f60"
+    },
+    {
+      "path": "data/cases/F1-joint-host/weight-requests.jsonl",
+      "bytes": 71623764,
+      "sha256": "def531f44809b85c484de4dc02ac37d6c5d7df631d380506e1c0e0e62abd227d"
+    },
+    {
+      "path": "data/cases/F1-joint-modeled/kv-media.jsonl",
+      "bytes": 6367410,
+      "sha256": "faf2bcd22d08acaba27f3d0a686fa90ca69becea19bd3c6d2b703fe585b8c7ae"
+    },
+    {
+      "path": "data/cases/F1-joint-modeled/weight-requests.jsonl",
+      "bytes": 71623850,
+      "sha256": "3dc6181cfd727595ed59cf00775bd9a57239d7da30c6eb2ddfcbd7a9c9fc9814"
+    },
+    {
+      "path": "data/cases/F1-kv-bypass/kv-media.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-kv-bypass/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-kv-modeled/kv-media.jsonl",
+      "bytes": 6333516,
+      "sha256": "6dd3e358e6a4d358d1820addf8a6f9233bbc47836ff2ac34a5455beb8317cf7d"
+    },
+    {
+      "path": "data/cases/F1-kv-modeled/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-native/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-readonly-bypass/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F1-readonly-modeled/weight-requests.jsonl",
+      "bytes": 71598464,
+      "sha256": "b5de43607f5f6980e6ff9b6efa6daeab244b15ce90fd70999b4c817f0fac6fba"
+    },
+    {
+      "path": "data/cases/F2-joint-bypass/kv-media.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-joint-bypass/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-joint-host/kv-media.jsonl",
+      "bytes": 6403328,
+      "sha256": "c3990491c0982e43644f34c9376c53326773833412d51f136b1a5c431a1ec4ba"
+    },
+    {
+      "path": "data/cases/F2-joint-host/weight-requests.jsonl",
+      "bytes": 289021556,
+      "sha256": "9f0c1f23f3074af45814eb0d217eeb471ef3a9f101c3b5eea0fbd9716b349023"
+    },
+    {
+      "path": "data/cases/F2-joint-modeled/kv-media.jsonl",
+      "bytes": 6403122,
+      "sha256": "719e200bc2ac527d9b44cb5e2ee7335734466ed669f32d6e0b2df5794f2540fe"
+    },
+    {
+      "path": "data/cases/F2-joint-modeled/weight-requests.jsonl",
+      "bytes": 289018470,
+      "sha256": "e06871ebef6996a8d89b2756ad6d64bf1a7a1124687d0ee66ba06562252a1d73"
+    },
+    {
+      "path": "data/cases/F2-kv-bypass/kv-media.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-kv-bypass/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-kv-modeled/kv-media.jsonl",
+      "bytes": 6333032,
+      "sha256": "88c4b611565d302bbc5801e202d4f654c5727071b7e8bfeae41ce1b691ae6bc9"
+    },
+    {
+      "path": "data/cases/F2-kv-modeled/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-native/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-readonly-bypass/weight-requests.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/cases/F2-readonly-modeled/weight-requests.jsonl",
+      "bytes": 288927150,
+      "sha256": "3ceb526dd295153f216c90ca0125258163ff0b0c14851a9f4db5a7ae3ae3bbbd"
+    }
+  ],
+  "remove_bytes": 1120020738,
+  "retained_inventory_sha256": "e09626ebd6f33e56318bcac32dcffa15fd40b7376133231cfa3ba87651d7b4b2",
+  "scope_after_cleanup": "Retained references and reports remain verifiable; complete raw trace replay/recalculation is unavailable."
+}
