@@ -10,6 +10,6 @@
 | ptx | 654621194 | 309.187 | 309.031 | 284.787 | 827167646 |
 | cuda | 654621194 | 268.281 | 267.375 | 250.063 | 793257169 |
 
-PTX使用已保存并固定身份的straight-line/predicated读取模板，实际经过AsyncModuleInterceptor改写及JIT，CUPTI确认sampled_copy内核；CUDA使用显式sampled_window内核。合法尾部为u16读取。PTX/CUDA每块原始、返回及发布哈希一致；symbolic只做范围请求及门控，不发布载荷。每个lane的实际消费时间均晚于完成期限，发布标记晚于读取完成，全部正常排空。
+PTX使用已保存并固定身份的straight-line/predicated读取模板，实际经过AsyncModuleInterceptor改写及JIT，CUPTI确认sampled_copy内核；CUDA使用显式sampled_window内核。合法尾部为u16读取。PTX/CUDA每块原始、返回及发布哈希一致；symbolic只做范围请求及门控，不发布载荷。逐lane门控后时间（PTX/CUDA为实际读取后时间）均晚于完成期限，发布标记晚于读取完成，全部正常排空。
 
 上述为独立组件覆盖；模型仍需真实消费者/需求、相同KV下完整logits和KV字节/版本/生命周期验收。性能列为运行成本诊断，共同模拟时钟尚未合格。预算已依据通过先导固化于实验budget.json，不追加统计重复。

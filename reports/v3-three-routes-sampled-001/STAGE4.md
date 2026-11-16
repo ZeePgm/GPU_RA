@@ -4,7 +4,7 @@
 
 正式16个独立进程：两输入×两KV的4个native权重参考，以及symbolic/PTX/CUDA×两输入×两KV的12个候选。原输入44 token、短输入15 token，均8输出；CUDA0 embedding、纯token图、F32 MUL_MAT、禁用graphs/fusion/flash/graph reuse配置固定。其余297张量保持原生路径。
 
-- 每进程112个真实消费者（14×8），原始执行前后记录、CUPTI实际GPU消费者标记/终端内核、独立需求计划全部匹配。每个读取块的发布标记均早于对应消费者放行。
+- 每进程112个真实消费者（14×8），原始执行前后记录、CUPTI实际GPU消费者标记/终端内核、独立需求计划全部匹配。每个读取块的门控/发布完成标记均早于对应消费者放行（symbolic只门控）。
 - 12候选共64,245,912个请求、2,055,869,184次逐lane依赖检查；全部原始时间记录重算通过，无漏读、越界、额外需求或路线替代。
 - symbolic只门控，无载荷发布；PTX与CUDA逐块返回/发布哈希一致，实际原生消费者保持与同KV参考相同的终端内核。PTX使用明确的straight-line/predicated复制模板改写，并保存原始/改写/helper/cubin等身份。
 - 12候选的完整8×151936 logits、同KV状态全部与各自参考逐字节一致。native KV完整序列化状态相同；modeled KV完整/前缀哈希、版本1..8、依赖及allocation/pin/dirty/lease/pinned释放合同通过。

@@ -1,0 +1,827 @@
+{
+  "schema": 1,
+  "inputs": {
+    "models": {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-three-routes-sampled-001\\stage4-full-20261116-001\\data\\acceptance.json",
+      "bytes": 45558405,
+      "sha256": "90772eba2695bc485a142598c843cbb793dbae3f9e54e01a340212bec73dd03b"
+    },
+    "components": {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-three-routes-sampled-001\\stage3-full-20261116-001\\data\\acceptance.json",
+      "bytes": 38205,
+      "sha256": "a694b60091f6f0e74ce725c4e8a37d35dcf62abe48bf146261e414a22aa9e15e"
+    },
+    "budget": {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\experiments\\v3-three-routes-sampled-001\\experiments\\v3-three-routes-sampled-001\\budget.json",
+      "bytes": 1323,
+      "sha256": "9bcf94bc9db1f4bf0e3fb4ecdf7ceea49b4b334babafef0fd7478774256cf010"
+    }
+  },
+  "cells": [
+    {
+      "tensor": "blk.10.attn_k.weight",
+      "dtype": "F16",
+      "physical_bytes": 2097152,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 67108864,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_k.weight",
+      "dtype": "F16",
+      "physical_bytes": 2097152,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 67108864,
+      "model_payload_and_publication_bytes": 67108864,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_k.weight",
+      "dtype": "F16",
+      "physical_bytes": 2097152,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 67108864,
+      "model_payload_and_publication_bytes": 67108864,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_k_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 512,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 16384,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_k_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 512,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 16384,
+      "model_payload_and_publication_bytes": 16384,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_k_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 512,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 16384,
+      "model_payload_and_publication_bytes": 16384,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 131072,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 131072,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_output.weight",
+      "dtype": "F16",
+      "physical_bytes": 4194304,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 134217728,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_output.weight",
+      "dtype": "F16",
+      "physical_bytes": 4194304,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 134217728,
+      "model_payload_and_publication_bytes": 134217728,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_output.weight",
+      "dtype": "F16",
+      "physical_bytes": 4194304,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 134217728,
+      "model_payload_and_publication_bytes": 134217728,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_q.weight",
+      "dtype": "F16",
+      "physical_bytes": 4194304,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 134217728,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_q.weight",
+      "dtype": "F16",
+      "physical_bytes": 4194304,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 134217728,
+      "model_payload_and_publication_bytes": 134217728,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_q.weight",
+      "dtype": "F16",
+      "physical_bytes": 4194304,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 134217728,
+      "model_payload_and_publication_bytes": 134217728,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_q_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 512,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 16384,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_q_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 512,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 16384,
+      "model_payload_and_publication_bytes": 16384,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_q_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 512,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 16384,
+      "model_payload_and_publication_bytes": 16384,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_v.weight",
+      "dtype": "F16",
+      "physical_bytes": 2097152,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 67108864,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_v.weight",
+      "dtype": "F16",
+      "physical_bytes": 2097152,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 67108864,
+      "model_payload_and_publication_bytes": 67108864,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.attn_v.weight",
+      "dtype": "F16",
+      "physical_bytes": 2097152,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 67108864,
+      "model_payload_and_publication_bytes": 67108864,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_down.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_down.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 201326592,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_down.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 201326592,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_gate.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_gate.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 201326592,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_gate.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 201326592,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 131072,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 131072,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_up.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_up.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 201326592,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "blk.10.ffn_up.weight",
+      "dtype": "F16",
+      "physical_bytes": 6291456,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 201326592,
+      "model_payload_and_publication_bytes": 201326592,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "output.weight",
+      "dtype": "F16",
+      "physical_bytes": 311164928,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 9957277696,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "output.weight",
+      "dtype": "F16",
+      "physical_bytes": 311164928,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 9957277696,
+      "model_payload_and_publication_bytes": 9957277696,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "output.weight",
+      "dtype": "F16",
+      "physical_bytes": 311164928,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 9957277696,
+      "model_payload_and_publication_bytes": 9957277696,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "output_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "output_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 131072,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "output_norm.weight",
+      "dtype": "F32",
+      "physical_bytes": 4096,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 131072,
+      "model_payload_and_publication_bytes": 131072,
+      "status": "pass",
+      "embedding_scope": null
+    },
+    {
+      "tensor": "token_embd.weight",
+      "dtype": "F16",
+      "physical_bytes": 311164928,
+      "route": "symbolic",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-symbolic-native",
+        "original44-symbolic-modeled",
+        "short-symbolic-native",
+        "short-symbolic-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 299008,
+      "model_payload_and_publication_bytes": 0,
+      "status": "pass",
+      "embedding_scope": "actual token row occurrences in model; every row independently in fixture"
+    },
+    {
+      "tensor": "token_embd.weight",
+      "dtype": "F16",
+      "physical_bytes": 311164928,
+      "route": "ptx",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-ptx-native",
+        "original44-ptx-modeled",
+        "short-ptx-native",
+        "short-ptx-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 299008,
+      "model_payload_and_publication_bytes": 299008,
+      "status": "pass",
+      "embedding_scope": "actual token row occurrences in model; every row independently in fixture"
+    },
+    {
+      "tensor": "token_embd.weight",
+      "dtype": "F16",
+      "physical_bytes": 311164928,
+      "route": "cuda",
+      "registered": true,
+      "component_complete_extent": true,
+      "model_cases": [
+        "original44-cuda-native",
+        "original44-cuda-modeled",
+        "short-cuda-native",
+        "short-cuda-modeled"
+      ],
+      "model_consumers": 32,
+      "model_requested_bytes": 299008,
+      "model_payload_and_publication_bytes": 299008,
+      "status": "pass",
+      "embedding_scope": "actual token row occurrences in model; every row independently in fixture"
+    }
+  ],
+  "functional_status": "pass",
+  "physical_tensors": 14,
+  "routes": 3,
+  "unselected_native_tensors": 297,
+  "formal_model_processes": 16,
+  "candidate_model_consumers": 1344,
+  "performance_verdict": "insufficient_evidence"
+}

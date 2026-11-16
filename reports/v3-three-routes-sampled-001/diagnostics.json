@@ -1,0 +1,1948 @@
+{
+  "schema": 1,
+  "inputs": {
+    "models": {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-three-routes-sampled-001\\stage4-full-20261116-001\\data\\acceptance.json",
+      "bytes": 45558405,
+      "sha256": "90772eba2695bc485a142598c843cbb793dbae3f9e54e01a340212bec73dd03b"
+    },
+    "components": {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-three-routes-sampled-001\\stage3-full-20261116-001\\data\\acceptance.json",
+      "bytes": 38205,
+      "sha256": "a694b60091f6f0e74ce725c4e8a37d35dcf62abe48bf146261e414a22aa9e15e"
+    },
+    "budget": {
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA\\experiments\\v3-three-routes-sampled-001\\experiments\\v3-three-routes-sampled-001\\budget.json",
+      "bytes": 1323,
+      "sha256": "9bcf94bc9db1f4bf0e3fb4ecdf7ceea49b4b334babafef0fd7478774256cf010"
+    }
+  },
+  "cases": [
+    {
+      "case": "original44-native-native",
+      "route": "native",
+      "kv": "native",
+      "initialization_wall_ms": 2536.5755,
+      "TTFT_wall_ms": 91.1838,
+      "TPOT_wall_ms": 16.830085714285715,
+      "final_audit_and_drain_wall_ms": 2191.4778,
+      "KV_audit_wall_ms": 0.0003,
+      "drain_wall_ms": 0.0005,
+      "final_weight_hash_wall_ms": 1799.4624,
+      "process_wall_seconds": 5.25,
+      "child_CPU_seconds": 5.078125,
+      "GPU_activity_union_seconds": 0.414871793,
+      "backend_raw_model_now_ps": null,
+      "reader_wall_seconds": 0,
+      "requests": 0,
+      "requested_bytes": 0,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 0,
+      "validation_D2H_bytes": 0,
+      "memset_bytes": 0,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.03793953,
+          "kernel_records": 0,
+          "copy_bytes": 659649536,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.344328294,
+          "kernel_records": 0,
+          "copy_bytes": 2157196288,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 0.006207435,
+          "kernel_records": 1178,
+          "copy_bytes": 1014532,
+          "memset_bytes": 0
+        },
+        "1": {
+          "activity_union_seconds": 0.003608511,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "2": {
+          "activity_union_seconds": 0.003797952,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "3": {
+          "activity_union_seconds": 0.003603981,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "4": {
+          "activity_union_seconds": 0.003989412,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "5": {
+          "activity_union_seconds": 0.003991079,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "6": {
+          "activity_union_seconds": 0.00361466,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "7": {
+          "activity_union_seconds": 0.003790939,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        }
+      },
+      "request_log_bytes": 0,
+      "lane_time_log_bytes": 0,
+      "output_bytes": 19664165,
+      "Host_peak_working_set_bytes": 2121412608,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 18304618496,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9761193984,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": null,
+      "max_abs_vs_native": null,
+      "rms_vs_native": null
+    },
+    {
+      "case": "original44-native-modeled",
+      "route": "native",
+      "kv": "modeled",
+      "initialization_wall_ms": 3382.4608,
+      "TTFT_wall_ms": 4981.4817,
+      "TPOT_wall_ms": 2651.352742857143,
+      "final_audit_and_drain_wall_ms": 6784.2058,
+      "KV_audit_wall_ms": 4964.0309,
+      "drain_wall_ms": 2.565,
+      "final_weight_hash_wall_ms": 1809.5879,
+      "process_wall_seconds": 34.09400000004098,
+      "child_CPU_seconds": 33.578125,
+      "GPU_activity_union_seconds": 0.420935258,
+      "backend_raw_model_now_ps": 28497571294758,
+      "reader_wall_seconds": 0,
+      "requests": 0,
+      "requested_bytes": 0,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 0,
+      "validation_D2H_bytes": 0,
+      "memset_bytes": 0,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.01427715,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.348197415,
+          "kernel_records": 1,
+          "copy_bytes": 2157196296,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 0.01358128,
+          "kernel_records": 1598,
+          "copy_bytes": 35942612,
+          "memset_bytes": 0
+        },
+        "1": {
+          "activity_union_seconds": 0.006200471,
+          "kernel_records": 1322,
+          "copy_bytes": 6571992,
+          "memset_bytes": 0
+        },
+        "2": {
+          "activity_union_seconds": 0.006239995,
+          "kernel_records": 1322,
+          "copy_bytes": 6571992,
+          "memset_bytes": 0
+        },
+        "3": {
+          "activity_union_seconds": 0.006250189,
+          "kernel_records": 1350,
+          "copy_bytes": 6801368,
+          "memset_bytes": 0
+        },
+        "4": {
+          "activity_union_seconds": 0.006565727,
+          "kernel_records": 1350,
+          "copy_bytes": 6801368,
+          "memset_bytes": 0
+        },
+        "5": {
+          "activity_union_seconds": 0.006378204,
+          "kernel_records": 1378,
+          "copy_bytes": 7030744,
+          "memset_bytes": 0
+        },
+        "6": {
+          "activity_union_seconds": 0.006715753,
+          "kernel_records": 1378,
+          "copy_bytes": 7030744,
+          "memset_bytes": 0
+        },
+        "7": {
+          "activity_union_seconds": 0.006529074,
+          "kernel_records": 1406,
+          "copy_bytes": 7260120,
+          "memset_bytes": 0
+        }
+      },
+      "request_log_bytes": 0,
+      "lane_time_log_bytes": 0,
+      "output_bytes": 21057498,
+      "Host_peak_working_set_bytes": 2416082944,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 18276458496,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9819914240,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": null,
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108
+    },
+    {
+      "case": "short-native-native",
+      "route": "native",
+      "kv": "native",
+      "initialization_wall_ms": 2536.6961,
+      "TTFT_wall_ms": 48.4259,
+      "TPOT_wall_ms": 20.38611428571429,
+      "final_audit_and_drain_wall_ms": 2151.25,
+      "KV_audit_wall_ms": 0.0001,
+      "drain_wall_ms": 0.0004,
+      "final_weight_hash_wall_ms": 1800.1868,
+      "process_wall_seconds": 5.23399999999674,
+      "child_CPU_seconds": 4.84375,
+      "GPU_activity_union_seconds": 0.422593525,
+      "backend_raw_model_now_ps": null,
+      "reader_wall_seconds": 0,
+      "requests": 0,
+      "requested_bytes": 0,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 0,
+      "validation_D2H_bytes": 0,
+      "memset_bytes": 0,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037678168,
+          "kernel_records": 0,
+          "copy_bytes": 656323584,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.355676128,
+          "kernel_records": 0,
+          "copy_bytes": 2157196288,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 0.003590774,
+          "kernel_records": 762,
+          "copy_bytes": 746572,
+          "memset_bytes": 0
+        },
+        "1": {
+          "activity_union_seconds": 0.003616914,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "2": {
+          "activity_union_seconds": 0.003762294,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "3": {
+          "activity_union_seconds": 0.003618481,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "4": {
+          "activity_union_seconds": 0.003610816,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "5": {
+          "activity_union_seconds": 0.003610527,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "6": {
+          "activity_union_seconds": 0.003815464,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        },
+        "7": {
+          "activity_union_seconds": 0.003613959,
+          "kernel_records": 734,
+          "copy_bytes": 846588,
+          "memset_bytes": 0
+        }
+      },
+      "request_log_bytes": 0,
+      "lane_time_log_bytes": 0,
+      "output_bytes": 16073738,
+      "Host_peak_working_set_bytes": 1955545088,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 18269212672,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9798942720,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": null,
+      "max_abs_vs_native": null,
+      "rms_vs_native": null
+    },
+    {
+      "case": "short-native-modeled",
+      "route": "native",
+      "kv": "modeled",
+      "initialization_wall_ms": 3413.4475,
+      "TTFT_wall_ms": 1827.1881,
+      "TPOT_wall_ms": 1205.063,
+      "final_audit_and_drain_wall_ms": 3937.7665,
+      "KV_audit_wall_ms": 2089.3383,
+      "drain_wall_ms": 2.7788,
+      "final_weight_hash_wall_ms": 1837.438,
+      "process_wall_seconds": 18.01600000000326,
+      "child_CPU_seconds": 17.484375,
+      "GPU_activity_union_seconds": 0.404094001,
+      "backend_raw_model_now_ps": 12365117794758,
+      "reader_wall_seconds": 0,
+      "requests": 0,
+      "requested_bytes": 0,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 0,
+      "validation_D2H_bytes": 0,
+      "memset_bytes": 0,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.014249665,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.352003686,
+          "kernel_records": 1,
+          "copy_bytes": 2157196296,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 0.005316662,
+          "kernel_records": 902,
+          "copy_bytes": 12768560,
+          "memset_bytes": 0
+        },
+        "1": {
+          "activity_union_seconds": 0.004502654,
+          "kernel_records": 902,
+          "copy_bytes": 3131352,
+          "memset_bytes": 0
+        },
+        "2": {
+          "activity_union_seconds": 0.00443459,
+          "kernel_records": 930,
+          "copy_bytes": 3360728,
+          "memset_bytes": 0
+        },
+        "3": {
+          "activity_union_seconds": 0.004601475,
+          "kernel_records": 930,
+          "copy_bytes": 3360728,
+          "memset_bytes": 0
+        },
+        "4": {
+          "activity_union_seconds": 0.004633269,
+          "kernel_records": 958,
+          "copy_bytes": 3590104,
+          "memset_bytes": 0
+        },
+        "5": {
+          "activity_union_seconds": 0.00473436,
+          "kernel_records": 958,
+          "copy_bytes": 3590104,
+          "memset_bytes": 0
+        },
+        "6": {
+          "activity_union_seconds": 0.004761509,
+          "kernel_records": 986,
+          "copy_bytes": 3819480,
+          "memset_bytes": 0
+        },
+        "7": {
+          "activity_union_seconds": 0.004856131,
+          "kernel_records": 986,
+          "copy_bytes": 3819480,
+          "memset_bytes": 0
+        }
+      },
+      "request_log_bytes": 0,
+      "lane_time_log_bytes": 0,
+      "output_bytes": 14373789,
+      "Host_peak_working_set_bytes": 2308579328,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 18258407424,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9857662976,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": null,
+      "max_abs_vs_native": 0.016377925872802734,
+      "rms_vs_native": 0.0020933441246969134
+    },
+    {
+      "case": "original44-symbolic-native",
+      "route": "symbolic",
+      "kv": "native",
+      "initialization_wall_ms": 12613.6947,
+      "TTFT_wall_ms": 129116.7728,
+      "TPOT_wall_ms": 131440.93014285716,
+      "final_audit_and_drain_wall_ms": 2701.1434,
+      "KV_audit_wall_ms": 0.0,
+      "drain_wall_ms": 448.3563,
+      "final_weight_hash_wall_ms": 1839.6287,
+      "process_wall_seconds": 1064.8279999999795,
+      "child_CPU_seconds": 1062.15625,
+      "GPU_activity_union_seconds": 1044.528067854,
+      "backend_raw_model_now_ps": 1049291471592826,
+      "reader_wall_seconds": 1048.8236061999999,
+      "requests": 5353884,
+      "requested_bytes": 2741188608,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 2741272984,
+      "memset_bytes": 2764832768,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037350003,
+          "kernel_records": 0,
+          "copy_bytes": 659649536,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.349447868,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 128.405750339,
+          "kernel_records": 3890,
+          "copy_bytes": 343751012,
+          "memset_bytes": 355467264
+        },
+        "1": {
+          "activity_union_seconds": 129.473380906,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "2": {
+          "activity_union_seconds": 131.05364816,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "3": {
+          "activity_union_seconds": 130.842085914,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "4": {
+          "activity_union_seconds": 133.291145167,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "5": {
+          "activity_union_seconds": 130.351365844,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "6": {
+          "activity_union_seconds": 129.19031707,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "7": {
+          "activity_union_seconds": 131.533576583,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        }
+      },
+      "request_log_bytes": 556803936,
+      "lane_time_log_bytes": 2741188608,
+      "output_bytes": 3329732479,
+      "Host_peak_working_set_bytes": 3201617920,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 18170630144,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9761193984,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0
+    },
+    {
+      "case": "original44-symbolic-modeled",
+      "route": "symbolic",
+      "kv": "modeled",
+      "initialization_wall_ms": 13691.0912,
+      "TTFT_wall_ms": 137414.2237,
+      "TPOT_wall_ms": 139023.28738571427,
+      "final_audit_and_drain_wall_ms": 7738.1714,
+      "KV_audit_wall_ms": 5369.8007,
+      "drain_wall_ms": 483.9315,
+      "final_weight_hash_wall_ms": 1873.5712,
+      "process_wall_seconds": 1132.375,
+      "child_CPU_seconds": 1126.046875,
+      "GPU_activity_union_seconds": 1080.534259616,
+      "backend_raw_model_now_ps": 1116078982901614,
+      "reader_wall_seconds": 1085.2844707000002,
+      "requests": 5353884,
+      "requested_bytes": 2741188608,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 2741272984,
+      "memset_bytes": 2764832768,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.014276573,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.345259291,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 131.511458008,
+          "kernel_records": 4310,
+          "copy_bytes": 378679092,
+          "memset_bytes": 355467264
+        },
+        "1": {
+          "activity_union_seconds": 131.361655652,
+          "kernel_records": 3948,
+          "copy_bytes": 349220064,
+          "memset_bytes": 344195072
+        },
+        "2": {
+          "activity_union_seconds": 131.516145547,
+          "kernel_records": 3948,
+          "copy_bytes": 349220064,
+          "memset_bytes": 344195072
+        },
+        "3": {
+          "activity_union_seconds": 134.779568276,
+          "kernel_records": 3976,
+          "copy_bytes": 349449440,
+          "memset_bytes": 344195072
+        },
+        "4": {
+          "activity_union_seconds": 137.352065851,
+          "kernel_records": 3976,
+          "copy_bytes": 349449440,
+          "memset_bytes": 344195072
+        },
+        "5": {
+          "activity_union_seconds": 140.304336034,
+          "kernel_records": 4004,
+          "copy_bytes": 349678816,
+          "memset_bytes": 344195072
+        },
+        "6": {
+          "activity_union_seconds": 136.257724346,
+          "kernel_records": 4004,
+          "copy_bytes": 349678816,
+          "memset_bytes": 344195072
+        },
+        "7": {
+          "activity_union_seconds": 137.091770038,
+          "kernel_records": 4032,
+          "copy_bytes": 349908192,
+          "memset_bytes": 344195072
+        }
+      },
+      "request_log_bytes": 556803936,
+      "lane_time_log_bytes": 2741188608,
+      "output_bytes": 3331202906,
+      "Host_peak_working_set_bytes": 3299512320,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19901198336,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9819914240,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108
+    },
+    {
+      "case": "original44-ptx-native",
+      "route": "ptx",
+      "kv": "native",
+      "initialization_wall_ms": 13153.0143,
+      "TTFT_wall_ms": 157117.3967,
+      "TPOT_wall_ms": 157167.70437142858,
+      "final_audit_and_drain_wall_ms": 2741.0374,
+      "KV_audit_wall_ms": 0.0,
+      "drain_wall_ms": 479.1455,
+      "final_weight_hash_wall_ms": 1853.7496,
+      "process_wall_seconds": 1273.5630000000237,
+      "child_CPU_seconds": 1269.421875,
+      "GPU_activity_union_seconds": 1197.977284382,
+      "backend_raw_model_now_ps": 1257302666038162,
+      "reader_wall_seconds": 1256.3590238999998,
+      "requests": 5353884,
+      "requested_bytes": 2741188608,
+      "payload_bytes": 2741188608,
+      "publication_bytes": 2741188608,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10965424344,
+      "memset_bytes": 43903352832,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037350531,
+          "kernel_records": 0,
+          "copy_bytes": 659649536,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.338654124,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 149.215690266,
+          "kernel_records": 22188,
+          "copy_bytes": 1714726732,
+          "memset_bytes": 5507645440
+        },
+        "1": {
+          "activity_union_seconds": 149.05676178,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "2": {
+          "activity_union_seconds": 151.079543121,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "3": {
+          "activity_union_seconds": 148.800714132,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "4": {
+          "activity_union_seconds": 148.613415884,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "5": {
+          "activity_union_seconds": 148.190741614,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "6": {
+          "activity_union_seconds": 149.284844246,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "7": {
+          "activity_union_seconds": 153.359568684,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        }
+      },
+      "request_log_bytes": 556803936,
+      "lane_time_log_bytes": 2741188608,
+      "output_bytes": 3481634505,
+      "Host_peak_working_set_bytes": 3232256000,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 20495400960,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9761193984,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0
+    },
+    {
+      "case": "original44-ptx-modeled",
+      "route": "ptx",
+      "kv": "modeled",
+      "initialization_wall_ms": 14305.0614,
+      "TTFT_wall_ms": 166081.9251,
+      "TPOT_wall_ms": 163138.04098571432,
+      "final_audit_and_drain_wall_ms": 7755.2542,
+      "KV_audit_wall_ms": 5385.0608,
+      "drain_wall_ms": 503.6101,
+      "final_weight_hash_wall_ms": 1854.8918,
+      "process_wall_seconds": 1330.4839999999967,
+      "child_CPU_seconds": 1324.5625,
+      "GPU_activity_union_seconds": 1223.106005595,
+      "backend_raw_model_now_ps": 1313564818201614,
+      "reader_wall_seconds": 1281.7517887999998,
+      "requests": 5353884,
+      "requested_bytes": 2741188608,
+      "payload_bytes": 2741188608,
+      "publication_bytes": 2741188608,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10965424344,
+      "memset_bytes": 43903352832,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.014186146,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.343213007,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 152.954078528,
+          "kernel_records": 22608,
+          "copy_bytes": 1749654812,
+          "memset_bytes": 5507645440
+        },
+        "1": {
+          "activity_union_seconds": 154.001745983,
+          "kernel_records": 22246,
+          "copy_bytes": 1719843528,
+          "memset_bytes": 5485101056
+        },
+        "2": {
+          "activity_union_seconds": 152.468503269,
+          "kernel_records": 22246,
+          "copy_bytes": 1719843528,
+          "memset_bytes": 5485101056
+        },
+        "3": {
+          "activity_union_seconds": 152.009561858,
+          "kernel_records": 22274,
+          "copy_bytes": 1720072904,
+          "memset_bytes": 5485101056
+        },
+        "4": {
+          "activity_union_seconds": 155.631184851,
+          "kernel_records": 22274,
+          "copy_bytes": 1720072904,
+          "memset_bytes": 5485101056
+        },
+        "5": {
+          "activity_union_seconds": 152.702984154,
+          "kernel_records": 22302,
+          "copy_bytes": 1720302280,
+          "memset_bytes": 5485101056
+        },
+        "6": {
+          "activity_union_seconds": 151.420249949,
+          "kernel_records": 22302,
+          "copy_bytes": 1720302280,
+          "memset_bytes": 5485101056
+        },
+        "7": {
+          "activity_union_seconds": 151.56029785,
+          "kernel_records": 22330,
+          "copy_bytes": 1720531656,
+          "memset_bytes": 5485101056
+        }
+      },
+      "request_log_bytes": 556803936,
+      "lane_time_log_bytes": 2741188608,
+      "output_bytes": 3483100877,
+      "Host_peak_working_set_bytes": 3326812160,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19995533312,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9819914240,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108
+    },
+    {
+      "case": "original44-cuda-native",
+      "route": "cuda",
+      "kv": "native",
+      "initialization_wall_ms": 12676.1172,
+      "TTFT_wall_ms": 137911.6499,
+      "TPOT_wall_ms": 136672.40684285716,
+      "final_audit_and_drain_wall_ms": 2786.7155,
+      "KV_audit_wall_ms": 0.0,
+      "drain_wall_ms": 467.5725,
+      "final_weight_hash_wall_ms": 1923.2008,
+      "process_wall_seconds": 1110.4060000000172,
+      "child_CPU_seconds": 1103.078125,
+      "GPU_activity_union_seconds": 1064.189978404,
+      "backend_raw_model_now_ps": 1094685001224826,
+      "reader_wall_seconds": 1094.1310274000002,
+      "requests": 5353884,
+      "requested_bytes": 2741188608,
+      "payload_bytes": 2741188608,
+      "publication_bytes": 2741188608,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10964838808,
+      "memset_bytes": 5529665536,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037289319,
+          "kernel_records": 0,
+          "copy_bytes": 659649536,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.339057564,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 134.00601244,
+          "kernel_records": 3890,
+          "copy_bytes": 1714653540,
+          "memset_bytes": 710934528
+        },
+        "1": {
+          "activity_union_seconds": 133.292432442,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "2": {
+          "activity_union_seconds": 132.744663024,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "3": {
+          "activity_union_seconds": 131.944356189,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "4": {
+          "activity_union_seconds": 132.919742192,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "5": {
+          "activity_union_seconds": 135.962993731,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "6": {
+          "activity_union_seconds": 131.535223013,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "7": {
+          "activity_union_seconds": 131.40820849,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        }
+      },
+      "request_log_bytes": 556803936,
+      "lane_time_log_bytes": 2741188608,
+      "output_bytes": 3339429162,
+      "Host_peak_working_set_bytes": 3208052736,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19925446656,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9761193984,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0
+    },
+    {
+      "case": "original44-cuda-modeled",
+      "route": "cuda",
+      "kv": "modeled",
+      "initialization_wall_ms": 13566.1101,
+      "TTFT_wall_ms": 141015.8357,
+      "TPOT_wall_ms": 140034.32600000003,
+      "final_audit_and_drain_wall_ms": 7402.9309,
+      "KV_audit_wall_ms": 5066.0648,
+      "drain_wall_ms": 482.913,
+      "final_weight_hash_wall_ms": 1843.2792,
+      "process_wall_seconds": 1142.5630000000237,
+      "child_CPU_seconds": 1135.421875,
+      "GPU_activity_union_seconds": 1066.190793794,
+      "backend_raw_model_now_ps": 1126448320601614,
+      "reader_wall_seconds": 1096.1339306999994,
+      "requests": 5353884,
+      "requested_bytes": 2741188608,
+      "payload_bytes": 2741188608,
+      "publication_bytes": 2741188608,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10964838808,
+      "memset_bytes": 5529665536,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.014203137,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.340405139,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 132.03031298,
+          "kernel_records": 4310,
+          "copy_bytes": 1749581620,
+          "memset_bytes": 710934528
+        },
+        "1": {
+          "activity_union_seconds": 132.255809267,
+          "kernel_records": 3948,
+          "copy_bytes": 1719770336,
+          "memset_bytes": 688390144
+        },
+        "2": {
+          "activity_union_seconds": 133.363738221,
+          "kernel_records": 3948,
+          "copy_bytes": 1719770336,
+          "memset_bytes": 688390144
+        },
+        "3": {
+          "activity_union_seconds": 134.943958483,
+          "kernel_records": 3976,
+          "copy_bytes": 1719999712,
+          "memset_bytes": 688390144
+        },
+        "4": {
+          "activity_union_seconds": 133.951855023,
+          "kernel_records": 3976,
+          "copy_bytes": 1719999712,
+          "memset_bytes": 688390144
+        },
+        "5": {
+          "activity_union_seconds": 133.096731213,
+          "kernel_records": 4004,
+          "copy_bytes": 1720229088,
+          "memset_bytes": 688390144
+        },
+        "6": {
+          "activity_union_seconds": 131.971963806,
+          "kernel_records": 4004,
+          "copy_bytes": 1720229088,
+          "memset_bytes": 688390144
+        },
+        "7": {
+          "activity_union_seconds": 134.221816525,
+          "kernel_records": 4032,
+          "copy_bytes": 1720458464,
+          "memset_bytes": 688390144
+        }
+      },
+      "request_log_bytes": 556803936,
+      "lane_time_log_bytes": 2741188608,
+      "output_bytes": 3340890619,
+      "Host_peak_working_set_bytes": 3298099200,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19739459584,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9819914240,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.016894906759262085,
+      "rms_vs_native": 0.0028074998555964108
+    },
+    {
+      "case": "short-symbolic-native",
+      "route": "symbolic",
+      "kv": "native",
+      "initialization_wall_ms": 12834.6505,
+      "TTFT_wall_ms": 134314.6107,
+      "TPOT_wall_ms": 132788.64560000002,
+      "final_audit_and_drain_wall_ms": 2680.3051,
+      "KV_audit_wall_ms": 0.0,
+      "drain_wall_ms": 460.0335,
+      "final_weight_hash_wall_ms": 1828.4487,
+      "process_wall_seconds": 1079.765000000014,
+      "child_CPU_seconds": 1072.671875,
+      "GPU_activity_union_seconds": 1059.18234284,
+      "backend_raw_model_now_ps": 1063916087848826,
+      "reader_wall_seconds": 1063.474811399999,
+      "requests": 5353768,
+      "requested_bytes": 2741129216,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 2741213360,
+      "memset_bytes": 2757230592,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037290749,
+          "kernel_records": 0,
+          "copy_bytes": 656323584,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.342822015,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 133.66446612,
+          "kernel_records": 3416,
+          "copy_bytes": 343423428,
+          "memset_bytes": 347865088
+        },
+        "1": {
+          "activity_union_seconds": 131.637434254,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "2": {
+          "activity_union_seconds": 132.0114553,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "3": {
+          "activity_union_seconds": 131.525749283,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "4": {
+          "activity_union_seconds": 130.70818222,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "5": {
+          "activity_union_seconds": 132.603689058,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "6": {
+          "activity_union_seconds": 134.076966504,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        },
+        "7": {
+          "activity_union_seconds": 132.574287337,
+          "kernel_records": 3360,
+          "copy_bytes": 343494660,
+          "memset_bytes": 344195072
+        }
+      },
+      "request_log_bytes": 556791872,
+      "lane_time_log_bytes": 2741129216,
+      "output_bytes": 3326037662,
+      "Host_peak_working_set_bytes": 3045543936,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19647422464,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9798942720,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0
+    },
+    {
+      "case": "short-symbolic-modeled",
+      "route": "symbolic",
+      "kv": "modeled",
+      "initialization_wall_ms": 14288.8247,
+      "TTFT_wall_ms": 137675.7515,
+      "TPOT_wall_ms": 136397.0185285714,
+      "final_audit_and_drain_wall_ms": 4542.7183,
+      "KV_audit_wall_ms": 2219.1726,
+      "drain_wall_ms": 472.6492,
+      "final_weight_hash_wall_ms": 1841.0681,
+      "process_wall_seconds": 1111.625,
+      "child_CPU_seconds": 1104.5,
+      "GPU_activity_union_seconds": 1076.931962204,
+      "backend_raw_model_now_ps": 1094821750801614,
+      "reader_wall_seconds": 1081.3801174,
+      "requests": 5353768,
+      "requested_bytes": 2741129216,
+      "payload_bytes": 0,
+      "publication_bytes": 0,
+      "mirror_capacity_bytes": 0,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 2741213360,
+      "memset_bytes": 2757230592,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.014251144,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.340632122,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 135.071764785,
+          "kernel_records": 3556,
+          "copy_bytes": 355445416,
+          "memset_bytes": 347865088
+        },
+        "1": {
+          "activity_union_seconds": 135.107119022,
+          "kernel_records": 3528,
+          "copy_bytes": 345779424,
+          "memset_bytes": 344195072
+        },
+        "2": {
+          "activity_union_seconds": 131.520631052,
+          "kernel_records": 3556,
+          "copy_bytes": 346008800,
+          "memset_bytes": 344195072
+        },
+        "3": {
+          "activity_union_seconds": 134.03100422,
+          "kernel_records": 3556,
+          "copy_bytes": 346008800,
+          "memset_bytes": 344195072
+        },
+        "4": {
+          "activity_union_seconds": 133.16597491,
+          "kernel_records": 3584,
+          "copy_bytes": 346238176,
+          "memset_bytes": 344195072
+        },
+        "5": {
+          "activity_union_seconds": 134.304356487,
+          "kernel_records": 3584,
+          "copy_bytes": 346238176,
+          "memset_bytes": 344195072
+        },
+        "6": {
+          "activity_union_seconds": 138.311475673,
+          "kernel_records": 3612,
+          "copy_bytes": 346467552,
+          "memset_bytes": 344195072
+        },
+        "7": {
+          "activity_union_seconds": 135.064752789,
+          "kernel_records": 3612,
+          "copy_bytes": 346467552,
+          "memset_bytes": 344195072
+        }
+      },
+      "request_log_bytes": 556791872,
+      "lane_time_log_bytes": 2741129216,
+      "output_bytes": 3324383135,
+      "Host_peak_working_set_bytes": 3132477440,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19627851776,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9857662976,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.016377925872802734,
+      "rms_vs_native": 0.0020933441246969134
+    },
+    {
+      "case": "short-ptx-native",
+      "route": "ptx",
+      "kv": "native",
+      "initialization_wall_ms": 12755.642,
+      "TTFT_wall_ms": 155982.2234,
+      "TPOT_wall_ms": 157712.16898571426,
+      "final_audit_and_drain_wall_ms": 2679.2086,
+      "KV_audit_wall_ms": 0.0001,
+      "drain_wall_ms": 476.7612,
+      "final_weight_hash_wall_ms": 1841.2696,
+      "process_wall_seconds": 1275.75,
+      "child_CPU_seconds": 1270.71875,
+      "GPU_activity_union_seconds": 1201.735664598,
+      "backend_raw_model_now_ps": 1260001412136826,
+      "reader_wall_seconds": 1259.1362466000003,
+      "requests": 5353768,
+      "requested_bytes": 2741129216,
+      "payload_bytes": 2741129216,
+      "publication_bytes": 2741129216,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10965186544,
+      "memset_bytes": 43888148480,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037112342,
+          "kernel_records": 0,
+          "copy_bytes": 656323584,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.344292373,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 148.606834237,
+          "kernel_records": 21714,
+          "copy_bytes": 1714161580,
+          "memset_bytes": 5492441088
+        },
+        "1": {
+          "activity_union_seconds": 150.780749607,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "2": {
+          "activity_union_seconds": 150.568656955,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "3": {
+          "activity_union_seconds": 147.396721497,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "4": {
+          "activity_union_seconds": 152.384747814,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "5": {
+          "activity_union_seconds": 150.345677269,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "6": {
+          "activity_union_seconds": 150.613384012,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        },
+        "7": {
+          "activity_union_seconds": 150.657488492,
+          "kernel_records": 21658,
+          "copy_bytes": 1714118124,
+          "memset_bytes": 5485101056
+        }
+      },
+      "request_log_bytes": 556791872,
+      "lane_time_log_bytes": 2741129216,
+      "output_bytes": 3477915694,
+      "Host_peak_working_set_bytes": 3080167424,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19579006976,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9798942720,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0
+    },
+    {
+      "case": "short-ptx-modeled",
+      "route": "ptx",
+      "kv": "modeled",
+      "initialization_wall_ms": 13909.1672,
+      "TTFT_wall_ms": 157940.9535,
+      "TPOT_wall_ms": 156894.65612857143,
+      "final_audit_and_drain_wall_ms": 4573.9649,
+      "KV_audit_wall_ms": 2233.7841,
+      "drain_wall_ms": 493.4031,
+      "final_weight_hash_wall_ms": 1835.3776,
+      "process_wall_seconds": 1275.0629999999655,
+      "child_CPU_seconds": 1269.375,
+      "GPU_activity_union_seconds": 1186.434955903,
+      "backend_raw_model_now_ps": 1258588911501614,
+      "reader_wall_seconds": 1244.5487628999992,
+      "requests": 5353768,
+      "requested_bytes": 2741129216,
+      "payload_bytes": 2741129216,
+      "publication_bytes": 2741129216,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10965186544,
+      "memset_bytes": 43888148480,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.014278901,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.337867288,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 148.62749037,
+          "kernel_records": 21854,
+          "copy_bytes": 1726183568,
+          "memset_bytes": 5492441088
+        },
+        "1": {
+          "activity_union_seconds": 147.258775729,
+          "kernel_records": 21826,
+          "copy_bytes": 1716402888,
+          "memset_bytes": 5485101056
+        },
+        "2": {
+          "activity_union_seconds": 148.737960145,
+          "kernel_records": 21854,
+          "copy_bytes": 1716632264,
+          "memset_bytes": 5485101056
+        },
+        "3": {
+          "activity_union_seconds": 148.665145356,
+          "kernel_records": 21854,
+          "copy_bytes": 1716632264,
+          "memset_bytes": 5485101056
+        },
+        "4": {
+          "activity_union_seconds": 150.346431113,
+          "kernel_records": 21882,
+          "copy_bytes": 1716861640,
+          "memset_bytes": 5485101056
+        },
+        "5": {
+          "activity_union_seconds": 152.229860754,
+          "kernel_records": 21882,
+          "copy_bytes": 1716861640,
+          "memset_bytes": 5485101056
+        },
+        "6": {
+          "activity_union_seconds": 145.50614003,
+          "kernel_records": 21910,
+          "copy_bytes": 1717091016,
+          "memset_bytes": 5485101056
+        },
+        "7": {
+          "activity_union_seconds": 144.711006217,
+          "kernel_records": 21910,
+          "copy_bytes": 1717091016,
+          "memset_bytes": 5485101056
+        }
+      },
+      "request_log_bytes": 556791872,
+      "lane_time_log_bytes": 2741129216,
+      "output_bytes": 3476243425,
+      "Host_peak_working_set_bytes": 3163017216,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 19613118464,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9857662976,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.016377925872802734,
+      "rms_vs_native": 0.0020933441246969134
+    },
+    {
+      "case": "short-cuda-native",
+      "route": "cuda",
+      "kv": "native",
+      "initialization_wall_ms": 12668.3551,
+      "TTFT_wall_ms": 132656.7806,
+      "TPOT_wall_ms": 132469.82580000002,
+      "final_audit_and_drain_wall_ms": 2708.5775,
+      "KV_audit_wall_ms": 0.0001,
+      "drain_wall_ms": 437.1076,
+      "final_weight_hash_wall_ms": 1894.0503,
+      "process_wall_seconds": 1075.704000000027,
+      "child_CPU_seconds": 1072.859375,
+      "GPU_activity_union_seconds": 1029.16350388,
+      "backend_raw_model_now_ps": 1060006805800826,
+      "reader_wall_seconds": 1059.4616651000003,
+      "requests": 5353768,
+      "requested_bytes": 2741129216,
+      "payload_bytes": 2741129216,
+      "publication_bytes": 2741129216,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10964601008,
+      "memset_bytes": 5514461184,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.037215705,
+          "kernel_records": 0,
+          "copy_bytes": 656323584,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.334882676,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 58720256
+        },
+        "0": {
+          "activity_union_seconds": 128.751893246,
+          "kernel_records": 3416,
+          "copy_bytes": 1714088388,
+          "memset_bytes": 695730176
+        },
+        "1": {
+          "activity_union_seconds": 129.077023896,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "2": {
+          "activity_union_seconds": 128.829779229,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "3": {
+          "activity_union_seconds": 129.556954558,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "4": {
+          "activity_union_seconds": 127.351580806,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "5": {
+          "activity_union_seconds": 128.380271194,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "6": {
+          "activity_union_seconds": 128.910811633,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        },
+        "7": {
+          "activity_union_seconds": 127.933090937,
+          "kernel_records": 3360,
+          "copy_bytes": 1714044932,
+          "memset_bytes": 688390144
+        }
+      },
+      "request_log_bytes": 556791872,
+      "lane_time_log_bytes": 2741129216,
+      "output_bytes": 3335707344,
+      "Host_peak_working_set_bytes": 3048390656,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 21079052288,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9817817088,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9798942720,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.0,
+      "rms_vs_native": 0.0
+    },
+    {
+      "case": "short-cuda-modeled",
+      "route": "cuda",
+      "kv": "modeled",
+      "initialization_wall_ms": 13299.6983,
+      "TTFT_wall_ms": 133925.0024,
+      "TPOT_wall_ms": 133818.6466285714,
+      "final_audit_and_drain_wall_ms": 4450.9789,
+      "KV_audit_wall_ms": 2150.2452,
+      "drain_wall_ms": 449.4287,
+      "final_weight_hash_wall_ms": 1836.6236,
+      "process_wall_seconds": 1088.7810000000172,
+      "child_CPU_seconds": 1085.328125,
+      "GPU_activity_union_seconds": 1029.210063488,
+      "backend_raw_model_now_ps": 1072953439501614,
+      "reader_wall_seconds": 1059.5285647999997,
+      "requests": 5353768,
+      "requested_bytes": 2741129216,
+      "payload_bytes": 2741129216,
+      "publication_bytes": 2741129216,
+      "mirror_capacity_bytes": 262144,
+      "timing_capacity_bytes": 262144,
+      "validation_D2H_bytes": 10964601008,
+      "memset_bytes": 5514461184,
+      "weight_hash_validation_bytes": 1307600896,
+      "GPU_activity_phases": {
+        "-2": {
+          "activity_union_seconds": 0.01429886,
+          "kernel_records": 0,
+          "copy_bytes": 653800448,
+          "memset_bytes": 0
+        },
+        "-1": {
+          "activity_union_seconds": 0.345409292,
+          "kernel_records": 1,
+          "copy_bytes": 2157196632,
+          "memset_bytes": 0
+        },
+        "0": {
+          "activity_union_seconds": 128.14589317,
+          "kernel_records": 3556,
+          "copy_bytes": 1726110376,
+          "memset_bytes": 695730176
+        },
+        "1": {
+          "activity_union_seconds": 129.31764603,
+          "kernel_records": 3528,
+          "copy_bytes": 1716329696,
+          "memset_bytes": 688390144
+        },
+        "2": {
+          "activity_union_seconds": 128.375168735,
+          "kernel_records": 3556,
+          "copy_bytes": 1716559072,
+          "memset_bytes": 688390144
+        },
+        "3": {
+          "activity_union_seconds": 127.293722038,
+          "kernel_records": 3556,
+          "copy_bytes": 1716559072,
+          "memset_bytes": 688390144
+        },
+        "4": {
+          "activity_union_seconds": 128.203077954,
+          "kernel_records": 3584,
+          "copy_bytes": 1716788448,
+          "memset_bytes": 688390144
+        },
+        "5": {
+          "activity_union_seconds": 129.650991862,
+          "kernel_records": 3584,
+          "copy_bytes": 1716788448,
+          "memset_bytes": 688390144
+        },
+        "6": {
+          "activity_union_seconds": 129.708266009,
+          "kernel_records": 3612,
+          "copy_bytes": 1717017824,
+          "memset_bytes": 688390144
+        },
+        "7": {
+          "activity_union_seconds": 128.155589538,
+          "kernel_records": 3612,
+          "copy_bytes": 1717017824,
+          "memset_bytes": 688390144
+        }
+      },
+      "request_log_bytes": 556791872,
+      "lane_time_log_bytes": 2741129216,
+      "output_bytes": 3334033280,
+      "Host_peak_working_set_bytes": 3131633664,
+      "GPU_free_memory_phase_samples": {
+        "before_model": {
+          "free_bytes": 11539578880,
+          "total_bytes": 12792037376
+        },
+        "host_available_before_model": 20963090432,
+        "after_model": {
+          "free_bytes": 10035920896,
+          "total_bytes": 12792037376
+        },
+        "after_context": {
+          "free_bytes": 9876537344,
+          "total_bytes": 12792037376
+        },
+        "route_buffers": [],
+        "after_generation": {
+          "free_bytes": 9857662976,
+          "total_bytes": 12792037376
+        }
+      },
+      "same_KV_logits_and_state_bitwise": true,
+      "max_abs_vs_native": 0.016377925872802734,
+      "rms_vs_native": 0.0020933441246969134
+    }
+  ],
+  "batch_cost": {
+    "elapsed_wall_seconds": 14146.891000000003,
+    "child_cpu_seconds": 13957.125,
+    "coordinator_cpu_seconds": 157.359375,
+    "gpu_activity_seconds": 13260.847377135,
+    "output_bytes": 40657016735,
+    "prior_components": {
+      "cpu_seconds": 834.65625,
+      "wall_seconds": 836.6089999999967,
+      "gpu_seconds": 781.928918702,
+      "output_bytes": 2411371811
+    }
+  },
+  "budget_audit": {
+    "status": "pass",
+    "actual_output_bytes_after_final_serialization": 43115513396,
+    "wall_seconds": 14996.412155000004,
+    "GPU_activity_union_seconds": 14042.776295837,
+    "model_observed_child_and_coordinator_CPU_seconds": 14114.484375,
+    "component_execution_seconds": 849.521155,
+    "logical_CPU_count_for_upper_bound": 16,
+    "component_all_CPU_upper_bound_seconds": 13592.33848,
+    "batch_scientific_CPU_upper_bound_seconds": 27706.822855,
+    "CPU_bound_scope": "Observed model C++/coordinator CPU plus conservative whole-machine component-interval upper bound; workflow controller outside science interval excluded",
+    "budget": {
+      "schema": 1,
+      "basis": {
+        "pilot_run": "stage3-pilot-20261116-002",
+        "pilot_report_B": "38b14adee99463020a0295052e8f8bf08eb39299",
+        "observed_wall_seconds_per_request": {
+          "symbolic": 0.00019188135483870969,
+          "ptx": 0.00023906105376344085,
+          "cuda": 0.000193504752688172
+        },
+        "pilot_scope_bytes": 2369534,
+        "pilot_requests_per_route": 4650,
+        "model_requested_bytes_max": 2741188608,
+        "model_requests_approximate": 5354000,
+        "predicted_weight_service_seconds_per_model": {
+          "symbolic": 1027,
+          "ptx": 1280,
+          "cuda": 1036
+        },
+        "extrapolation": "linear from bounded pilot; includes per-chunk audits; full output costs may vary; no statistical performance claim"
+      },
+      "component_process_wall_seconds": 1800,
+      "model_process_wall_seconds": 3600,
+      "process_output_bytes": 8589934592,
+      "process_host_working_set_bytes": 8589934592,
+      "batch_wall_seconds": 28800,
+      "batch_cpu_seconds": 86400,
+      "batch_gpu_activity_seconds": 28800,
+      "batch_output_bytes": 68719476736,
+      "scope": "one full three-route component matrix plus one sixteen-process formal model matrix; diagnostic smoke excluded but separately recorded",
+      "stop": "preserve failures; stop before next process when exhausted; do not increase budgets or statistical samples to obtain acceptance"
+    }
+  },
+  "component_cost": {
+    "symbolic": {
+      "process_wall_seconds": 259.14100000000326,
+      "cpu_seconds": 258.25,
+      "peak_working_set_bytes": 788197376,
+      "output_bytes": 790946996
+    },
+    "ptx": {
+      "process_wall_seconds": 309.18699999997625,
+      "cpu_seconds": 309.03125,
+      "peak_working_set_bytes": 796033024,
+      "output_bytes": 827167646
+    },
+    "cuda": {
+      "process_wall_seconds": 268.28100000001723,
+      "cpu_seconds": 267.375,
+      "peak_working_set_bytes": 788672512,
+      "output_bytes": 793257169
+    }
+  },
+  "measurement_scope": {
+    "CPU": "C++ process CPU plus model coordinator CPU; component coordinator not separately measured, conservatively bounded in budget-audit.json",
+    "GPU_memory": "phase samples plus bounded reader allocation identities; no continuous high-water measurement",
+    "GPU_activity": "CUPTI kernel/copy/memset interval union, no cross-epoch clock subtraction",
+    "TTFT_TPOT": "observed wall cost only; includes validation, logging and service overhead"
+  },
+  "common_clock_qualified": false,
+  "performance_verdict": "insufficient_evidence",
+  "reason": "No validated common simulated timeline for native compute, readonly requests and paged KV; raw backend clock and CPU wall are separate diagnostics."
+}

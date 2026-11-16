@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-three-routes-sampled-001",
   "parameters": {
-    "status": "stage4_functional_passed_stage5_diagnostics",
+    "status": "closed_functional_passed_performance_inconclusive",
     "model": "Qwen3-0.6B-F16",
     "layer": 10,
     "routes": [
@@ -53,7 +53,8 @@
       "memset"
     ],
     "common_clock_status": "unqualified; raw backend time is diagnostic only",
-    "budget": "budget.json"
+    "budget": "budget.json",
+    "closure_report": "reports/v3-three-routes-sampled-001/FINAL.md"
   },
   "acceptance": {
     "status": "approved",
