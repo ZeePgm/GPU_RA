@@ -12,6 +12,7 @@ R = S.R
 
 
 def run_fixture(args, command, name, expected_exit=0, timeout=600):
+    command = list(map(str, command))
     before = R.probe(args.resource_root)
     S.require(not before['conflicts'], 'Resource conflict before fixture: ' + repr(before))
     frozen = R.correctness_module()
