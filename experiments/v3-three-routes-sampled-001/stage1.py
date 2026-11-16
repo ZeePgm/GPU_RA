@@ -90,7 +90,9 @@ def inventory(model):
             'selected_bytes': sum(t['bytes'] for t in selected), 'logical_weight_layout_bytes': logical,
             'file_alias_groups': [], 'kv_base': logical, 'kv_reserved_bytes': 14336 * 4096,
             'media_geometry': {'pages_per_block': 4, 'blocks_per_bank': 65536, 'banks': 2,
-                               'capacity_bytes': 2 * 1024**3, 'old_capacity_bytes': 1024**3},
+                               'capacity_bytes': 2 * 1024**3, 'old_capacity_bytes': 1024**3,
+                               'spare_blocks_per_bank': 1, 'physical_spare_bytes': 32768,
+                               'logical_alignment_bytes': 32768},
             'scope': 'GGUF file inventory; loaded aliases and graph consumers validated independently'}
 
 
