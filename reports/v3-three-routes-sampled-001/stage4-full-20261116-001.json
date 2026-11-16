@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage4-full-20261116-001",
+  "version": "v3",
+  "code_commit": "00fee9dd3862e3df3a62c9b698d56e1eddf8ddc4",
+  "code_tree": "bc56ce6c49a3c07c62269155fafe932002c255f5",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "正式16模型进程全部通过（4参考及3入口×2输入×2KV的12候选）；14代表权重真实需求、112消费者/进程、每请求每lane时间依赖、PTX/CUDA返回发布及实际原生GPU消费者均通过。12候选相同算术/KV下完整logits与KV状态逐字节一致，分页对native保持原0.2/0.025及精确token合同，KV字节/版本1..8/依赖和allocation/pin/dirty/lease/pinned释放均通过。无追加重放，冻结源码/输入身份未变；性能结论待成本汇总，共同模拟时钟仍未合格。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage4-full-20261116-001/manifest.json",
+  "manifest_sha256": "81f517d1d9c348667f09f6f20c700dab7461998362835d64718a9a4ff126be30",
+  "created_utc": "2026-11-16T10:44:08.330828+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
