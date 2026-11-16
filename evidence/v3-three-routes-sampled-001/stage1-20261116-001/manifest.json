@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-001",
+  "version": "v3",
+  "code_commit": "d71bab5898d87e0bac6bb18929b62dd5ee7dab24",
+  "code_tree": "8be38135260deed1b03d7d951153825ea31c00ee",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-three-routes-sampled-001/stage1-20261116-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 780,
+      "sha256": "f3f2704b8069317da0c15da5923ba80a1e1311fea44653780faf08bd06b1156a"
+    },
+    {
+      "path": "data/selection.json",
+      "bytes": 120058,
+      "sha256": "5d8b60d4b778d5dc249131c57bc7a479a515611890db1ae6b8733e774b83c347"
+    },
+    {
+      "path": "data/stage1-failure.json",
+      "bytes": 1521,
+      "sha256": "0e3cfed327dfe524e0e190c3a0e096a3793669e6743be2c61c846ee95b70674a"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "b76fc1996a81be5f19c139f8cf853f1ce6a4919ddda5fe14adf05df0502b92db"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 991,
+      "sha256": "2411fcb1d6ed123ee35c70e613ee3d1a78ba524bb03cf64e5278d31ce9fd9ad9"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "9b37f9144bf51a0c670781719fbc431d4ba3ecc8b338bdbf5a82a730ba88777d"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 4997,
+      "sha256": "e8e7946b5e45b43efee7611984ca2e3ed4ab517de73e8bbd26aa23e83227395a"
+    },
+    {
+      "path": "run.json",
+      "bytes": 8621,
+      "sha256": "9a5335856b36ae1723670d67164b496af1f1c4c4babed74dcba67b08a94a38f4"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 1556,
+      "sha256": "7d3533d7b11ff020d82b838de19c7b5f8d107168b09481a78f125bd2ff6d8ece"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 10,
+  "total_bytes": 139092,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "storage_path": "inputs/c37676856268ba68ad4a438bf92ac3062da7c967423ab4ccfde1e6aa44fcb45a",
+      "bytes": 57,
+      "sha256": "c37676856268ba68ad4a438bf92ac3062da7c967423ab4ccfde1e6aa44fcb45a"
+    }
+  ]
+}

@@ -876,5 +876,26 @@
     }
   ],
   "payload_count": 154,
-  "payload_bytes": 1865192032
+  "payload_bytes": 1865192032,
+  "experiment_runs": [
+    {
+      "experiment_id": "v3-three-routes-sampled-001",
+      "run_id": "stage1-20261116-001",
+      "code_commit": "d71bab5898d87e0bac6bb18929b62dd5ee7dab24",
+      "manifest": {
+        "path": "evidence/v3-three-routes-sampled-001/stage1-20261116-001/manifest.json",
+        "bytes": 2675,
+        "sha256": "7dcddacb03b496ee8594770f93b0124656d8a67e43321f25e4fbf0ae7373dbe0"
+      },
+      "report": {
+        "path": "reports/v3-three-routes-sampled-001/stage1-20261116-001.json",
+        "bytes": 916,
+        "sha256": "42302fc608f8ab55d5b1d6b36297193d68fb87cca7d5c60dd7beefa2b0522ce7"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-three-routes-sampled-001/stage1-20261116-001"
+      }
+    }
+  ]
 }

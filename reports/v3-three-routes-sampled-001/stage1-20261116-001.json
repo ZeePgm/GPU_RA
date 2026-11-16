@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage1-20261116-001",
+  "version": "v3",
+  "code_commit": "d71bab5898d87e0bac6bb18929b62dd5ee7dab24",
+  "code_tree": "8be38135260deed1b03d7d951153825ea31c00ee",
+  "base_commit": "f4b754c8e228064364bc25877dbb39c698a2c167",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "阶段1在候选源码身份扫描时因Windows长路径读取失败，尚未构建或启动GPU模型；保留失败记录，修复路径读取后使用新提交和新运行。",
+  "manifest": "evidence/v3-three-routes-sampled-001/stage1-20261116-001/manifest.json",
+  "manifest_sha256": "7dcddacb03b496ee8594770f93b0124656d8a67e43321f25e4fbf0ae7373dbe0",
+  "created_utc": "2026-11-16T04:50:14.199947+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
