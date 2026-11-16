@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-three-routes-sampled-001",
   "parameters": {
-    "status": "stage3_pilot_passed_full_components_and_model_smoke",
+    "status": "stage4_functional_passed_stage5_diagnostics",
     "model": "Qwen3-0.6B-F16",
     "layer": 10,
     "routes": [
