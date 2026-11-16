@@ -1,5 +1,6 @@
 #include "integrated_profile.hpp"
 #include "integrated_geometry.hpp"
+#include "sampled_model.hpp"
 #include "instrumented_bridge.hpp"
 #include "paged_bridge.hpp"
 #include "hbflab/async_device.cuh"
@@ -92,6 +93,7 @@ void gate(const ggml_tensor* w) {
 }
 }
 extern "C" void hbflab_m2_configure(const char* mode,const char* output){
+    if(std::getenv("HBFLAB_SAMPLED_ROUTE")){sampled_model_configure(mode,output);return;}
     need(!s.configured,"one joint session per process");std::string m=mode;
     need(m=="native"||m=="bypass"||m=="modeled","joint mode");s.mode=m=="native"?0:m=="bypass"?1:2;
     const char* w=std::getenv("HBFLAB_JOINT_WEIGHTS");const char* k=std::getenv("HBFLAB_JOINT_KV");
@@ -102,6 +104,7 @@ extern "C" void hbflab_m2_configure(const char* mode,const char* output){
     s.out=output;s.configured=true;s.calls.open(s.out/"weight-calls.jsonl");s.request_log.open(s.out/"weight-requests.jsonl");
 }
 extern "C" void hbflab_joint_bind(const ggml_tensor* const* tensors,unsigned count){
+    if(sampled_model_active()){sampled_model_bind(tensors,count);return;}
     need(s.configured&&!s.bound&&(count==3||count==12),"joint bind lifecycle");
     std::vector<std::pair<uint64_t,const ggml_tensor*>> ordered;json ranges=json::array();
     for(unsigned i=0;i<count;++i){auto* t=tensors[i];need(t&&ggml_is_contiguous(t)&&t->type==GGML_TYPE_F16&&ggml_nbytes(t)==MATRIX,"FFN tensor layout");
@@ -125,14 +128,16 @@ extern "C" void hbflab_joint_bind(const ggml_tensor* const* tensors,unsigned cou
     s.bound=true;
 }
 extern "C" void hbflab_m2_bind(const ggml_tensor*,const ggml_tensor*){throw std::runtime_error("use joint bind");}
-extern "C" void hbflab_m2_step_begin(int step){need(s.bound&&!s.finished&&step==s.step+1,"joint step order");s.step=step;s.seen.clear();if(s.paged)m4_step_begin(step);}
+extern "C" void hbflab_m2_step_begin(int step){if(sampled_model_active()){sampled_model_step_begin(step);return;}need(s.bound&&!s.finished&&step==s.step+1,"joint step order");s.step=step;s.seen.clear();if(s.paged)m4_step_begin(step);}
 extern "C" void hbflab_m2_graph_node(const ggml_tensor* t){
     if(t->op==GGML_OP_MUL_MAT)ggml_mul_mat_set_prec(const_cast<ggml_tensor*>(t),GGML_PREC_F32);
+    if(sampled_model_active()){sampled_model_graph_node(t);return;}
     if(!s.bound||s.step<0||t->op!=GGML_OP_MUL_MAT)return;
     if(s.weights.count(t->src[0])){need(s.seen.insert(t->src[0]).second,"duplicate FFN consumer");if(s.read_weights)gate(t->src[0]);}
 }
-extern "C" void hbflab_m2_step_end(){need(s.seen.size()==s.weights.size(),"FFN consumer missing");if(s.paged)m4_step_end();}
+extern "C" void hbflab_m2_step_end(){if(sampled_model_active()){sampled_model_step_end();return;}need(s.seen.size()==s.weights.size(),"FFN consumer missing");if(s.paged)m4_step_end();}
 extern "C" void hbflab_m2_finish(){
+    if(sampled_model_active()){sampled_model_finish();return;}
     need(s.bound&&!s.finished&&s.step==7,"joint finish lifecycle");
     if(s.paged){m4_sequence_audit((s.out/"kv-content.json").string().c_str(),44);m4_finish();}
     json report={{"status","pass"},{"steps",s.step+1},{"weight_mode",s.read_weights?"b2":"native"},{"kv_mode",s.paged?"paged":"native"},{"execution_mode",s.mode},{"requests",s.requests},{"covered_bytes",s.covered},{"dependency_checks",s.checks},{"publications",s.publications},{"read_kernels",s.launches},{"K",K},{"W",W},{"mailbox_slots",2048},{"launch_slots",1},{"audit_limit",513},{"mirror_bytes",s.read_weights?MATRIX:0},{"timing_bytes",s.read_weights?K:0}};
@@ -144,7 +149,7 @@ extern "C" void hbflab_m2_finish(){
     for(const auto& [t,h]:s.original_hash)need(sha256(bytes_of(t))==h,"borrowed weight bytes changed");
     report["borrowed_unchanged"]=true;s.calls.close();s.request_log.close();need(bool(s.calls)&&bool(s.request_log),"joint close logs");save("joint-summary.json",report);s.finished=true;
 }
-extern "C" void hbflab_m2_abort(){m4_abort();s.service.reset();if(s.mirror){cudaFree(s.mirror);s.mirror=nullptr;}if(s.times){cudaFree(s.times);s.times=nullptr;}}
+extern "C" void hbflab_m2_abort(){if(sampled_model_active()){sampled_model_abort();return;}m4_abort();s.service.reset();if(s.mirror){cudaFree(s.mirror);s.mirror=nullptr;}if(s.times){cudaFree(s.times);s.times=nullptr;}}
 bool hbflab_m2_precision(const ggml_tensor*,ggml_tensor*){return false;}
 bool hbflab_m2_selected_mat(const ggml_tensor*){return false;}
 bool hbflab_m2_mul_mat(const ggml_tensor*,const ggml_tensor*,ggml_tensor*,cudaStream_t){return false;}

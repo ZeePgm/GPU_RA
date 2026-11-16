@@ -21,6 +21,7 @@ HBFLAB_M2_API void hbflab_m2_graph_node(const ggml_tensor*);
 HBFLAB_M2_API void hbflab_m2_step_end();
 HBFLAB_M2_API void hbflab_m2_finish();
 HBFLAB_M2_API void hbflab_m2_abort();
+HBFLAB_M2_API void hbflab_sampled_after_node(const ggml_tensor*);
 }
 bool hbflab_m2_rms_norm(const ggml_tensor* x,const ggml_tensor* mul,const ggml_tensor* add,
                       float* dst,int ncols,int nrows,int nchannels,int nsamples,float eps,cudaStream_t stream);

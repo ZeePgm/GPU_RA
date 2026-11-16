@@ -19,3 +19,4 @@ inline hbf_eventlab::Geometry m4_geometry(){
 
 // Diagnostic snapshot at an idle boundary: SHA256 of true KV bytes and prefix.
 HBFLAB_M2_API void m4_sequence_audit(const char* path,std::size_t prefix);
+HBFLAB_M2_API std::uint64_t m4_sequence_version(int);

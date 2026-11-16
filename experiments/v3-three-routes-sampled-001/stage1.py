@@ -170,7 +170,7 @@ def launch_probe(args, build, selection, prompt, label):
     return output
 
 
-def demand_plan(selection, case):
+def demand_plan(selection, case, check_route_buffers=True):
     loaded = read(case / 'loaded-tensors.json')
     actual = {t['name']: t for t in loaded}
     expected = {t['name']: t for t in selection['all_tensors'] if t['selected']}
@@ -225,7 +225,8 @@ def demand_plan(selection, case):
                             'registration_bytes': tensor['bytes'], 'fixture_coverage': 'pending_stage3',
                             'model_demand_bytes': sum(r['bytes'] for r in ranges), 'gate_coverage': 'pending_stage2'})
     resource = read(case / 'resources.json')
-    require(len(resource['route_buffers']) == 3 and all(r['allocation_check'] == 'pass' for r in resource['route_buffers']), 'Route allocation check incomplete')
+    if check_route_buffers:
+        require(len(resource['route_buffers']) == 3 and all(r['allocation_check'] == 'pass' for r in resource['route_buffers']), 'Route allocation check incomplete')
     return {'schema': 1, 'status': 'pass', 'prompt_tokens': summary['prompt_tokens'], 'generated_tokens': summary['generated_tokens'],
             'demands': demands, 'runtime_alias_groups': aliases, 'consumer_count': len(rows),
             'model_demand_bytes': sum(d['model_demand_bytes'] for d in demands),
