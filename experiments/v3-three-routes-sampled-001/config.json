@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-three-routes-sampled-001",
   "parameters": {
-    "status": "stage1_passed_stage2_in_progress",
+    "status": "stage2_passed_stage3_pilot",
     "model": "Qwen3-0.6B-F16",
     "layer": 10,
     "routes": [
@@ -32,7 +32,27 @@
     "logical_range_alignment_bytes": 32768,
     "media_capacity_bytes": 2147483648,
     "inventory": "inventory.json",
-    "demand_plan": "demand-plan.json"
+    "demand_plan": "demand-plan.json",
+    "reader_chunks_bytes": {
+      "symbolic": 262144,
+      "ptx": 32768,
+      "cuda": 262144
+    },
+    "legal_tail_unit_bytes": 2,
+    "gpu_mirror_peak_bytes": {
+      "symbolic": 0,
+      "ptx": 262144,
+      "cuda": 262144
+    },
+    "gpu_timing_peak_bytes": 262144,
+    "audit_limit_per_queue": 8193,
+    "request_trace_format": "<11Q4I",
+    "gpu_activity_kinds": [
+      "kernel",
+      "copy",
+      "memset"
+    ],
+    "common_clock_status": "unqualified; raw backend time is diagnostic only"
   },
   "acceptance": {
     "status": "approved",
