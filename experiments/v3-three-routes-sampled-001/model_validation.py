@@ -70,7 +70,7 @@ def validate_kv(folder, inventory, input_tokens, kv):
     S.require(S.read(folder / 'kv-versions.json') == [{'step': step, 'version': step+1} for step in range(8)], 'Paged KV version publication')
     count = 0
     for media in lines(folder / 'kv-media.jsonl'):
-        S.require(inventory['kv_base'] <= media['logical'] < inventory['kv_base'] + inventory['kv_reserved_bytes'] and
+        S.require(inventory['kv_base'] <= media['logical'] and media['logical'] + media['bytes'] <= inventory['kv_base'] + inventory['kv_reserved_bytes'] and
                   media['end_ps'] >= media['arrival_ps'], 'KV media range/time dependency')
         count += 1
     S.require(count == summary['media_records'], 'KV media audit missing records')

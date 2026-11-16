@@ -55,7 +55,7 @@ def main():
             child = args.output / route
             process = X.execute(args, [args.build_dir / 'bin/sampled_reader_fixture.exe', S.HERE / 'inventory.json',
                                args.model, args.output / 'request-plan.json', child, route], route, child,
-                               timeout=900 if args.mode == 'pilot' else 1800)
+                               timeout=900 if args.mode == 'pilot' else S.read(S.HERE / 'budget.json')['component_process_wall_seconds'])
             bindings = S.read(child / 'bindings.json')
             coverage = validate_reader(child / 'reader', request_plan['spans'], inventory, route,
                                        {t['name']: t['address'] for t in bindings})

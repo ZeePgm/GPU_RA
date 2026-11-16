@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-three-routes-sampled-001",
   "parameters": {
-    "status": "stage2_passed_stage3_pilot",
+    "status": "stage3_pilot_passed_full_components_and_model_smoke",
     "model": "Qwen3-0.6B-F16",
     "layer": 10,
     "routes": [
@@ -52,7 +52,8 @@
       "copy",
       "memset"
     ],
-    "common_clock_status": "unqualified; raw backend time is diagnostic only"
+    "common_clock_status": "unqualified; raw backend time is diagnostic only",
+    "budget": "budget.json"
   },
   "acceptance": {
     "status": "approved",
