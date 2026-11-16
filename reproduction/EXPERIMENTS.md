@@ -119,7 +119,7 @@ B 引用真实执行代码的 A；不要把报告中尚不存在的自身提交�
 
 每次实验结束后，先完成验收、报告B和完整verify，再列出可清理文件、预计字节和必要保留项，主动询问用户是否清理。仅明确批准后执行，批准只适用于当次所列范围；未回复不清理。代码、配置、输入身份、报告和必要参考结果长期保留，大量原始轨迹不默认长期保留。失败/中断及未验收证据默认保留。
 
-当前工具只处理已判passed运行中的lane-times.bin、requests.bin、gpu-activity.jsonl、chunks.jsonl、kv-media.jsonl；不删除引用结果或共享输入，不执行递归删除。先把实际用户批准写入精确计划：
+当前工具只处理已判passed运行中的lane-times.bin、requests.bin、weight-requests.jsonl、gpu-activity.jsonl、chunks.jsonl、kv-media.jsonl；不删除引用结果或共享输入，不执行递归删除。先把实际用户批准写入精确计划：
 
 ```powershell
 python reproduction/retention.py plan --id ID --run RUN --approval-text '用户本次明确批准的原文'

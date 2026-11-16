@@ -38,7 +38,7 @@ def main():
     T.commit(root, 'Fixture source A')
     code = ('import os;from pathlib import Path;p=Path(os.environ["GPU_RA_RUN_DIR"]);'
             '(p/"readonly").mkdir(parents=True);'
-            '[(p/"readonly"/n).write_bytes(n.encode()*1000) for n in ("lane-times.bin","requests.bin","chunks.jsonl")];'
+            '[(p/"readonly"/n).write_bytes(n.encode()*1000) for n in ("lane-times.bin","requests.bin","weight-requests.jsonl","chunks.jsonl")];'
             '(p/"logits.f32").write_bytes(b"necessary reference");(p/"acceptance.json").write_bytes(b"{}")')
     info = T.start(root, 'good', code)
     T.launch(root, 'good')
@@ -55,7 +55,7 @@ def main():
     T.execute('empty-approval', [*command,'plan',*common,'--approval-text',' '], root, 'nonzero')
     T.execute('approved-plan', [*command,'plan',*common,'--approval-text','Explicit approval for disposable CPU test traces only.'], root)
     p = json.loads((evidence/'retention-plan.json').read_text(encoding='utf-8'))
-    assert len(p['remove']) == 3 and not any(r['path'].endswith('logits.f32') for r in p['remove'])
+    assert len(p['remove']) == 4 and not any(r['path'].endswith('logits.f32') for r in p['remove'])
     T.execute('uncommitted-plan', [*command,'apply',*common], root, 'nonzero')
     T.commit(root, 'Approved exact plan C')
     sys.path.insert(0,str(T.SOURCE/'reproduction'))
