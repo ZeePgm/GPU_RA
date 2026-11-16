@@ -125,6 +125,18 @@ def validate_model(folder, inventory, frozen, route, kv, reference_native=None, 
         coverage = validate_reader(folder / 'readonly', spans, inventory, route, addresses)
         S.require(coverage['requested_bytes'] == frozen['model_demand_bytes'] == adapter['requested_bytes'] and
                   coverage['requests'] == adapter['requests'] == sum(g['requests'] for g in gates), 'Model request/coverage accounting')
+        # Connect every independently audited publication to its actual graph consumer.
+        with (folder / 'readonly/chunks.jsonl').open(encoding='utf-8') as stream:
+            chunks = iter(stream)
+            for gate in gates:
+                for span in gate['ranges']:
+                    remaining = span['bytes']
+                    while remaining:
+                        chunk = json.loads(next(chunks))
+                        S.require(chunk['release_stamp_ns'] <= gate['gate_release_ns'], 'Consumer released before chunk publication')
+                        remaining -= chunk['bytes']
+                        S.require(remaining >= 0, 'Consumer publication span overrun')
+            S.require(next(chunks, None) is None, 'Unassigned consumer publication')
         if route == 'ptx':
             ptx = S.read(folder / 'readonly/ptx-identities.json')
             S.require({p['unit'] for p in ptx} == {2, 16} and all(len(p[k]) == 64 for p in ptx for k in
