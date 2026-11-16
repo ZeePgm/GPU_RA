@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "completed-trace-retention",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage4-smoke-20261116-001",
+  "status": "completed",
+  "completed_utc": "2026-11-16T12:57:54.243538+00:00",
+  "plan_sha256": "cdda01d5ee15720a5c89805e96c946e0eaba88e8533381ad717a0005af7a0289",
+  "plan_commit": "642a9c05163f624b970470500a8b66266793c4b1",
+  "cleanup_code_commit": "8d2ee329646ed73a9c4216a9695b4e6f8a28659a",
+  "cleanup_tool_sha256": {
+    "retention.py": "eb8589927a6cba576d15ef1402c1b1c922934d4d2a7fd141c0b61d06da8a0787",
+    "experiment.py": "794bc16b6ebb364266ee0802e7beed87a1e4e32f44f2a1d8f294a1a35828a1bc",
+    "data_paths.py": "bdaf0aabd2b17cfb9564c67607b5c49eca78fccf900ed10157b5c549ab1b4f82"
+  },
+  "removed_files": 6,
+  "removed_bytes": 31324795,
+  "retained_files": 91,
+  "retained_bytes": 53485211,
+  "retained_inventory_sha256": "903dfab706082cc6a4c0a227b61ba75e62345c24d7b37404dab65888fc3e5ed8",
+  "full_payload_present": false,
+  "full_raw_trace_recheck_available": false,
+  "original_manifest_unchanged": true
+}
