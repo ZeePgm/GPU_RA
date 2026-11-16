@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "completed-trace-retention",
+  "experiment_id": "v3-three-routes-sampled-001",
+  "run_id": "stage2-regression-20261116-001",
+  "status": "completed",
+  "completed_utc": "2026-11-16T12:57:39.243466+00:00",
+  "plan_sha256": "6a076b11ecaeada13e62b85deafa90bd14a86e0f3ecbcfec2abba797ea1bf7bf",
+  "plan_commit": "642a9c05163f624b970470500a8b66266793c4b1",
+  "cleanup_code_commit": "831b42eeaa5ca7645cf5161de57687cae30a9188",
+  "cleanup_tool_sha256": {
+    "retention.py": "eb8589927a6cba576d15ef1402c1b1c922934d4d2a7fd141c0b61d06da8a0787",
+    "experiment.py": "794bc16b6ebb364266ee0802e7beed87a1e4e32f44f2a1d8f294a1a35828a1bc",
+    "data_paths.py": "bdaf0aabd2b17cfb9564c67607b5c49eca78fccf900ed10157b5c549ab1b4f82"
+  },
+  "removed_files": 26,
+  "removed_bytes": 1120020738,
+  "retained_files": 240,
+  "retained_bytes": 84068503,
+  "retained_inventory_sha256": "e09626ebd6f33e56318bcac32dcffa15fd40b7376133231cfa3ba87651d7b4b2",
+  "full_payload_present": false,
+  "full_raw_trace_recheck_available": false,
+  "original_manifest_unchanged": true
+}
