@@ -8,6 +8,7 @@ import math
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -234,6 +235,40 @@ def demand_plan(selection, case):
             'gate_status': 'Inventory observes native consumers; installation and dependency proof are later stage gates'}
 
 
+def negative_checks(selection, original, destination):
+    destination.mkdir()
+    results = []
+    for mode in ('missing_consumer', 'missing_completion', 'gather_offset', 'wrong_device', 'wrong_operator', 'wrong_reuse'):
+        case = destination / mode
+        case.mkdir()
+        for name in ('loaded-tensors.json', 'summary.json', 'resources.json', 'consumers.jsonl', 'consumers-completed.jsonl'):
+            shutil.copy2(original / name, case / name)
+        consumers = [json.loads(line) for line in (case / 'consumers.jsonl').read_text().splitlines()]
+        if mode == 'missing_consumer':
+            consumers.pop()
+        elif mode == 'missing_completion':
+            lines = (case / 'consumers-completed.jsonl').read_text().splitlines()
+            (case / 'consumers-completed.jsonl').write_text('\n'.join(lines[:-1]) + '\n')
+        elif mode == 'gather_offset':
+            next(r for r in consumers if r['weight'] == 'token_embd.weight')['ranges'][0]['offset'] += 2048
+        elif mode == 'wrong_device':
+            loaded = read(case / 'loaded-tensors.json')
+            next(t for t in loaded if t['name'] == 'token_embd.weight')['cuda_memory_type'] = 0
+            write(case / 'loaded-tensors.json', loaded)
+        elif mode == 'wrong_operator':
+            consumers[0]['op'] = 'MUL_MAT'
+        elif mode == 'wrong_reuse':
+            consumers[0]['node']['shape'][1] += 1
+        (case / 'consumers.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in consumers))
+        try:
+            demand_plan(selection, case)
+        except ValueError as error:
+            results.append({'case': mode, 'status': 'rejected', 'reason': str(error)})
+        else:
+            raise ValueError('Inventory validator accepted tampered evidence: ' + mode)
+    return results
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--model', type=Path, required=True)
@@ -273,6 +308,8 @@ def main():
                 'Placement/graph change altered complete logits')
         require(source == source_identity(), 'Candidate source identity changed during inventory')
         require(current_build == audit_build(build), 'Candidate binaries changed during inventory')
+        negatives = negative_checks(selection, args.output / 'original44', args.output / 'validator-negatives')
+        write(args.output / 'validator-negative-results.json', negatives)
         total = selection['logical_weight_layout_bytes'] + selection['kv_reserved_bytes']
         require(total <= selection['media_geometry']['capacity_bytes'], 'Complete logical layout does not fit')
         write(args.output / 'stage1-acceptance.json', {
