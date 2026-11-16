@@ -4,6 +4,7 @@ from collections import Counter
 import hashlib
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -196,6 +197,14 @@ def demand_plan(selection, case):
             row = next(r for r in rows if r['step'] == step and r['weight'] == name)
             require(row['op'] == tensor['expected_op'] and row['source_slot'] == tensor['expected_source_slot'],
                     'Consumer operation/slot mismatch: ' + name)
+            consumer_rows = 1 if name in ('output.weight', 'output_norm.weight') else len(input_tokens)
+            if name == 'blk.10.attn_q_norm.weight':
+                consumer_rows *= 16
+            if name == 'blk.10.attn_k_norm.weight':
+                consumer_rows *= 8
+            output_width = tensor['shape'][1] if tensor['expected_op'] == 'MUL_MAT' else tensor['shape'][0]
+            require(math.prod(row['node']['shape']) == consumer_rows * output_width,
+                    'Consumer shape/reuse differs from independent Qwen graph plan: ' + name)
             if name == 'token_embd.weight':
                 ranges = [{'row': token, 'occurrence': i, 'offset': token * 2048, 'bytes': 2048} for i, token in enumerate(input_tokens)]
                 require(row['indices'] == input_tokens, 'Gather indices do not match actual model inputs')
@@ -208,6 +217,8 @@ def demand_plan(selection, case):
                             'op': tensor['expected_op'], 'source_slot': tensor['expected_source_slot'],
                             'logical_base': tensor['logical_base'], 'ranges': ranges, 'calls': 1,
                             'node_name': row['node']['name'], 'node_shape': row['node']['shape'],
+                            'arithmetic_rows_using_weight': consumer_rows,
+                            'adapter_demand_policy': 'one staged range per graph consumer; arithmetic reuse is recorded separately',
                             'registration_bytes': tensor['bytes'], 'fixture_coverage': 'pending_stage3',
                             'model_demand_bytes': sum(r['bytes'] for r in ranges), 'gate_coverage': 'pending_stage2'})
     resource = read(case / 'resources.json')
