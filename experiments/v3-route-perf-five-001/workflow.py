@@ -134,6 +134,9 @@ def run(args):
             need(args.fixture and args.fixture.is_file(), 'Frozen native fixture required')
             command = [args.build_dir/'bin/five_weight.exe',args.model,HERE/'inventory.json',args.fixture,child,args.route,str(args.repeats),args.audit]
             timeout = 900 if read(args.fixture)['tensor'] == 'output.weight' else 120;require_ggml=True
+        elif args.mode == 'legacy-registration':
+            child.mkdir()
+            command = [args.build_dir/'bin/sampled_registration.exe',ROOT/'experiments/v3-three-routes-sampled-001/inventory.json',args.route,child/'summary.json']
         elif args.mode == 'diagnostic':
             command = [args.build_dir/'bin/sampled_reader_fixture.exe',HERE/'inventory.json',args.model,HERE/'diagnostic-plan.json',child,args.route,args.audit]
             timeout=120
@@ -156,6 +159,12 @@ def run(args):
             if args.audit=='summary':reader_summary(child/'reader',args.route,amount*(1+args.repeats),((amount+511)//512)*(1+args.repeats))
             acceptance={'status':'pass','scenario_id':s['scenario_id'],'calls':s['calls'],'outputs_bitwise':True,'borrowed_unchanged':True,'drained':True,
                 'first_call_ms':s['first_call_ns']/1e6,'repeated_mean_ms':s['repeated_mean_ns']/1e6,'initialization_ms':s['initialization_ns']/1e6}
+        elif args.mode=='legacy-registration':
+            summary=read(child/'summary.json')
+            need(summary['status']=='pass' and summary['drained'] and summary['selected_ranges']==14 and summary['negative_checks']>=21
+                 and summary['media_requests']==3 and summary['readonly_alignment']==32768 and summary['peak_resident_fragments']<=256,'Legacy registration regression')
+            need('100% tests passed, 0 tests failed out of 608' in (args.build_dir/'core-tests.log').read_text(encoding='utf-8-sig'),'CPU core regression missing')
+            acceptance={'status':'pass','legacy_registration':summary,'core_cpu_tests':608}
         else:
             summary=read(child/'summary.json');plan=read(HERE/'diagnostic-plan.json')
             need(summary['status']=='pass' and summary['drained'] and summary['selected_ranges']==5 and summary['negative_checks']==8,'Bounded fixture contract')
@@ -167,7 +176,11 @@ def run(args):
             else:
                 r=read(child/'reader/summary.json')
                 need(r['all_runtime_lane_and_byte_checks'] and r['request_log_bytes']==r['lane_time_log_bytes']==0,'Summary raw exclusion')
-                acceptance={'status':'pass','runtime_full_checks':r,'negative_checks':8}
+                need(args.reference is not None,'Full diagnostic reference required')
+                full=read(args.reference/'reader/summary.json')
+                for key in ('requests','requested_bytes','payload_bytes','publication_bytes','launches','lane_checks','byte_checks','validation_d2h_bytes','memset_bytes'):
+                    need(r[key]==full[key],'Full/summary runtime coverage differs: '+key)
+                acceptance={'status':'pass','runtime_full_checks':r,'negative_checks':8,'full_summary_coverage_identical':True,'full_reference':str(args.reference)}
         X.unchanged(args.build_dir,identity)
         need(X.directory_bytes(args.output)<=32*1024**2,'Per-process output budget')
         write(args.output/'acceptance.json',{**acceptance,'mode':args.mode,'route':args.route,'audit':args.audit,'process_wall_seconds':process['wall_seconds'],
@@ -179,7 +192,7 @@ def run(args):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('mode',choices=['receipt','reference','model','weight','diagnostic'])
+    parser.add_argument('mode',choices=['receipt','reference','model','weight','diagnostic','legacy-registration'])
     parser.add_argument('--build-dir',type=Path,required=True)
     for key in ('model','cuda-root','resource-root','output','fixture','reference'):parser.add_argument('--'+key,type=Path)
     parser.add_argument('--route',choices=['native','symbolic','ptx','cuda'],default='native')
