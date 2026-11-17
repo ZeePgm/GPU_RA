@@ -6,6 +6,8 @@ scientific runner, background controller, or change to historical validators.
 import argparse
 from collections import Counter
 import json
+import csv
+import io
 import os
 import platform
 from datetime import datetime, timezone
@@ -142,6 +144,12 @@ def formal_admission(args, identity):
     return entry
 
 
+def environment_identity(value):
+    rows=list(csv.reader(io.StringIO(value['gpu'])))
+    need(len(rows)==2 and len(rows[1])>=5,'GPU environment observation shape')
+    return ([x.strip() for x in rows[1][:5]],value['platform'],value['logical_cpu_count'])
+
+
 def run(args):
     coordinator_start=time.process_time()
     formal_entry=None
@@ -188,9 +196,15 @@ def run(args):
             need(args.process_wall_cap>0,'Positive process wall cap required')
             timeout=min(timeout,args.process_wall_cap)
         need(X.directory_bytes(args.output.parent.parent)+33*1024**2<=2*1024**3,'Experiment output cap cannot admit another process')
-        if args.phase in ('pilot','formal'):write(args.output/'environment-before.json',environment_probe())
+        if args.phase in ('pilot','formal'):
+            observed=environment_probe();write(args.output/'environment-before.json',observed)
+            if args.phase=='formal':
+                need(args.environment_reference is not None,'Frozen hardware environment reference required')
+                need(environment_identity(observed)==environment_identity(read(args.environment_reference)),'Formal GPU/driver/host identity changed')
         process = X.execute(args, command, 'result', child, extra_env=env, timeout=timeout, require_ggml=require_ggml, disk_cap=32*1024**2)
-        if args.phase in ('pilot','formal'):write(args.output/'environment-after.json',environment_probe())
+        if args.phase in ('pilot','formal'):
+            observed_after=environment_probe();write(args.output/'environment-after.json',observed_after)
+            if args.phase=='formal':need(environment_identity(observed_after)==environment_identity(observed),'Formal hardware identity changed during run')
         need((args.output/'result.log').stat().st_size <= 1024**2, 'stdout/stderr budget')
         if args.mode in ('reference','model'):
             acceptance = validate_model(child, args.route, args.reference)
@@ -257,7 +271,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode',choices=['receipt','reference','model','weight','diagnostic','legacy-registration'])
     parser.add_argument('--build-dir',type=Path,required=True)
-    for key in ('model','cuda-root','resource-root','output','fixture','reference','qualification','historical-logits'):parser.add_argument('--'+key,type=Path)
+    for key in ('model','cuda-root','resource-root','output','fixture','reference','qualification','historical-logits','environment-reference'):parser.add_argument('--'+key,type=Path)
     parser.add_argument('--route',choices=['native','symbolic','ptx','cuda'],default='native')
     parser.add_argument('--audit',choices=['full','summary'],default='summary')
     parser.add_argument('--repeats',type=int,default=0)
