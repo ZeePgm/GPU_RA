@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
   "title": "五类代表只读权重三入口性能比较计划",
-  "purpose": "保留symbolic/PTX/CUDA各自实现和分块策略，按统一外部任务完成延迟、初始化、TTFT和TPOT比较实际执行性能；本次只制定计划不运行",
+  "purpose": "比较 symbolic/PTX/CUDA 各自实现及分块策略下的实际任务性能。五权重入口、精简日志验收和固定预跑已完成；正式矩阵未启动，预算建议见 PREFLIGHT 报告。",
   "version": "v3",
   "base_ref": "codex/v3-joint",
   "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",

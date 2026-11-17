@@ -156,7 +156,7 @@
   ],
   "selected_physical_bytes": 632819712,
   "unselected_native_weights": 306,
-  "freeze_policy": "Capture exact native values first; freeze manifest plus fixtures as --input CAS snapshots before formal source commit A and start. Input-spec is not an assertion that fixtures already exist.",
+  "freeze_policy": "Captured ten exact native fixtures; all files frozen by SHA-256 and CAS at launch. Final-build reference-002 is byte-identical to reference-001 for all fixture files/logits/KV. Future formal launches must freeze these same identities in a new source commit A.",
   "historical_reference_logits": {
     "source_generated_tokens": 8,
     "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",

@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "scope": "completed qualification and fixed pilot only",
+  "run_count": 55,
+  "passed_runs": 54,
+  "failed_runs": 1,
+  "formal_runs": 0,
+  "cpp_process_wall_seconds_all_attempts": 4084.903999999864,
+  "cpp_cpu_seconds_all_attempts": 3992.078125,
+  "observed_max_host_peak_working_set_bytes": 2860007424,
+  "total_run_root_bytes": 152828182,
+  "raw_diagnostic_bytes": 1860351,
+  "runs": [
+    {
+      "run_id": "diag-cuda-full-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "diag-cuda-summary-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "diag-ptx-full-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "diag-ptx-summary-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "diag-symbolic-full-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "diag-symbolic-summary-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "legacy-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "legacy-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "legacy-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-model-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w1-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w1-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w1-p-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w4-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w4-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w4-p-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w5-d-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w5-d-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "pilot-w5-d-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-d-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-d-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-d-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-p-symbolic-20261117-001",
+      "execution_status": "failed",
+      "accepted": false,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w1-p-symbolic-20261117-002",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w2-d-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w2-d-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w2-d-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w2-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w2-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w2-p-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w3-d-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w3-d-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w3-d-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w3-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w3-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w3-p-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w4-d-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w4-d-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w4-d-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w4-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w4-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w4-p-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w5-d-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w5-d-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w5-d-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w5-p-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w5-p-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "qual-w5-p-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "reference-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "reference-20261117-002",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "smoke-cuda-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "smoke-ptx-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    },
+    {
+      "run_id": "smoke-symbolic-20261117-001",
+      "execution_status": "completed",
+      "accepted": true,
+      "formal_sample": false
+    }
+  ],
+  "raw_cleanup_candidates": [
+    {
+      "run_id": "diag-cuda-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-cuda-full-20261117-001\\data\\result\\gpu-activity.jsonl",
+      "bytes": 350756,
+      "sha256": "90a461e5941eb5ec19a5360186ccd1e24d05caf6838ac40c6230a9061e4201e1"
+    },
+    {
+      "run_id": "diag-cuda-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-cuda-full-20261117-001\\data\\result\\reader\\chunks.jsonl",
+      "bytes": 4586,
+      "sha256": "be2b57782b662a244ca8bb6c8bba347d96485bff7836c1c803c41e4a24a950c5"
+    },
+    {
+      "run_id": "diag-cuda-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-cuda-full-20261117-001\\data\\result\\reader\\lane-times.bin",
+      "bytes": 221168,
+      "sha256": "267de2fb7226f93ef2b22cac29dd03c7d74368b4494e9adc127ea61430dba2e0"
+    },
+    {
+      "run_id": "diag-cuda-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-cuda-full-20261117-001\\data\\result\\reader\\requests.bin",
+      "bytes": 45032,
+      "sha256": "4a077eabfc97e39be96cceb6211707c3128cc432951150f91acf965a10b47685"
+    },
+    {
+      "run_id": "diag-ptx-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-ptx-full-20261117-001\\data\\result\\gpu-activity.jsonl",
+      "bytes": 354120,
+      "sha256": "a28be5c08f1912714c0497238387634c117e5ca7442bdb1b43008822fe1a7827"
+    },
+    {
+      "run_id": "diag-ptx-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-ptx-full-20261117-001\\data\\result\\reader\\chunks.jsonl",
+      "bytes": 5975,
+      "sha256": "9bffcce4ffba486280f8de4717f37328284bd32d2575be82f03edde09d03755c"
+    },
+    {
+      "run_id": "diag-ptx-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-ptx-full-20261117-001\\data\\result\\reader\\lane-times.bin",
+      "bytes": 221168,
+      "sha256": "54fb7a3c9c5de43a910b1aa5c750bfff79654f27da729d0e5c2a36e7348c53e1"
+    },
+    {
+      "run_id": "diag-ptx-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-ptx-full-20261117-001\\data\\result\\reader\\requests.bin",
+      "bytes": 45032,
+      "sha256": "a6d088773a47862c5828b1f9876e9d5e7419cd3b0a4d77a013e45e794979ad17"
+    },
+    {
+      "run_id": "diag-symbolic-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-symbolic-full-20261117-001\\data\\result\\gpu-activity.jsonl",
+      "bytes": 344048,
+      "sha256": "23f8698578b75e0532e0d78aceb7bf5b129629405f769fc0ab93ad40e0a5df55"
+    },
+    {
+      "run_id": "diag-symbolic-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-symbolic-full-20261117-001\\data\\result\\reader\\chunks.jsonl",
+      "bytes": 2266,
+      "sha256": "1cb861824e3fc3f9c033dde06cbb2d9e865bedd30e0a5b0b028981559bd40c20"
+    },
+    {
+      "run_id": "diag-symbolic-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-symbolic-full-20261117-001\\data\\result\\reader\\lane-times.bin",
+      "bytes": 221168,
+      "sha256": "bc8e00228a8d9a500f4d90768fba7a672e3eae3999a7931a53cf70e483be3d06"
+    },
+    {
+      "run_id": "diag-symbolic-full-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\diag-symbolic-full-20261117-001\\data\\result\\reader\\requests.bin",
+      "bytes": 45032,
+      "sha256": "fe322afcf69f06404f25106954c3f57dc15650960599b6af5612ffe2c3188766"
+    }
+  ],
+  "cleanup_approval": "not granted; no files deleted",
+  "kept": "code/config/source and build identities, all reports/seals/manifests, reference fixtures, all scalar samples and status, logits/tokens/native KV/lifecycle, all failed records, shared inputs/CAS and model"
+}

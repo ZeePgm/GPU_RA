@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
   "parameters": {
-    "status": "qualified_ready_for_pilot_formal_disabled",
+    "status": "qualification_and_pilot_passed_formal_not_started",
     "execution_authorized": {
       "qualification": true,
       "pilot": true,
@@ -147,10 +147,19 @@
       "selected_consumers_per_model_to": 20,
       "TPOT_decode_intervals": 3,
       "interpretation": "Budget caps, not measured duration. Weight matrix and process repeats unchanged; model matrix access work halves, total wall does not necessarily halve. Pilot required before formal."
+    },
+    "budget_reestimate": {
+      "report": "reports/v3-route-perf-five-001/BUDGET-REESTIMATE.json",
+      "nominal_formal_seconds": 12090.998360699938,
+      "recommended_formal_cap_seconds": 15300,
+      "current_formal_cap_seconds": 14400,
+      "recommendation_only": true,
+      "total_experiment_cap_unchanged_seconds": 27000,
+      "formal_execution_authorized": false
     }
   },
   "acceptance": {
-    "status": "qualification_passed_pilot_pending",
+    "status": "qualification_and_fixed_pilot_passed",
     "candidate_summary_profile_qualification_required": true,
     "weight_outputs": "Every call vs same native reference, element/bit identity; borrowed weights unchanged; full coverage and drain checks.",
     "model_outputs": "Same token sequence, all 4 full logits and native KV content/version/lifecycle as same-condition native reference.",
