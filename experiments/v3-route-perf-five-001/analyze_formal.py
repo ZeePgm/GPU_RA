@@ -223,11 +223,11 @@ def main():
               "resources": resource, "weight_processes": weight_rows, "model_processes": model_rows,
               "environments": environment_rows, "analysis_inputs": identities,
               "analysis_script_sha256": digest(Path(__file__))}
-    (out / "FORMAL-RESULTS.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (out / "FORMAL-RESULTS.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     for filename, rows in (("FORMAL-WEIGHT-PROCESSES.csv", weight_rows), ("FORMAL-WEIGHT-CALLS.csv", call_rows),
                            ("FORMAL-MODEL-PROCESSES.csv", model_rows)):
         with (out / filename).open("w", encoding="utf-8", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+            writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
 
@@ -285,7 +285,7 @@ def main():
               "## 解释范围", "",
               "N=3，仅报告描述性统计；时钟未锁定，且每个模型仅 4 个 token、3 个 decode 间隔。不能把区间交叠或跨轮反转的顺序说成稳定领先，不报 p95、显著性或窄置信区间。重复调用也不宣称达到稳态或 GPU 冷缓存。按五种权重与 P/D 分别比较，不构造任意加权的全局权重分数。", "",
               "完整逐进程值和全部 468 个组件调用见同目录 CSV；FORMAL-RESULTS.json 还保存全部输入哈希、每轮配对差值、环境快照与统计值。可在仓库根用 `python experiments/v3-route-perf-five-001/analyze_formal.py --run-root <外部该实验 runs 目录>` 复算。", ""]
-    (out / "FORMAL-RESULTS.md").write_text("\n".join(lines), encoding="utf-8")
+    (out / "FORMAL-RESULTS.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
     print(json.dumps({"status": "pass", "weight_stats": weight_stats,
                       "model_stats": model_stats, "model_pairwise": model_pairs,
                       "resources": resource}, ensure_ascii=False))

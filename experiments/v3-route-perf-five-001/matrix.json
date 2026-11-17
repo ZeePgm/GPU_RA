@@ -17,7 +17,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w1-d",
@@ -33,7 +33,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w2-p",
@@ -49,7 +49,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w2-d",
@@ -65,7 +65,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w3-p",
@@ -81,7 +81,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w3-d",
@@ -97,7 +97,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w4-p",
@@ -113,7 +113,7 @@
       "consumer_demand_bytes": 90112,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w4-d",
@@ -129,7 +129,7 @@
       "consumer_demand_bytes": 2048,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w5-p",
@@ -145,7 +145,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     },
     {
       "scenario_id": "w5-d",
@@ -161,7 +161,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture"
+      "fixture_status": "captured_and_qualified_reference-20261117-002"
     }
   ],
   "weight_cells": [
@@ -179,7 +179,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w1-p-symbolic",
       "route": "symbolic"
     },
@@ -197,7 +197,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w1-p-ptx",
       "route": "ptx"
     },
@@ -215,7 +215,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w1-p-cuda",
       "route": "cuda"
     },
@@ -233,7 +233,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w1-d-symbolic",
       "route": "symbolic"
     },
@@ -251,7 +251,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w1-d-ptx",
       "route": "ptx"
     },
@@ -269,7 +269,7 @@
       "consumer_demand_bytes": 4096,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w1-d-cuda",
       "route": "cuda"
     },
@@ -287,7 +287,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w2-p-symbolic",
       "route": "symbolic"
     },
@@ -305,7 +305,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w2-p-ptx",
       "route": "ptx"
     },
@@ -323,7 +323,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w2-p-cuda",
       "route": "cuda"
     },
@@ -341,7 +341,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w2-d-symbolic",
       "route": "symbolic"
     },
@@ -359,7 +359,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w2-d-ptx",
       "route": "ptx"
     },
@@ -377,7 +377,7 @@
       "consumer_demand_bytes": 4194304,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w2-d-cuda",
       "route": "cuda"
     },
@@ -395,7 +395,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w3-p-symbolic",
       "route": "symbolic"
     },
@@ -413,7 +413,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w3-p-ptx",
       "route": "ptx"
     },
@@ -431,7 +431,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w3-p-cuda",
       "route": "cuda"
     },
@@ -449,7 +449,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w3-d-symbolic",
       "route": "symbolic"
     },
@@ -467,7 +467,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w3-d-ptx",
       "route": "ptx"
     },
@@ -485,7 +485,7 @@
       "consumer_demand_bytes": 6291456,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w3-d-cuda",
       "route": "cuda"
     },
@@ -503,7 +503,7 @@
       "consumer_demand_bytes": 90112,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w4-p-symbolic",
       "route": "symbolic"
     },
@@ -521,7 +521,7 @@
       "consumer_demand_bytes": 90112,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w4-p-ptx",
       "route": "ptx"
     },
@@ -539,7 +539,7 @@
       "consumer_demand_bytes": 90112,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w4-p-cuda",
       "route": "cuda"
     },
@@ -557,7 +557,7 @@
       "consumer_demand_bytes": 2048,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w4-d-symbolic",
       "route": "symbolic"
     },
@@ -575,7 +575,7 @@
       "consumer_demand_bytes": 2048,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w4-d-ptx",
       "route": "ptx"
     },
@@ -593,7 +593,7 @@
       "consumer_demand_bytes": 2048,
       "first_calls": 1,
       "repeated_calls": 5,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w4-d-cuda",
       "route": "cuda"
     },
@@ -611,7 +611,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w5-p-symbolic",
       "route": "symbolic"
     },
@@ -629,7 +629,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w5-p-ptx",
       "route": "ptx"
     },
@@ -647,7 +647,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w5-p-cuda",
       "route": "cuda"
     },
@@ -665,7 +665,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w5-d-symbolic",
       "route": "symbolic"
     },
@@ -683,7 +683,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w5-d-ptx",
       "route": "ptx"
     },
@@ -701,7 +701,7 @@
       "consumer_demand_bytes": 311164928,
       "first_calls": 1,
       "repeated_calls": 1,
-      "fixture_status": "pending_native_capture",
+      "fixture_status": "captured_and_qualified_reference-20261117-002",
       "cell_id": "w5-d-cuda",
       "route": "cuda"
     }
