@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
-  "status": "formal_authorized_fixed_order",
+  "status": "formal_completed_99_of_99_passed_fixed_order",
   "weight_scenarios": [
     {
       "scenario_id": "w1-p",

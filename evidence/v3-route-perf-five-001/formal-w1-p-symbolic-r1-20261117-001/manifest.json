@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "formal-w1-p-symbolic-r1-20261117-001",
+  "version": "v3",
+  "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+  "code_tree": "7112cfe8d432a72cebcc595e61efabebac1dc837",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/formal-w1-p-symbolic-r1-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 7339,
+      "sha256": "1d579c0822e29d4a8fe972eedeb5fe249043ec32515825b82f9cf7ffed737138"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 691,
+      "sha256": "48928d4978d8586da796a2671e16b475451cb269be4fa57009dc7046d9666a04"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/environment-after.json",
+      "bytes": 637,
+      "sha256": "8040a373ecdf23f55c6795d52787f80e257102209fa536f8287def6ffc842dd5"
+    },
+    {
+      "path": "data/environment-before.json",
+      "bytes": 637,
+      "sha256": "c7c655d758fa86e859a1671610d3727fdbc1c4b2fd7f77161b34e112ad705024"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/call-1.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/call-2.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/call-3.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/call-4.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/call-5.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 2252,
+      "sha256": "b92cd1f3d2722bf94e2da310e73d2e7aa4da3de2375e340dc421178d812e6902"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 580,
+      "sha256": "82c38b984842b793e7193100c12922ea2ac273c59cafef52051723c9cf37252c"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 755,
+      "sha256": "4222cfc6516d414a9a860c44e34cfdbb4f3a0fa25534c4f1ab440eb58f213e9a"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 190,
+      "sha256": "cfbb3866f05d7dfe98567dd8e3222275258511edf728cb14f40511df0500178d"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 174,
+      "sha256": "d23d1d09fdf2ba2f83fd9ed3a43f821065b978824fe82ffbe1a4e3153129365d"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 3341,
+      "sha256": "3b836641201c43cef4db7e42548be048594393622911b5eb6c93d5291980fa43"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 466,
+      "sha256": "711fa8c77f7a6567ff0e2594db2fc5cf4bec85d04cfec4070dc13d6accd1106b"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1131,
+      "sha256": "2fb2601a73d0a608d31f1dec0f1dc3bde11441a70fa1130da5f3c252b0b1f3bf"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "de5568351daec404ff1c9239615dd5c8cd710273bd8b457516592b5ddb58a393"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 7074,
+      "sha256": "02bb8b836a93175a0314e779ef06742e8df37a4f9274d75fe170729278cb1dd8"
+    },
+    {
+      "path": "run.json",
+      "bytes": 11670,
+      "sha256": "17e9ae53efd5ef95c1acd5dbd272a638d2a73afda90d880bb601b10679f4c460"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 74,
+      "sha256": "762266ab48e2bc94fcc1e7800301fee1f3deada2d6b4a341ca8f96bb8cd35918"
+    }
+  ],
+  "file_count": 25,
+  "total_bytes": 2496229,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880",
+      "bytes": 1344986,
+      "sha256": "3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880"
+    },
+    {
+      "storage_path": "inputs/5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094",
+      "bytes": 637,
+      "sha256": "5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094"
+    },
+    {
+      "storage_path": "inputs/deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd",
+      "bytes": 847,
+      "sha256": "deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd"
+    },
+    {
+      "storage_path": "inputs/3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "storage_path": "inputs/e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900",
+      "bytes": 180224,
+      "sha256": "e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900"
+    }
+  ]
+}

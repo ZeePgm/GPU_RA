@@ -2188,6 +2188,1887 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-route-perf-five-001/pilot-model-ptx-20261117-001"
       }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5973,
+        "sha256": "28f0c8c92468cd862051820d5f1c44d22e8e1993553dd07cd7444221ce4f2ac7"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "24791d9df50b225559b376d7c88b1a437772cd655fccae1f3aced645bcde2c50"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6814,
+        "sha256": "c57c9c51f9279f7333134becef2e0f0729988a813ca47273e26aa51dd53386a3"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "7392f6dd05f3da23c4bd8a1c4955457137313f3a13734b6014f77bf6e2626d50"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5965,
+        "sha256": "aac916a12c9eb594a9e7c332b58478f7f49d0c7f5c298b09f3a666de1c5e9818"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "43c417be83f2be7c9d0ede39b8cbbc02f45fc052e0db1acb3976ebf81e0a0a60"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5957,
+        "sha256": "a311c6ae453318005321ec79f3cc03fcc7d9387ce3961cbb87ce5d5d1607c18b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "32ea28558ed97dbbd8f25713ba892085da59b99a7ad55d8d6a77bf37a93a4715"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6798,
+        "sha256": "2cfba1063d4561b64f452e362916a0061a3c5b1771d799cd0317b102a3173e4f"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "10f024ce3f6c4386533054708e0a66dc680db7dcb78e5f1e83a18ae6166db76a"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5949,
+        "sha256": "4f72cf1417a417988354234c5a50b5d9d38a3f779e8c236293a7f75163208263"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "c13ee03b49cb57e7da96af78dacf913e69f5c1bd7470adadd310ee90f5a37a49"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5974,
+        "sha256": "03c36e6dd6090214f460fe3ba1c59b80e4f0559deb3bea38628d5ae5655540d0"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "bd8b341d2be79d544921a5d8ca34e2ff207fb8d374c9ad34463a6aa54ee77179"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6815,
+        "sha256": "fb81287622e0169d6fe3a5ccb93b0a5bc010f94d7d879450dba7fd21a9039626"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "56d04ab3a437907ccc40058bd4a734ba0553292dc3f778b01ebd4d164df59df1"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5966,
+        "sha256": "066f598931d47558580bc0190984a3cf5faf6348e1d3a52154a0f0eb51e388c1"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "e0a71c8e029f1850588f4f2dad42832d8d214ecc6a08f577544840fe5156f6da"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5958,
+        "sha256": "fcc07cb55bc7325629e497033e12ce7e3bd4106432f2b15c2abb53c72c40befb"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "c6c10b816b1a26e575fd10454f94404cf7b4ac3f55fe0b71cf1b06847df99a7d"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6799,
+        "sha256": "74edec6df5a40143abdaf5692efb536698b9a9b5c08bd30a188a0f804c766aa8"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "a45cdb9c3181a27a07ba3b63b1e8b0904559ae1b408377fab77471a316ff10cd"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5950,
+        "sha256": "f5501f05ebbc19be19a93d6838852eba1d1bb38152d7c4a2175255a79b296579"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "2275d6bbf1384be552e6d501c60375e7d5e2ed15c96d372c81e6ed1a1e041b9b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5974,
+        "sha256": "90e593b8e3ae28e38bc4467ea6021ad6ce105c0b3ee93f2169eaac625902b889"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "41e8a5d2bd66dad9128df9af0d34e0e1910609b150920bc9a76f0f1a80bec60e"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6815,
+        "sha256": "6a6b789a7c2168f92d54b2c5d63196376a085d7aea0fe4700d985f7555ff16ea"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "2fcfb5ee6f292532fa98acbe66b46e5bb428adf99c2d761aa22e331404fa0a35"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5966,
+        "sha256": "142ac867306508c1b37dea9a1d3d4a60d9f5b4287d471022cd693e8ba40adcbb"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "570710ab89609af4fd6c30850835bab25b6800fbe52d3355161a8593627e89e9"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5959,
+        "sha256": "72eea1c2a25dee5b04fad1fd60c2815b3694a1d7f6065eb8aec20514d2ea950a"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "c08f741023dacd276afb05b64cf538307c5770186f1d9ef601beef6e55283ea4"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6800,
+        "sha256": "51cfa4fb6cf7977f7c1a9279dc5189d8d00bbe435ed75ccf8d5c28543d0229f8"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "0ac44b6fd80ade95cd3a155863b1e3c5385d0011a3326ada271f46cf499de661"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5951,
+        "sha256": "ab87ca10282209e4287133938e692c18b881a5ebfea4c7b2dd2df2853db1b77b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "bfb6a16a1dc8eff00cea08fa64a33caece1d942225d3cb4dd3a5de2226bd7f63"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5973,
+        "sha256": "5349b1d819cdf9852974358f24ad0f5917df35db148775b5accd43f7200713cc"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "71e559de2d4ce8ea962636e38306d1379e62b3e365107b859b90a60d262a4fef"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6814,
+        "sha256": "5c854b044df233b58b3591b57aca0ecf4a6986dc5e5b18b1c9c36b90a5cb2b54"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "3fad5b742c41c995a9da40c2384e1a40516ed570b21f2d874bc843be9f06c340"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5965,
+        "sha256": "54f4b887d9fe76df88facddc315c671b9a2c23d3955edb343ee679d3c26576ad"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "07e80b97d99816d331feedcc91c1ec03ed39f7e0736efdf617dba62df5b8b00c"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5957,
+        "sha256": "a9f8720994ab896cc1102a3d55b5b83973eac14db05c434bfb9bf624c25156a4"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "d7889c82feee2e8f9b2c4ced13e1ce0d32854bcb69b5e076f5998fd609835985"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6798,
+        "sha256": "a520910f0a3fface4cc652571048442e86cb4dd59dd9bfabbefea4acb8b567a8"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "4330dc19acacfa7de75cc430405f21c5e4ed53805064bc8642743b0a8f36d5ac"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5949,
+        "sha256": "fb58e6cc9c98d2e17a114acd5f7cc9028f9a484b82e37c0a483c51a4c8582bf0"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "d46dfb09b7d9d33bcf1f22348a2c3981b9afdbb3ce3f35ba601882e0b7d9f6b2"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5338,
+        "sha256": "a7fe0d373bcf2b8034b3c7d23881211939dae99a0de1d971b68f3335c068c210"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "aa7f8efeafa5695045050b11ac47acd50a3a63051e38ebeec8bcf20ecf37da8b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6179,
+        "sha256": "74f797c902c14b72dab1cee68407c76107ae6d8aa0819b7721c10d3f58b701db"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "adef34763a250e7312036ee268611f039685d487dd7e5f946be619f721ed3892"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5330,
+        "sha256": "b6a01807781d12f25aa9238eba6c5bd04edabc77009f63573bba86c3df5176b2"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "4b67f0c3202f488d3fb7187d71284314f800401d86506626af8b64e9f7c5b4fa"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 5338,
+        "sha256": "d5b9611bfe83aacc94f273dadce0fe17e5edb83b7e983c6b65b1c3535652ee19"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-symbolic-r1-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "1f549d23f7d29f44aca27fc88c08efe1f242e9a1bed6db51154825131c27109e"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-ptx-r1-20261117-001/manifest.json",
+        "bytes": 6179,
+        "sha256": "da6d71cb15fff73c0d2bc3f3d83f7e9fe337c458e22610664d1ebcd962f19a00"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-ptx-r1-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "5eb2ae2ea347f9e3469ad51b76d3b1e84d72a85569a0393de3bba3adb0ee2512"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-cuda-r1-20261117-001/manifest.json",
+        "bytes": 5330,
+        "sha256": "9fe9aeda930dafe401b2eb135872cc169000d823d1be68d39aa90d1c9c564a44"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-cuda-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "98ea99312bb0d14633c9dd978855549afe9015030463c4ef6fb45c91fb43cf44"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6814,
+        "sha256": "0cd77cd9aec972e526e98734666d5f54b589a8b95034e0116ee1fcef9cfb0eca"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "a7fc0271d7b07cebf7ff588526568219c72d8ba94de7dac9484a60bef0922fb5"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5965,
+        "sha256": "be75622e8352d5fb636d64ac309631dd485320c7b971cb53e10605e103813b3f"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "66c661567882d484db462cb41c33b7a8294fc8fb3ee552927d1273dde3e3db7e"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5973,
+        "sha256": "c49e3aeeb03aa35170db0a8efefe86fe99a381622d1fd72ba6c29604de4a7f01"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "ad798325e55471195b29c37026d1aab161f0962a9ef19ac5418c69bfe07eae0f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6798,
+        "sha256": "0cb9f33261dd79d39441dce395e8d7b6a34b4a11f115bb8b7c3d59bf1f56c8a0"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "2b6a61dff8a88975cd69760d441a2ddb83ea1c93a54bbfa0f04378a6af6d28f0"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5949,
+        "sha256": "1c18db140b8893280076850d367d67432e520f963961fea43fa774aaaf2cf5c2"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "d3fa1d42d53dc3fd490c2675e5c9d7de4c3fcf3d1b2f9ea89503f93a79e56d7f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5957,
+        "sha256": "e5447f6fe4e5c618a6a99cfde036a2b9e3cefd94b81e5f66647788c4dce9e7e7"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "60ee29680bd6daecd90d525f377d90237917e3932866c8fe2d9099067812aca4"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6815,
+        "sha256": "57e51f117ad1b9fb8a9983041b8573330f971a3aed4045c5780d39f0a2d9bfed"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "13a30df7d9f339d138ee5a02181a67c70be902d79690836c98d1ba854eedcf70"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5966,
+        "sha256": "34e25a1f333e637ad0985a0e5318bca92df1594ddd0fb3d259e7d90aad47975f"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "cd2ef0e97968373b89c493c76f1787a94c1e6e672246cf84d3b9866fecbad9a5"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5974,
+        "sha256": "00da363bbe4b8e52c68051aed5a6d56aa67d40348d9313a41394bccd8ab2191a"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "bff5f1cf505239bd83a29db9b64ce44fc40803e754215ff60069d90dc3cb4ad4"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6799,
+        "sha256": "7fb556072c662a78e2dc175c8ddd021a3c8fd349dfd6e9d55b92ab7908c19470"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "1482b72c652b4b52426a9c9fb6c4a59570e0ebd1b2ee2c29472fac6b92126fbe"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5950,
+        "sha256": "44ce68859555869abdaf4424966be918c33df3ebb97ff86de991d0213a41187e"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "b078467d105896ec2d4a5988a77c3ef19761cf5f448a5a30fa3d80e783ca9f7d"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5958,
+        "sha256": "30beee4d3f2664374051b0e0da6b24f732c7944de3f54f0698a62f73b541a4c9"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "0361ccfeadea7a8026ceab44da3d0c330a58d7fa7722754f4ac82705096ea96b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6815,
+        "sha256": "ee6e5b4c0fe4a6bb027e28516624d1b56efa5e5a6939ab81cc73cfca43ff8e7d"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "8668534f63001100ceae64f2c4f5ff9cd6798a137202a2ff284fc28fd0eb6017"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5966,
+        "sha256": "f8fecb2d2f490aaed5b15f4f2dcb662682bad56a2c2da5ae56da3154818b7b41"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "b045b5fbcb57de2e0f013f4e7dafbf6ba21b07f58986b3f0eaae8995a0bbecce"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5974,
+        "sha256": "43ebcdf84af0b6cf71b188ec8b4e13ae763a295d538cb6f2e6607e1ef8fffd94"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "c114b0b07ef5f35eebecf3dd2e564119bd71be87805dc718934de2bc1aa98135"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6800,
+        "sha256": "54e4151a0189f6947df50d1d77b1ba12acd0d1334502e50e11c4a8992abae5e6"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "c3cc1532929b8c005d3929a2fa19fb6ea2208185500b6387f5d0064128f6b788"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5951,
+        "sha256": "b3b4ac851105d768e79532e58652b68672eb983e265c76d54e485102cd006091"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "21d486bca5925dd50841f5d2b6772ec15d4018b5334ad04e34b0fa04bbc6d2cc"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5959,
+        "sha256": "a824a5eaa34de4f942729fb87f774aa68d5b71e60f5f33951df217033df5be45"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "fed1542ab63b65d4ff9ea9aa07b1062f778248ced991e192040322ac88e414ed"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6814,
+        "sha256": "b6c64b9062df6043da02487343cd0544b5589337851103b83d09d3368932a4a7"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "6b6fd0c414e359f7d3bb3c4895472698559991ca53b9dabc426952f2f444b36b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5965,
+        "sha256": "5441b8b5b455c62989f8706b932552fc7dab7338491dc61f1a300e3e03f3529a"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "29f97823f78348b17822d534535fadcadef9bbfe0b475812cf34bb28a796f5f6"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5973,
+        "sha256": "ffea18f72216b48877a3ebd6dc29b20717adebaa4cd357fd852a3943ae43d7a9"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "c05fe724518c05f0a3e3420c6f1ffa273dac13e2331c1abc1934689b780a2bed"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6798,
+        "sha256": "2df0d2ea58a1b39b9e996561f3e623c95ebd0b59aee03ef46abdcf3d913e8267"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "694e2c3668c9a8cfe9242d0c25c4fab1d81b35904e36c4af6ab889d9b3cf5a67"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5949,
+        "sha256": "da668c9a5e89ff66c232eef4707f6d7064918620c0abb64081bd10b4090304c4"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "939d87d597bed582ce81bf100a91fc9b11cf914d1745f1e6e54d3e4c06e1ed3c"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5957,
+        "sha256": "80381c42f0ba80a7fb729fb27f54c4476f246196470016be96f9dea7c30f54ec"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "a540ae74b9456f69bac69d2ed0bfdf4d1aed6e5eedb611b5571aac2d19d467ad"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6179,
+        "sha256": "391e2d40fec7d4dbd06e8cf16b30d6ce7b97c9531caa4416cdff26dbbd665d03"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "d6616f64417c5993ebef97cbb5450de59641edd73ddc5cfca23a36ab746b63f8"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5330,
+        "sha256": "98ef77a5589bd62db8038999ded6d7595289617f8b685b5ba23ab2bf44b3e277"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "e6ca79240a969626a85eac21dd3b4c12afbdf5af24e80af57c4a4b401a0ad542"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5338,
+        "sha256": "6282d1f250cfa22ac2e646b5d600fbe351d7b496ba2f4025388d9ceab0d85330"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "64e7e70a188bfce0e5060512a6aa986e31d7a73b526a2d7899f79a68e2e6bca4"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-ptx-r2-20261117-001/manifest.json",
+        "bytes": 6179,
+        "sha256": "ac2a7f69be5b9f8b05eb9c00f3cfa6ba3c1d786d4237ac00d227399694a07304"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-ptx-r2-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "3de19eaf56b4c20a590dd3fd67277c4437ebf9967dada88d0408a1d80243c789"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-cuda-r2-20261117-001/manifest.json",
+        "bytes": 5330,
+        "sha256": "40f2e08c24d6f8390f5175b97bfaefa0883d786875d249dad5aa880c7b53567a"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-cuda-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "e068c313dd5e26deffd89b85689fc1feb3217ccad981cd38b0ff48b6fc13a7a6"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 5338,
+        "sha256": "d29e13d5636c90c936d7e1799fdc1ae62f7268b612303a5cabeba4c9459ba41c"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-symbolic-r2-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "b3d1e60a673339eb9b7a002089d5971c90cecb4603737d5e812d2f94723e8511"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5965,
+        "sha256": "3683368546ad57cbacb50383b89b857ba8c85caf30e9fe011c308ffa1704740b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "4ba0475129ef465143cfe141a30097a91aeebad5250d17943fb244ea0d00b80f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5973,
+        "sha256": "fb989351b8ec58d95c93b41508b9db0e2bca7d0a7fab62c184af0dbb700ab07c"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "851d90ae3b5b13eb90dfe9e023ab47e7c4a4230d94d1070005c18944cbea9ad2"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-p-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-p-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6814,
+        "sha256": "a4e9d99fadf2ce72260e995606c4fa9b24fc7f22ac8e5b63390f3653d614a55b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-p-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "b52cbfb080a1fe7af9271c4bc455fc7bbf2fcc6f30f13413aab2eff9d61938a8"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-p-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5949,
+        "sha256": "8d695616026866ada4afa279218fa3b6d7702e9486d1e14e497dab9047b300fe"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "76120e290559977f5a89d93fd9f88ff7024e629acd5cb85a51c93fa050447a04"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5957,
+        "sha256": "ad61dae116444c332e02663d88b77b1db495c753bb80a1470a0697abcb59dddf"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "cb22be6dfdd1bf47a7a4415e005afe14ef5b74ee85b27332a55ddc2f345ab554"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w1-d-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w1-d-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6798,
+        "sha256": "c72c2b44e786c5bbc682a1ec17eae7dbcec5156e8a59bae41c3c73cf48fb9f1c"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w1-d-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "e1f4445def26fccc20430b86e9f55c40cbb17bea7ec3fe19fe2105ad7212210e"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w1-d-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5966,
+        "sha256": "5847e390593133ede2f7f7a503132c00d3b1443f66ef1abae75e78ab3ef2301a"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "0424540f3bb87f80eeb563d928a7634c5dfa585b835cf7cc2cea6e76a87e6b41"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5974,
+        "sha256": "ec349c935aedef29f45510b1f9a90838b3a6017d7560beab771b3fc3debc655c"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "8eff98ffa94c5a5634f6eb9dcb4b55682a7e0c374bde2cf3d4c86e94a1a4029d"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-p-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-p-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6815,
+        "sha256": "f5f0cfb820c9dac0c542c7a3b5d7ba901f91fee699a1e9a27092773c874eebe3"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-p-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "ea903d1c526916942bf397aaf7c2a8c2233ba79a76ee25b7e3271865421a2aec"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-p-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5950,
+        "sha256": "f96b1da8f3d6e5fa82cefb118191e27937c377d04aed919fdcd9a101884ed8d0"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "8b65101327d67f6b090ce9dc611e026d57aac107071a015b67a5b165f952b35b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5958,
+        "sha256": "a02c045a64642d52dfc8c74dd0f6afc282dff2877e6726292557129f530e630c"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "07e8ff6de8ebc2e367f0376555803a2c239678f326d6d98544a9634a5e9d178f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w2-d-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w2-d-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6799,
+        "sha256": "eadcdecb5f4da9af431196c487524ee22323e65850d24f080482ca07209cdb67"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w2-d-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "8dadf8d04f38abcc2bd75f488423b5ecce1764fb67ca3141c832c75b84e3c65d"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w2-d-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5966,
+        "sha256": "9afa540c44e68be9260ccb31a960396e02866fe08597bd09abaf0284b912d288"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "cc57e09643b9fc00e3aed5cf2ad5d77cc78b110be5f0a1e4f1b0445b4d7e3888"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5974,
+        "sha256": "6734e254f233ae4cad8e9e068a88a380106a72d5c280091fdc776269c5353aa4"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "a8e60e930545fe39b25e0e21d49f018c8c6a764966ddf2fd6a7c440a75074b40"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-p-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-p-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6815,
+        "sha256": "08f636af7d96295a7f492dc6057ed83146f4539134795a349404dca2ae9176e9"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-p-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "a5a66f03d433ee1a4b9c3802b8f07dff3303df6587ccf5a6f38b28b5d51f4582"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-p-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5951,
+        "sha256": "3c2184e69dc6bafe2b5d74a0220a4a5c892147c41912182a5e5eea9e8114801b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "0646150e63e02128b862f56c4e22649b4c7d78f2703ea8b8a062f009d7ea1ced"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5959,
+        "sha256": "4e97e44fdaa3d90c50691a2ef95785386763539f972203e02547d2563a4573a5"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "12685bad130fb1cf0ad2f4970014e5653b0061f318d96118c388bf3cc57d5d95"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w3-d-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w3-d-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6800,
+        "sha256": "947504232300943bc499701ae1b7b00a1b4ecdfe8cfa783ecb8979050017f781"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w3-d-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "9b0f78897f0563559c848beeef65715985958b604419e9c09b2d3ebd7f517d01"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w3-d-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5965,
+        "sha256": "a4c4fd9caad4af0b3e1fc98a602ea7d715da9540405fb77a2bf51042dbeddbc1"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "347a66be7ac74ef6629ed3a482026adcb196971f822e9e03fe3e4e2f453297ae"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5973,
+        "sha256": "ea3b1851e730fd2f2fbd62c7d797488c24d7d1238d2741c0f774d085cbcf4fe3"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "95dbcece9a3849a2875f37d5b9c999c447731bb7211d5b4d73428acd824af201"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-p-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-p-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6814,
+        "sha256": "97d157387df5d457ad211a46e477dbca6b610d9903ce32f343e47114764cdcab"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-p-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "fe70c2d60e29ce9b8ac8e78855ed69dda0d00e65cc7d9320c9f30f16da28f4dc"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-p-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5949,
+        "sha256": "db15a97dacef88713331aec9232600b3ae3828145ad32c0e955d97eb8a6af86c"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "7bf6d87d8119d01b75a656898aa54a987934ee5574f96064ba883b6847f61d5c"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5957,
+        "sha256": "ef636cda190583d086ca8292ad45ff5ca5d81fdc07388fce629a36c11eccb12f"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "597a47240c505fb713a0824898e38328d2022e6687dcc77ab5c92293434cfe1a"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w4-d-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w4-d-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6798,
+        "sha256": "844c0d43cfea01925a5c29edf599d6c7ed404c1588c9e80d8930591a7271144b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w4-d-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "9a9b9c254d2490be84a02facb359aec51ebf73c7e56920084a7d4f3d8cc6da7f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w4-d-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5330,
+        "sha256": "b3e2a2f296269244af9ff008b3a88f9f2cd546963edc0c839cb0141164268551"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "3c2cdf2862b25581cd99a17093883e5a1acaa65871597c1c8d298dbd794f1cfa"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5338,
+        "sha256": "9c00f4fa54d9bf590296d546cb0c5a6a907ad317a63d01b1e1a8dfcc890e490e"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "e36e19812694ad4c5a1532ae07f4e6c4b68178c59e854d5e3ff80c4008ec21eb"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-p-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-p-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6179,
+        "sha256": "3c28bf1b446010bb9a687368936bc2cfd8ff30f516b419f1ee2306454d347199"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-p-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "dfdef9a5b8a606abf5f2ecae7659ea8dc91c21cf7860acdf02f15b82d2509772"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-p-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-cuda-r3-20261117-001/manifest.json",
+        "bytes": 5330,
+        "sha256": "9c36ff35bfcafd009ff832487963e93a02a4274a2ff8dc2ed97ff62e747d4c7e"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-cuda-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "6e5605cb4197f1d63520fcd88b861b1e87b3331db0df43628dc2a7d4642200fe"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 5338,
+        "sha256": "7ffca03c3774419e1b56a30098e3f64cb7c5136700fa9b9cbd610cee52be815f"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-symbolic-r3-20261117-001.json",
+        "bytes": 1158,
+        "sha256": "339afc5221bb2daf6f14e9ff71d28a61e94c936d52c03fd3f14e2e59d13fca5e"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-w5-d-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-w5-d-ptx-r3-20261117-001/manifest.json",
+        "bytes": 6179,
+        "sha256": "528372dbc393876a33dc38e23343b875ecca408fe4d4f86ad67a640f082283e0"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-w5-d-ptx-r3-20261117-001.json",
+        "bytes": 1143,
+        "sha256": "a6ad63762dfe5aeb354d0b7fccdcf37b712ec78cbcd134886477935a972f9979"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-w5-d-ptx-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-symbolic-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-symbolic-r1-20261117-001/manifest.json",
+        "bytes": 7197,
+        "sha256": "f1eba176f0d19d44ce8766d5a952ed401ed81eab5b016835f1ac44d1706d6d43"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-symbolic-r1-20261117-001.json",
+        "bytes": 1161,
+        "sha256": "7f7dae134820f43ce8506ee8d31cdc8d03b2936688512659c1c0161bc81a8d78"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-symbolic-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-ptx-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-ptx-r1-20261117-001/manifest.json",
+        "bytes": 8049,
+        "sha256": "d4ddd0a686a621353741b3516b74bbddbb721a1256a87cb384493f2b5f4cccda"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-ptx-r1-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "77f6d213ce21358e323a021a3b081a7913e11310ac7c9abdf258e42d643fbb2b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-ptx-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-cuda-r1-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-cuda-r1-20261117-001/manifest.json",
+        "bytes": 7190,
+        "sha256": "cde9672980bf54534d4e44745eedab96d7d2fd5adee779c568e3ff7e740ea0f8"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-cuda-r1-20261117-001.json",
+        "bytes": 1149,
+        "sha256": "835411305d3b99727dbc1a6edf3f56da57429143954e6d136d004b992c206e3c"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-cuda-r1-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-ptx-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-ptx-r2-20261117-001/manifest.json",
+        "bytes": 8049,
+        "sha256": "2c02af99576b0ba412bd7de3666c8dfc78e27cb99efb44646fa54d6ec81c8237"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-ptx-r2-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "1ea5e6652076dc717dca1c2c2536667660f2df93b54fd0c4a284a3bf79bb6449"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-ptx-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-cuda-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-cuda-r2-20261117-001/manifest.json",
+        "bytes": 7190,
+        "sha256": "19adeb907e251db03b496465fc9ebdfa17d06c3e63ebf6fa407ee1be33805c5f"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-cuda-r2-20261117-001.json",
+        "bytes": 1149,
+        "sha256": "7f99c137b94e716787f385dc0eac81b8edf081ffa68dfc87cfadccf8508c2c4b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-cuda-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-symbolic-r2-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-symbolic-r2-20261117-001/manifest.json",
+        "bytes": 7197,
+        "sha256": "67cd946e2a008d9d34c977b8f10b167dcd3889e6d2884488af3565cdba65b5f6"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-symbolic-r2-20261117-001.json",
+        "bytes": 1161,
+        "sha256": "c5e5a55e84fa9584585e3396723e68a080a60c7304f49fa3665e0a3af553c217"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-symbolic-r2-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-cuda-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-cuda-r3-20261117-001/manifest.json",
+        "bytes": 7190,
+        "sha256": "11cc60cfff1dc28cc25f6f917cdc47d1699d14347f83a93100ae0bcde44caa37"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-cuda-r3-20261117-001.json",
+        "bytes": 1149,
+        "sha256": "2870946d1e1bde88791a6a1739211b0dc28e5a867fc14d00d2bbb6274087ea20"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-cuda-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-symbolic-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-symbolic-r3-20261117-001/manifest.json",
+        "bytes": 7197,
+        "sha256": "81768324130724e0c1c3a89e5fcca690fefac6e3cf83cd17b9c5a6c3ee083077"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-symbolic-r3-20261117-001.json",
+        "bytes": 1161,
+        "sha256": "1d8dee4ad380e8a06a87afdfcd92ff83997d68553be96194f45a5ddd390643d0"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-symbolic-r3-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "formal-model-ptx-r3-20261117-001",
+      "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/formal-model-ptx-r3-20261117-001/manifest.json",
+        "bytes": 8049,
+        "sha256": "3aafb5b8874212e348c3bf79c3f90cf7bf52a089cd18dcb4738b5108410b7afa"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/formal-model-ptx-r3-20261117-001.json",
+        "bytes": 1146,
+        "sha256": "39a4c485f167b761f2a0ef2ccec5e469403c115165c476b469551969f29f73b2"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/formal-model-ptx-r3-20261117-001"
+      }
     }
   ]
 }

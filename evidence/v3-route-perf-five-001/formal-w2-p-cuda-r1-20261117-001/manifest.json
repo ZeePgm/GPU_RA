@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "formal-w2-p-cuda-r1-20261117-001",
+  "version": "v3",
+  "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+  "code_tree": "7112cfe8d432a72cebcc595e61efabebac1dc837",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/formal-w2-p-cuda-r1-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 7339,
+      "sha256": "1d579c0822e29d4a8fe972eedeb5fe249043ec32515825b82f9cf7ffed737138"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 679,
+      "sha256": "f6cd0036494cd612fb72f2eb2b065dc7c55cb4c57fb56e0faa8c2fcf0f4c3022"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/environment-after.json",
+      "bytes": 637,
+      "sha256": "391801f20e430e945f212ebe7ef8751397c43e83324e7e1948be73e035c9eae4"
+    },
+    {
+      "path": "data/environment-before.json",
+      "bytes": 637,
+      "sha256": "40cb33f7f2b9f5c49b16e8a34c8ae55117a2150016c610c151b6f2ecf769b755"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/result/call-1.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/result/call-2.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/result/call-3.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/result/call-4.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/result/call-5.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 2378,
+      "sha256": "5fc3e9158460b1fca23709012a91e560969c9ceca177f0038661b1ce0c5239aa"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 619,
+      "sha256": "38733c8069db6bf73c1c43ad3c426cadc041961d695df5c83a80190c20334ab2"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 773,
+      "sha256": "64284f2d01a5f2517ddadc768705fe497812a44687136df43a8ef9c8c02446c8"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 2380,
+      "sha256": "38005070430cd1abf393f32cd331f3ce59bae51a311790c32540533a06fe8c5c"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 170,
+      "sha256": "4d0f182116d1813b61d6e11063de5c69b80d9976e98bfbe894252aed9e10c6a2"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 6528,
+      "sha256": "d09e39d2482a32bdc35f08b3f31a29bd66dcd1d61d61cdd669781664ef1414b3"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 466,
+      "sha256": "8232c48c7ed44d6b12434c8af945ffe4c906a34162c48cfbbb5ae9e4659d2626"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1131,
+      "sha256": "2fb2601a73d0a608d31f1dec0f1dc3bde11441a70fa1130da5f3c252b0b1f3bf"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "54e1d8b033a5d642fa0903380b592fcaa7ff3f51af53698a3a88f653f6ebdc4e"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 7026,
+      "sha256": "cd4eb1632777d9e31e00b965356d4c8ea82ffb0255102720b7642093b1a3e63d"
+    },
+    {
+      "path": "run.json",
+      "bytes": 11646,
+      "sha256": "d1914fb77583f11b33306c5330fbfeae07da04da33312e6397fd49b8b1ba1d0f"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 74,
+      "sha256": "156736983cd2ef559df057cb6e032bcbe2986e79cbfe4bb7f71cba877033e7d0"
+    }
+  ],
+  "file_count": 25,
+  "total_bytes": 3583045,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880",
+      "bytes": 1344986,
+      "sha256": "3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880"
+    },
+    {
+      "storage_path": "inputs/5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094",
+      "bytes": 637,
+      "sha256": "5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094"
+    },
+    {
+      "storage_path": "inputs/19445de30c708422141d6ec1b889bf8c7f625a9e924350f1daa385ec04e27be6",
+      "bytes": 861,
+      "sha256": "19445de30c708422141d6ec1b889bf8c7f625a9e924350f1daa385ec04e27be6"
+    },
+    {
+      "storage_path": "inputs/a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "storage_path": "inputs/39b9160fd1555a0283dfea8702fcb3dec1d7f7c611e179348e7288ccfb212bb5",
+      "bytes": 180224,
+      "sha256": "39b9160fd1555a0283dfea8702fcb3dec1d7f7c611e179348e7288ccfb212bb5"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
   "parameters": {
-    "status": "formal_authorized_pending_start",
+    "status": "formal_completed_passed",
     "execution_authorized": {
       "qualification": true,
       "pilot": true,
@@ -168,7 +168,7 @@
     }
   },
   "acceptance": {
-    "status": "qualification_and_fixed_pilot_passed",
+    "status": "qualification_fixed_pilot_and_99_formal_samples_passed",
     "candidate_summary_profile_qualification_required": true,
     "weight_outputs": "Every call vs same native reference, element/bit identity; borrowed weights unchanged; full coverage and drain checks.",
     "model_outputs": "Same token sequence, all 4 full logits and native KV content/version/lifecycle as same-condition native reference.",

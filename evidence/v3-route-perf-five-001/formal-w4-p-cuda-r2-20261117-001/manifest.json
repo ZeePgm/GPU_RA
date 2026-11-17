@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "formal-w4-p-cuda-r2-20261117-001",
+  "version": "v3",
+  "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+  "code_tree": "7112cfe8d432a72cebcc595e61efabebac1dc837",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/formal-w4-p-cuda-r2-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 7339,
+      "sha256": "1d579c0822e29d4a8fe972eedeb5fe249043ec32515825b82f9cf7ffed737138"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 687,
+      "sha256": "18535664d26270654d6bc25ed0eee7dd26dab7bb34a795dfc53c66c62dc5af20"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/environment-after.json",
+      "bytes": 637,
+      "sha256": "cc1b336287ef109c7703051e8000f99463cb41ee23c86c09c7965c64084dbe4b"
+    },
+    {
+      "path": "data/environment-before.json",
+      "bytes": 637,
+      "sha256": "fc94fd19f3b4c1dce7753bd6eeedb8412b1531ddf69daa9906668ba01ae7801a"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/result/call-1.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/result/call-2.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/result/call-3.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/result/call-4.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/result/call-5.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 2324,
+      "sha256": "66fc923ae06b454ebe59920514373372421468fdde05ac1f5a7763d8cbfd3d85"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 618,
+      "sha256": "ef4d7d0dbcfe3079f56dbd6d90704467d330c2b91c092c7815439a59c01c4b68"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 760,
+      "sha256": "d8bf1e0b6ba97cd14842a9966437b77ed338cc328f4600c72cbaab5cb83234ea"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 173346,
+      "sha256": "6a4d2ad1f39a3e362dd64a5c903f85e068c8597883cfc8908fd1fff8b49cb446"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 170,
+      "sha256": "77722c7efd6250825f3979c4f9635ec86928736d7b452247e73b18e4597d8e0b"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 6185,
+      "sha256": "204d89bb26c6d3948284064a80c70154a56fb23aeefab0a67bb82813c774eb88"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "d3d5506064fa47b87649fefb76ccecdf82a2141860ae2ce53994bdb07bc09897"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1131,
+      "sha256": "2fb2601a73d0a608d31f1dec0f1dc3bde11441a70fa1130da5f3c252b0b1f3bf"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "00b5efd570a087d7f1a46cbd246fa42bd1f98a7e98a50163eb3de996370b5107"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 7023,
+      "sha256": "37fbf979cfb118d181a1e10fa71c5c6552ea75719f448685c7295bae9f61d1cd"
+    },
+    {
+      "path": "run.json",
+      "bytes": 11643,
+      "sha256": "82cc79aa8b6a1f469565c60727add60469d21390ed73c1d605f55e0e8c0beb4a"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 74,
+      "sha256": "76a1ab68411321dab89c4beabe0efb47eba8a5950f1d808c76366b073dc12d39"
+    }
+  ],
+  "file_count": 25,
+  "total_bytes": 2672257,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880",
+      "bytes": 1344986,
+      "sha256": "3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880"
+    },
+    {
+      "storage_path": "inputs/5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094",
+      "bytes": 637,
+      "sha256": "5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094"
+    },
+    {
+      "storage_path": "inputs/b3f7228f2fd593697a6f2d63b07284d445cd6df397616d9a406b13da93af2c93",
+      "bytes": 855,
+      "sha256": "b3f7228f2fd593697a6f2d63b07284d445cd6df397616d9a406b13da93af2c93"
+    },
+    {
+      "storage_path": "inputs/8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "storage_path": "inputs/cd8203d0c9f08ae2c5aaffa2290495b2368bb26e6b091aca03d60883e7f47f38",
+      "bytes": 176,
+      "sha256": "cd8203d0c9f08ae2c5aaffa2290495b2368bb26e6b091aca03d60883e7f47f38"
+    }
+  ]
+}

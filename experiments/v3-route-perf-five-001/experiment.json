@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
-  "title": "五类代表只读权重三入口性能比较计划",
-  "purpose": "比较 symbolic/PTX/CUDA 各自实现及分块策略下的实际任务性能。五权重入口、精简日志验收和固定预跑已完成；正式矩阵未启动，预算建议见 PREFLIGHT 报告。",
+  "title": "五类代表只读权重三入口性能比较",
+  "purpose": "比较 symbolic/PTX/CUDA 各自实现及分块策略下的实际任务性能。入口、精简日志验收及预跑完成后，固定正式矩阵99个独立进程全部通过；结果、全部标量和不稳定排序见FORMAL-RESULTS。用户拒绝本次清理，所有日志保留。运行身份以各RUN冻结的A及输入快照为准。",
   "version": "v3",
   "base_ref": "codex/v3-joint",
   "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
