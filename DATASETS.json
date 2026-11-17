@@ -1333,6 +1333,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-route-perf-five-001/diag-cuda-summary-20261117-001"
       }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "qual-w1-p-symbolic-20261117-001",
+      "code_commit": "0f9479e7a1440cbd5b9acc6936d68a5842d62662",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/qual-w1-p-symbolic-20261117-001/manifest.json",
+        "bytes": 4415,
+        "sha256": "ffa83943ffb67dff76e2abb03032c80fe4aec91ae2230430cc65df42ba32d95b"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/qual-w1-p-symbolic-20261117-001.json",
+        "bytes": 1006,
+        "sha256": "d7952a792045ed7e73373261b9ac59766ac83d8d53e316d881891689103fab37"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/qual-w1-p-symbolic-20261117-001"
+      }
     }
   ]
 }
