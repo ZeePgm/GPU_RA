@@ -3,6 +3,7 @@
 #include <filesystem>
 
 namespace hbflab {
+enum class SampledAuditMode { Full, Summary };
 struct SampledReadStats {
     std::uint64_t requests=0,requested_bytes=0,payload_bytes=0,publication_bytes=0;
     std::uint64_t launches=0,lane_checks=0,byte_checks=0,validation_d2h_bytes=0;
@@ -12,7 +13,7 @@ struct SampledReadStats {
 };
 class SampledReader {
 public:
-    SampledReader(SampledRegistration &,SampledRoute,const std::filesystem::path &);
+    SampledReader(SampledRegistration &,SampledRoute,const std::filesystem::path &, SampledAuditMode=SampledAuditMode::Full);
     ~SampledReader();
     SampledReader(const SampledReader &)=delete;
     SampledReader &operator=(const SampledReader &)=delete;

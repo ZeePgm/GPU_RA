@@ -125,3 +125,11 @@ target_include_directories(joint_b2_fixture PRIVATE "${LLAMA_SOURCE}/vendor")
 target_link_libraries(joint_b2_fixture PRIVATE realgpu_runtime CUDA::cudart)
 add_executable(joint_media_gpu "${LAB_ROOT}/tests/joint_media_gpu.cpp")
 target_link_libraries(joint_media_gpu PRIVATE realgpu_runtime CUDA::cudart)
+
+# Separate candidate entry points; historical sampled_inventory remains frozen.
+add_executable(five_model "${LAB_ROOT}/adapters/llama_cpp/five_model.cpp")
+target_include_directories(five_model PRIVATE "${LAB_ROOT}/adapters/llama_cpp" "${LLAMA_SOURCE}/vendor" "${M2_CUPTI_INCLUDE}" "${LAB_ROOT}/include")
+target_link_libraries(five_model PRIVATE llama ggml-cuda CUDA::cudart ${M2_CUPTI_LIBRARY})
+add_executable(five_weight "${LAB_ROOT}/adapters/llama_cpp/five_weight.cpp")
+target_include_directories(five_weight PRIVATE "${LLAMA_SOURCE}/vendor")
+target_link_libraries(five_weight PRIVATE llama ggml-cuda realgpu_runtime CUDA::cudart)

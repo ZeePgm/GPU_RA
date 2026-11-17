@@ -17,9 +17,11 @@ void ck(cudaError_t value){if(value!=cudaSuccess)throw std::runtime_error(cudaGe
 template<class F>void rejects(F action){bool caught=false;try{action();}catch(const std::exception &){caught=true;}need(caught,"negative reader operation accepted");}
 struct Memory{void *pointer=nullptr;~Memory(){if(pointer)cudaFree(pointer);}};
 int main(int argc,char **argv)try{
-    need(argc==6,"usage: sampled_reader_fixture inventory.json model.gguf request-plan.json output route");
+    need(argc==6 || argc==7,"usage: sampled_reader_fixture inventory.json model.gguf request-plan.json output route");
     const fs::path output=argv[4];need(!fs::exists(output),"fixture output exists");fs::create_directories(output);
-    SampledGpuTrace trace(output);
+    const bool summary=argc==7 && std::string(argv[6])=="summary";
+    if(argc==7)need(summary || std::string(argv[6])=="full","fixture audit mode");
+    std::unique_ptr<SampledGpuTrace> trace;if(!summary)trace=std::make_unique<SampledGpuTrace>(output);
     std::ifstream inv_file(argv[1]),plan_file(argv[3]);json inventory,plan;inv_file>>inventory;plan_file>>plan;
     const auto route=sampled_route(argv[5]);
     need(fs::file_size(argv[2])==inventory.at("model").at("bytes").get<uint64_t>(),"GGUF file size mismatch");
@@ -48,7 +50,7 @@ int main(int argc,char **argv)try{
     for(size_t i=0;i<registration.ranges().size();++i){const auto &range=registration.ranges()[i];indices.emplace(range.name,i);
         bindings.push_back({{"name",range.name},{"address",uintptr_t(range.address)},{"bytes",range.bytes},{"logical",range.logical}});}
     std::ofstream(output/"bindings.json")<<bindings.dump(2)<<'\n';
-    SampledReader reader(registration,route,output/"reader");
+    SampledReader reader(registration,route,output/"reader",summary?SampledAuditMode::Summary:SampledAuditMode::Full);
     unsigned negatives=0;
     const auto first=registration.ranges().front();
     for(const auto span:std::vector<std::pair<uint64_t,uint64_t>>{{0,0},{1,2},{0,1},{first.bytes,2},{UINT64_MAX,2},{0,UINT64_MAX}}){
@@ -71,7 +73,7 @@ ret;
     std::ofstream(output/"unsupported-control-flow.ptx")<<unsupported;
     rejects([&]{rewrite_async_ptx(unsupported,true);});++negatives;
     json calls=json::array();
-    trace.phase(0);
+    if(trace)trace->phase(0);
     for(const auto &span:plan.at("spans")){
         const std::string name=span.at("tensor");need(indices.count(name),"fixture plan tensor not registered");
         const auto offset=span.at("offset").get<uint64_t>(),bytes=span.at("bytes").get<uint64_t>();
@@ -82,9 +84,9 @@ ret;
             {"wall_seconds",std::chrono::duration<double>(std::chrono::steady_clock::now()-call_start).count()}});
     }
     const auto stats=reader.statistics();reader.finish();const auto backend=registration.service().statistics();registration.close();
-    trace.finish();const auto end=std::chrono::steady_clock::now();
+    if(trace)trace->finish();const auto end=std::chrono::steady_clock::now();
     json result={{"status","pass"},{"route",argv[5]},{"calls",calls},{"negative_checks",negatives},
-        {"selected_ranges",14},{"selected_bytes",selected_bytes},{"requested_bytes",stats.requested_bytes},{"requests",stats.requests},
+        {"selected_ranges",registration.ranges().size()},{"audit_mode",summary?"summary":"full"},{"selected_bytes",selected_bytes},{"requested_bytes",stats.requested_bytes},{"requests",stats.requests},
         {"payload_bytes",stats.payload_bytes},{"publication_bytes",stats.publication_bytes},{"lane_checks",stats.lane_checks},
         {"initialized_seconds",std::chrono::duration<double>(initialized-begin).count()},
         {"total_seconds",std::chrono::duration<double>(end-begin).count()},

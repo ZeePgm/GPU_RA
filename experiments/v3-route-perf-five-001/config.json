@@ -2,8 +2,12 @@
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
   "parameters": {
-    "status": "plan_only",
-    "execution_authorized": false,
+    "status": "implementation_qualification_and_pilot_authorized",
+    "execution_authorized": {
+      "qualification": true,
+      "pilot": true,
+      "formal_matrix": false
+    },
     "protocol": "PLAN.md",
     "matrix": "matrix.json",
     "input_spec": "input-spec.json",
@@ -30,7 +34,7 @@
       "cuda": 32768
     },
     "implementation_policy": "Preserve each route implementation, shape and chunk strategy. Include intrinsic costs; do not normalize by bytes or request counts.",
-    "audit_profile": "pending_qualified_summary_profile",
+    "audit_profile": "summary_exports_only; full runtime lane and byte checks retained and counted",
     "primary_time_source": "same-process CPU monotonic ns, with actual GPU consumer completion observed on CPU",
     "timing_boundaries": "PLAN.md section 4",
     "independent_process_repeats": 3,
