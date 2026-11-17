@@ -13,6 +13,7 @@ from pathlib import Path
 import subprocess
 import sys
 import traceback
+import time
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -119,17 +120,42 @@ def environment_probe():
         'platform':platform.platform(),'logical_cpu_count':os.cpu_count(),'python':sys.executable}
 
 
+def formal_admission(args, identity):
+    config=read(HERE/'config.json')['parameters']
+    need(config['execution_authorized']['formal_matrix'] is True,'Formal execution not authorized')
+    need(args.mode in ('weight','model') and args.audit=='summary','Formal mode/audit contract')
+    matrix=read(HERE/'matrix.json')
+    key='weight_process_schedule' if args.mode=='weight' else 'model_process_schedule'
+    entries=[e for e in matrix[key] if e['sample_key']==args.sample_key]
+    need(len(entries)==1,'Unique formal sample key required');entry=entries[0]
+    need(entry['route']==args.route and args.output.parent.name==entry['future_run_id'],'Formal route/RUN binding')
+    if args.mode=='weight':
+        fixture=read(args.fixture);case=next(c for c in matrix['weight_cells'] if c['cell_id']==entry['cell_id'])
+        need(fixture['scenario_id']==case['scenario_id'] and fixture['tensor']==case['tensor'],'Formal fixture binding')
+        expected=next(f for f in read(HERE/'input-spec.json')['captured_native_fixtures'] if f['scenario_id']==fixture['scenario_id'])
+        need(sha(args.fixture)==expected['descriptor_identity']['sha256'],'Formal native fixture identity')
+        need(args.repeats==entry['repeated_calls'],'Formal repeated-call count')
+    else:
+        need(args.repeats==0 and entry['generated_tokens']==4 and entry['prefill_tokens']==44,'Formal model sequence scope')
+        ref=read(HERE/'input-spec.json')['new_native_reference']
+        need(sha(args.reference/'logits.f32')==ref['full_logits']['sha256'] and sha(args.reference/'native-kv-state.bin')==ref['kv_identity']['sha256'],'Formal native reference identity')
+    return entry
+
+
 def run(args):
+    coordinator_start=time.process_time()
+    formal_entry=None
     args.build_dir, args.output = args.build_dir.resolve(), args.output.resolve()
     need(args.resource_root.resolve() == Path('E:/v1_update').resolve(), 'Full original workspace resource scope required')
     need(not args.output.exists(), 'Fresh output directory required');args.output.mkdir(parents=True)
     try:
         identity = read(args.build_dir / 'candidate-receipt.json');X.unchanged(args.build_dir, identity)
-        if args.phase=='pilot':
+        if args.phase in ('pilot','formal'):
             need(args.qualification is not None,'Completed qualification receipt required before pilot')
             q=read(args.qualification)
             need(q['status']=='passed' and q['weight_calls']==30 and q['model_smokes']==3 and q['dual_audit_routes']==3 and q['candidate_source']==identity['source'],'Pilot qualification scope/identity mismatch')
-        if args.mode=='weight':need(args.repeats==(1 if args.phase=='pilot' else 0),'This stage permits only one functional call or first+one pilot call')
+        if args.phase=='formal':formal_entry=formal_admission(args,identity)
+        elif args.mode=='weight':need(args.repeats==(1 if args.phase=='pilot' else 0),'This stage permits only one functional call or first+one pilot call')
         need(sha(args.model) == S.MODEL_SHA, 'Model input SHA-256 mismatch')
         write(args.output / 'candidate-receipt.json', identity)
         child = args.output / 'result'
@@ -162,12 +188,17 @@ def run(args):
             need(args.process_wall_cap>0,'Positive process wall cap required')
             timeout=min(timeout,args.process_wall_cap)
         need(X.directory_bytes(args.output.parent.parent)+33*1024**2<=2*1024**3,'Experiment output cap cannot admit another process')
-        if args.phase=='pilot':write(args.output/'environment-before.json',environment_probe())
+        if args.phase in ('pilot','formal'):write(args.output/'environment-before.json',environment_probe())
         process = X.execute(args, command, 'result', child, extra_env=env, timeout=timeout, require_ggml=require_ggml, disk_cap=32*1024**2)
-        if args.phase=='pilot':write(args.output/'environment-after.json',environment_probe())
+        if args.phase in ('pilot','formal'):write(args.output/'environment-after.json',environment_probe())
         need((args.output/'result.log').stat().st_size <= 1024**2, 'stdout/stderr budget')
         if args.mode in ('reference','model'):
             acceptance = validate_model(child, args.route, args.reference)
+            if args.phase=='formal':
+                timing=read(child/'summary.json');emissions=timing['emission_wall_ms']
+                need(len(emissions)==4 and all(np.isfinite(emissions)) and all(a<b for a,b in zip([0]+emissions,emissions)),'Formal token timing coverage/order')
+                need(abs(timing['ttft_wall_ms']-emissions[0])<1e-6 and abs(timing['tpot_wall_ms']-(emissions[-1]-emissions[0])/3)<1e-6 and abs(timing['generation_until_last_token_wall_ms']-emissions[-1])<1e-6,'Independent model timing reduction')
+                acceptance['token_emission_ms']=emissions
             write(child/'model-acceptance.json',acceptance)
             if args.mode=='reference':
                 need(args.historical_logits is not None and sha(args.historical_logits)=='942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835','Frozen native eight-step source missing or changed')
@@ -182,6 +213,10 @@ def run(args):
             s=read(child/'summary.json');calls=read(child/'calls.json');fixture=read(args.fixture)
             need(s['status']=='pass' and s['drained'] and s['borrowed_unchanged'] and s['calls']==1+args.repeats
                  and s['peak_resident_fragments']<=256 and all(c['native_bitwise_equal'] and c['end_ns']>c['begin_ns'] for c in calls), 'Consumer numerical/lifecycle scope')
+            if args.phase=='formal':
+                need(len(calls)==1+args.repeats and [c['index'] for c in calls]==list(range(len(calls))),'Formal complete call records')
+                repeated=sum(c['end_ns']-c['begin_ns'] for c in calls[1:])/args.repeats
+                need(abs(repeated-s['repeated_mean_ns'])<=1,'Independent repeated timing reduction')
             amount = fixture['weight']['bytes'] if fixture['op']!='GET_ROWS' else (44 if fixture['step']==0 else 1)*2048
             need(s['requested_bytes']==amount*(1+args.repeats),'Exact isolated consumer demand')
             if args.audit=='summary':reader_summary(child/'reader',args.route,amount*(1+args.repeats),((amount+511)//512)*(1+args.repeats))
@@ -213,7 +248,7 @@ def run(args):
         need(X.directory_bytes(args.output)<=32*1024**2,'Per-process output budget')
         write(args.output/'acceptance.json',{**acceptance,'mode':args.mode,'route':args.route,'audit':args.audit,'process_wall_seconds':process['wall_seconds'],
             'cpu_seconds':process['final_metrics']['cpu_seconds'],'output_bytes_before_acceptance':X.directory_bytes(args.output),
-            'formal_sample':False,'phase':args.phase,'process_wall_cap_seconds':timeout,'scope':'qualification or pilot only; no formal matrix authorization'})
+            'formal_sample':args.phase=='formal','sample_key':args.sample_key,'schedule_sequence':formal_entry['sequence'] if formal_entry else None,'independent_process_repeat':formal_entry['independent_process_repeat'] if formal_entry else None,'phase':args.phase,'process_wall_cap_seconds':timeout,'coordinator_cpu_seconds':time.process_time()-coordinator_start,'scope':'formal fixed matrix sample' if args.phase=='formal' else 'qualification or pilot; excluded from formal comparison'})
     except BaseException:
         write(args.output/'failure.json',{'status':'failed','error':traceback.format_exc()});raise
 
@@ -227,7 +262,8 @@ if __name__=='__main__':
     parser.add_argument('--audit',choices=['full','summary'],default='summary')
     parser.add_argument('--repeats',type=int,default=0)
     parser.add_argument('--process-wall-cap',type=int)
-    parser.add_argument('--phase',choices=['qualification','pilot'],default='qualification')
+    parser.add_argument('--sample-key')
+    parser.add_argument('--phase',choices=['qualification','pilot','formal'],default='qualification')
     args=parser.parse_args()
     if args.mode=='receipt':receipt(args.build_dir.resolve())
     else:run(args)
