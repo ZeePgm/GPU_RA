@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "reference-20261117-001",
+  "version": "v3",
+  "code_commit": "13c3794763aca3fac37a0e245e2292e865fa02cb",
+  "code_tree": "2f86ff25774e3a762ba80173c530079bac73e34a",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Native 44/4 reference passed: 20 consumers, ten actual activation/output fixtures, complete native KV release, four-step logits bitwise equal to the frozen eight-step prefix. Reference capture is excluded from performance samples.",
+  "manifest": "evidence/v3-route-perf-five-001/reference-20261117-001/manifest.json",
+  "manifest_sha256": "d58491aa554150c006c850a68d3a1e46b8009611e4c2fae12697114cb5d2c2e4",
+  "created_utc": "2026-11-17T06:42:27.420756+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

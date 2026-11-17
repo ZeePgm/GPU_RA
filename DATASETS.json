@@ -1143,6 +1143,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-three-routes-sampled-001/stage5-diagnostics-20261116-002"
       }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "reference-20261117-001",
+      "code_commit": "13c3794763aca3fac37a0e245e2292e865fa02cb",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/reference-20261117-001/manifest.json",
+        "bytes": 11076,
+        "sha256": "d58491aa554150c006c850a68d3a1e46b8009611e4c2fae12697114cb5d2c2e4"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/reference-20261117-001.json",
+        "bytes": 969,
+        "sha256": "72cc70bfea385be53ab3851eebb78e0e5569f5a3b824bae66d1ac573fca7e5b2"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/reference-20261117-001"
+      }
     }
   ]
 }
