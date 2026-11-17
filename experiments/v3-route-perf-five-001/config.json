@@ -55,7 +55,7 @@
     "model": {
       "name": "Qwen3-0.6B-F16",
       "prompt_tokens": 44,
-      "generated_tokens": 8,
+      "generated_tokens": 4,
       "selected_weight_count": 5,
       "native_weight_count": 306,
       "kv_mode": "native",
@@ -89,21 +89,21 @@
     },
     "resource_root_policy": "E:/v1_update; full original guard; explicit --resource-root {resource_root} when directly invoking old V3 runner",
     "budgets": {
-      "execution_wall_seconds": 36000,
-      "gpu_process_lifetime_seconds": 32400,
-      "cpu_seconds": 86400,
+      "execution_wall_seconds": 27000,
+      "gpu_process_lifetime_seconds": 23400,
+      "cpu_seconds": 72000,
       "stage_wall_seconds": {
         "build": 3600,
-        "capture_and_qualification": 5400,
-        "pilot": 2700,
-        "formal": 21600,
+        "capture_and_qualification": 4500,
+        "pilot": 1800,
+        "formal": 14400,
         "report_verify": 1800,
         "reserve": 900
       },
       "process_wall_seconds": {
         "small_weight_and_embedding": 120,
         "output_weight": 900,
-        "full_model": 1800,
+        "full_model": 1200,
         "native_capture": 120
       },
       "scientific_host_process_bytes": 8589934592,
@@ -129,17 +129,27 @@
         "reports_manifests_seals",
         "native_fixtures_and_reference_outputs",
         "final_per_process_outputs_and_all_call_hashes",
-        "full_8_step_logits_tokens_KV_state_versions_lifecycle"
+        "full_4_step_logits_tokens_KV_state_versions_lifecycle"
       ],
       "cleanup": "After scientific acceptance, committed B and complete verify: disclose exact scope and size, ask user. Explicit per-experiment approval required; commit exact retention plan before any deletion; commit results and anchors; verify --retained. No automatic deletion.",
       "failed_interrupted_incomplete": "retain by default"
+    },
+    "budget_revision": {
+      "previous_plan_commit": "cf4e325",
+      "prompt_tokens_unchanged": 44,
+      "generated_tokens_from": 8,
+      "generated_tokens_to": 4,
+      "selected_consumers_per_model_from": 40,
+      "selected_consumers_per_model_to": 20,
+      "TPOT_decode_intervals": 3,
+      "interpretation": "Budget caps, not measured duration. Weight matrix and process repeats unchanged; model matrix access work halves, total wall does not necessarily halve. Pilot required before formal."
     }
   },
   "acceptance": {
     "status": "planned_not_executed",
     "candidate_summary_profile_qualification_required": true,
     "weight_outputs": "Every call vs same native reference, element/bit identity; borrowed weights unchanged; full coverage and drain checks.",
-    "model_outputs": "Same token sequence, all 8 full logits and native KV content/version/lifecycle as same-condition native reference.",
+    "model_outputs": "Same token sequence, all 4 full logits and native KV content/version/lifecycle as same-condition native reference.",
     "resource_and_protocol": "Original guards, thresholds, timeouts, dependency, coverage and audit drain criteria remain strict.",
     "statistics": "Per-process repeated mean, median/min/max of 3 independent processes; all individual values retained; no p95 or significance claims.",
     "identity": "Own candidate source/build identity and validator; immutable historical manifests/validators.",

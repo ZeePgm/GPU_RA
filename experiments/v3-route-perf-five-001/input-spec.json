@@ -61,11 +61,7 @@
     32,
     6366,
     5711,
-    4938,
-    311,
-    3553,
-    323,
-    17179
+    4938
   ],
   "reference_inventory": {
     "path": "experiments/v3-three-routes-sampled-001/inventory.json",
@@ -77,7 +73,6 @@
     "bytes": 194891,
     "sha256": "4419c40d5016ff43d6d410725e3edb8baf47aa332bc6d21cc7a684dace52d75f"
   },
-  "gold_native_original44_logits_sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
   "weights": [
     {
       "name": "blk.10.ffn_norm.weight",
@@ -293,5 +288,17 @@
       ]
     }
   ],
-  "freeze_policy": "Capture exact native values first; freeze manifest plus fixtures as --input CAS snapshots before formal source commit A and start. Input-spec is not an assertion that fixtures already exist."
+  "freeze_policy": "Capture exact native values first; freeze manifest plus fixtures as --input CAS snapshots before formal source commit A and start. Input-spec is not an assertion that fixtures already exist.",
+  "historical_reference_logits": {
+    "source_generated_tokens": 8,
+    "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+    "usage": "Historical eight-step source only; verify a four-step prefix separately. Not the identity of the new four-step reference or final KV."
+  },
+  "new_native_reference": {
+    "prompt_tokens": 44,
+    "generated_tokens": 4,
+    "full_logits_sha256": null,
+    "kv_identity": null,
+    "status": "pending_native_capture_and_freeze"
+  }
 }

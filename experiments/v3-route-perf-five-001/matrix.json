@@ -1616,8 +1616,8 @@
       "independent_process_repeat": 1,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1628,8 +1628,8 @@
       "independent_process_repeat": 1,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1640,8 +1640,8 @@
       "independent_process_repeat": 1,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1652,8 +1652,8 @@
       "independent_process_repeat": 2,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1664,8 +1664,8 @@
       "independent_process_repeat": 2,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1676,8 +1676,8 @@
       "independent_process_repeat": 2,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1688,8 +1688,8 @@
       "independent_process_repeat": 3,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1700,8 +1700,8 @@
       "independent_process_repeat": 3,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     },
@@ -1712,8 +1712,8 @@
       "independent_process_repeat": 3,
       "sequences_per_process": 1,
       "prefill_tokens": 44,
-      "generated_tokens": 8,
-      "selected_consumers_expected": 40,
+      "generated_tokens": 4,
+      "selected_consumers_expected": 20,
       "kv_mode": "native",
       "future_run_id": null
     }
@@ -1740,6 +1740,7 @@
       "w5-d"
     ],
     "pilot_model_route": "ptx",
-    "bounded_protocol_diagnostics": "own RUNs; all attempts charged to fixed budgets"
+    "bounded_protocol_diagnostics": "own RUNs; all attempts charged to fixed budgets",
+    "model_generated_tokens": 4
   }
 }
