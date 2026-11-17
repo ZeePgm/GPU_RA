@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "qual-w3-d-symbolic-20261117-001",
+  "version": "v3",
+  "code_commit": "0fb8776e8a5fb3d7783bd5c63fb5a14b6d5c2a89",
+  "code_tree": "313566154ccc9f02622f1c6c42c5342e16c9931b",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/qual-w3-d-symbolic-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 6340,
+      "sha256": "372c0abffe94b2935b9813f198668a19dc78c3db5e18c1ec6e1e1f26652c71cc"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 556,
+      "sha256": "00bad7149f5be0658965b7ec8e1e7c8fae99900e1a437d3a485efe0b98c0c2b2"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 4096,
+      "sha256": "35a52e07d77828778204b71b411e50af89bc7e54e4cba494fd757c9fde9475ea"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 387,
+      "sha256": "0c43b972fe43781a21068ccaafb6840df4cb9181bf3cab26614ded0f4ee51cc5"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 592,
+      "sha256": "0d4cf3c7c317709794c1248b8310a98dfdcbc3957c8bb83adf66b141f5e1c74a"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 758,
+      "sha256": "f5820bcdeb97db49eb6898d5c97484187377e2137f9d4b084637e12fae496d63"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 3548,
+      "sha256": "277bfaa99325b140e7258f86db9487650f89a34206e75ee51b9034dd207b1f85"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 174,
+      "sha256": "58c3d28f1bb141804183dcc311b895b4ef6cef46191da375c96f66ef6208e149"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 5848,
+      "sha256": "2d6db5301c226151363f4c5f067727ba61670946116e20cf2ad1ce43181ad2a9"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "e8d004cd95adcfb287ab2d7278492bf2cfb5c0bc85c25aff8b6c9cf506645e4e"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1099,
+      "sha256": "164892116117eed483bc0498021b400eb1314ba98e8be4ddf19ee90b39ba2d76"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "e34a01d98a1cbb78f11f4f6e8b021fb4b39098492b642a5da8a76639a52496a3"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 5975,
+      "sha256": "ae91188e4aa652cdf18bdd542135f26049a074783898a1bdfbac9ea2a6060e1f"
+    },
+    {
+      "path": "run.json",
+      "bytes": 10041,
+      "sha256": "be87c3e1b338b2cd1d27933e48864ca7244bcfbd09f5323665c5a74443173f24"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 74,
+      "sha256": "227e2f8822a723cb6750ad15ae4d2cf65447011fa6592c7b5a1a3ab5d2f758ac"
+    }
+  ],
+  "file_count": 18,
+  "total_bytes": 1417827,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/ee1b1e312207b0ffa13089235ef478fa24cc68fdda8d7f4737dd897eb8a1ee3f",
+      "bytes": 853,
+      "sha256": "ee1b1e312207b0ffa13089235ef478fa24cc68fdda8d7f4737dd897eb8a1ee3f"
+    },
+    {
+      "storage_path": "inputs/35a52e07d77828778204b71b411e50af89bc7e54e4cba494fd757c9fde9475ea",
+      "bytes": 4096,
+      "sha256": "35a52e07d77828778204b71b411e50af89bc7e54e4cba494fd757c9fde9475ea"
+    },
+    {
+      "storage_path": "inputs/10a47afdfd304059b448c1782ca6454496bf3ddc95b26a43030aa06be4ab55ad",
+      "bytes": 12288,
+      "sha256": "10a47afdfd304059b448c1782ca6454496bf3ddc95b26a43030aa06be4ab55ad"
+    }
+  ]
+}

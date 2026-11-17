@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "qual-w1-p-cuda-20261117-001",
+  "version": "v3",
+  "code_commit": "0fb8776e8a5fb3d7783bd5c63fb5a14b6d5c2a89",
+  "code_tree": "313566154ccc9f02622f1c6c42c5342e16c9931b",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/qual-w1-p-cuda-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 6340,
+      "sha256": "372c0abffe94b2935b9813f198668a19dc78c3db5e18c1ec6e1e1f26652c71cc"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 549,
+      "sha256": "fc5121baaf15cb8b0dc0e999e248962243c099ebd3f07d5f019c0ff7c3897989"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 383,
+      "sha256": "2aa2841038e311384b5af6f12e9991219a9ba4542f9c02633d7c8b0d19e969ce"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 584,
+      "sha256": "30ba3f3e019cac233f26d14399957b685ff116db3b6d8c2a3ca30315a41c487b"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 742,
+      "sha256": "d54627c8e8e7387078f75aabb2265ad3818960597470019f46b914a1d3a5da9e"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 190,
+      "sha256": "cfbb3866f05d7dfe98567dd8e3222275258511edf728cb14f40511df0500178d"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 170,
+      "sha256": "6889b4c9dcd2cc87093ef5aaf4790f66a0cc4ed3e00e937b02b31fb111e115c7"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 5827,
+      "sha256": "2bd65e3f35e3a3c26585a11e782ad807d71bee7b5999014da7d2a37f74f69946"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "077396e6492df09336ce34a5a3b1db43575688cf6ac42a1819dc22b3198eada9"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1099,
+      "sha256": "164892116117eed483bc0498021b400eb1314ba98e8be4ddf19ee90b39ba2d76"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "f7b6a1d4aad94ef23080d2472447cfb5d4c4aeb815178b6d3048a83c72091a8c"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 5934,
+      "sha256": "8c106564e81f8db214fe22fa4634bcdbd4e3ea195e4cd64148980977a292c0d1"
+    },
+    {
+      "path": "run.json",
+      "bytes": 10028,
+      "sha256": "1dacd899ba106a7e9c9de0fc8049855968c2363805c32d8b2e377b22e52d4d1a"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 74,
+      "sha256": "be34eeeb906e1a993bdcdea0b96eb87d2dbce745213ded5d922202512416541d"
+    }
+  ],
+  "file_count": 18,
+  "total_bytes": 1590483,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd",
+      "bytes": 847,
+      "sha256": "deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd"
+    },
+    {
+      "storage_path": "inputs/3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "storage_path": "inputs/e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900",
+      "bytes": 180224,
+      "sha256": "e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900"
+    }
+  ]
+}

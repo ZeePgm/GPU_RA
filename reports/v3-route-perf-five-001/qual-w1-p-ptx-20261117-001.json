@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "qual-w1-p-ptx-20261117-001",
+  "version": "v3",
+  "code_commit": "0fb8776e8a5fb3d7783bd5c63fb5a14b6d5c2a89",
+  "code_tree": "313566154ccc9f02622f1c6c42c5342e16c9931b",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Single native GPU consumer qualification passed: captured activation/stride preserved; complete output bitwise equal; borrowed weight unchanged; all runtime lane/byte and drain checks passed; summary exports no raw lane/request/chunk traces. Excluded from formal statistics.",
+  "manifest": "evidence/v3-route-perf-five-001/qual-w1-p-ptx-20261117-001/manifest.json",
+  "manifest_sha256": "7c411c8e38aaac93043e2b68bdfc6b995770e51860838892f1c7509587c0a542",
+  "created_utc": "2026-11-17T07:14:04.350305+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
