@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "scope": "CPU-only formal admission checks, no GPU launches",
+  "valid_scheduled_bindings": 99,
+  "rejected_mutations": [
+    "route",
+    "repeats",
+    "sample_key",
+    "audit",
+    "output",
+    "fixture",
+    "model_repeats"
+  ],
+  "weight_processes": 90,
+  "model_processes": 9,
+  "task_latency_values": 468,
+  "formal_source_build_unchanged": true
+}

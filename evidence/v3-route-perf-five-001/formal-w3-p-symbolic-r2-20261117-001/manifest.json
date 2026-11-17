@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "formal-w3-p-symbolic-r2-20261117-001",
+  "version": "v3",
+  "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+  "code_tree": "7112cfe8d432a72cebcc595e61efabebac1dc837",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/formal-w3-p-symbolic-r2-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 7339,
+      "sha256": "1d579c0822e29d4a8fe972eedeb5fe249043ec32515825b82f9cf7ffed737138"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 701,
+      "sha256": "36ef2efbf2540853edea36fab2062748f2d66d43544464451d4025b21cf94563"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/environment-after.json",
+      "bytes": 637,
+      "sha256": "d5912aed72316b3e1be598d9c6dc083f595a2dfab13b5d9a71c86a94a88effdf"
+    },
+    {
+      "path": "data/environment-before.json",
+      "bytes": 637,
+      "sha256": "d362ff8d207e8280314e5fcc855599590c79f665c84fd8045c80d54760fc016f"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/result/call-1.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/result/call-2.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/result/call-3.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/result/call-4.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/result/call-5.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 2312,
+      "sha256": "e2c78a319aa899405bcc68c62aac26cc8f90e3f479c4767c5c0adabb101de7f0"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 607,
+      "sha256": "3349381802f1a480aa04d73da5507ac4931a7689303eb359c30aa3e599255c64"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 772,
+      "sha256": "54552b0b89f3ab4f32428f85750f7e4090732b6c2f3ba42f88e27d6e528aa233"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 3548,
+      "sha256": "277bfaa99325b140e7258f86db9487650f89a34206e75ee51b9034dd207b1f85"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 174,
+      "sha256": "1e0fe4e1ab068fd5cd652a80e2c457479851d3e7b5d3bf174fcb4eac352be13f"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 6561,
+      "sha256": "4c9c763eda5a9d16d28b51df2674bff1facd2848671594f09c0a84fd6647a37f"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "3626f928e11ccac1bfcf703f6109c79bb1ca5621f17be50b605644f6181d299b"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1131,
+      "sha256": "2fb2601a73d0a608d31f1dec0f1dc3bde11441a70fa1130da5f3c252b0b1f3bf"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "d2d8b170a837ffbc7cc7b8e7aa589266370f2b4fd0f5173dbbfeae4f00806d9d"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 7074,
+      "sha256": "721cc049e8d689a00bdc7a394b20380efa5cce02fbbd07e35f822fe6b0064e0e"
+    },
+    {
+      "path": "run.json",
+      "bytes": 11670,
+      "sha256": "1e2b388b2dd8c2ef699ae933461d4ea421d36f7f80e8853846285d33004ec93c"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 75,
+      "sha256": "c531b86a443a7d9b9c15e566b7b70122f79f2feff203367db9feef02a01ba8bd"
+    }
+  ],
+  "file_count": 25,
+  "total_bytes": 2502921,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880",
+      "bytes": 1344986,
+      "sha256": "3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880"
+    },
+    {
+      "storage_path": "inputs/5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094",
+      "bytes": 637,
+      "sha256": "5dfd3f2acc296c7245e6c8b9dfa9639031e45b32d6622ffc13dd4ae13680e094"
+    },
+    {
+      "storage_path": "inputs/bca8b6c64983b8a45333bbd4ad11242ba18820cc14d40a97e5bc7f8c3b6debcb",
+      "bytes": 864,
+      "sha256": "bca8b6c64983b8a45333bbd4ad11242ba18820cc14d40a97e5bc7f8c3b6debcb"
+    },
+    {
+      "storage_path": "inputs/4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "storage_path": "inputs/db15f5000dfbe16076aaa2f8800eac64aaf24da8913da0800d82d74d1efaa71a",
+      "bytes": 540672,
+      "sha256": "db15f5000dfbe16076aaa2f8800eac64aaf24da8913da0800d82d74d1efaa71a"
+    }
+  ]
+}

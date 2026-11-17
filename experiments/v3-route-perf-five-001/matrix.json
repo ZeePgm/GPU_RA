@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
-  "status": "plan_only_not_started",
+  "status": "formal_completed_99_of_99_passed_fixed_order",
   "weight_scenarios": [
     {
       "scenario_id": "w1-p",
@@ -715,7 +715,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-symbolic-r1-20261117-001"
     },
     {
       "sequence": 2,
@@ -725,7 +725,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-ptx-r1-20261117-001"
     },
     {
       "sequence": 3,
@@ -735,7 +735,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-cuda-r1-20261117-001"
     },
     {
       "sequence": 4,
@@ -745,7 +745,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-symbolic-r1-20261117-001"
     },
     {
       "sequence": 5,
@@ -755,7 +755,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-ptx-r1-20261117-001"
     },
     {
       "sequence": 6,
@@ -765,7 +765,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-cuda-r1-20261117-001"
     },
     {
       "sequence": 7,
@@ -775,7 +775,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-symbolic-r1-20261117-001"
     },
     {
       "sequence": 8,
@@ -785,7 +785,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-ptx-r1-20261117-001"
     },
     {
       "sequence": 9,
@@ -795,7 +795,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-cuda-r1-20261117-001"
     },
     {
       "sequence": 10,
@@ -805,7 +805,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-symbolic-r1-20261117-001"
     },
     {
       "sequence": 11,
@@ -815,7 +815,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-ptx-r1-20261117-001"
     },
     {
       "sequence": 12,
@@ -825,7 +825,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-cuda-r1-20261117-001"
     },
     {
       "sequence": 13,
@@ -835,7 +835,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-symbolic-r1-20261117-001"
     },
     {
       "sequence": 14,
@@ -845,7 +845,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-ptx-r1-20261117-001"
     },
     {
       "sequence": 15,
@@ -855,7 +855,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-cuda-r1-20261117-001"
     },
     {
       "sequence": 16,
@@ -865,7 +865,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-symbolic-r1-20261117-001"
     },
     {
       "sequence": 17,
@@ -875,7 +875,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-ptx-r1-20261117-001"
     },
     {
       "sequence": 18,
@@ -885,7 +885,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-cuda-r1-20261117-001"
     },
     {
       "sequence": 19,
@@ -895,7 +895,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-symbolic-r1-20261117-001"
     },
     {
       "sequence": 20,
@@ -905,7 +905,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-ptx-r1-20261117-001"
     },
     {
       "sequence": 21,
@@ -915,7 +915,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-cuda-r1-20261117-001"
     },
     {
       "sequence": 22,
@@ -925,7 +925,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-symbolic-r1-20261117-001"
     },
     {
       "sequence": 23,
@@ -935,7 +935,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-ptx-r1-20261117-001"
     },
     {
       "sequence": 24,
@@ -945,7 +945,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-cuda-r1-20261117-001"
     },
     {
       "sequence": 25,
@@ -955,7 +955,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-symbolic-r1-20261117-001"
     },
     {
       "sequence": 26,
@@ -965,7 +965,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-ptx-r1-20261117-001"
     },
     {
       "sequence": 27,
@@ -975,7 +975,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-cuda-r1-20261117-001"
     },
     {
       "sequence": 28,
@@ -985,7 +985,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-symbolic-r1-20261117-001"
     },
     {
       "sequence": 29,
@@ -995,7 +995,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-ptx-r1-20261117-001"
     },
     {
       "sequence": 30,
@@ -1005,7 +1005,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-cuda-r1-20261117-001"
     },
     {
       "sequence": 31,
@@ -1015,7 +1015,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-ptx-r2-20261117-001"
     },
     {
       "sequence": 32,
@@ -1025,7 +1025,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-cuda-r2-20261117-001"
     },
     {
       "sequence": 33,
@@ -1035,7 +1035,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-symbolic-r2-20261117-001"
     },
     {
       "sequence": 34,
@@ -1045,7 +1045,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-ptx-r2-20261117-001"
     },
     {
       "sequence": 35,
@@ -1055,7 +1055,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-cuda-r2-20261117-001"
     },
     {
       "sequence": 36,
@@ -1065,7 +1065,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-symbolic-r2-20261117-001"
     },
     {
       "sequence": 37,
@@ -1075,7 +1075,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-ptx-r2-20261117-001"
     },
     {
       "sequence": 38,
@@ -1085,7 +1085,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-cuda-r2-20261117-001"
     },
     {
       "sequence": 39,
@@ -1095,7 +1095,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-symbolic-r2-20261117-001"
     },
     {
       "sequence": 40,
@@ -1105,7 +1105,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-ptx-r2-20261117-001"
     },
     {
       "sequence": 41,
@@ -1115,7 +1115,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-cuda-r2-20261117-001"
     },
     {
       "sequence": 42,
@@ -1125,7 +1125,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-symbolic-r2-20261117-001"
     },
     {
       "sequence": 43,
@@ -1135,7 +1135,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-ptx-r2-20261117-001"
     },
     {
       "sequence": 44,
@@ -1145,7 +1145,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-cuda-r2-20261117-001"
     },
     {
       "sequence": 45,
@@ -1155,7 +1155,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-symbolic-r2-20261117-001"
     },
     {
       "sequence": 46,
@@ -1165,7 +1165,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-ptx-r2-20261117-001"
     },
     {
       "sequence": 47,
@@ -1175,7 +1175,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-cuda-r2-20261117-001"
     },
     {
       "sequence": 48,
@@ -1185,7 +1185,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-symbolic-r2-20261117-001"
     },
     {
       "sequence": 49,
@@ -1195,7 +1195,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-ptx-r2-20261117-001"
     },
     {
       "sequence": 50,
@@ -1205,7 +1205,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-cuda-r2-20261117-001"
     },
     {
       "sequence": 51,
@@ -1215,7 +1215,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-symbolic-r2-20261117-001"
     },
     {
       "sequence": 52,
@@ -1225,7 +1225,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-ptx-r2-20261117-001"
     },
     {
       "sequence": 53,
@@ -1235,7 +1235,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-cuda-r2-20261117-001"
     },
     {
       "sequence": 54,
@@ -1245,7 +1245,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-symbolic-r2-20261117-001"
     },
     {
       "sequence": 55,
@@ -1255,7 +1255,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-ptx-r2-20261117-001"
     },
     {
       "sequence": 56,
@@ -1265,7 +1265,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-cuda-r2-20261117-001"
     },
     {
       "sequence": 57,
@@ -1275,7 +1275,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-symbolic-r2-20261117-001"
     },
     {
       "sequence": 58,
@@ -1285,7 +1285,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-ptx-r2-20261117-001"
     },
     {
       "sequence": 59,
@@ -1295,7 +1295,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-cuda-r2-20261117-001"
     },
     {
       "sequence": 60,
@@ -1305,7 +1305,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-symbolic-r2-20261117-001"
     },
     {
       "sequence": 61,
@@ -1315,7 +1315,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-cuda-r3-20261117-001"
     },
     {
       "sequence": 62,
@@ -1325,7 +1325,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-symbolic-r3-20261117-001"
     },
     {
       "sequence": 63,
@@ -1335,7 +1335,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-p-ptx-r3-20261117-001"
     },
     {
       "sequence": 64,
@@ -1345,7 +1345,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-cuda-r3-20261117-001"
     },
     {
       "sequence": 65,
@@ -1355,7 +1355,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-symbolic-r3-20261117-001"
     },
     {
       "sequence": 66,
@@ -1365,7 +1365,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w1-d-ptx-r3-20261117-001"
     },
     {
       "sequence": 67,
@@ -1375,7 +1375,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-cuda-r3-20261117-001"
     },
     {
       "sequence": 68,
@@ -1385,7 +1385,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-symbolic-r3-20261117-001"
     },
     {
       "sequence": 69,
@@ -1395,7 +1395,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-p-ptx-r3-20261117-001"
     },
     {
       "sequence": 70,
@@ -1405,7 +1405,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-cuda-r3-20261117-001"
     },
     {
       "sequence": 71,
@@ -1415,7 +1415,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-symbolic-r3-20261117-001"
     },
     {
       "sequence": 72,
@@ -1425,7 +1425,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w2-d-ptx-r3-20261117-001"
     },
     {
       "sequence": 73,
@@ -1435,7 +1435,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-cuda-r3-20261117-001"
     },
     {
       "sequence": 74,
@@ -1445,7 +1445,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-symbolic-r3-20261117-001"
     },
     {
       "sequence": 75,
@@ -1455,7 +1455,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-p-ptx-r3-20261117-001"
     },
     {
       "sequence": 76,
@@ -1465,7 +1465,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-cuda-r3-20261117-001"
     },
     {
       "sequence": 77,
@@ -1475,7 +1475,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-symbolic-r3-20261117-001"
     },
     {
       "sequence": 78,
@@ -1485,7 +1485,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w3-d-ptx-r3-20261117-001"
     },
     {
       "sequence": 79,
@@ -1495,7 +1495,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-cuda-r3-20261117-001"
     },
     {
       "sequence": 80,
@@ -1505,7 +1505,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-symbolic-r3-20261117-001"
     },
     {
       "sequence": 81,
@@ -1515,7 +1515,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-p-ptx-r3-20261117-001"
     },
     {
       "sequence": 82,
@@ -1525,7 +1525,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-cuda-r3-20261117-001"
     },
     {
       "sequence": 83,
@@ -1535,7 +1535,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-symbolic-r3-20261117-001"
     },
     {
       "sequence": 84,
@@ -1545,7 +1545,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 5,
-      "future_run_id": null
+      "future_run_id": "formal-w4-d-ptx-r3-20261117-001"
     },
     {
       "sequence": 85,
@@ -1555,7 +1555,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-cuda-r3-20261117-001"
     },
     {
       "sequence": 86,
@@ -1565,7 +1565,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-symbolic-r3-20261117-001"
     },
     {
       "sequence": 87,
@@ -1575,7 +1575,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-p-ptx-r3-20261117-001"
     },
     {
       "sequence": 88,
@@ -1585,7 +1585,7 @@
       "route": "cuda",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-cuda-r3-20261117-001"
     },
     {
       "sequence": 89,
@@ -1595,7 +1595,7 @@
       "route": "symbolic",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-symbolic-r3-20261117-001"
     },
     {
       "sequence": 90,
@@ -1605,7 +1605,7 @@
       "route": "ptx",
       "first_calls": 1,
       "repeated_calls": 1,
-      "future_run_id": null
+      "future_run_id": "formal-w5-d-ptx-r3-20261117-001"
     }
   ],
   "model_process_schedule": [
@@ -1619,7 +1619,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-symbolic-r1-20261117-001"
     },
     {
       "sequence": 92,
@@ -1631,7 +1631,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-ptx-r1-20261117-001"
     },
     {
       "sequence": 93,
@@ -1643,7 +1643,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-cuda-r1-20261117-001"
     },
     {
       "sequence": 94,
@@ -1655,7 +1655,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-ptx-r2-20261117-001"
     },
     {
       "sequence": 95,
@@ -1667,7 +1667,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-cuda-r2-20261117-001"
     },
     {
       "sequence": 96,
@@ -1679,7 +1679,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-symbolic-r2-20261117-001"
     },
     {
       "sequence": 97,
@@ -1691,7 +1691,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-cuda-r3-20261117-001"
     },
     {
       "sequence": 98,
@@ -1703,7 +1703,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-symbolic-r3-20261117-001"
     },
     {
       "sequence": 99,
@@ -1715,7 +1715,7 @@
       "generated_tokens": 4,
       "selected_consumers_expected": 20,
       "kv_mode": "native",
-      "future_run_id": null
+      "future_run_id": "formal-model-ptx-r3-20261117-001"
     }
   ],
   "totals": {

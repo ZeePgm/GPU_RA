@@ -2,11 +2,11 @@
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
   "parameters": {
-    "status": "qualification_and_pilot_passed_formal_not_started",
+    "status": "formal_completed_passed",
     "execution_authorized": {
       "qualification": true,
       "pilot": true,
-      "formal_matrix": false
+      "formal_matrix": true
     },
     "protocol": "PLAN.md",
     "matrix": "matrix.json",
@@ -100,9 +100,9 @@
         "build": 3600,
         "capture_and_qualification": 4500,
         "pilot": 1800,
-        "formal": 14400,
+        "formal": 15300,
         "report_verify": 1800,
-        "reserve": 900
+        "reserve": 0
       },
       "process_wall_seconds": {
         "small_weight_and_embedding": 120,
@@ -136,7 +136,8 @@
         "full_4_step_logits_tokens_KV_state_versions_lifecycle"
       ],
       "cleanup": "After scientific acceptance, committed B and complete verify: disclose exact scope and size, ask user. Explicit per-experiment approval required; commit exact retention plan before any deletion; commit results and anchors; verify --retained. No automatic deletion.",
-      "failed_interrupted_incomplete": "retain by default"
+      "failed_interrupted_incomplete": "retain by default",
+      "current_experiment_cleanup": "User explicitly declined cleanup; retain all logs for this experiment."
     },
     "budget_revision": {
       "previous_plan_commit": "cf4e325",
@@ -152,14 +153,22 @@
       "report": "reports/v3-route-perf-five-001/BUDGET-REESTIMATE.json",
       "nominal_formal_seconds": 12090.998360699938,
       "recommended_formal_cap_seconds": 15300,
-      "current_formal_cap_seconds": 14400,
-      "recommendation_only": true,
+      "current_formal_cap_seconds": 15300,
+      "recommendation_only": false,
       "total_experiment_cap_unchanged_seconds": 27000,
-      "formal_execution_authorized": false
+      "formal_execution_authorized": true
+    },
+    "user_authorization": {
+      "instruction": "不清理了，启动正式测试，完成后报告结果",
+      "formal_matrix": true,
+      "approved_formal_cap_seconds": 15300,
+      "total_cap_unchanged_seconds": 27000,
+      "reallocation": "15 minute reserve transferred to formal stage; scientific thresholds and counts unchanged",
+      "cleanup": "declined; retain all existing and current experiment logs"
     }
   },
   "acceptance": {
-    "status": "qualification_and_fixed_pilot_passed",
+    "status": "qualification_fixed_pilot_and_99_formal_samples_passed",
     "candidate_summary_profile_qualification_required": true,
     "weight_outputs": "Every call vs same native reference, element/bit identity; borrowed weights unchanged; full coverage and drain checks.",
     "model_outputs": "Same token sequence, all 4 full logits and native KV content/version/lifecycle as same-condition native reference.",

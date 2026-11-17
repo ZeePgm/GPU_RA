@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "formal-w3-d-cuda-r2-20261117-001",
+  "version": "v3",
+  "code_commit": "dd4ee95d705a8f19e1c7f1274a5889a1865066ee",
+  "code_tree": "7112cfe8d432a72cebcc595e61efabebac1dc837",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Formal fixed matrix sample w3-d-cuda-r2 passed: native outputs bitwise equal; original runtime protocol, coverage, resource, dependency and drain checks passed; qualified source/build and GPU/driver identities unchanged. CPU monotonic timing includes runtime validation. No sample replacement; N=3 descriptive aggregation is in FORMAL-RESULTS. Logs retained by explicit user instruction.",
+  "manifest": "evidence/v3-route-perf-five-001/formal-w3-d-cuda-r2-20261117-001/manifest.json",
+  "manifest_sha256": "b3b4ac851105d768e79532e58652b68672eb983e265c76d54e485102cd006091",
+  "created_utc": "2026-11-17T12:29:50.586179+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
