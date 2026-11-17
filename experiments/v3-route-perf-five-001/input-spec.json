@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
-  "status": "specification_pending_native_activation_capture",
+  "status": "native_fixtures_captured_and_four_step_reference_frozen",
   "model_identity": {
     "bytes": 1509347712,
     "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
@@ -156,7 +156,34 @@
   ],
   "selected_physical_bytes": 632819712,
   "unselected_native_weights": 306,
-  "pending_native_fixtures": [
+  "freeze_policy": "Capture exact native values first; freeze manifest plus fixtures as --input CAS snapshots before formal source commit A and start. Input-spec is not an assertion that fixtures already exist.",
+  "historical_reference_logits": {
+    "source_generated_tokens": 8,
+    "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
+    "usage": "Historical eight-step source only; verify a four-step prefix separately. Not the identity of the new four-step reference or final KV."
+  },
+  "new_native_reference": {
+    "prompt_tokens": 44,
+    "generated_tokens": 4,
+    "full_logits": {
+      "bytes": 2430976,
+      "sha256": "f7ce88619484bb7e16413e557b7023c59aecacb8b733406faecea2f50db60f93"
+    },
+    "kv_identity": {
+      "bytes": 5391604,
+      "sha256": "8efe35d5f547ab2db1afd8c9a6ada8cbcbcd59d793b610220a917c1fa54f2ab1"
+    },
+    "source_run": "reference-20261117-001",
+    "status": "passed_and_full_verified",
+    "historical_native_prefix_bitwise": true
+  },
+  "captured_fixture_manifest": {
+    "source_run": "reference-20261117-001",
+    "relative_output_path": "fixtures/manifest.json",
+    "bytes": 8401,
+    "sha256": "d2fdb165feb62c58f349edac5719b265447b1ad3054e1e5aff937c2397f5b369"
+  },
+  "captured_native_fixtures": [
     {
       "scenario_id": "w1-p",
       "capture_step": 0,
@@ -168,7 +195,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 847,
+        "sha256": "deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd"
+      }
     },
     {
       "scenario_id": "w1-d",
@@ -181,7 +213,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 833,
+        "sha256": "9d061d977d8dd18c96ed2ba2ae2bc2fd9c14ea127a45f4cdcaae8b2e4e116554"
+      }
     },
     {
       "scenario_id": "w2-p",
@@ -194,7 +231,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 861,
+        "sha256": "19445de30c708422141d6ec1b889bf8c7f625a9e924350f1daa385ec04e27be6"
+      }
     },
     {
       "scenario_id": "w2-d",
@@ -207,7 +249,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 847,
+        "sha256": "cc44563ca7ccd1156f8b70ebd4201558e82841f99f64e979a46dc8285e40f365"
+      }
     },
     {
       "scenario_id": "w3-p",
@@ -220,7 +267,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 864,
+        "sha256": "bca8b6c64983b8a45333bbd4ad11242ba18820cc14d40a97e5bc7f8c3b6debcb"
+      }
     },
     {
       "scenario_id": "w3-d",
@@ -233,7 +285,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 853,
+        "sha256": "ee1b1e312207b0ffa13089235ef478fa24cc68fdda8d7f4737dd897eb8a1ee3f"
+      }
     },
     {
       "scenario_id": "w4-p",
@@ -246,7 +303,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 855,
+        "sha256": "b3f7228f2fd593697a6f2d63b07284d445cd6df397616d9a406b13da93af2c93"
+      }
     },
     {
       "scenario_id": "w4-d",
@@ -259,7 +321,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 839,
+        "sha256": "9480e24fb675b45fd4869d2b647cd61159c815f26928b40850b63bf5c919561e"
+      }
     },
     {
       "scenario_id": "w5-p",
@@ -272,7 +339,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 858,
+        "sha256": "dd4a8a61becc424c954f1cdebcdb709884465753e5f886ea5c37a92bb7ed2d1d"
+      }
     },
     {
       "scenario_id": "w5-d",
@@ -285,20 +357,12 @@
         "native_output_bytes",
         "sha256_and_size",
         "source_build_config_identity"
-      ]
+      ],
+      "status": "captured",
+      "descriptor_identity": {
+        "bytes": 858,
+        "sha256": "d35b314733279bd8e83e3984dc78d5af52985225a832755235eeafca9f0ebc9d"
+      }
     }
-  ],
-  "freeze_policy": "Capture exact native values first; freeze manifest plus fixtures as --input CAS snapshots before formal source commit A and start. Input-spec is not an assertion that fixtures already exist.",
-  "historical_reference_logits": {
-    "source_generated_tokens": 8,
-    "sha256": "942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835",
-    "usage": "Historical eight-step source only; verify a four-step prefix separately. Not the identity of the new four-step reference or final KV."
-  },
-  "new_native_reference": {
-    "prompt_tokens": 44,
-    "generated_tokens": 4,
-    "full_logits_sha256": null,
-    "kv_identity": null,
-    "status": "pending_native_capture_and_freeze"
-  }
+  ]
 }
