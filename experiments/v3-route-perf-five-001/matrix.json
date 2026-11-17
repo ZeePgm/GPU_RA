@@ -1,0 +1,1745 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "status": "plan_only_not_started",
+  "weight_scenarios": [
+    {
+      "scenario_id": "w1-p",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w1-d",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w2-p",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        2048,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w2-d",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        2048,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w3-p",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w3-d",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w4-p",
+      "tensor": "token_embd.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 90112,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w4-d",
+      "tensor": "token_embd.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 2048,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w5-p",
+      "tensor": "output.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture"
+    },
+    {
+      "scenario_id": "w5-d",
+      "tensor": "output.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture"
+    }
+  ],
+  "weight_cells": [
+    {
+      "scenario_id": "w1-p",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w1-p-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w1-p",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w1-p-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w1-p",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w1-p-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w1-d",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w1-d-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w1-d",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w1-d-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w1-d",
+      "tensor": "blk.10.ffn_norm.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4096,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w1-d-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w2-p",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        2048,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w2-p-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w2-p",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        2048,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w2-p-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w2-p",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        2048,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w2-p-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w2-d",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        2048,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w2-d-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w2-d",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        2048,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w2-d-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w2-d",
+      "tensor": "blk.10.attn_q.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        2048,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 4194304,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w2-d-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w3-p",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w3-p-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w3-p",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w3-p-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w3-p",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w3-p-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w3-d",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w3-d-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w3-d",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w3-d-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w3-d",
+      "tensor": "blk.10.ffn_down.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 6291456,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w3-d-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w4-p",
+      "tensor": "token_embd.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 90112,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w4-p-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w4-p",
+      "tensor": "token_embd.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 90112,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w4-p-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w4-p",
+      "tensor": "token_embd.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        1024,
+        44,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 90112,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w4-p-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w4-d",
+      "tensor": "token_embd.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 2048,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w4-d-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w4-d",
+      "tensor": "token_embd.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 2048,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w4-d-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w4-d",
+      "tensor": "token_embd.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        1024,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 2048,
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w4-d-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w5-p",
+      "tensor": "output.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w5-p-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w5-p",
+      "tensor": "output.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w5-p-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w5-p",
+      "tensor": "output.weight",
+      "phase": "P",
+      "capture_step": 0,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w5-p-cuda",
+      "route": "cuda"
+    },
+    {
+      "scenario_id": "w5-d",
+      "tensor": "output.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w5-d-symbolic",
+      "route": "symbolic"
+    },
+    {
+      "scenario_id": "w5-d",
+      "tensor": "output.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w5-d-ptx",
+      "route": "ptx"
+    },
+    {
+      "scenario_id": "w5-d",
+      "tensor": "output.weight",
+      "phase": "D",
+      "capture_step": 1,
+      "consumer_output_shape": [
+        151936,
+        1,
+        1,
+        1
+      ],
+      "consumer_demand_bytes": 311164928,
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "fixture_status": "pending_native_capture",
+      "cell_id": "w5-d-cuda",
+      "route": "cuda"
+    }
+  ],
+  "weight_process_schedule": [
+    {
+      "sequence": 1,
+      "sample_key": "w1-p-symbolic-r1",
+      "cell_id": "w1-p-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 2,
+      "sample_key": "w1-p-ptx-r1",
+      "cell_id": "w1-p-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 3,
+      "sample_key": "w1-p-cuda-r1",
+      "cell_id": "w1-p-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 4,
+      "sample_key": "w1-d-symbolic-r1",
+      "cell_id": "w1-d-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 5,
+      "sample_key": "w1-d-ptx-r1",
+      "cell_id": "w1-d-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 6,
+      "sample_key": "w1-d-cuda-r1",
+      "cell_id": "w1-d-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 7,
+      "sample_key": "w2-p-symbolic-r1",
+      "cell_id": "w2-p-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 8,
+      "sample_key": "w2-p-ptx-r1",
+      "cell_id": "w2-p-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 9,
+      "sample_key": "w2-p-cuda-r1",
+      "cell_id": "w2-p-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 10,
+      "sample_key": "w2-d-symbolic-r1",
+      "cell_id": "w2-d-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 11,
+      "sample_key": "w2-d-ptx-r1",
+      "cell_id": "w2-d-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 12,
+      "sample_key": "w2-d-cuda-r1",
+      "cell_id": "w2-d-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 13,
+      "sample_key": "w3-p-symbolic-r1",
+      "cell_id": "w3-p-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 14,
+      "sample_key": "w3-p-ptx-r1",
+      "cell_id": "w3-p-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 15,
+      "sample_key": "w3-p-cuda-r1",
+      "cell_id": "w3-p-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 16,
+      "sample_key": "w3-d-symbolic-r1",
+      "cell_id": "w3-d-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 17,
+      "sample_key": "w3-d-ptx-r1",
+      "cell_id": "w3-d-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 18,
+      "sample_key": "w3-d-cuda-r1",
+      "cell_id": "w3-d-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 19,
+      "sample_key": "w4-p-symbolic-r1",
+      "cell_id": "w4-p-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 20,
+      "sample_key": "w4-p-ptx-r1",
+      "cell_id": "w4-p-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 21,
+      "sample_key": "w4-p-cuda-r1",
+      "cell_id": "w4-p-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 22,
+      "sample_key": "w4-d-symbolic-r1",
+      "cell_id": "w4-d-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 23,
+      "sample_key": "w4-d-ptx-r1",
+      "cell_id": "w4-d-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 24,
+      "sample_key": "w4-d-cuda-r1",
+      "cell_id": "w4-d-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 25,
+      "sample_key": "w5-p-symbolic-r1",
+      "cell_id": "w5-p-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 26,
+      "sample_key": "w5-p-ptx-r1",
+      "cell_id": "w5-p-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 27,
+      "sample_key": "w5-p-cuda-r1",
+      "cell_id": "w5-p-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 28,
+      "sample_key": "w5-d-symbolic-r1",
+      "cell_id": "w5-d-symbolic",
+      "independent_process_repeat": 1,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 29,
+      "sample_key": "w5-d-ptx-r1",
+      "cell_id": "w5-d-ptx",
+      "independent_process_repeat": 1,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 30,
+      "sample_key": "w5-d-cuda-r1",
+      "cell_id": "w5-d-cuda",
+      "independent_process_repeat": 1,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 31,
+      "sample_key": "w1-p-ptx-r2",
+      "cell_id": "w1-p-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 32,
+      "sample_key": "w1-p-cuda-r2",
+      "cell_id": "w1-p-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 33,
+      "sample_key": "w1-p-symbolic-r2",
+      "cell_id": "w1-p-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 34,
+      "sample_key": "w1-d-ptx-r2",
+      "cell_id": "w1-d-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 35,
+      "sample_key": "w1-d-cuda-r2",
+      "cell_id": "w1-d-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 36,
+      "sample_key": "w1-d-symbolic-r2",
+      "cell_id": "w1-d-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 37,
+      "sample_key": "w2-p-ptx-r2",
+      "cell_id": "w2-p-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 38,
+      "sample_key": "w2-p-cuda-r2",
+      "cell_id": "w2-p-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 39,
+      "sample_key": "w2-p-symbolic-r2",
+      "cell_id": "w2-p-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 40,
+      "sample_key": "w2-d-ptx-r2",
+      "cell_id": "w2-d-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 41,
+      "sample_key": "w2-d-cuda-r2",
+      "cell_id": "w2-d-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 42,
+      "sample_key": "w2-d-symbolic-r2",
+      "cell_id": "w2-d-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 43,
+      "sample_key": "w3-p-ptx-r2",
+      "cell_id": "w3-p-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 44,
+      "sample_key": "w3-p-cuda-r2",
+      "cell_id": "w3-p-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 45,
+      "sample_key": "w3-p-symbolic-r2",
+      "cell_id": "w3-p-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 46,
+      "sample_key": "w3-d-ptx-r2",
+      "cell_id": "w3-d-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 47,
+      "sample_key": "w3-d-cuda-r2",
+      "cell_id": "w3-d-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 48,
+      "sample_key": "w3-d-symbolic-r2",
+      "cell_id": "w3-d-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 49,
+      "sample_key": "w4-p-ptx-r2",
+      "cell_id": "w4-p-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 50,
+      "sample_key": "w4-p-cuda-r2",
+      "cell_id": "w4-p-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 51,
+      "sample_key": "w4-p-symbolic-r2",
+      "cell_id": "w4-p-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 52,
+      "sample_key": "w4-d-ptx-r2",
+      "cell_id": "w4-d-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 53,
+      "sample_key": "w4-d-cuda-r2",
+      "cell_id": "w4-d-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 54,
+      "sample_key": "w4-d-symbolic-r2",
+      "cell_id": "w4-d-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 55,
+      "sample_key": "w5-p-ptx-r2",
+      "cell_id": "w5-p-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 56,
+      "sample_key": "w5-p-cuda-r2",
+      "cell_id": "w5-p-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 57,
+      "sample_key": "w5-p-symbolic-r2",
+      "cell_id": "w5-p-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 58,
+      "sample_key": "w5-d-ptx-r2",
+      "cell_id": "w5-d-ptx",
+      "independent_process_repeat": 2,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 59,
+      "sample_key": "w5-d-cuda-r2",
+      "cell_id": "w5-d-cuda",
+      "independent_process_repeat": 2,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 60,
+      "sample_key": "w5-d-symbolic-r2",
+      "cell_id": "w5-d-symbolic",
+      "independent_process_repeat": 2,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 61,
+      "sample_key": "w1-p-cuda-r3",
+      "cell_id": "w1-p-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 62,
+      "sample_key": "w1-p-symbolic-r3",
+      "cell_id": "w1-p-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 63,
+      "sample_key": "w1-p-ptx-r3",
+      "cell_id": "w1-p-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 64,
+      "sample_key": "w1-d-cuda-r3",
+      "cell_id": "w1-d-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 65,
+      "sample_key": "w1-d-symbolic-r3",
+      "cell_id": "w1-d-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 66,
+      "sample_key": "w1-d-ptx-r3",
+      "cell_id": "w1-d-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 67,
+      "sample_key": "w2-p-cuda-r3",
+      "cell_id": "w2-p-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 68,
+      "sample_key": "w2-p-symbolic-r3",
+      "cell_id": "w2-p-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 69,
+      "sample_key": "w2-p-ptx-r3",
+      "cell_id": "w2-p-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 70,
+      "sample_key": "w2-d-cuda-r3",
+      "cell_id": "w2-d-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 71,
+      "sample_key": "w2-d-symbolic-r3",
+      "cell_id": "w2-d-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 72,
+      "sample_key": "w2-d-ptx-r3",
+      "cell_id": "w2-d-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 73,
+      "sample_key": "w3-p-cuda-r3",
+      "cell_id": "w3-p-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 74,
+      "sample_key": "w3-p-symbolic-r3",
+      "cell_id": "w3-p-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 75,
+      "sample_key": "w3-p-ptx-r3",
+      "cell_id": "w3-p-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 76,
+      "sample_key": "w3-d-cuda-r3",
+      "cell_id": "w3-d-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 77,
+      "sample_key": "w3-d-symbolic-r3",
+      "cell_id": "w3-d-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 78,
+      "sample_key": "w3-d-ptx-r3",
+      "cell_id": "w3-d-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 79,
+      "sample_key": "w4-p-cuda-r3",
+      "cell_id": "w4-p-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 80,
+      "sample_key": "w4-p-symbolic-r3",
+      "cell_id": "w4-p-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 81,
+      "sample_key": "w4-p-ptx-r3",
+      "cell_id": "w4-p-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 82,
+      "sample_key": "w4-d-cuda-r3",
+      "cell_id": "w4-d-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 83,
+      "sample_key": "w4-d-symbolic-r3",
+      "cell_id": "w4-d-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 84,
+      "sample_key": "w4-d-ptx-r3",
+      "cell_id": "w4-d-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 5,
+      "future_run_id": null
+    },
+    {
+      "sequence": 85,
+      "sample_key": "w5-p-cuda-r3",
+      "cell_id": "w5-p-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 86,
+      "sample_key": "w5-p-symbolic-r3",
+      "cell_id": "w5-p-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 87,
+      "sample_key": "w5-p-ptx-r3",
+      "cell_id": "w5-p-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 88,
+      "sample_key": "w5-d-cuda-r3",
+      "cell_id": "w5-d-cuda",
+      "independent_process_repeat": 3,
+      "route": "cuda",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 89,
+      "sample_key": "w5-d-symbolic-r3",
+      "cell_id": "w5-d-symbolic",
+      "independent_process_repeat": 3,
+      "route": "symbolic",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    },
+    {
+      "sequence": 90,
+      "sample_key": "w5-d-ptx-r3",
+      "cell_id": "w5-d-ptx",
+      "independent_process_repeat": 3,
+      "route": "ptx",
+      "first_calls": 1,
+      "repeated_calls": 1,
+      "future_run_id": null
+    }
+  ],
+  "model_process_schedule": [
+    {
+      "sequence": 91,
+      "sample_key": "model-symbolic-r1",
+      "route": "symbolic",
+      "independent_process_repeat": 1,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 92,
+      "sample_key": "model-ptx-r1",
+      "route": "ptx",
+      "independent_process_repeat": 1,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 93,
+      "sample_key": "model-cuda-r1",
+      "route": "cuda",
+      "independent_process_repeat": 1,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 94,
+      "sample_key": "model-ptx-r2",
+      "route": "ptx",
+      "independent_process_repeat": 2,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 95,
+      "sample_key": "model-cuda-r2",
+      "route": "cuda",
+      "independent_process_repeat": 2,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 96,
+      "sample_key": "model-symbolic-r2",
+      "route": "symbolic",
+      "independent_process_repeat": 2,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 97,
+      "sample_key": "model-cuda-r3",
+      "route": "cuda",
+      "independent_process_repeat": 3,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 98,
+      "sample_key": "model-symbolic-r3",
+      "route": "symbolic",
+      "independent_process_repeat": 3,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    },
+    {
+      "sequence": 99,
+      "sample_key": "model-ptx-r3",
+      "route": "ptx",
+      "independent_process_repeat": 3,
+      "sequences_per_process": 1,
+      "prefill_tokens": 44,
+      "generated_tokens": 8,
+      "selected_consumers_expected": 40,
+      "kv_mode": "native",
+      "future_run_id": null
+    }
+  ],
+  "totals": {
+    "weight_cells": 30,
+    "weight_processes": 90,
+    "weight_first_values": 90,
+    "weight_repeated_values": 378,
+    "weight_latency_values": 468,
+    "model_processes": 9,
+    "formal_processes": 99
+  },
+  "preparation_excluded_from_formal": {
+    "native_reference_capture_processes": 1,
+    "functional_weight_calls": 30,
+    "functional_model_processes": 3,
+    "pilot_weight_processes": 9,
+    "pilot_weight_calls_per_process": 2,
+    "pilot_model_processes": 1,
+    "pilot_weight_scenarios": [
+      "w1-p",
+      "w4-p",
+      "w5-d"
+    ],
+    "pilot_model_route": "ptx",
+    "bounded_protocol_diagnostics": "own RUNs; all attempts charged to fixed budgets"
+  }
+}

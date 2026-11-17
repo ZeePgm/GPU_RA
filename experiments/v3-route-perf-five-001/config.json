@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "parameters": {
+    "status": "plan_only",
+    "execution_authorized": false,
+    "protocol": "PLAN.md",
+    "matrix": "matrix.json",
+    "input_spec": "input-spec.json",
+    "routes": [
+      "symbolic",
+      "ptx",
+      "cuda"
+    ],
+    "weights": [
+      "blk.10.ffn_norm.weight",
+      "blk.10.attn_q.weight",
+      "blk.10.ffn_down.weight",
+      "token_embd.weight",
+      "output.weight"
+    ],
+    "route_chunks_bytes": {
+      "symbolic": 262144,
+      "ptx": 32768,
+      "cuda": 262144
+    },
+    "u16_fallback_chunks_bytes": {
+      "symbolic": 32768,
+      "ptx": 4096,
+      "cuda": 32768
+    },
+    "implementation_policy": "Preserve each route implementation, shape and chunk strategy. Include intrinsic costs; do not normalize by bytes or request counts.",
+    "audit_profile": "pending_qualified_summary_profile",
+    "primary_time_source": "same-process CPU monotonic ns, with actual GPU consumer completion observed on CPU",
+    "timing_boundaries": "PLAN.md section 4",
+    "independent_process_repeats": 3,
+    "route_orders": [
+      [
+        "symbolic",
+        "ptx",
+        "cuda"
+      ],
+      [
+        "ptx",
+        "cuda",
+        "symbolic"
+      ],
+      [
+        "cuda",
+        "symbolic",
+        "ptx"
+      ]
+    ],
+    "warmup_policy": "First measured call reported separately; 5 repeated calls except output.weight has 1. No empty-cache or steady-state claim.",
+    "model": {
+      "name": "Qwen3-0.6B-F16",
+      "prompt_tokens": 44,
+      "generated_tokens": 8,
+      "selected_weight_count": 5,
+      "native_weight_count": 306,
+      "kv_mode": "native",
+      "context": 512,
+      "batch": 256,
+      "ubatch": 256,
+      "threads": 8,
+      "embedding_buffer": "CUDA0 explicit override",
+      "graph_switches": {
+        "cuda_graphs": false,
+        "fusion": false,
+        "flash": false,
+        "matrix_precision": "F32",
+        "graph_reuse": false,
+        "token_only_graph": true
+      }
+    },
+    "registration": {
+      "media_capacity_bytes": 2147483648,
+      "logical_range_alignment_bytes": 32768,
+      "host_resident_fragments": 256,
+      "mailbox_slots": 2048,
+      "launch_slots": 1,
+      "audit_limit_per_queue": 513,
+      "gpu_mirror_peak_bytes": {
+        "symbolic": 0,
+        "ptx": 262144,
+        "cuda": 262144
+      },
+      "gpu_timing_peak_bytes": 262144
+    },
+    "resource_root_policy": "E:/v1_update; full original guard; explicit --resource-root {resource_root} when directly invoking old V3 runner",
+    "budgets": {
+      "execution_wall_seconds": 36000,
+      "gpu_process_lifetime_seconds": 32400,
+      "cpu_seconds": 86400,
+      "stage_wall_seconds": {
+        "build": 3600,
+        "capture_and_qualification": 5400,
+        "pilot": 2700,
+        "formal": 21600,
+        "report_verify": 1800,
+        "reserve": 900
+      },
+      "process_wall_seconds": {
+        "small_weight_and_embedding": 120,
+        "output_weight": 900,
+        "full_model": 1800,
+        "native_capture": 120
+      },
+      "scientific_host_process_bytes": 8589934592,
+      "original_minimum_free_host_bytes": 1006632960,
+      "original_minimum_free_gpu_bytes": 2308702208,
+      "isolated_gpu_output_buffers_bytes": 4194304,
+      "new_run_outputs_all_attempts_bytes": 2147483648,
+      "per_scientific_process_output_bytes": 33554432,
+      "stdout_stderr_per_process_bytes": 1048576,
+      "full_raw_diagnostics_total_bytes": 8388608,
+      "build_bytes": 8589934592,
+      "minimum_free_disk_before_start_bytes": 17179869184,
+      "shared_model_and_input_cas": "separate; not in 2 GiB output cap",
+      "stop_policy": "stop and retain all attempts at any cap; no truncation, silent sample replacement, implicit matrix reduction or budget growth"
+    },
+    "retention": {
+      "main_runs": "scalar summaries plus all required references; no lane/request/activity/chunk raw files by default",
+      "bounded_diagnostics": "short-term, total raw <=8 MiB",
+      "long_term": [
+        "code_scripts_config",
+        "input_and_build_identity",
+        "all_scalar_samples_and_status",
+        "reports_manifests_seals",
+        "native_fixtures_and_reference_outputs",
+        "final_per_process_outputs_and_all_call_hashes",
+        "full_8_step_logits_tokens_KV_state_versions_lifecycle"
+      ],
+      "cleanup": "After scientific acceptance, committed B and complete verify: disclose exact scope and size, ask user. Explicit per-experiment approval required; commit exact retention plan before any deletion; commit results and anchors; verify --retained. No automatic deletion.",
+      "failed_interrupted_incomplete": "retain by default"
+    }
+  },
+  "acceptance": {
+    "status": "planned_not_executed",
+    "candidate_summary_profile_qualification_required": true,
+    "weight_outputs": "Every call vs same native reference, element/bit identity; borrowed weights unchanged; full coverage and drain checks.",
+    "model_outputs": "Same token sequence, all 8 full logits and native KV content/version/lifecycle as same-condition native reference.",
+    "resource_and_protocol": "Original guards, thresholds, timeouts, dependency, coverage and audit drain criteria remain strict.",
+    "statistics": "Per-process repeated mean, median/min/max of 3 independent processes; all individual values retained; no p95 or significance claims.",
+    "identity": "Own candidate source/build identity and validator; immutable historical manifests/validators.",
+    "delivery": "Future scientific runs require report B committed and verify report_committed=true. Plan P alone is not scientific acceptance."
+  }
+}
