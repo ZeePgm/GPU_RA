@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "pilot-w1-p-ptx-20261117-001",
+  "version": "v3",
+  "code_commit": "58be8458eed28f32a609a372e7df4361ce974c29",
+  "code_tree": "a36f408ab41b7f8b10357253ae8c0746c8908fea",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/pilot-w1-p-ptx-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 6432,
+      "sha256": "262044c8a918f4adeffb010ee4a9b4e4958fb1f6f81243cf29f7c5db69ab4a08"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 581,
+      "sha256": "5076a2e2960921f30b958da8f9ece6d2f5851b393072a7efa609afffb2c1eea0"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "path": "data/environment-after.json",
+      "bytes": 637,
+      "sha256": "768c49ac023b55545f2a637c77ee8a7e3c6d6ab85d5921b5508d5275710700d7"
+    },
+    {
+      "path": "data/environment-before.json",
+      "bytes": 637,
+      "sha256": "c252dc87bafeb690bb1c975aab5c6b5eb15be3890935c99dc6964cb2dfe1fd10"
+    },
+    {
+      "path": "data/result/call-0.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/call-1.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/result/calls.json",
+      "bytes": 764,
+      "sha256": "b4b71da05297c8bdf321a144832725df539991e0d8a9131526b5daef9cc4ab75"
+    },
+    {
+      "path": "data/result/reader/copy-16.ptx",
+      "bytes": 1057,
+      "sha256": "f42d28afea02b2fb198684b24542d84f68f9df937f9f718dd5e1e92df1f1e979"
+    },
+    {
+      "path": "data/result/reader/copy-16.rewritten.ptx",
+      "bytes": 8241,
+      "sha256": "32d0632879fdcbc8b58855a38bf7f41a69f1d38b75b4815da816068da2bcba1c"
+    },
+    {
+      "path": "data/result/reader/copy-2.ptx",
+      "bytes": 1028,
+      "sha256": "2778b3e308ba74643178ab442f9f808c99bae60f866ca8ecb40a9317b1d161b9"
+    },
+    {
+      "path": "data/result/reader/copy-2.rewritten.ptx",
+      "bytes": 8204,
+      "sha256": "50347fd0540757ed27cbeadfdba1b9c66b163c34d38400368a3dcbbdb873c94d"
+    },
+    {
+      "path": "data/result/reader/ptx-identities.json",
+      "bytes": 1410,
+      "sha256": "6bf0bfec8b96fb2723bdd1f3af64e14102e1df062a15abd9e5e644190bb4af67"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 588,
+      "sha256": "4dc62401fa89b6f82e441effdeab6333f8ccd8b4cc54604794ef60b570bd6207"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 749,
+      "sha256": "8eb10e734082ab01de4acca1b4e1aca60f651ce2e3dab2b1e6995a2c7f6177d7"
+    },
+    {
+      "path": "data/result/weight-hashes.json",
+      "bytes": 190,
+      "sha256": "cfbb3866f05d7dfe98567dd8e3222275258511edf728cb14f40511df0500178d"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 169,
+      "sha256": "2c696212bf94836cc2e029ba153b1ef1922c4896d3e4c111635e5cc5136c711e"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 5943,
+      "sha256": "59de0b6b799caeadef4714a8886ecb3fc57e5f8c82684ab91732f20f19c17460"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 466,
+      "sha256": "9e498004d5b2c900d55a3bd85abd18de0886dd74ef9be64b9fcd8f963eb87290"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1099,
+      "sha256": "164892116117eed483bc0498021b400eb1314ba98e8be4ddf19ee90b39ba2d76"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "39c8099fca6d1bb62f12b154cb85d9f61c8dfee91978dbedf484abe323febdc4"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 6422,
+      "sha256": "7ccfc52a55d7298d69e5e501c1846af24441744f2047284e48377459fe7ade60"
+    },
+    {
+      "path": "run.json",
+      "bytes": 10756,
+      "sha256": "c9250b42545117d4775e408b21f6c1195c721ed9c980e1a6ef1e31e6dea32a1b"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 74,
+      "sha256": "65036b7d966ad1b936439f0f577f36acede3291a77fef75ffe2e47ad60134311"
+    }
+  ],
+  "file_count": 26,
+  "total_bytes": 1793769,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825",
+      "bytes": 1377339,
+      "sha256": "916d8a2537ca36f28e8c95d1a70b04b0af3449648f3f7c6e2c30e734d3152825"
+    },
+    {
+      "storage_path": "inputs/3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880",
+      "bytes": 1344986,
+      "sha256": "3073a39d4a79980ac22938fbe9812d464de0609537cb63da1ad1762729b69880"
+    },
+    {
+      "storage_path": "inputs/deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd",
+      "bytes": 847,
+      "sha256": "deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd"
+    },
+    {
+      "storage_path": "inputs/3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "storage_path": "inputs/e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900",
+      "bytes": 180224,
+      "sha256": "e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900"
+    }
+  ]
+}
