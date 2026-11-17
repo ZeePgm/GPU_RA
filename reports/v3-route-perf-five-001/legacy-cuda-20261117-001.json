@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "legacy-cuda-20261117-001",
+  "version": "v3",
+  "code_commit": "ee7801b8a3a8aa3d120b4b3e00554f835d049952",
+  "code_tree": "800e664732abc021818dedb08e52da478f93d1c5",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Legacy registration regression passed with unchanged negative, media and drain checks; CPU core 608/608 passed.",
+  "manifest": "evidence/v3-route-perf-five-001/legacy-cuda-20261117-001/manifest.json",
+  "manifest_sha256": "3a64656e6bf7a97b392ff55e9aea3b19e7064444ba8a639ec70bf27430a542ba",
+  "created_utc": "2026-11-17T06:47:50.851900+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

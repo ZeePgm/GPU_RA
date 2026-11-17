@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "diag-cuda-full-20261117-001",
+  "version": "v3",
+  "code_commit": "ee7801b8a3a8aa3d120b4b3e00554f835d049952",
+  "code_tree": "800e664732abc021818dedb08e52da478f93d1c5",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/diag-cuda-full-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 6340,
+      "sha256": "372c0abffe94b2935b9813f198668a19dc78c3db5e18c1ec6e1e1f26652c71cc"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 1411,
+      "sha256": "74cd9120f4ab45ccd29d753cb5f3ff029ada35e9e91cb11184d77a4b37d4b323"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "49f2dbd2be399b4d18c228e930457c39ee22d2dcc072c146329e4338167990a8"
+    },
+    {
+      "path": "data/result/bindings.json",
+      "bytes": 628,
+      "sha256": "7207d85bab28887404f2ea85b98ccb824563ed82a85c78ab0234f44126dc86c5"
+    },
+    {
+      "path": "data/result/gpu-activity.jsonl",
+      "bytes": 350756,
+      "sha256": "90a461e5941eb5ec19a5360186ccd1e24d05caf6838ac40c6230a9061e4201e1"
+    },
+    {
+      "path": "data/result/gpu-trace-summary.json",
+      "bytes": 257,
+      "sha256": "2b236794ed95659995a03930a7bf806502fcd9b85523dce92fdc078711b49f84"
+    },
+    {
+      "path": "data/result/reader/chunks.jsonl",
+      "bytes": 4586,
+      "sha256": "be2b57782b662a244ca8bb6c8bba347d96485bff7836c1c803c41e4a24a950c5"
+    },
+    {
+      "path": "data/result/reader/lane-times.bin",
+      "bytes": 221168,
+      "sha256": "267de2fb7226f93ef2b22cac29dd03c7d74368b4494e9adc127ea61430dba2e0"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/requests.bin",
+      "bytes": 45032,
+      "sha256": "4a077eabfc97e39be96cceb6211707c3128cc432951150f91acf965a10b47685"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 607,
+      "sha256": "aaa0566a6f95bc7d2757523123df2a9257f276184df01c4d4f9fdbafcafcb80b"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 2694,
+      "sha256": "a2f5527996a767bc083889406c03ea656795db5adaa69f979671fa1843eed512"
+    },
+    {
+      "path": "data/result/unsupported-control-flow.ptx",
+      "bytes": 227,
+      "sha256": "c27e2c20e902155ea0493bfdde4005c708d52853aebd12318b90111ba1978222"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 1853,
+      "sha256": "278839c9b42fe385b00f1df55b3b86ca08aa51e5ccf32b27f5d10b62a13ba1bf"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 5864,
+      "sha256": "981230fa1f7a0a37b959382279a9a1f7a6371aa6ffc4a7c13ec973e7cb807160"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "164e92c7e991a535e5cbad62ef7b1438d474e90c9227abba5d1aefba21175e82"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1099,
+      "sha256": "164892116117eed483bc0498021b400eb1314ba98e8be4ddf19ee90b39ba2d76"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "39a4c431b4e191fb19d55fb46108fb4b396b8bf4c2e28eab31bf997c51009e20"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 5077,
+      "sha256": "fcfefdb5a920b0f4ed9851ff9f7ed407ba98f9d7ed6ffb664a4bf084f659c80b"
+    },
+    {
+      "path": "run.json",
+      "bytes": 8886,
+      "sha256": "95b1f69cb8156a3557040f8bcdc6881bcc3caa5d5c80fe5b894754fd4210b6bd"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 75,
+      "sha256": "0e65acdb51c7c6b10fb7d1331978cbc8b4a5927670033ce86441ae24c3e82818"
+    }
+  ],
+  "file_count": 22,
+  "total_bytes": 2034899,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/49f2dbd2be399b4d18c228e930457c39ee22d2dcc072c146329e4338167990a8",
+      "bytes": 1377339,
+      "sha256": "49f2dbd2be399b4d18c228e930457c39ee22d2dcc072c146329e4338167990a8"
+    },
+    {
+      "storage_path": "inputs/1405bf42ddbfe7a159857a444ee86b58037d8c36d49f3e6cf9c76529566f1951",
+      "bytes": 80295,
+      "sha256": "1405bf42ddbfe7a159857a444ee86b58037d8c36d49f3e6cf9c76529566f1951"
+    }
+  ]
+}
