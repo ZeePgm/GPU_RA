@@ -113,6 +113,11 @@ def run(args):
     need(not args.output.exists(), 'Fresh output directory required');args.output.mkdir(parents=True)
     try:
         identity = read(args.build_dir / 'candidate-receipt.json');X.unchanged(args.build_dir, identity)
+        if args.phase=='pilot':
+            need(args.qualification is not None,'Completed qualification receipt required before pilot')
+            q=read(args.qualification)
+            need(q['status']=='passed' and q['weight_calls']==30 and q['model_smokes']==3 and q['dual_audit_routes']==3 and q['candidate_source']==identity['source'],'Pilot qualification scope/identity mismatch')
+        if args.mode=='weight':need(args.repeats==(1 if args.phase=='pilot' else 0),'This stage permits only one functional call or first+one pilot call')
         need(sha(args.model) == S.MODEL_SHA, 'Model input SHA-256 mismatch')
         write(args.output / 'candidate-receipt.json', identity)
         child = args.output / 'result'
@@ -185,7 +190,7 @@ def run(args):
         need(X.directory_bytes(args.output)<=32*1024**2,'Per-process output budget')
         write(args.output/'acceptance.json',{**acceptance,'mode':args.mode,'route':args.route,'audit':args.audit,'process_wall_seconds':process['wall_seconds'],
             'cpu_seconds':process['final_metrics']['cpu_seconds'],'output_bytes_before_acceptance':X.directory_bytes(args.output),
-            'formal_sample':False,'scope':'qualification or pilot only; no formal matrix authorization'})
+            'formal_sample':False,'phase':args.phase,'scope':'qualification or pilot only; no formal matrix authorization'})
     except BaseException:
         write(args.output/'failure.json',{'status':'failed','error':traceback.format_exc()});raise
 
@@ -194,10 +199,11 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode',choices=['receipt','reference','model','weight','diagnostic','legacy-registration'])
     parser.add_argument('--build-dir',type=Path,required=True)
-    for key in ('model','cuda-root','resource-root','output','fixture','reference'):parser.add_argument('--'+key,type=Path)
+    for key in ('model','cuda-root','resource-root','output','fixture','reference','qualification'):parser.add_argument('--'+key,type=Path)
     parser.add_argument('--route',choices=['native','symbolic','ptx','cuda'],default='native')
     parser.add_argument('--audit',choices=['full','summary'],default='summary')
     parser.add_argument('--repeats',type=int,default=0)
+    parser.add_argument('--phase',choices=['qualification','pilot'],default='qualification')
     args=parser.parse_args()
     if args.mode=='receipt':receipt(args.build_dir.resolve())
     else:run(args)
