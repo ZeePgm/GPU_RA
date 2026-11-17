@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "reference-20261117-002",
+  "version": "v3",
+  "code_commit": "065e51b4395c7c044aa81528b38b13457089df4b",
+  "code_tree": "38ca7918afe9daf87063845d274a9439c88ad6c2",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Final-build native reference passed. All ten fixture descriptors and all input/output bytes, four-step logits and native KV are bitwise identical to reference-001; historical native logits prefix also matches. Refresh covers the rebuilt GGML base version metadata after the isolated-entry fix.",
+  "manifest": "evidence/v3-route-perf-five-001/reference-20261117-002/manifest.json",
+  "manifest_sha256": "1fe05b5d255e8c2b0325d67792a23869efe53de58c8ad0b994d41de21c882073",
+  "created_utc": "2026-11-17T07:16:47.078611+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

@@ -1922,6 +1922,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-route-perf-five-001/qual-w5-d-cuda-20261117-001"
       }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "reference-20261117-002",
+      "code_commit": "065e51b4395c7c044aa81528b38b13457089df4b",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/reference-20261117-002/manifest.json",
+        "bytes": 10861,
+        "sha256": "1fe05b5d255e8c2b0325d67792a23869efe53de58c8ad0b994d41de21c882073"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/reference-20261117-002.json",
+        "bytes": 1032,
+        "sha256": "ef5aff59f61022aa30669c03fbef3226da77eb7b7106be69db4f8f509810681b"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/reference-20261117-002"
+      }
     }
   ]
 }
