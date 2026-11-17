@@ -4,6 +4,7 @@
 #include "ggml-cuda.h"
 #include "hbflab/sampled_reader.hpp"
 #include "hbflab/ptx.hpp"
+#include "hbflab/platform.hpp"
 #include <cuda_runtime.h>
 #include <nlohmann/json.hpp>
 #include <array>
