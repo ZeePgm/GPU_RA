@@ -1,0 +1,12 @@
+# 五类代表只读权重三入口性能比较计划 — smoke-symbolic-20261117-001
+
+- Code commit A: `ff096fe1347db4af5a332a9608f6bfc49d45d577`
+- Base: `codex/v3-joint` / `9f6eaa71f79d89120b56602d84c99614ef22839e`
+- Run: `v3-route-perf-five-001/smoke-symbolic-20261117-001`
+- Process status / exit: `completed` / `0`
+- Author verdict: `passed`
+- Data manifest SHA-256: `f79b7769606fe72da2afc9308636ad3d4799cbf5897997a4600072a562e455a1`
+
+Final candidate five-weight four-step model smoke passed: all 20 consumers and publication dependencies covered, 2513116 requests / 1286715392 bytes fully checked, complete logits and native KV bitwise equal to same-build native reference, borrowed weights unchanged, resources drained. Qualification only, not a formal performance sample.
+
+Traceability checks do not replace scientific acceptance. Commit this report separately; its code reference remains A.

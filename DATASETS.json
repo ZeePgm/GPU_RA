@@ -1941,6 +1941,63 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-route-perf-five-001/reference-20261117-002"
       }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "smoke-symbolic-20261117-001",
+      "code_commit": "ff096fe1347db4af5a332a9608f6bfc49d45d577",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/smoke-symbolic-20261117-001/manifest.json",
+        "bytes": 6423,
+        "sha256": "f79b7769606fe72da2afc9308636ad3d4799cbf5897997a4600072a562e455a1"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/smoke-symbolic-20261117-001.json",
+        "bytes": 1088,
+        "sha256": "d53a3d1eefb1ea0f369fd8ea617f1ee8c0e2c0964b4aac4710aa564bb665cdc8"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/smoke-symbolic-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "smoke-ptx-20261117-001",
+      "code_commit": "ff096fe1347db4af5a332a9608f6bfc49d45d577",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/smoke-ptx-20261117-001/manifest.json",
+        "bytes": 7275,
+        "sha256": "7a2de0d881bec0ed951a842e6e876d76a42441dc156418e0e72f9623fd530d68"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/smoke-ptx-20261117-001.json",
+        "bytes": 1078,
+        "sha256": "ac21e3f0982cb7ea24e9d06c4dbf2260c7aff8ca88e314c8d6de367fd7574e72"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/smoke-ptx-20261117-001"
+      }
+    },
+    {
+      "experiment_id": "v3-route-perf-five-001",
+      "run_id": "smoke-cuda-20261117-001",
+      "code_commit": "ff096fe1347db4af5a332a9608f6bfc49d45d577",
+      "manifest": {
+        "path": "evidence/v3-route-perf-five-001/smoke-cuda-20261117-001/manifest.json",
+        "bytes": 6416,
+        "sha256": "5eee994e455d86331536b1faa13527b2d3de0b9b1900961e62873555dc0d3aec"
+      },
+      "report": {
+        "path": "reports/v3-route-perf-five-001/smoke-cuda-20261117-001.json",
+        "bytes": 1080,
+        "sha256": "2be21dc51f87403455ef785d958f837a8d7ac42f4c5607e64ce1c17084dac607"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-route-perf-five-001/smoke-cuda-20261117-001"
+      }
     }
   ]
 }
