@@ -6,6 +6,9 @@ scientific runner, background controller, or change to historical validators.
 import argparse
 from collections import Counter
 import json
+import os
+import platform
+from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
 import sys
@@ -107,6 +110,15 @@ def validate_model(folder, route, reference):
         'independent_full_raw_offline_recheck': False}
 
 
+def environment_probe():
+    # Driver query is strictly outside the timed C++ process, as in the frozen policy.
+    cmd=['nvidia-smi','--id=0','--query-gpu=index,name,uuid,driver_version,memory.total,memory.free,temperature.gpu,clocks.sm,power.draw','--format=csv']
+    p=subprocess.run(cmd,capture_output=True,text=True,timeout=20)
+    need(p.returncode==0,'Pre/post GPU environment observation failed')
+    return {'utc':datetime.now(timezone.utc).isoformat(),'command':cmd,'gpu':p.stdout.strip(),
+        'platform':platform.platform(),'logical_cpu_count':os.cpu_count(),'python':sys.executable}
+
+
 def run(args):
     args.build_dir, args.output = args.build_dir.resolve(), args.output.resolve()
     need(args.resource_root.resolve() == Path('E:/v1_update').resolve(), 'Full original workspace resource scope required')
@@ -146,7 +158,13 @@ def run(args):
             command = [args.build_dir/'bin/sampled_reader_fixture.exe',HERE/'inventory.json',args.model,HERE/'diagnostic-plan.json',child,args.route,args.audit]
             timeout=120
         else: raise ValueError('Unknown mode')
+        if args.process_wall_cap is not None:
+            need(args.process_wall_cap>0,'Positive process wall cap required')
+            timeout=min(timeout,args.process_wall_cap)
+        need(X.directory_bytes(args.output.parent.parent)+33*1024**2<=2*1024**3,'Experiment output cap cannot admit another process')
+        if args.phase=='pilot':write(args.output/'environment-before.json',environment_probe())
         process = X.execute(args, command, 'result', child, extra_env=env, timeout=timeout, require_ggml=require_ggml, disk_cap=32*1024**2)
+        if args.phase=='pilot':write(args.output/'environment-after.json',environment_probe())
         need((args.output/'result.log').stat().st_size <= 1024**2, 'stdout/stderr budget')
         if args.mode in ('reference','model'):
             acceptance = validate_model(child, args.route, args.reference)
@@ -195,7 +213,7 @@ def run(args):
         need(X.directory_bytes(args.output)<=32*1024**2,'Per-process output budget')
         write(args.output/'acceptance.json',{**acceptance,'mode':args.mode,'route':args.route,'audit':args.audit,'process_wall_seconds':process['wall_seconds'],
             'cpu_seconds':process['final_metrics']['cpu_seconds'],'output_bytes_before_acceptance':X.directory_bytes(args.output),
-            'formal_sample':False,'phase':args.phase,'scope':'qualification or pilot only; no formal matrix authorization'})
+            'formal_sample':False,'phase':args.phase,'process_wall_cap_seconds':timeout,'scope':'qualification or pilot only; no formal matrix authorization'})
     except BaseException:
         write(args.output/'failure.json',{'status':'failed','error':traceback.format_exc()});raise
 
@@ -208,6 +226,7 @@ if __name__=='__main__':
     parser.add_argument('--route',choices=['native','symbolic','ptx','cuda'],default='native')
     parser.add_argument('--audit',choices=['full','summary'],default='summary')
     parser.add_argument('--repeats',type=int,default=0)
+    parser.add_argument('--process-wall-cap',type=int)
     parser.add_argument('--phase',choices=['qualification','pilot'],default='qualification')
     args=parser.parse_args()
     if args.mode=='receipt':receipt(args.build_dir.resolve())

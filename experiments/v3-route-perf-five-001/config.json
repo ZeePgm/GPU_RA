@@ -2,7 +2,7 @@
   "schema": 1,
   "experiment_id": "v3-route-perf-five-001",
   "parameters": {
-    "status": "implementation_qualification_and_pilot_authorized",
+    "status": "qualified_ready_for_pilot_formal_disabled",
     "execution_authorized": {
       "qualification": true,
       "pilot": true,
@@ -150,13 +150,14 @@
     }
   },
   "acceptance": {
-    "status": "planned_not_executed",
+    "status": "qualification_passed_pilot_pending",
     "candidate_summary_profile_qualification_required": true,
     "weight_outputs": "Every call vs same native reference, element/bit identity; borrowed weights unchanged; full coverage and drain checks.",
     "model_outputs": "Same token sequence, all 4 full logits and native KV content/version/lifecycle as same-condition native reference.",
     "resource_and_protocol": "Original guards, thresholds, timeouts, dependency, coverage and audit drain criteria remain strict.",
     "statistics": "Per-process repeated mean, median/min/max of 3 independent processes; all individual values retained; no p95 or significance claims.",
     "identity": "Own candidate source/build identity and validator; immutable historical manifests/validators.",
-    "delivery": "Future scientific runs require report B committed and verify report_committed=true. Plan P alone is not scientific acceptance."
+    "delivery": "Future scientific runs require report B committed and verify report_committed=true. Plan P alone is not scientific acceptance.",
+    "qualification_certificate": "reports/v3-route-perf-five-001/QUALIFICATION.json"
   }
 }

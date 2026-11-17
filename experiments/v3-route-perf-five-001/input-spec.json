@@ -364,5 +364,7 @@
         "sha256": "d35b314733279bd8e83e3984dc78d5af52985225a832755235eeafca9f0ebc9d"
       }
     }
-  ]
+  ],
+  "final_build_native_reference_run": "reference-20261117-002",
+  "final_build_fixture_equivalence": "All 30 descriptor/input/output files, complete logits and native KV bitwise identical to reference-001."
 }
