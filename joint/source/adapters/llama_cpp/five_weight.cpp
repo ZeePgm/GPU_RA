@@ -2,6 +2,7 @@
 #include "ggml-backend.h"
 #include "ggml-alloc.h"
 #include "ggml-cuda.h"
+#include "llama.h"
 #include "hbflab/sampled_reader.hpp"
 #include "hbflab/ptx.hpp"
 #include "hbflab/platform.hpp"
@@ -15,6 +16,7 @@
 #include <fstream>
 #include <iostream>
 #include <memory>
+#include <thread>
 #include <vector>
 using J=nlohmann::ordered_json;namespace fs=std::filesystem;
 using Clock=std::chrono::steady_clock;
@@ -51,7 +53,7 @@ int main(int argc,char **argv)try{
     J entry;for(const auto &t:inventory.at("all_tensors"))if(t.at("name")==fixture.at("tensor"))entry=t;
     need(!entry.is_null() && entry.at("selected").get<bool>(),"unselected fixture weight");
     need(fs::file_size(argv[1])==inventory.at("model").at("bytes").get<uint64_t>(),"model size mismatch");
-    const auto u0=now();Memory memory;memory.backend=ggml_backend_cuda_init(0);need(memory.backend,"CUDA backend missing");
+    const auto u0=now();llama_backend_init();ggml_backend_load_all();Memory memory;memory.backend=ggml_backend_cuda_init(0);need(memory.backend,"CUDA backend missing");
     size_t free_gpu=0,total_gpu=0;ck(cudaMemGetInfo(&free_gpu,&total_gpu));
     need(free_gpu>=2308702208ull && hbflab::platform::available_host_memory()>=1006632960ull,"original memory floors unavailable");
     memory.ctx=ggml_init({32*1024*1024,nullptr,true});need(memory.ctx,"ggml context");
@@ -114,6 +116,10 @@ int main(int argc,char **argv)try{
         {"first_call_ns",samples.front().end-samples.front().begin},{"repeated_calls",repeats},{"repeated_mean_ns",repeats?repeated_ns/repeats:0.0},
         {"calls",count},{"output_buffer_bytes",output_bytes},{"drained",true},{"borrowed_unchanged",true},{"peak_resident_fragments",runtime.backend.peak_resident_fragments},
         {"requests",stats.requests},{"requested_bytes",stats.requested_bytes},{"lane_checks",stats.lane_checks},{"byte_checks",stats.byte_checks},
-        {"runtime_validation_in_timing",true},{"full_raw_files",audit=="full"},{"free_gpu_before_allocation",free_gpu}});
+        {"runtime_validation_in_timing",true},{"full_raw_files",audit=="full"},{"free_gpu_before_allocation",free_gpu},
+        {"post_timing_identity_observation_hold_ms",1000}});
+    // The unchanged host observer samples modules after 200ms. Keep short
+    // successful processes alive outside every measured boundary for that proof.
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     std::cout<<"PASS "<<fixture.at("scenario_id")<<" "<<argv[5]<<"\n";return 0;
 }catch(const std::exception &e){std::cerr<<"five weight: "<<e.what()<<'\n';return 1;}
