@@ -36,7 +36,7 @@ def reader_summary(folder, route, expected_bytes, expected_requests):
     r = read(folder / 'summary.json')
     need(r['status'] == 'pass' and r['route'] == route and r['audit_mode'] == 'summary', 'Summary reader contract')
     need(r['requested_bytes'] == expected_bytes and r['requests'] == expected_requests, 'Independent byte/request extent')
-    need(r['lane_checks'] * 16 >= expected_bytes and r['all_runtime_lane_and_byte_checks'], 'Complete runtime lane checks')
+    need(r['lane_checks'] * 16 == expected_bytes and r['all_runtime_lane_and_byte_checks'], 'Complete runtime lane checks')
     payload = expected_bytes if route in ('ptx', 'cuda') else 0
     need(r['payload_bytes'] == r['publication_bytes'] == payload and r['byte_checks'] == 2 * payload, 'Complete returned/published byte checks')
     need(r['request_log_bytes'] == r['lane_time_log_bytes'] == 0, 'Summary exported raw logs')
@@ -152,6 +152,11 @@ def run(args):
             acceptance = validate_model(child, args.route, args.reference)
             write(child/'model-acceptance.json',acceptance)
             if args.mode=='reference':
+                need(args.historical_logits is not None and sha(args.historical_logits)=='942e5798c378ed9750caadcd8e802f26ee61024e12a7cfafd792ec908bce6835','Frozen native eight-step source missing or changed')
+                native=(child/'logits.f32').read_bytes()
+                need(native==args.historical_logits.read_bytes()[:len(native)],'Four-step reference differs from historical native prefix')
+                acceptance['historical_native_prefix_bitwise']=True
+                write(child/'model-acceptance.json',acceptance)
                 need(len(list((args.output/'fixtures').glob('w*.json')))==10,'Ten original consumer fixtures missing')
                 write(args.output/'fixtures/manifest.json',{'status':'pass','source_model':S.MODEL_SHA,'source_commit':identity['code_commit'],
                     'files':[S.identity(f) for f in sorted((args.output/'fixtures').iterdir()) if f.is_file()]})
@@ -199,7 +204,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode',choices=['receipt','reference','model','weight','diagnostic','legacy-registration'])
     parser.add_argument('--build-dir',type=Path,required=True)
-    for key in ('model','cuda-root','resource-root','output','fixture','reference','qualification'):parser.add_argument('--'+key,type=Path)
+    for key in ('model','cuda-root','resource-root','output','fixture','reference','qualification','historical-logits'):parser.add_argument('--'+key,type=Path)
     parser.add_argument('--route',choices=['native','symbolic','ptx','cuda'],default='native')
     parser.add_argument('--audit',choices=['full','summary'],default='summary')
     parser.add_argument('--repeats',type=int,default=0)
