@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "diag-cuda-full-20261117-001",
+  "version": "v3",
+  "code_commit": "ee7801b8a3a8aa3d120b4b3e00554f835d049952",
+  "code_tree": "800e664732abc021818dedb08e52da478f93d1c5",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Bounded dual-audit qualification passed; full runtime lane/byte coverage preserved; full mode independently replayed; summary exports no raw request/lane/chunk files. Not a formal performance sample.",
+  "manifest": "evidence/v3-route-perf-five-001/diag-cuda-full-20261117-001/manifest.json",
+  "manifest_sha256": "e4483ce6686888a7c8788a69c51c68bd5b7f3a091077240aae3ed656788cae4c",
+  "created_utc": "2026-11-17T06:47:58.400988+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

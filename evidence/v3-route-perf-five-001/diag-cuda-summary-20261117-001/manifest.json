@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "diag-cuda-summary-20261117-001",
+  "version": "v3",
+  "code_commit": "ee7801b8a3a8aa3d120b4b3e00554f835d049952",
+  "code_tree": "800e664732abc021818dedb08e52da478f93d1c5",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-route-perf-five-001/diag-cuda-summary-20261117-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 6340,
+      "sha256": "372c0abffe94b2935b9813f198668a19dc78c3db5e18c1ec6e1e1f26652c71cc"
+    },
+    {
+      "path": "data/acceptance.json",
+      "bytes": 1241,
+      "sha256": "efc1a3a00a5bd4a9260f4d9f98e224a7ee04c4df173b3739bfd6ecce5c4b625f"
+    },
+    {
+      "path": "data/candidate-receipt.json",
+      "bytes": 1377339,
+      "sha256": "49f2dbd2be399b4d18c228e930457c39ee22d2dcc072c146329e4338167990a8"
+    },
+    {
+      "path": "data/result/bindings.json",
+      "bytes": 628,
+      "sha256": "4f4c9bb6fab1a62181112425532352abf393e8b350ddec82133c943dce6abebf"
+    },
+    {
+      "path": "data/result/reader/request-schema.json",
+      "bytes": 432,
+      "sha256": "6d1af80b40609539c6c7167ea916a59e59ca1f9a2a8114de6f3c401bd4623f83"
+    },
+    {
+      "path": "data/result/reader/summary.json",
+      "bytes": 612,
+      "sha256": "7b9955c5b0f9f2925484891584355a17afd40eac744eb2868d2396cba25ed45a"
+    },
+    {
+      "path": "data/result/summary.json",
+      "bytes": 2699,
+      "sha256": "aa47c88447a8c771f73cc38d0ab34c2c747b9172d0caa779fb7cee2c9c5b2d0f"
+    },
+    {
+      "path": "data/result/unsupported-control-flow.ptx",
+      "bytes": 227,
+      "sha256": "c27e2c20e902155ea0493bfdde4005c708d52853aebd12318b90111ba1978222"
+    },
+    {
+      "path": "data/result.log",
+      "bytes": 1858,
+      "sha256": "a1a1d03042fce75fcd1c8b7124761e09fe0917de1773fce2c68d4ddf3a7cf743"
+    },
+    {
+      "path": "data/result.process.json",
+      "bytes": 5868,
+      "sha256": "82c9cfb8e9160d43769c94a09bc39e9ca876f101cda20cd23bbf5f11764f3fe7"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "3aef38324a7bcb33c8ded16a66cd7bc0483e7891cab2d54b1def92950e1a3a76"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1099,
+      "sha256": "164892116117eed483bc0498021b400eb1314ba98e8be4ddf19ee90b39ba2d76"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "9b94278cf7f18169380fd6de8d714ac20b7f8ea8a36498c32b52e377365ea12e"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 5587,
+      "sha256": "6bdf7acb049a626000d6a77cb2b0b3f76cba0b5a4d3eb410edfd615dd1b17064"
+    },
+    {
+      "path": "run.json",
+      "bytes": 9564,
+      "sha256": "4ffbab655f1096acc8502fbc6ce388154991cb755c3121d212367f1d704d7394"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 75,
+      "sha256": "9596fafb94cd51e4380c7c4226c6998e44d33d97862c0218ac8014e631b74cff"
+    }
+  ],
+  "file_count": 17,
+  "total_bytes": 1414137,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/49f2dbd2be399b4d18c228e930457c39ee22d2dcc072c146329e4338167990a8",
+      "bytes": 1377339,
+      "sha256": "49f2dbd2be399b4d18c228e930457c39ee22d2dcc072c146329e4338167990a8"
+    },
+    {
+      "storage_path": "inputs/1405bf42ddbfe7a159857a444ee86b58037d8c36d49f3e6cf9c76529566f1951",
+      "bytes": 80295,
+      "sha256": "1405bf42ddbfe7a159857a444ee86b58037d8c36d49f3e6cf9c76529566f1951"
+    },
+    {
+      "storage_path": "inputs/aaa0566a6f95bc7d2757523123df2a9257f276184df01c4d4f9fdbafcafcb80b",
+      "bytes": 607,
+      "sha256": "aaa0566a6f95bc7d2757523123df2a9257f276184df01c4d4f9fdbafcafcb80b"
+    }
+  ]
+}

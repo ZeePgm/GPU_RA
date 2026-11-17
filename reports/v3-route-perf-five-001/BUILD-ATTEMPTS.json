@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "logical_cpus": 16,
+  "attempts": [
+    {
+      "attempt": 1,
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\builds\\five-perf-001-candidate-001-build.log",
+      "bytes": 3201,
+      "sha256": "37e0843c30908a52dc886c58fba9235117ac788c972190336de0b4a3e04a38c6",
+      "wall_upper_bound_seconds": 68.31693196296692,
+      "cpu_upper_bound_seconds": 1093.0709114074707,
+      "bound_basis": "log creation to final error output +1s",
+      "result": "failed_PDB_manager"
+    },
+    {
+      "attempt": 2,
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\builds\\five-perf-001-candidate-002-build.log",
+      "bytes": 635182,
+      "sha256": "cdb70ed3480e0251a1b3648156827ab7ad464615c0dde604142ea10c082a1c09",
+      "wall_upper_bound_seconds": 320.95862436294556,
+      "cpu_upper_bound_seconds": 5135.337989807129,
+      "bound_basis": "log creation to final error output +1s",
+      "result": "failed_missing_platform_header"
+    },
+    {
+      "attempt": 3,
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\builds\\five-perf-001-candidate-003-build.log",
+      "bytes": 16213,
+      "sha256": "6d3179779aee30120fa8a0cc7e6a37fa96e9129117e4af61aa7b4e516a8d4d89",
+      "wall_upper_bound_seconds": 98.8612277507782,
+      "cpu_upper_bound_seconds": 1581.7796440124512,
+      "bound_basis": "log creation to first subsequent immutable run registration (conservative upper bound)",
+      "result": "passed_608_CPU_tests"
+    },
+    {
+      "attempt": 4,
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\builds\\five-perf-001-candidate-004-build.log",
+      "bytes": 1647,
+      "sha256": "cedf3373851ed46f68ea2019a6c4a82e7e4c7a967de288ec64d9a6a403ca18d8",
+      "wall_upper_bound_seconds": 36.62048959732056,
+      "cpu_upper_bound_seconds": 585.9278335571289,
+      "bound_basis": "log creation to first subsequent immutable run registration (conservative upper bound)",
+      "result": "passed_isolated_identity_observation_fix"
+    }
+  ],
+  "build_wall_upper_bound_seconds": 524.7572736740112,
+  "build_cpu_upper_bound_seconds": 8396.11637878418
+}

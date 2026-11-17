@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "scope": "bounded full-vs-summary qualification only",
+  "spans": [
+    {
+      "tensor": "blk.10.ffn_norm.weight",
+      "offset": 0,
+      "bytes": 4096,
+      "kind": "bounded_full_audit_qualification"
+    },
+    {
+      "tensor": "blk.10.attn_q.weight",
+      "offset": 0,
+      "bytes": 65536,
+      "kind": "bounded_full_audit_qualification"
+    },
+    {
+      "tensor": "blk.10.ffn_down.weight",
+      "offset": 0,
+      "bytes": 65536,
+      "kind": "bounded_full_audit_qualification"
+    },
+    {
+      "tensor": "token_embd.weight",
+      "offset": 0,
+      "bytes": 2048,
+      "kind": "bounded_repeated_actual_rows"
+    },
+    {
+      "tensor": "token_embd.weight",
+      "offset": 34816,
+      "bytes": 2048,
+      "kind": "bounded_repeated_actual_rows"
+    },
+    {
+      "tensor": "token_embd.weight",
+      "offset": 34816,
+      "bytes": 2048,
+      "kind": "bounded_repeated_actual_rows"
+    },
+    {
+      "tensor": "token_embd.weight",
+      "offset": 311162880,
+      "bytes": 2048,
+      "kind": "bounded_repeated_actual_rows"
+    },
+    {
+      "tensor": "output.weight",
+      "offset": 0,
+      "bytes": 65536,
+      "kind": "bounded_full_audit_qualification"
+    },
+    {
+      "tensor": "blk.10.ffn_norm.weight",
+      "offset": 4,
+      "bytes": 508,
+      "kind": "u16_tail"
+    },
+    {
+      "tensor": "blk.10.attn_q.weight",
+      "offset": 2,
+      "bytes": 1026,
+      "kind": "u16_tail"
+    }
+  ]
+}

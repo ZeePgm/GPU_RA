@@ -99,6 +99,8 @@ std::string hash_bytes(const std::vector<unsigned char> &bytes,unsigned count){
 struct SampledReader::Impl {
     SampledRegistration &registration;LiveTimingService &service;SampledRoute route;
     std::filesystem::path output;std::thread::id owner=std::this_thread::get_id();
+    SampledAuditMode audit_mode;
+    bool full() const {return audit_mode==SampledAuditMode::Full;}
     unsigned char *slab=nullptr;unsigned long long *times=nullptr;
     std::vector<unsigned char> reference=std::vector<unsigned char>(chunk_capacity),returned=std::vector<unsigned char>(chunk_capacity);
     std::vector<unsigned long long> timing=std::vector<unsigned long long>(chunk_capacity/8);
@@ -107,10 +109,10 @@ struct SampledReader::Impl {
     std::unique_ptr<AsyncModuleInterceptor> loader;
     AsyncModuleHandle modules[2]{};AsyncFunctionHandle functions[2]{};
     SampledReadStats stats;uint64_t time_offset=0;bool finished=false,failed=false;
-    Impl(SampledRegistration &r,SampledRoute kind,const std::filesystem::path &path):registration(r),service(r.service()),route(kind),output(path){
+    Impl(SampledRegistration &r,SampledRoute kind,const std::filesystem::path &path,SampledAuditMode mode):registration(r),service(r.service()),route(kind),output(path),audit_mode(mode){
         sampled_route_name(kind);need(!std::filesystem::exists(path),"reader output exists");std::filesystem::create_directories(path);
-        requests.open(path/"requests.bin",std::ios::binary);raw_times.open(path/"lane-times.bin",std::ios::binary);chunks.open(path/"chunks.jsonl");
-        need(bool(requests)&&bool(raw_times)&&bool(chunks),"reader logs open failed");
+        if(full()){requests.open(path/"requests.bin",std::ios::binary);raw_times.open(path/"lane-times.bin",std::ios::binary);chunks.open(path/"chunks.jsonl");
+        need(bool(requests)&&bool(raw_times)&&bool(chunks),"reader logs open failed");}
         ck(cudaMalloc(reinterpret_cast<void **>(&slab),(route==SampledRoute::Symbolic?1:2)*chunk_capacity));
         times=reinterpret_cast<unsigned long long *>(slab+(route==SampledRoute::Symbolic?0:chunk_capacity));
         try {
@@ -158,7 +160,7 @@ struct SampledReader::Impl {
         const unsigned groups=(count+32*unit-1)/(32*unit),timer_bytes=(count/unit)*16;
         need(audit.size()==groups && timer_bytes<=chunk_capacity,"reader request/timing coverage");
         ck(cudaMemcpy(timing.data(),times,timer_bytes,cudaMemcpyDeviceToHost));stats.validation_d2h_bytes+=timer_bytes;
-        raw_times.write(reinterpret_cast<const char *>(timing.data()),timer_bytes);
+        if(full())raw_times.write(reinterpret_cast<const char *>(timing.data()),timer_bytes);
         std::set<unsigned> seen;
         uint64_t latest=0;
         for(const auto &a:audit){
@@ -179,30 +181,30 @@ struct SampledReader::Impl {
             need(a.sectors==((logical%64+span+63)/64),"reader sector coverage");
             latest=std::max(latest,last);
             RequestRecord record{a.launch,a.ticket,offset+relative,logical,a.arrival_ns,a.arrival_ps,a.end_ps,first,last,time_offset,a.grant_floor_ns,index,span,a.producer,unit};
-            requests.write(reinterpret_cast<const char *>(&record),sizeof(record));
+            if(full())requests.write(reinterpret_cast<const char *>(&record),sizeof(record));
         }
         json hashes=nullptr;
         if(payload){
             ck(cudaMemcpy(returned.data(),slab,count,cudaMemcpyDeviceToHost));
             need(std::memcmp(reference.data(),returned.data(),count)==0,"reader returned bytes differ");
-            const auto reference_hash=hash_bytes(reference,count),returned_hash=hash_bytes(returned,count);
+            const auto reference_hash=full()?hash_bytes(reference,count):std::string{},returned_hash=full()?hash_bytes(returned,count):std::string{};
             ck(cudaMemcpy(const_cast<unsigned char *>(input),slab,count,cudaMemcpyDeviceToDevice));ck(cudaDeviceSynchronize());
             ck(cudaMemcpy(returned.data(),input,count,cudaMemcpyDeviceToHost));
             need(std::memcmp(reference.data(),returned.data(),count)==0,"reader published bytes differ");
-            hashes={{"reference",reference_hash},{"returned",returned_hash},{"published",hash_bytes(returned,count)}};
+            if(full())hashes={{"reference",reference_hash},{"returned",returned_hash},{"published",hash_bytes(returned,count)}};
             stats.payload_bytes+=count;stats.publication_bytes+=count;stats.byte_checks+=2*count;stats.validation_d2h_bytes+=2*count;
         }
         sampled_stamp<<<1,1>>>(times);ck(cudaGetLastError());ck(cudaDeviceSynchronize());
         ck(cudaMemcpy(&stats.last_publication_ns,times,8,cudaMemcpyDeviceToHost));
         stats.validation_d2h_bytes+=8;need(stats.last_publication_ns>=latest,"publication before reader completion");
-        chunks<<json({{"range",index},{"tensor",range.name},{"offset",offset},{"bytes",count},{"unit",unit},{"launch",launch},
+        if(full())chunks<<json({{"range",index},{"tensor",range.name},{"offset",offset},{"bytes",count},{"unit",unit},{"launch",launch},
             {"requests",audit.size()},{"time_file_offset",time_offset},{"time_bytes",timer_bytes},{"hashes",hashes},
             {"release_stamp_ns",stats.last_publication_ns},{"payload_published",payload}}).dump()<<'\n';
-        need(bool(requests)&&bool(raw_times)&&bool(chunks),"reader log write failed");
+        if(full())need(bool(requests)&&bool(raw_times)&&bool(chunks),"reader log write failed");
         time_offset+=timer_bytes;stats.requests+=audit.size();stats.requested_bytes+=count;++stats.launches;
     }
 };
-SampledReader::SampledReader(SampledRegistration &r,SampledRoute kind,const std::filesystem::path &output):impl_(std::make_unique<Impl>(r,kind,output)){}
+SampledReader::SampledReader(SampledRegistration &r,SampledRoute kind,const std::filesystem::path &output,SampledAuditMode mode):impl_(std::make_unique<Impl>(r,kind,output,mode)){}
 SampledReader::~SampledReader()=default;
 void SampledReader::read(std::size_t index,uint64_t offset,uint64_t bytes){
     auto &s=*impl_;s.current();const auto &range=s.registration.ranges().at(index);
@@ -221,12 +223,12 @@ SampledReadStats SampledReader::statistics() const {return impl_->stats;}
 void SampledReader::finish(){
     auto &s=*impl_;s.current();
     if(s.loader){for(auto module:s.modules)s.loader->unload(module);s.loader.reset();}
-    s.requests.close();s.raw_times.close();s.chunks.close();need(bool(s.requests)&&bool(s.raw_times)&&bool(s.chunks),"reader close logs");
+    if(s.full()){s.requests.close();s.raw_times.close();s.chunks.close();need(bool(s.requests)&&bool(s.raw_times)&&bool(s.chunks),"reader close logs");}
     const auto r=s.service.statistics();const auto t=s.stats;
     std::ofstream summary(s.output/"summary.json");summary<<json({{"status","pass"},{"route",sampled_route_name(s.route)},
         {"requests",t.requests},{"requested_bytes",t.requested_bytes},{"payload_bytes",t.payload_bytes},{"publication_bytes",t.publication_bytes},
         {"launches",t.launches},{"lane_checks",t.lane_checks},{"byte_checks",t.byte_checks},{"validation_d2h_bytes",t.validation_d2h_bytes},
-        {"memset_bytes",t.memset_bytes},{"request_log_bytes",t.requests*sizeof(RequestRecord)},{"lane_time_log_bytes",s.time_offset},
+        {"memset_bytes",t.memset_bytes},{"request_log_bytes",s.full()?t.requests*sizeof(RequestRecord):0},{"lane_time_log_bytes",s.full()?s.time_offset:0},{"audit_mode",s.full()?"full":"summary"},{"all_runtime_lane_and_byte_checks",true},
         {"read_wall_seconds",t.read_wall_seconds},{"mirror_capacity_bytes",s.route==SampledRoute::Symbolic?0:chunk_capacity},{"timing_capacity_bytes",chunk_capacity},
         {"backend_model_now_ps",r.model_now_ps},{"common_clock_qualified",false}}).dump(2)<<'\n';summary.close();need(bool(summary),"reader summary write");s.finished=true;
 }

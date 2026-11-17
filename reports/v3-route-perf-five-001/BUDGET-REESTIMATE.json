@@ -1,0 +1,561 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "scope": "Prospective estimate only. Formal matrix never started.",
+  "formal_matrix_processes": 99,
+  "weight_processes": 90,
+  "model_processes": 9,
+  "weight_cells": [
+    {
+      "cell_id": "w1-p-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 1.3187160000344589,
+      "predicted_cpp_seconds_total": 3.9561480001033766,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w1-p-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 1.2258908000409783,
+      "predicted_cpp_seconds_total": 3.677672400122935,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w1-p-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 1.2251291999827705,
+      "predicted_cpp_seconds_total": 3.675387599948311,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w1-d-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 1.2496144999827705,
+      "predicted_cpp_seconds_total": 3.7488434999483116,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w1-d-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 1.2489079999827706,
+      "predicted_cpp_seconds_total": 3.746723999948312,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w1-d-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 1.2491735000409783,
+      "predicted_cpp_seconds_total": 3.747520500122935,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w2-p-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 10.807995500020489,
+      "predicted_cpp_seconds_total": 32.42398650006147,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w2-p-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 11.890979,
+      "predicted_cpp_seconds_total": 35.672937,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w2-p-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 10.11717949997951,
+      "predicted_cpp_seconds_total": 30.35153849993853,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w2-d-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 10.202938999979512,
+      "predicted_cpp_seconds_total": 30.608816999938536,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w2-d-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 11.084624999962282,
+      "predicted_cpp_seconds_total": 33.25387499988685,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w2-d-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 10.14890850003772,
+      "predicted_cpp_seconds_total": 30.44672550011316,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w3-p-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 14.866479,
+      "predicted_cpp_seconds_total": 44.599437,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w3-p-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 16.696865499962282,
+      "predicted_cpp_seconds_total": 50.09059649988684,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w3-p-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 14.838412,
+      "predicted_cpp_seconds_total": 44.515236,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w3-d-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 14.473287999959023,
+      "predicted_cpp_seconds_total": 43.419863999877066,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w3-d-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 16.69205100002049,
+      "predicted_cpp_seconds_total": 50.076153000061474,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w3-d-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 14.43121450001723,
+      "predicted_cpp_seconds_total": 43.29364350005169,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w4-p-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 8.32876320001723,
+      "predicted_cpp_seconds_total": 24.98628960005169,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w4-p-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 8.201896000006519,
+      "predicted_cpp_seconds_total": 24.605688000019555,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w4-p-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 8.22844599996228,
+      "predicted_cpp_seconds_total": 24.68533799988684,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w4-d-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 8.066169000020489,
+      "predicted_cpp_seconds_total": 24.19850700006147,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w4-d-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 7.87866149999674,
+      "predicted_cpp_seconds_total": 23.635984499990222,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w4-d-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 5,
+      "predicted_cpp_seconds_per_process": 8.17586050001723,
+      "predicted_cpp_seconds_total": 24.52758150005169,
+      "basis": "qualified whole first-call process + K*qualified first latency; conservative cold-call proxy where no repeated pilot exists"
+    },
+    {
+      "cell_id": "w5-p-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 1,
+      "predicted_cpp_seconds_per_process": 253.2618935000205,
+      "predicted_cpp_seconds_total": 759.7856805000615,
+      "basis": "qualified P whole process + K*max(P first, D pilot first/repeated); same output-projection shape"
+    },
+    {
+      "cell_id": "w5-p-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 1,
+      "predicted_cpp_seconds_per_process": 286.7526922999795,
+      "predicted_cpp_seconds_total": 860.2580768999385,
+      "basis": "qualified P whole process + K*max(P first, D pilot first/repeated); same output-projection shape"
+    },
+    {
+      "cell_id": "w5-p-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 1,
+      "predicted_cpp_seconds_per_process": 256.57703639996225,
+      "predicted_cpp_seconds_total": 769.7311091998868,
+      "basis": "qualified P whole process + K*max(P first, D pilot first/repeated); same output-projection shape"
+    },
+    {
+      "cell_id": "w5-d-symbolic",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 1,
+      "predicted_cpp_seconds_per_process": 255.375,
+      "predicted_cpp_seconds_total": 766.125,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w5-d-ptx",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 1,
+      "predicted_cpp_seconds_per_process": 289.10999999998603,
+      "predicted_cpp_seconds_total": 867.3299999999581,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    },
+    {
+      "cell_id": "w5-d-cuda",
+      "process_repeats": 3,
+      "repeated_calls_per_process": 1,
+      "predicted_cpp_seconds_per_process": 259.43700000003446,
+      "predicted_cpp_seconds_total": 778.3110000001034,
+      "basis": "observed first+one-repeat whole process + (K-1)*observed repeated latency"
+    }
+  ],
+  "model_routes": [
+    {
+      "route": "symbolic",
+      "process_repeats": 3,
+      "predicted_cpp_seconds_per_process": 547.0780000000377,
+      "predicted_cpp_seconds_total": 1641.2340000001132,
+      "basis": "qualified same-condition model smoke; no additional route pilot authorized"
+    },
+    {
+      "route": "ptx",
+      "process_repeats": 3,
+      "predicted_cpp_seconds_per_process": 585.9369999999763,
+      "predicted_cpp_seconds_total": 1757.8109999999288,
+      "basis": "max(qualified model smoke, fixed pilot)"
+    },
+    {
+      "route": "cuda",
+      "process_repeats": 3,
+      "predicted_cpp_seconds_per_process": 523.155999999959,
+      "predicted_cpp_seconds_total": 1569.467999999877,
+      "basis": "qualified same-condition model smoke; no additional route pilot authorized"
+    }
+  ],
+  "projected_weight_cpp_seconds": 5439.48536070002,
+  "projected_model_cpp_seconds": 4968.512999999919,
+  "observed_pilot_registration_launch_identity_overhead_seconds": [
+    14.235631999965541,
+    12.316521999959022,
+    18.21046700001723,
+    12.239619999982772,
+    11.825374999993482,
+    11.593627000037717,
+    11.895331999999996,
+    12.387932000013961,
+    14.141248999965569,
+    26.04865400002052
+  ],
+  "observed_overhead_median_seconds": 12.352226999986492,
+  "observed_overhead_max_seconds": 26.04865400002052,
+  "finish_and_verify_allowance_per_run_seconds": 4,
+  "total_workflow_overhead_per_run_seconds": 17,
+  "projected_workflow_overhead_seconds": 1683,
+  "projected_nominal_formal_seconds": 12090.998360699938,
+  "cpp_planning_factor": 1.25,
+  "projected_allowance_seconds": 14692.997950874922,
+  "recommended_formal_cap_seconds": 15300,
+  "existing_approved_formal_cap_seconds": 14400,
+  "existing_total_experiment_cap_seconds": 27000,
+  "budget_change_is_proposal_only": true,
+  "pilot_stage_observed_seconds": 1586.639358,
+  "uncertainty": "One pilot process per selected case/route, and one model smoke per other route; no steady-state or confidence claim. No clock locking. 25% is a planning scenario. All original numerical/resource/statistical thresholds remain unchanged.",
+  "inputs": [
+    {
+      "run_id": "pilot-w1-p-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w1-p-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 584,
+      "sha256": "7db741cc78f75f71219a20c5d249efe5f6a0a43f7e12f6c8d02394daa6b5e1bf"
+    },
+    {
+      "run_id": "pilot-w1-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w1-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 581,
+      "sha256": "5076a2e2960921f30b958da8f9ece6d2f5851b393072a7efa609afffb2c1eea0"
+    },
+    {
+      "run_id": "pilot-w1-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w1-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 582,
+      "sha256": "443e4d5d123d98381c482978d214126c9fd1eb59656e882b5fefef68cbcc648e"
+    },
+    {
+      "run_id": "pilot-w4-p-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w4-p-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 587,
+      "sha256": "378726c10e342117bfbb12e5996c5925f1178f676850d093a7c79400ce0fb3f0"
+    },
+    {
+      "run_id": "pilot-w4-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w4-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 581,
+      "sha256": "e85de1e5191fa13fd3dfc627ce6c6cb6bcdc48403202ef50912af7aaaf8dc132"
+    },
+    {
+      "run_id": "pilot-w4-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w4-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 584,
+      "sha256": "b7492ee46dcd3a6f26ffe4e56c09c31737b34d35e8a372f29367de0e152c080e"
+    },
+    {
+      "run_id": "pilot-w5-d-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w5-d-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 589,
+      "sha256": "dad2e4911f24e4682d303fc439e113f489062abe7214f8c4de906b2660a9c567"
+    },
+    {
+      "run_id": "pilot-w5-d-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w5-d-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 593,
+      "sha256": "34827a624adcaa0c4ed577445d939c79cc2292665e418db497e4cdf7575921d7"
+    },
+    {
+      "run_id": "pilot-w5-d-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-w5-d-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 594,
+      "sha256": "7a8740c9e35af37b10e7030e1d3533fed3108bbc62768e385a9d686afa281a3c"
+    },
+    {
+      "run_id": "pilot-model-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\pilot-model-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 1436,
+      "sha256": "516f6d04025d043d8d8a7473ea1306230eb2391adf7c9499cb8afaaed3f14b6f"
+    },
+    {
+      "run_id": "qual-w1-p-symbolic-20261117-002",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w1-p-symbolic-20261117-002\\data\\acceptance.json",
+      "bytes": 539,
+      "sha256": "8ef0df389b21f558cf757668ed393b492a77cb4c51a76e2b368a0ea25f057e29"
+    },
+    {
+      "run_id": "qual-w1-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w1-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 550,
+      "sha256": "68e48ab2d4bcc03431345fc07365cebf263457d733e5395174f880837ba5cf4b"
+    },
+    {
+      "run_id": "qual-w1-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w1-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 549,
+      "sha256": "fc5121baaf15cb8b0dc0e999e248962243c099ebd3f07d5f019c0ff7c3897989"
+    },
+    {
+      "run_id": "qual-w1-d-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w1-d-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 555,
+      "sha256": "a4ab32bcedecc2ee8b007600abc54b4b4e4bd826e6227b65f49169918c5cf4e6"
+    },
+    {
+      "run_id": "qual-w1-d-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w1-d-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 550,
+      "sha256": "37864c70b710669c1176b32ef68eebdad6322ea7de30b37c0971aca404f23477"
+    },
+    {
+      "run_id": "qual-w1-d-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w1-d-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 551,
+      "sha256": "3e5e291d24ed235b071b226c28fe29fe8767351d2f59c6fb1173998ea64b647e"
+    },
+    {
+      "run_id": "qual-w2-p-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w2-p-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 558,
+      "sha256": "95306afd21a33222260876b86dd3ec179e402d143a45c80af815bf4761e02d68"
+    },
+    {
+      "run_id": "qual-w2-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w2-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 539,
+      "sha256": "203b27e8ecc2ce2ab0e8c4793f17908ba515d5f4e5bf7a404197096d28022447"
+    },
+    {
+      "run_id": "qual-w2-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w2-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 551,
+      "sha256": "8d0a45da44fc59edad9d52a3dd354f7bb9d32b596a9cae89e8711a2318363cf8"
+    },
+    {
+      "run_id": "qual-w2-d-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w2-d-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 557,
+      "sha256": "97448c6a0aeb945628e9bae982c69a4f0bee086a6e0d1c173232f0939ae47ac7"
+    },
+    {
+      "run_id": "qual-w2-d-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w2-d-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 552,
+      "sha256": "93ce50c4f2dccc0c313cf7f0fa566728b11515ff7ad39ca2db523eed07534362"
+    },
+    {
+      "run_id": "qual-w2-d-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w2-d-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 551,
+      "sha256": "94bc15c1d412f6b7e5e424a22014b14554407811c486032029be83e1c89eb825"
+    },
+    {
+      "run_id": "qual-w3-p-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w3-p-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 545,
+      "sha256": "9450e05e994e75b5cb163191658e6bf91325906a777bd4915924c7fd0c3b42c5"
+    },
+    {
+      "run_id": "qual-w3-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w3-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 552,
+      "sha256": "2fdc37c2e9b30d0d2e273af1b35a1c6d238642658437bd84459fe4cbd458522c"
+    },
+    {
+      "run_id": "qual-w3-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w3-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 541,
+      "sha256": "b9c5a18c1c864a40bdf9d05c3123f235c324105939f4c1bc292a713f384701b2"
+    },
+    {
+      "run_id": "qual-w3-d-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w3-d-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 556,
+      "sha256": "00bad7149f5be0658965b7ec8e1e7c8fae99900e1a437d3a485efe0b98c0c2b2"
+    },
+    {
+      "run_id": "qual-w3-d-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w3-d-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 552,
+      "sha256": "97f004c518b0bc955e13a4060ae800056b618a7e98fdb11c65fe87fa2c3bcc5e"
+    },
+    {
+      "run_id": "qual-w3-d-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w3-d-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 554,
+      "sha256": "71976f490ca5b038c7a8be19d184732bcfdc4ae255ee2780e2728bb0d9f0192a"
+    },
+    {
+      "run_id": "qual-w4-p-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w4-p-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 556,
+      "sha256": "363711f8a07a73fc8dd6af7ad0ef9d5b3c0068eb4fb13d911babeeff0545ded8"
+    },
+    {
+      "run_id": "qual-w4-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w4-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 550,
+      "sha256": "98266e0e21aa9ab6625d38d1d0d926fced71ede1d49c7c710ff55dd9feb575f9"
+    },
+    {
+      "run_id": "qual-w4-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w4-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 554,
+      "sha256": "e1ed40c8345a70cc1c27e453baaeb3c69ff6216fac7180a8ce71a69ab195c272"
+    },
+    {
+      "run_id": "qual-w4-d-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w4-d-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 556,
+      "sha256": "ffb1c1351caaa74c27532dfb841508141e0f6fb914c5b423d48f58f9b8980bd8"
+    },
+    {
+      "run_id": "qual-w4-d-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w4-d-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 546,
+      "sha256": "8112a99d1e131c63810a8b1f2ed274bf47d3a72dc3c97748b1b59b3df6ffdce3"
+    },
+    {
+      "run_id": "qual-w4-d-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w4-d-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 551,
+      "sha256": "2afef55ffd6370e78771fb2b14aa9b41d60e6a811e22f167b82d18121e143e75"
+    },
+    {
+      "run_id": "qual-w5-p-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w5-p-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 563,
+      "sha256": "225710a5d657e8e020bf30356ced428a4d52d60628c7fc1e1662c473219f5929"
+    },
+    {
+      "run_id": "qual-w5-p-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w5-p-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 557,
+      "sha256": "7ec6408931ab4cad52e7ae654681b47739f3a708527268b50dbc840fc06e91f2"
+    },
+    {
+      "run_id": "qual-w5-p-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w5-p-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 555,
+      "sha256": "c52f8296b4b635542e404dbc8e3c9f6e7843a2666325c2b1f8c05b11e12570bf"
+    },
+    {
+      "run_id": "qual-w5-d-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w5-d-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 563,
+      "sha256": "a9a74b7373b9999e270d7cdd90ff45cc43e268b6fdef4d7f132ca69ab22cb011"
+    },
+    {
+      "run_id": "qual-w5-d-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w5-d-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 559,
+      "sha256": "f64f59d2e14ef7850ebf005400e141a19b5efee079b6d442d866faad4d82a004"
+    },
+    {
+      "run_id": "qual-w5-d-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\qual-w5-d-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 559,
+      "sha256": "2fb631fa0cd3bd064cd318155d636c7858f983b3207a815bc67bd26b2a3a001d"
+    },
+    {
+      "run_id": "smoke-symbolic-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\smoke-symbolic-20261117-001\\data\\acceptance.json",
+      "bytes": 1411,
+      "sha256": "409353083fb65569b090c244bd1bba37e82c82b56bb60464ffa80a4cbd64e767"
+    },
+    {
+      "run_id": "smoke-ptx-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\smoke-ptx-20261117-001\\data\\acceptance.json",
+      "bytes": 1396,
+      "sha256": "6813a7f26ae9440eb1b4bce0962d97f47de5520cbeba5ecf17b4d13c46c9e884"
+    },
+    {
+      "run_id": "smoke-cuda-20261117-001",
+      "path": "E:\\v1_update\\repository-prep\\GPU_RA-local-data\\runs\\v3-route-perf-five-001\\smoke-cuda-20261117-001\\data\\acceptance.json",
+      "bytes": 1390,
+      "sha256": "971ada84669109a6facae1671c19e9b37cb918d7bf71840a1cdef07af2e10b0c"
+    }
+  ]
+}

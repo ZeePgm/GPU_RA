@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "pilot-model-ptx-20261117-001",
+  "version": "v3",
+  "code_commit": "58be8458eed28f32a609a372e7df4361ce974c29",
+  "code_tree": "a36f408ab41b7f8b10357253ae8c0746c8908fea",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Fixed pilot passed after committed five-weight qualification. Complete native output/KV equality, runtime coverage, resource and identity/drain checks passed. Timing and pre/post GPU environment retained for budget estimation only; formal matrix not started.",
+  "manifest": "evidence/v3-route-perf-five-001/pilot-model-ptx-20261117-001/manifest.json",
+  "manifest_sha256": "e70e257c07ca3d849afd8e361b0625609abe005ca0eb658c759c5c3ae423f0bd",
+  "created_utc": "2026-11-17T08:16:30.181344+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

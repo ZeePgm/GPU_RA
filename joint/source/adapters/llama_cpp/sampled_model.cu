@@ -30,6 +30,8 @@ __global__ void sampled_consumer_complete(unsigned long long *out){*out=gpu_now_
 struct State {
     bool bound=false,finished=false,paged=false,reference=false;
     int step=-1;unsigned prefill=0;
+    bool five=false,summary=false;unsigned expected_weights=14,expected_steps=8;
+    json gate_rows=json::array(),consumer_rows=json::array();
     std::string route;fs::path output;json inventory;
     std::map<const ggml_tensor *,json> weights;
     std::map<const ggml_tensor *,std::vector<std::string>> initial_hashes;
@@ -66,6 +68,9 @@ uint64_t stamp(State &s,bool complete=false){
 bool sampled_model_active(){return bool(state);}
 void sampled_model_configure(const char *mode,const char *output){
     need(!configured_once,"one sampled model session per process");configured_once=true;state=std::make_unique<State>();auto &s=*state;
+    const char *five=std::getenv("HBFLAB_FIVE_PERF");s.five=five && std::string(five)=="1";
+    if(s.five){s.expected_weights=5;s.expected_steps=4;
+        const auto audit=env("HBFLAB_SAMPLED_AUDIT");need(audit=="full" || audit=="summary","five audit mode");s.summary=audit=="summary";}
     s.route=env("HBFLAB_SAMPLED_ROUTE");s.reference=s.route=="native";
     if(!s.reference)sampled_route(s.route);
     const auto kv=env("HBFLAB_JOINT_KV");need(kv=="native" || kv=="paged","sampled KV selection");s.paged=kv=="paged";
@@ -83,7 +88,10 @@ void sampled_model_configure(const char *mode,const char *output){
     need(bool(s.gates)&&bool(s.consumers),"sampled logs open");ck(cudaMalloc(reinterpret_cast<void **>(&s.stamp),8));
 }
 void sampled_model_bind(const ggml_tensor *const *tensors,unsigned count){
-    auto &s=*state;need(!s.bound && count==14,"sampled bind scope");json identities=json::array();
+    auto &s=*state;need(!s.bound && count==s.expected_weights,"sampled bind scope");json identities=json::array();
+    if(s.five){std::set<std::string> wanted={"blk.10.ffn_norm.weight","blk.10.attn_q.weight","blk.10.ffn_down.weight","token_embd.weight","output.weight"},actual;
+        for(const auto &e:s.inventory.at("all_tensors"))if(e.at("selected").get<bool>())actual.insert(e.at("name"));
+        need(actual==wanted,"five selected identity contract");need(!s.paged,"five experiment requires native KV");}
     for(unsigned i=0;i<count;++i){
         const auto *t=tensors[i];need(t && ggml_is_contiguous(t),"sampled noncontiguous layout unsupported");
         bool found=false;
@@ -108,7 +116,7 @@ void sampled_model_bind(const ggml_tensor *const *tensors,unsigned count){
         s.registration->start();
         for(size_t i=0;i<s.registration->ranges().size();++i)for(const auto &[t,entry]:s.weights)
             if(s.registration->ranges()[i].name==t->name)s.indices.emplace(t,i);
-        s.reader=std::make_unique<SampledReader>(*s.registration,sampled_route(s.route),s.output/"readonly");
+        s.reader=std::make_unique<SampledReader>(*s.registration,sampled_route(s.route),s.output/"readonly",s.summary?SampledAuditMode::Summary:SampledAuditMode::Full);
     }else if(s.paged){
         AsyncRuntimeOptions options;options.backend.geometry=m6_geometry();options.backend.max_events_per_batch=2000000000ull;
         options.backend.coalesce_capacity_feedback=true;options.backend.direct_device_transactions=true;
@@ -142,23 +150,25 @@ void sampled_model_graph_node(const ggml_tensor *node){
         const auto after=s.reader?s.reader->statistics():SampledReadStats{};
         const auto release=stamp(s);need(!s.reader || release>=after.last_publication_ns,"consumer release precedes publication");
         need(s.pending.emplace(node,release).second,"sampled consumer already pending");
-        s.gates<<json({{"step",s.step},{"tensor",weight->name},{"node",node->name},{"op",ggml_op_name(node->op)},
+        auto gate_row=json({{"step",s.step},{"tensor",weight->name},{"node",node->name},{"op",ggml_op_name(node->op)},
             {"ranges",ranges},{"requests",after.requests-before.requests},{"requested_bytes",after.requested_bytes-before.requested_bytes},
             {"payload_bytes",after.payload_bytes-before.payload_bytes},{"publication_bytes",after.publication_bytes-before.publication_bytes},
-            {"gate_release_ns",release},{"route",s.route},{"dependency","publication synchronized before framework dispatch"}}).dump()<<'\n';
+            {"gate_release_ns",release},{"route",s.route},{"dependency","publication synchronized before framework dispatch"}});
+        if(s.summary)s.gate_rows.push_back(std::move(gate_row));else s.gates<<gate_row.dump()<<'\n';
         need(bool(s.gates),"sampled gate log write");++s.calls;
     }
 }
 extern "C" HBFLAB_M2_API void hbflab_sampled_after_node(const ggml_tensor *node){
     if(!state || !state->pending.count(node))return;auto &s=*state;
     const auto finished=stamp(s,true),release=s.pending.at(node);need(finished>=release,"sampled early consumer completion");
-    s.consumers<<json({{"step",s.step},{"node",node->name},{"gate_release_ns",release},{"consumer_finished_ns",finished},
-        {"start_lower_bound","framework dispatch follows completed gate callback"}}).dump()<<'\n';
+    auto consumer_row=json({{"step",s.step},{"node",node->name},{"gate_release_ns",release},{"consumer_finished_ns",finished},
+        {"start_lower_bound","framework dispatch follows completed gate callback"}});
+    if(s.summary)s.consumer_rows.push_back(std::move(consumer_row));else s.consumers<<consumer_row.dump()<<'\n';
     need(bool(s.consumers),"sampled consumer post log");s.pending.erase(node);++s.post_calls;
 }
-void sampled_model_step_end(){auto &s=*state;need(s.seen.size()==14 && s.pending.empty(),"sampled consumer coverage/post dependency");if(s.paged){m4_step_end();const auto version=m4_sequence_version(0);need(version==uint64_t(s.step+1),"KV version publication mismatch");s.kv_versions.push_back({{"step",s.step},{"version",version}});}}
+void sampled_model_step_end(){auto &s=*state;need(s.seen.size()==s.expected_weights && s.pending.empty(),"sampled consumer coverage/post dependency");if(s.paged){m4_step_end();const auto version=m4_sequence_version(0);need(version==uint64_t(s.step+1),"KV version publication mismatch");s.kv_versions.push_back({{"step",s.step},{"version",version}});}}
 void sampled_model_finish(){
-    auto &s=*state;need(!s.finished && s.step==7 && s.calls==112 && s.post_calls==112 && s.pending.empty(),"sampled model final scope");
+    auto &s=*state;need(!s.finished && s.step==int(s.expected_steps)-1 && s.calls==s.expected_weights*s.expected_steps && s.post_calls==s.calls && s.pending.empty(),"sampled model final scope");
     using Clock=std::chrono::steady_clock;
     const auto audit_start=Clock::now();
     if(s.paged){const auto version=m4_sequence_version(0);m4_sequence_audit((s.output/"kv-content.json").string().c_str(),s.prefill);need(m4_sequence_version(0)==version,"KV audit changed version");std::ofstream(s.output/"kv-versions.json")<<s.kv_versions.dump(2)<<'\n';}
@@ -187,9 +197,10 @@ void sampled_model_finish(){
     const auto hash_start=Clock::now();
     for(const auto &[t,original]:s.initial_hashes)need(hashes(s,t)==original,"borrowed sampled weight changed");
     const double hash_ms=std::chrono::duration<double,std::milli>(Clock::now()-hash_start).count();
+    if(s.summary){for(const auto &r:s.gate_rows)s.gates<<r.dump()<<'\n';for(const auto &r:s.consumer_rows)s.consumers<<r.dump()<<'\n';}
     s.gates.close();s.consumers.close();need(bool(s.gates)&&bool(s.consumers),"sampled model logs close");
     std::ofstream summary(s.output/"sampled-summary.json");summary<<json({{"status","pass"},{"route",s.route},{"kv",s.paged?"modeled":"native"},
-        {"steps",8},{"consumers",s.calls},{"post_consumers",s.post_calls},{"borrowed_unchanged",true},
+        {"steps",s.expected_steps},{"selected_weights",s.expected_weights},{"audit_mode",s.summary?"summary":"full"},{"consumers",s.calls},{"post_consumers",s.post_calls},{"borrowed_unchanged",true},
         {"requests",reads.requests},{"requested_bytes",reads.requested_bytes},{"payload_bytes",reads.payload_bytes},
         {"publication_bytes",reads.publication_bytes},{"lane_checks",reads.lane_checks},{"byte_checks",reads.byte_checks},
         {"hash_validation_bytes",s.hash_validation_bytes},{"runtime",runtime},{"common_clock_qualified",false},

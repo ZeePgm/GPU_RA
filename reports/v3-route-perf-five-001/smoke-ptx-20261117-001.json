@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-route-perf-five-001",
+  "run_id": "smoke-ptx-20261117-001",
+  "version": "v3",
+  "code_commit": "ff096fe1347db4af5a332a9608f6bfc49d45d577",
+  "code_tree": "0066f146c4d3200858d5683683c2c370c0d0d9ea",
+  "base_commit": "9f6eaa71f79d89120b56602d84c99614ef22839e",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Final candidate five-weight four-step model smoke passed: all 20 consumers and publication dependencies covered, 2513116 requests / 1286715392 bytes fully checked, complete logits and native KV bitwise equal to same-build native reference, borrowed weights unchanged, resources drained. Qualification only, not a formal performance sample.",
+  "manifest": "evidence/v3-route-perf-five-001/smoke-ptx-20261117-001/manifest.json",
+  "manifest_sha256": "7a2de0d881bec0ed951a842e6e876d76a42441dc156418e0e72f9623fd530d68",
+  "created_utc": "2026-11-17T07:46:03.579995+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
