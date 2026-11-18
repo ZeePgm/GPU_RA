@@ -6,6 +6,8 @@
 
 固定范围：Qwen3-0.6B F16、原始249字节CRLF prompt、44输入/8输出、单序列、F1/F2。读取K=256KiB、W=32KiB；KV启用device写来源、可取消追加、async分页、coalesced服务和异步副本，4个GPU页框、4个pinned槽；未启用K2 flush合并或K5 prefetch。权重/KV共用服务，Host驻留256×64B，逻辑介质容量1GiB。
 
+V3 选定只读权重可以使用第二次 F 的主机范围门控、R2 的 PTX 算术入口或 B2 CUDA。可用权重、调用方式及小规模验证见[入口说明](experiments/v3-restore-r2-001/README.md)和[恢复验收](reports/v3-restore-r2-001/README.md)。
+
 ## 克隆与依赖
 
 使用私有仓库访问权限，在较短的Windows路径克隆：
