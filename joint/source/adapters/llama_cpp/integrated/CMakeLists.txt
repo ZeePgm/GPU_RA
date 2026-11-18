@@ -125,6 +125,21 @@ add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/down.ptx"
  COMMAND "${CMAKE_CUDA_COMPILER}" --ptx -std=c++17 -arch=${HBFLAB_PTX_ARCHITECTURE}
  "-I${LAB_ROOT}/include" "${R2_DIR}/down_probe.cu" -o "${CMAKE_CURRENT_BINARY_DIR}/down.ptx"
  DEPENDS "${R2_DIR}/down_probe.cu" "${LAB_ROOT}/adapters/llama_cpp/integrated_down_scalar.cu" VERBATIM)
+add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/r2_half_to_float.ptx"
+ COMMAND "${CMAKE_CUDA_COMPILER}" --ptx -std=c++17 -arch=${HBFLAB_PTX_ARCHITECTURE}
+ "${LAB_ROOT}/adapters/llama_cpp/r2_half_to_float.cu" -o "${CMAKE_CURRENT_BINARY_DIR}/r2_half_to_float.ptx"
+ DEPENDS "${LAB_ROOT}/adapters/llama_cpp/r2_half_to_float.cu" VERBATIM)
+foreach(kernel down r2_half_to_float)
+ add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/${kernel}_embedded.hpp"
+  COMMAND "${CMAKE_COMMAND}" "-DINPUT=${CMAKE_CURRENT_BINARY_DIR}/${kernel}.ptx"
+  "-DOUTPUT=${CMAKE_CURRENT_BINARY_DIR}/${kernel}_embedded.hpp" "-DSYMBOL=embedded_${kernel}"
+  -P "${LAB_ROOT}/cmake/embed_ptx.cmake"
+  DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${kernel}.ptx" "${LAB_ROOT}/cmake/embed_ptx.cmake" VERBATIM)
+endforeach()
+add_custom_target(r2_consumers DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/down_embedded.hpp"
+ "${CMAKE_CURRENT_BINARY_DIR}/r2_half_to_float_embedded.hpp")
+add_dependencies(ggml-cuda r2_consumers)
+target_compile_definitions(ggml-cuda PRIVATE HBFLAB_RESTORED_R2)
 add_executable(r2_down "${R2_DIR}/down_runner.cpp" "${R2_DIR}/down_explicit.cu"
  "${R2_DIR}/down_timed.cu" "${CMAKE_CURRENT_BINARY_DIR}/down.ptx")
 target_include_directories(r2_down PRIVATE "${LLAMA_SOURCE}/vendor")

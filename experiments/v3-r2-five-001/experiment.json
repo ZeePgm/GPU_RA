@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-r2-five-001",
+  "title": "Five representative weights on restored routes",
+  "purpose": "Verify selected weight consumers on symbolic F, R2 PTX and CUDA B2",
+  "version": "v3",
+  "base_ref": "codex/v3-joint",
+  "base_commit": "accdedcaedae575405296604e3a398781282fc65",
+  "branch": "codex/exp-v3-r2-five-001",
+  "source_prefix": "joint/source",
+  "created_utc": "2026-11-18T02:44:00.937980+00:00",
+  "baseline_manifests": [
+    {
+      "path": "provenance/delivery-manifest.json",
+      "bytes": 1941199,
+      "sha256": "ed116a40fe0547e5f631e7db57ac1133dcface19672602f53e49c97948f6b016"
+    },
+    {
+      "path": "DATASETS.json",
+      "bytes": 171377,
+      "sha256": "6eca69cbdb40f769b16c5c52b0915a757185435b5a9325abee6ce84019ae6b92"
+    },
+    {
+      "path": "joint/provenance/final-source-build-manifest.json",
+      "bytes": 929849,
+      "sha256": "5430a8c979657fdd18f950b77c7fb0ba273e4d9ff908ff23856742e8c3031b68"
+    }
+  ]
+}

@@ -1,4 +1,7 @@
 #include "weights_bridge.hpp"
+#ifdef HBFLAB_RESTORED_R2
+#include "restored_routes.hpp"
+#endif
 #include "paged_bridge.hpp"
 #include "instrumented_bridge.hpp"
 #include "ggml-cuda.h"
@@ -1525,7 +1528,16 @@ static void ggml_cuda_mul_mat_cublas_impl(ggml_backend_cuda_context & ctx, const
         if (ggml_is_contiguously_allocated(src0)) {
             const auto convert_func = traits::convert(src0->type);
             GGML_ASSERT(convert_func != nullptr);
-            convert_func(src0->data, src0_alloc.get(), ggml_nelements(src0), main_stream);
+#ifdef HBFLAB_RESTORED_R2
+            bool converted = false;
+            if constexpr (compute_type == GGML_TYPE_F32) {
+                converted = restored_ptx_convert(src0, src0_alloc.get(), main_stream);
+            }
+            if (!converted)
+#endif
+            {
+                convert_func(src0->data, src0_alloc.get(), ggml_nelements(src0), main_stream);
+            }
             const size_t src0_bs = ggml_blck_size(src0->type);
             s01 *= src0_bs;
             s02 *= src0_bs;

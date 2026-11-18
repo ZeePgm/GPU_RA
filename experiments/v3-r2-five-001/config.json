@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-r2-five-001",
+  "parameters": {
+    "routes": [
+      "ptx",
+      "symbolic",
+      "cuda"
+    ],
+    "phases": [
+      "prefill",
+      "decode"
+    ],
+    "repeats": 0,
+    "output_projection_last_rows": 32,
+    "model_check": "first four weights, 44 prompt tokens and one output, native KV"
+  },
+  "acceptance": {
+    "component": "every output byte equals the frozen native fixture or the declared contiguous slice",
+    "requests": "exact scalar/range/warp coverage, successful drain, immutable original weight",
+    "model": "full first logit vector equals frozen reference, KV and lifecycle equal single-step native",
+    "retain": "summary, outputs, source/build/input identity; no lane trace"
+  }
+}
