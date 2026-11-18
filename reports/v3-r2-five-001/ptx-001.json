@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-r2-five-001",
+  "run_id": "ptx-001",
+  "version": "v3",
+  "code_commit": "a5201f63b8c622a13cbd003602f827c7820955a2",
+  "code_tree": "7fa618da2d1808b6b0f2d7a9dfae5c515e55ed4e",
+  "base_commit": "accdedcaedae575405296604e3a398781282fc65",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "Q decode matched the complete native output. Q prefill stopped at the legacy context-allocation check on a ggml CUDA VMM output workspace. No pass awarded.",
+  "manifest": "evidence/v3-r2-five-001/ptx-001/manifest.json",
+  "manifest_sha256": "6339a00e3fb8109bcaea289cd481b54e8997005c8b0756f8a2deac694dc8f324",
+  "created_utc": "2026-11-18T03:22:32.994541+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

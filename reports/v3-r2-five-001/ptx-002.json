@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-r2-five-001",
+  "run_id": "ptx-002",
+  "version": "v3",
+  "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+  "code_tree": "57eb307c52f5486dada64ade8757e12b1c588258",
+  "base_commit": "accdedcaedae575405296604e3a398781282fc65",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "Q prefill matched the complete frozen native output after mapped-workspace validation. The unchanged resource observer stopped Q decode when another workspace Python process registered a subsequent run. This interrupted sample is excluded.",
+  "manifest": "evidence/v3-r2-five-001/ptx-002/manifest.json",
+  "manifest_sha256": "5a5dc2bd45e03784a5530a900a71533d75eef66880ced0b23f3c4acc21ef1984",
+  "created_utc": "2026-11-18T03:22:34.511247+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

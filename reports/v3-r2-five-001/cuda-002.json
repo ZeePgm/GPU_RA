@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-r2-five-001",
+  "run_id": "cuda-002",
+  "version": "v3",
+  "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+  "code_tree": "57eb307c52f5486dada64ade8757e12b1c588258",
+  "base_commit": "accdedcaedae575405296604e3a398781282fc65",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Both frozen phases passed for the five representative weights: full norm, Q and FFN-down, actual embedding rows, and final 32 output-projection rows. All checked output bytes match native. Independent 44-token model check with four weights selected passed full first logits, native KV, positions and release. No performance claim.",
+  "manifest": "evidence/v3-r2-five-001/cuda-002/manifest.json",
+  "manifest_sha256": "8ed169bc82c998e8f0b5443faf1cb6b49a80cd1a3bd4ce32c12318ebf4bd2ffd",
+  "created_utc": "2026-11-18T03:22:41.317595+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

@@ -4240,6 +4240,139 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-restore-r2-001/second-f-20261118-002"
       }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "ptx-001",
+      "code_commit": "a5201f63b8c622a13cbd003602f827c7820955a2",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/ptx-001/manifest.json",
+        "bytes": 4872,
+        "sha256": "6339a00e3fb8109bcaea289cd481b54e8997005c8b0756f8a2deac694dc8f324"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/ptx-001.json",
+        "bytes": 845,
+        "sha256": "d0363e6d96b138676072473f27d05dbda52c99c8834e3bab7ccc1249d1cbe4f7"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/ptx-001"
+      }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "ptx-002",
+      "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/ptx-002/manifest.json",
+        "bytes": 4875,
+        "sha256": "5a5dc2bd45e03784a5530a900a71533d75eef66880ced0b23f3c4acc21ef1984"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/ptx-002.json",
+        "bytes": 929,
+        "sha256": "3b4fe242ae62c9c468b941ad61ff4cedc043c50c27e2030f7fbbe315c7c251e1"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/ptx-002"
+      }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "symbolic-001",
+      "code_commit": "a5201f63b8c622a13cbd003602f827c7820955a2",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/symbolic-001/manifest.json",
+        "bytes": 27603,
+        "sha256": "2c3d0b0ab32246b8fa53d278e9c3848f078541852782bbf6bb0f43481b6016ab"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/symbolic-001.json",
+        "bytes": 1033,
+        "sha256": "b38ad6c397859c1be23366e267fdea34cc9bc3323b58b9298c61f910d676e164"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/symbolic-001"
+      }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "cuda-001",
+      "code_commit": "a5201f63b8c622a13cbd003602f827c7820955a2",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/cuda-001/manifest.json",
+        "bytes": 24244,
+        "sha256": "4e02490f81433a651573f99ce5bb93b6617300a2aa5a4cf0babb286acd179a0d"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/cuda-001.json",
+        "bytes": 1025,
+        "sha256": "9e82fb03c391613a2e08089a5d0406198a91d8c072a3fd7f9d66882009401dc6"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/cuda-001"
+      }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "symbolic-002",
+      "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/symbolic-002/manifest.json",
+        "bytes": 27603,
+        "sha256": "08ba859255e04b5aa0afbe73b422694bdcfe2e8c988257fc1e33d0109f0d9faf"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/symbolic-002.json",
+        "bytes": 1033,
+        "sha256": "1d9907345750efef280a2bb6de34e63fedc41f679b807c908c2bb9abf66f9cc4"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/symbolic-002"
+      }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "cuda-002",
+      "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/cuda-002/manifest.json",
+        "bytes": 24244,
+        "sha256": "8ed169bc82c998e8f0b5443faf1cb6b49a80cd1a3bd4ce32c12318ebf4bd2ffd"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/cuda-002.json",
+        "bytes": 1025,
+        "sha256": "f95b5be8df2e58c0588f9b0c3fccddd1011845f434a555824c550ab7844ab5e5"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/cuda-002"
+      }
+    },
+    {
+      "experiment_id": "v3-r2-five-001",
+      "run_id": "ptx-003",
+      "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+      "manifest": {
+        "path": "evidence/v3-r2-five-001/ptx-003/manifest.json",
+        "bytes": 24594,
+        "sha256": "d712a7f85312822ea036d5856504c53eed31f78e755347e374e2e03cd23c75e6"
+      },
+      "report": {
+        "path": "reports/v3-r2-five-001/ptx-003.json",
+        "bytes": 1023,
+        "sha256": "06e20d5f2f9ae6b46d6fad07bc0215691b116c901c040ec28a4c56e0df5920f3"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-r2-five-001/ptx-003"
+      }
     }
   ]
 }
