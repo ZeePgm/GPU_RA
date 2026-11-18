@@ -181,7 +181,7 @@ std::uint64_t AsyncModuleInterceptor::launch(AsyncFunctionHandle handle,AsyncLau
     if(stream){CUcontext c=nullptr;check(cuStreamGetCtx(reinterpret_cast<CUstream>(stream),&c),"stream context");if(c!=s.context)throw std::invalid_argument("foreign stream");}
     if((output.data==nullptr)!=(output.bytes==0))throw std::invalid_argument("invalid output span");
     std::uint64_t base=reinterpret_cast<std::uint64_t>(output.data),bytes=output.bytes,instance=m.identity.instance;
-    if(bytes && memory==AsyncOutputMemory::GgmlMappedWorkspace){
+    if(bytes && memory==AsyncOutputMemory::DeviceMapping){
         // cuMemMap reservations can be contextless and contain multiple physical
         // mappings. A virtual reservation alone does not prove writable storage.
         if(bytes>UINT64_MAX-base)throw std::invalid_argument("mapped output overflow");

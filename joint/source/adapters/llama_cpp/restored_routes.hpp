@@ -15,7 +15,7 @@ HBFLAB_M2_API void restored_abort();
 }
 
 bool restored_ptx_mul(ggml_tensor* node, cudaStream_t stream);
-bool restored_ptx_convert(const ggml_tensor* weight, float* output, cudaStream_t stream);
+bool restored_ptx_convert(const ggml_tensor* weight, float* output, cudaStream_t stream, bool mapped_workspace);
 void restored_b2_bind(const ggml_tensor* const*, const std::uint64_t*, unsigned,
                       std::uint64_t, const std::filesystem::path&, bool);
 void restored_b2_read(const ggml_tensor*, unsigned offset, unsigned bytes, int step);

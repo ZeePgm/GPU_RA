@@ -6,7 +6,7 @@ namespace hbflab {
 struct AsyncModuleHandle {std::uint64_t value=0;};
 struct AsyncFunctionHandle {std::uint64_t value=0;};
 struct NativeReadSpan {const void* data=nullptr;std::size_t bytes=0;};
-enum class AsyncOutputMemory { ContextAllocation, GgmlMappedWorkspace };
+enum class AsyncOutputMemory { ContextAllocation, DeviceMapping };
 class AsyncModuleInterceptor {
 public:
     explicit AsyncModuleInterceptor(LiveTimingService&,ModuleOptions={});

@@ -73,7 +73,7 @@ def run(args):
 
     results = []
     for weight in [2,3,5,4,1]:
-        for phase in ['d','p']:
+        for phase in ['p','d']:
             name = f'w{weight}-{phase}'
             fixture = ref / (name+'.json')
             require(sha(fixture)==index[fixture.name], 'Fixture identity '+name)

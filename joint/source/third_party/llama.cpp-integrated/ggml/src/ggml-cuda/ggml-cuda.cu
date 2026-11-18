@@ -1531,7 +1531,11 @@ static void ggml_cuda_mul_mat_cublas_impl(ggml_backend_cuda_context & ctx, const
 #ifdef HBFLAB_RESTORED_R2
             bool converted = false;
             if constexpr (compute_type == GGML_TYPE_F32) {
-                converted = restored_ptx_convert(src0, src0_alloc.get(), main_stream);
+                bool mapped_workspace = false;
+#if defined(GGML_USE_VMM)
+                mapped_workspace = ggml_cuda_info().devices[ctx.device].vmm;
+#endif
+                converted = restored_ptx_convert(src0, src0_alloc.get(), main_stream, mapped_workspace);
             }
             if (!converted)
 #endif
