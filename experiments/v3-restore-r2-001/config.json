@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "parameters": {
+    "cases": [
+      "second-f",
+      "symbolic",
+      "ptx",
+      "cuda"
+    ],
+    "second_f_outputs": 1,
+    "selected_model_weights": [
+      "blk.10.ffn_norm.weight"
+    ],
+    "prompt_tokens": 44,
+    "outputs": 4,
+    "kv": "native",
+    "native_reference": "v3-route-perf-five-001/reference-20261117-001",
+    "performance_matrix": false
+  },
+  "acceptance": {
+    "second-f": "F1 native capture + replay; original full F audit including every selected GPU dispatch and integer clock conservation",
+    "symbolic": "one parent per matrix or actual gather row, original 4096 B Global grouping",
+    "ptx": "R2 norm scalar 4 B arithmetic loads and 2x128 launch; row-zero down CPU FMA oracle; explicitly reject full down at norm entry",
+    "cuda": "B2 original kernel, 512 B per warp, K=256 KiB, W=32 KiB; one publication per demanded range",
+    "model": "all four complete logits, tokens, KV serialized bytes, positions and release equal frozen native",
+    "component": "complete result bitwise equal frozen native fixture"
+  }
+}

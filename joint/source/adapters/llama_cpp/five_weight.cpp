@@ -3,7 +3,7 @@
 #include "ggml-alloc.h"
 #include "ggml-cuda.h"
 #include "llama.h"
-#include "hbflab/sampled_reader.hpp"
+#include "restored_routes.hpp"
 #include "hbflab/ptx.hpp"
 #include "hbflab/platform.hpp"
 #include <cuda_runtime.h>
@@ -47,7 +47,7 @@ int main(int argc,char **argv)try{
     need(argc==8,"usage: five_weight model inventory fixture.json output route repeats audit");
     const auto inventory=read(argv[2]),fixture=read(argv[3]);const fs::path out=argv[4],fixture_root=fs::path(argv[3]).parent_path();
     need(!fs::exists(out),"weight output exists");fs::create_directories(out);
-    const auto route=hbflab::sampled_route(argv[5]);const unsigned repeats=std::stoul(argv[6]);need(repeats<=5,"repeat limit");
+    const unsigned repeats=std::stoul(argv[6]);need(repeats<=5,"repeat limit");
     const std::string audit=argv[7];need(audit=="full" || audit=="summary","audit mode");
     const unsigned count=1+repeats;const auto expected=binary(fixture_root/fixture.at("output").at("file").get<std::string>());
     J entry;for(const auto &t:inventory.at("all_tensors"))if(t.at("name")==fixture.at("tensor"))entry=t;
@@ -80,43 +80,33 @@ int main(int argc,char **argv)try{
     for(const auto &input:fixture.at("inputs")){const auto data=binary(fixture_root/input.at("file").get<std::string>());
         auto *t=sources[input.at("slot").get<unsigned>()];need(data.size()==ggml_nbytes(t),"activation bytes");ggml_backend_tensor_set(t,data.data(),0,data.size());}
     const auto original=hashes(weight);
-    hbflab::SampledOptions options;options.route=route;options.layout_bytes=inventory.at("logical_weight_layout_bytes");
-    hbflab::SampledRegistration registration(options);registration.add({entry.at("name"),weight->data,ggml_nbytes(weight),entry.at("logical_base")});
-    registration.prepare();registration.start();
-    hbflab::SampledReader reader(registration,route,out/"reader",audit=="full"?hbflab::SampledAuditMode::Full:hbflab::SampledAuditMode::Summary);
-    // Precompute gather ranges before timing; values and order are the captured original indices.
-    std::vector<std::pair<uint64_t,uint64_t>> spans;
-    if(fixture.at("op")=="GET_ROWS"){
-        const auto input=fixture.at("inputs").at(0);const auto data=binary(fixture_root/input.at("file").get<std::string>());
-        need(data.size()%4==0,"token index bytes");
-        for(size_t k=0;k<data.size()/4;++k){int32_t row=0;std::memcpy(&row,data.data()+4*k,4);need(row>=0 && row<weight->ne[1],"token row bounds");spans.push_back({uint64_t(row)*weight->nb[1],weight->nb[1]});}
-    }else spans.push_back({0,ggml_nbytes(weight)});
+    const ggml_tensor* selected[]={weight};
+    const uint64_t logical_base=entry.at("logical_base");
+    struct Cleanup {~Cleanup(){restored_abort();}} cleanup;
+    restored_bind(argv[5],selected,&logical_base,1,inventory.at("logical_weight_layout_bytes"),
+        std::getenv("HBFLAB_SAMPLED_PROFILE"),std::getenv("HBFLAB_SYMBOLIC_CONFIG"),argv[4],audit=="full");
     ck(cudaDeviceSynchronize());const auto ready=now();
-    struct Sample{uint64_t begin,end,requests,requested,payload,published;};std::vector<Sample> samples;samples.reserve(count);
-    for(unsigned k=0;k<count;++k){const auto before=reader.statistics();const auto begin=now();
-        for(const auto &span:spans)reader.read(0,span.first,span.second);
+    struct Sample{uint64_t begin,end;};std::vector<Sample> samples;samples.reserve(count);
+    for(unsigned k=0;k<count;++k){const auto begin=now();
+        restored_step_begin(k);restored_before(outputs[k]);
         need(ggml_backend_graph_compute(memory.backend,graphs[k])==GGML_STATUS_SUCCESS,"native consumer compute failed");
-        ggml_backend_synchronize(memory.backend);const auto end=now();const auto after=reader.statistics();
-        samples.push_back({begin,end,after.requests-before.requests,after.requested_bytes-before.requested_bytes,
-            after.payload_bytes-before.payload_bytes,after.publication_bytes-before.publication_bytes});
+        ggml_backend_synchronize(memory.backend);restored_step_end();
+        samples.push_back({begin,now()});
     }
     J calls=J::array();std::string result(expected.size(),'\0');double repeated_ns=0;
     for(unsigned k=0;k<count;++k){ggml_backend_tensor_get(outputs[k],result.data(),0,result.size());
         binary_save(out/("call-"+std::to_string(k)+".bin"),result);const bool equal=result==expected;
         calls.push_back({{"index",k},{"kind",k?"repeated":"first"},{"begin_ns",samples[k].begin},{"end_ns",samples[k].end},
-            {"latency_ns",samples[k].end-samples[k].begin},{"native_bitwise_equal",equal},{"output_sha256",hbflab::sha256(result)},
-            {"requests",samples[k].requests},{"requested_bytes",samples[k].requested},{"payload_bytes",samples[k].payload},{"publication_bytes",samples[k].published}});
+            {"latency_ns",samples[k].end-samples[k].begin},{"native_bitwise_equal",equal},{"output_sha256",hbflab::sha256(result)}});
         save(out/"calls.json",calls);need(equal,"native consumer output differs");if(k)repeated_ns+=samples[k].end-samples[k].begin;
     }
     const auto final_hashes=hashes(weight);need(original==final_hashes,"borrowed weight changed");save(out/"weight-hashes.json",{{"before",original},{"after",final_hashes}});
-    const auto stats=reader.statistics();reader.finish();const auto runtime=registration.service().statistics();
-    need(runtime.submitted==stats.requests && runtime.completed==stats.requests && !runtime.audit_dropped,"request accounting");registration.close();
+    restored_finish();
     save(out/"summary.json",{{"status","pass"},{"scenario_id",fixture.at("scenario_id")},{"tensor",entry.at("name")},{"route",argv[5]},
         {"audit_mode",audit},{"u0_ns",u0},{"ready_ns",ready},{"initialization_ns",ready-u0},{"first_result_ns",samples.front().end-u0},
         {"first_call_ns",samples.front().end-samples.front().begin},{"repeated_calls",repeats},{"repeated_mean_ns",repeats?repeated_ns/repeats:0.0},
-        {"calls",count},{"output_buffer_bytes",output_bytes},{"drained",true},{"borrowed_unchanged",true},{"peak_resident_fragments",runtime.backend.peak_resident_fragments},
-        {"requests",stats.requests},{"requested_bytes",stats.requested_bytes},{"lane_checks",stats.lane_checks},{"byte_checks",stats.byte_checks},
-        {"runtime_validation_in_timing",true},{"full_raw_files",audit=="full"},{"free_gpu_before_allocation",free_gpu},
+        {"calls",count},{"output_buffer_bytes",output_bytes},{"drained",true},{"borrowed_unchanged",true},
+        {"free_gpu_before_allocation",free_gpu},
         {"post_timing_identity_observation_hold_ms",1000}});
     // The unchanged host observer samples modules after 200ms. Keep short
     // successful processes alive outside every measured boundary for that proof.

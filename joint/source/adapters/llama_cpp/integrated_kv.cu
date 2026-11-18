@@ -270,7 +270,6 @@ void m4_attention(ggml_tensor* dst,cudaStream_t stream){
 void m4_sequence_truncate(int id,std::size_t length){need(state && !state->active,"sequence mutation during step");auto& s=*state;auto& q=s.sequences.at(id);s.kv->truncate(q.sequence,length);q.layer=q.batch=0;}
 void m4_sequence_release(int id){need(state && !state->active,"sequence mutation during step");auto& s=*state;auto it=s.sequences.find(id);need(it!=s.sequences.end(),"unknown sequence");s.kv->release(it->second.sequence);s.sequences.erase(it);}
 void m4_step_end(){if(!state)return;auto& s=*state;need(s.active,"inactive step");bool work=false;for(const auto& item:s.sequences){need(item.second.layer==0,"missing sequence layer");work|=item.second.batch>0;}need(work,"empty step");s.drain();s.active=false;++s.step;}
-std::uint64_t m4_sequence_version(int id){need(state && !state->active && state->sequences.count(id),"KV version requires idle sequence");return state->kv->version(state->sequences.at(id).sequence);}
 void m4_finish(){if(!state)return;auto& s=*state;need(!s.active,"M4 unfinished batch");for(const auto& item:s.sequences)s.kv->flush(item.second.sequence);s.drain();
     if(s.storage->active){s.gpu->flush();s.drain();}
     const auto c=s.gpu->store().statistics();const auto g=s.gpu->statistics();need(!c.pins&&!c.dirty_frames&&!g.active_leases,"M4 leases/dirty data not drained");
