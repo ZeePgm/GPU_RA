@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "kind": "approved-trace-retention",
+  "experiment_id": "v3-r2-five-001",
+  "run_id": "symbolic-002",
+  "created_utc": "2026-11-18T03:28:27.824597+00:00",
+  "approval": {
+    "source": "explicit_user_message",
+    "text": "清理 5 次成功运行中的 60 份子进程文本日志"
+  },
+  "manifest_sha256": "08ba859255e04b5aa0afbe73b422694bdcfe2e8c988257fc1e33d0109f0d9faf",
+  "report_sha256": "1d9907345750efef280a2bb6de34e63fedc41f679b807c908c2bb9abf66f9cc4",
+  "full_verification_before_cleanup": {
+    "status": "pass",
+    "experiment_id": "v3-r2-five-001",
+    "run_id": "symbolic-002",
+    "code_commit": "402e81fc3371db13db42fc7fec1d372d159d6d13",
+    "current_commit": "33f99fd7f56270d78208396ff8e98d3a7a0cd8a9",
+    "report_commit": "dff647ec4db1842f9834d0b62576a8d3fd01b757",
+    "report_committed": true,
+    "files": 166,
+    "bytes": 14699808,
+    "mode": "full",
+    "full_payload_present": true,
+    "scope": "Traceability and data integrity; scientific verdict is recorded separately."
+  },
+  "remove": [
+    {
+      "path": "data/joint-model.log",
+      "bytes": 200352,
+      "sha256": "fc883bb61ce9801c10ec134e008b507531eff58e0837a483dc7c06c140dc9475"
+    },
+    {
+      "path": "data/native-model.log",
+      "bytes": 200352,
+      "sha256": "39fb3fe9777aef2e67e1b313aba20784ebd152303ac4e245f8915c7f885916b0"
+    },
+    {
+      "path": "data/w1-d.log",
+      "bytes": 174,
+      "sha256": "291057197d782e84b3bfe7b27aa654d4ae400594fe772e49baaeb90b5abc6d47"
+    },
+    {
+      "path": "data/w1-p.log",
+      "bytes": 174,
+      "sha256": "d23d1d09fdf2ba2f83fd9ed3a43f821065b978824fe82ffbe1a4e3153129365d"
+    },
+    {
+      "path": "data/w2-d.log",
+      "bytes": 174,
+      "sha256": "aa5d7a7863e662f1aab1d41c907a82a98b48fdd5177aadf9922458351e2b30ad"
+    },
+    {
+      "path": "data/w2-p.log",
+      "bytes": 174,
+      "sha256": "64815f79fd80c9e7eb7b4f94ab68f10a848105a8ca71761ac88f3e73c1f9ee35"
+    },
+    {
+      "path": "data/w3-d.log",
+      "bytes": 174,
+      "sha256": "58c3d28f1bb141804183dcc311b895b4ef6cef46191da375c96f66ef6208e149"
+    },
+    {
+      "path": "data/w3-p.log",
+      "bytes": 174,
+      "sha256": "1e0fe4e1ab068fd5cd652a80e2c457479851d3e7b5d3bf174fcb4eac352be13f"
+    },
+    {
+      "path": "data/w4-d.log",
+      "bytes": 174,
+      "sha256": "fac1796496c37809b60186de5c0a0ca82195955a61d8b5f0d55be13b907220fe"
+    },
+    {
+      "path": "data/w4-p.log",
+      "bytes": 174,
+      "sha256": "1b7c8d0a8385f14a3591aad75afb79751871ef35e9ee0558f2b0c9d7dd507c97"
+    },
+    {
+      "path": "data/w5-d.log",
+      "bytes": 174,
+      "sha256": "86caf1d29d67fffcabee7e0c187d546c41bead3da0ec09f191c76d60f436dadf"
+    },
+    {
+      "path": "data/w5-p.log",
+      "bytes": 174,
+      "sha256": "2055cfee3f53abca635cb1766cc82a0b78302e53294251319f62f3b3f9c70883"
+    }
+  ],
+  "remove_bytes": 402444,
+  "retained_inventory_sha256": "a0f02ecbb19f6aecc8423b2d56a6df0b029f4f8c6beb8f103fd25c1c4a640271",
+  "scope_after_cleanup": "Only the listed child process text logs are retired; their sealed process records remain.",
+  "scope": "subprocess-logs"
+}
