@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restored-perf-001",
+  "parameters": {
+    "protocol": "experiments/v3-route-perf-five-001/PLAN.md",
+    "schedule": "experiments/v3-route-perf-five-001/matrix.json",
+    "budgets_from": "experiments/v3-route-perf-five-001/config.json#parameters.budgets",
+    "stage": "qualification",
+    "cases": [
+      "w5-p",
+      "w5-d"
+    ],
+    "admitted_routes": [
+      "symbolic",
+      "cuda"
+    ],
+    "first_calls": 1,
+    "repeated_calls": 0,
+    "original_projection_rows": 151936,
+    "receipt_sha256": "1e3d5bd9809be0847a41bf470f7d4fa334d2e9324d6391dc6197dc2e1d6a17e0",
+    "formal_budget_gate": "full matrix forecast exceeds approved budget",
+    "qualification_run_ids": [
+      "qual-w5-p-symbolic-001",
+      "qual-w5-p-cuda-001",
+      "qual-w5-d-symbolic-001",
+      "qual-w5-d-cuda-001"
+    ]
+  },
+  "acceptance": {
+    "output": "complete frozen native output bytes",
+    "access": "whole original GGUF projection, declared route accounting, drained, immutable weight"
+  }
+}
