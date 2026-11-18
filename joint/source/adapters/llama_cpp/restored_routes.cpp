@@ -3,6 +3,7 @@
 #include "integrated_geometry.hpp"
 #include "weights_bridge.hpp"
 #include "hbflab/async_module.hpp"
+#include <cuda.h>
 #include "down_embedded.hpp"
 #include "r2_half_to_float_embedded.hpp"
 #include <algorithm>
@@ -182,13 +183,14 @@ void audit_scalar(Session& s,const ggml_tensor* w,const void* start,size_t bytes
     }
     s.parents+=records.size();s.requested_bytes+=bytes;
 }
-void convert_pairs(Session& s,const ggml_tensor* w,const char* src,float* dst,size_t bytes,cudaStream_t stream){
+void convert_pairs(Session& s,const ggml_tensor* w,const char* src,float* dst,size_t bytes,cudaStream_t stream,
+                   AsyncOutputMemory memory=AsyncOutputMemory::ContextAllocation){
     // Bound live audit memory independently of the matrix size.
     constexpr size_t batch_bytes=4096;
     while(bytes){
         const size_t n=std::min(bytes,batch_bytes);
         unsigned pairs=unsigned(n/4);
-        auto launch=s.loader->launch(s.unpack,{1,256},{&src,&dst,&pairs},{dst,n*2},stream);
+        auto launch=s.loader->launch(s.unpack,{1,256},{&src,&dst,&pairs},{dst,n*2},stream,{},memory);
         audit_scalar(s,w,src,n,launch);
         src+=n;dst+=2*pairs;bytes-=n;
     }
@@ -208,7 +210,11 @@ bool restored_ptx_convert(const ggml_tensor* part,float* dst,cudaStream_t stream
               ggml_is_matrix(part),"R2 cuBLAS weight identity");
         const size_t offset=address-base,bytes=ggml_nelements(part)*sizeof(uint16_t);
         check(offset==s.converted[w] && bytes<=ggml_nbytes(w)-offset,"R2 cuBLAS weight chunk order");
-        convert_pairs(s,w,static_cast<const char*>(part->data),dst,bytes,stream);
+        CUcontext owner=nullptr;
+        check(cuPointerGetAttribute(&owner,CU_POINTER_ATTRIBUTE_CONTEXT,reinterpret_cast<CUdeviceptr>(dst))==CUDA_SUCCESS,
+              "cuBLAS workspace context query");
+        convert_pairs(s,w,static_cast<const char*>(part->data),dst,bytes,stream,
+                      owner?AsyncOutputMemory::ContextAllocation:AsyncOutputMemory::GgmlMappedWorkspace);
         s.scalar_totals["cublas_f16_to_f32"]+=bytes/4;
         s.converted[w]+=bytes;
         if(s.converted[w]==ggml_nbytes(w))check(s.handled.insert(w).second,"duplicate converted matrix");

@@ -172,7 +172,7 @@ void AsyncModuleInterceptor::unload(AsyncModuleHandle handle) {
     s.modules.erase(handle.value);
 }
 std::uint64_t AsyncModuleInterceptor::launch(AsyncFunctionHandle handle,AsyncLaunchShape shape,const std::vector<void*>& args,
-                                              OutputSpan output,cudaStream_t stream,NativeReadSpan native) {
+                                              OutputSpan output,cudaStream_t stream,NativeReadSpan native,AsyncOutputMemory memory) {
     if(impl_->options.uniform_warp_reads && shape.threads%32)throw std::invalid_argument("uniform warp PTX requires whole warps");
     auto& s=*impl_;s.current();const auto it=s.functions.find(handle.value);
     if(it==s.functions.end())throw std::invalid_argument("foreign/stale function");const auto f=it->second;auto& m=s.module({f.module});
@@ -181,10 +181,38 @@ std::uint64_t AsyncModuleInterceptor::launch(AsyncFunctionHandle handle,AsyncLau
     if(stream){CUcontext c=nullptr;check(cuStreamGetCtx(reinterpret_cast<CUstream>(stream),&c),"stream context");if(c!=s.context)throw std::invalid_argument("foreign stream");}
     if((output.data==nullptr)!=(output.bytes==0))throw std::invalid_argument("invalid output span");
     std::uint64_t base=reinterpret_cast<std::uint64_t>(output.data),bytes=output.bytes,instance=m.identity.instance;
-    if(bytes){CUdeviceptr allocation;std::size_t size;CUcontext c=nullptr;
+    if(bytes && memory==AsyncOutputMemory::GgmlMappedWorkspace){
+        // cuMemMap reservations can be contextless and contain multiple physical
+        // mappings. A virtual reservation alone does not prove writable storage.
+        if(bytes>UINT64_MAX-base)throw std::invalid_argument("mapped output overflow");
+        for(CUdeviceptr at=base;at<base+bytes;){
+            CUdeviceptr mapped=0;size_t size=0;
+            check(cuMemGetAddressRange(&mapped,&size,at),"ggml mapped output range");
+            if(at<mapped || at-mapped>=size)throw std::invalid_argument("ggml mapped output bounds");
+            CUmemGenericAllocationHandle handle{};
+            check(cuMemRetainAllocationHandle(&handle,reinterpret_cast<void*>(at)),"ggml mapped output backing");
+            CUmemAllocationProp prop{};
+            const auto query=cuMemGetAllocationPropertiesFromHandle(&prop,handle);
+            check(cuMemRelease(handle),"release ggml mapping reference");
+            check(query,"ggml mapped output properties");
+            if(prop.location.type!=CU_MEM_LOCATION_TYPE_DEVICE || prop.location.id!=s.device)
+                throw std::invalid_argument("ggml output mapped on foreign device");
+            // Access protection may vary within a physical mapping.
+            size_t granule=0;
+            check(cuMemGetAllocationGranularity(&granule,&prop,CU_MEM_ALLOC_GRANULARITY_MINIMUM),"ggml VMM granularity");
+            if(!granule)throw std::invalid_argument("invalid ggml VMM granularity");
+            unsigned long long access=0;
+            check(cuMemGetAccess(&access,&prop.location,at),"ggml mapped output access");
+            if(access!=CU_MEM_ACCESS_FLAGS_PROT_READWRITE)throw std::invalid_argument("ggml mapped output is not writable");
+            at+=std::min<uint64_t>({base+bytes-at,size-(at-mapped),granule-(at%granule)});
+        }
+    }else if(bytes){
+        CUdeviceptr allocation;std::size_t size;CUcontext c=nullptr;
         check(cuMemGetAddressRange(&allocation,&size,base),"output allocation");
         check(cuPointerGetAttribute(&c,CU_POINTER_ATTRIBUTE_CONTEXT,base),"output context");
-        if(c!=s.context || base<allocation || bytes>size || base-allocation>size-bytes)throw std::invalid_argument("output bounds/context");}
+        if(c!=s.context || base<allocation || bytes>size || base-allocation>size-bytes)
+            throw std::invalid_argument("output bounds/context");
+    }
     std::uint64_t native_base=reinterpret_cast<std::uint64_t>(native.data),native_bytes=native.bytes;
     if((native.data==nullptr)!=(native.bytes==0))throw std::invalid_argument("invalid native input span");
     if(native_bytes){CUdeviceptr allocation;std::size_t size;CUcontext c=nullptr;

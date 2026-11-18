@@ -6,6 +6,7 @@ namespace hbflab {
 struct AsyncModuleHandle {std::uint64_t value=0;};
 struct AsyncFunctionHandle {std::uint64_t value=0;};
 struct NativeReadSpan {const void* data=nullptr;std::size_t bytes=0;};
+enum class AsyncOutputMemory { ContextAllocation, GgmlMappedWorkspace };
 class AsyncModuleInterceptor {
 public:
     explicit AsyncModuleInterceptor(LiveTimingService&,ModuleOptions={});
@@ -19,7 +20,8 @@ public:
     ModuleStats statistics() const;
     void clear_cache();
     void unload(AsyncModuleHandle); // Drains service before releasing executable code.
-    std::uint64_t launch(AsyncFunctionHandle,AsyncLaunchShape,const std::vector<void*>&,OutputSpan={},cudaStream_t=nullptr,NativeReadSpan={});
+    std::uint64_t launch(AsyncFunctionHandle,AsyncLaunchShape,const std::vector<void*>&,OutputSpan={},cudaStream_t=nullptr,NativeReadSpan={},
+                         AsyncOutputMemory=AsyncOutputMemory::ContextAllocation);
 private:
     struct Impl;std::unique_ptr<Impl> impl_;
 };
