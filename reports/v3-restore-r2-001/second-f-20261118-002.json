@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "second-f-20261118-002",
+  "version": "v3",
+  "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+  "code_tree": "babfa524cb101f864641ef954c1d8ac059570718",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "最终源码：第二次 F 的原单节点及计算段入口通过冻结 F 验收；一次 F1 输出、三个整矩阵父请求、4608 个 Global，逐 ps 守恒。",
+  "manifest": "evidence/v3-restore-r2-001/second-f-20261118-002/manifest.json",
+  "manifest_sha256": "b048ccceee9ae8ad622a4a0a2f02af05263d13d40443a5627e350abdf63f9dc0",
+  "created_utc": "2026-11-18T02:33:23.191467+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

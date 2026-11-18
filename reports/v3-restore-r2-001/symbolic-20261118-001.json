@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "symbolic-20261118-001",
+  "version": "v3",
+  "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+  "code_tree": "511d499d12f2de4e56a8887cda99ca44f7b962fe",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "稀疏布局中的小 norm 在注册初始化时未产生可推进的事件，模型未通过。保留初版配置与失败输出。",
+  "manifest": "evidence/v3-restore-r2-001/symbolic-20261118-001/manifest.json",
+  "manifest_sha256": "6d3827e20c688e192b9c97a3a5bab3c52a83943adb6aba42df46ea6dd31b049b",
+  "created_utc": "2026-11-18T02:33:15.493377+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

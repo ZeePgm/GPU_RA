@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "second-f-20261118-001",
+  "version": "v3",
+  "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+  "code_tree": "511d499d12f2de4e56a8887cda99ca44f7b962fe",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "单输出 F1 原采集与按段回放通过冻结 F 验收器。",
+  "manifest": "evidence/v3-restore-r2-001/second-f-20261118-001/manifest.json",
+  "manifest_sha256": "0494311caf1db10f27cb5bf0b2b5bd7a7eea838d73fffd1876944e0f793c9321",
+  "created_utc": "2026-11-18T02:33:17.029866+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

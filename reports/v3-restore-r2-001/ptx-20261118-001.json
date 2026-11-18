@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "ptx-20261118-001",
+  "version": "v3",
+  "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+  "code_tree": "511d499d12f2de4e56a8887cda99ca44f7b962fe",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "failed",
+  "exit_code": 1,
+  "verdict": "failed",
+  "conclusion": "沙箱缺少系统进程可见性，原资源守卫在科学进程启动前拒绝。",
+  "manifest": "evidence/v3-restore-r2-001/ptx-20261118-001/manifest.json",
+  "manifest_sha256": "2c7149eaf933128766d3d7f67b41adce94e9ce8f5e8cb045bd03f51540b26b7e",
+  "created_utc": "2026-11-18T02:33:10.899731+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

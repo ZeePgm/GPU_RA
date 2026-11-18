@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "ptx-20261118-003",
+  "version": "v3",
+  "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+  "code_tree": "babfa524cb101f864641ef954c1d8ac059570718",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "最终源码：R2 模型 norm 共 48128 次 4 B 读取，四步 logits 与 KV 完整一致；独立 down 第 0 行及完整 down 拒绝用例通过。",
+  "manifest": "evidence/v3-restore-r2-001/ptx-20261118-003/manifest.json",
+  "manifest_sha256": "88b40f35c0d8a5f804fde872637832fc02b4ed1a880cea1510f8480279e627b7",
+  "created_utc": "2026-11-18T02:33:20.124943+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

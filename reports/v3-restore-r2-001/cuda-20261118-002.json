@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "cuda-20261118-002",
+  "version": "v3",
+  "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+  "code_tree": "babfa524cb101f864641ef954c1d8ac059570718",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "最终源码：四步 norm 模型、6 MiB down 与 2 KiB embedding 行通过；6 MiB 权重执行 24 次 K 窗口并一次发布。",
+  "manifest": "evidence/v3-restore-r2-001/cuda-20261118-002/manifest.json",
+  "manifest_sha256": "f600d8f942efa43265fa9975807d8ac2892e1f0c2fb3884c0fc1862d967b78ae",
+  "created_utc": "2026-11-18T02:33:21.671518+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "symbolic-20261118-002",
+  "version": "v3",
+  "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+  "code_tree": "babfa524cb101f864641ef954c1d8ac059570718",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "最终源码：块组初始化后通过 norm 四步模型、6 MiB 矩阵及 2 KiB embedding 行；每次实际范围一个主机父请求，完整输出与参考一致。",
+  "manifest": "evidence/v3-restore-r2-001/symbolic-20261118-002/manifest.json",
+  "manifest_sha256": "4d9f5fcd78617b157f32445982eb704d0f8a284f494cb127c5f5eedfbd8870dc",
+  "created_utc": "2026-11-18T02:33:18.572224+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

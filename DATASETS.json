@@ -4069,6 +4069,177 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-route-perf-five-001/formal-model-ptx-r3-20261117-001"
       }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "ptx-20261118-001",
+      "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/ptx-20261118-001/manifest.json",
+        "bytes": 5218,
+        "sha256": "2c7149eaf933128766d3d7f67b41adce94e9ce8f5e8cb045bd03f51540b26b7e"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/ptx-20261118-001.json",
+        "bytes": 798,
+        "sha256": "641a7653bcccd28d996d4135b02a220223b022287da717c18203f84abce32937"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/ptx-20261118-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "ptx-20261118-002",
+      "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/ptx-20261118-002/manifest.json",
+        "bytes": 10936,
+        "sha256": "8825ea2c72e8da45b35ac7bc81e13aa99250930611407289605bf7f19694d644"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/ptx-20261118-002.json",
+        "bytes": 854,
+        "sha256": "f008f1ab4f175824711ae47365d69cbc9a01933de085c897e1e94ff21d92919d"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/ptx-20261118-002"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "cuda-20261118-001",
+      "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/cuda-20261118-001/manifest.json",
+        "bytes": 10619,
+        "sha256": "59c07de86d0e8e94908553ca3e7088379cb75572134e202c6e1f2bf7b61d443c"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/cuda-20261118-001.json",
+        "bytes": 815,
+        "sha256": "6223b3c6a1f88e207fae4f36feb3c535b71ca0c733a7e9c6790897359a1c1d8c"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/cuda-20261118-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "symbolic-20261118-001",
+      "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/symbolic-20261118-001/manifest.json",
+        "bytes": 6328,
+        "sha256": "6d3827e20c688e192b9c97a3a5bab3c52a83943adb6aba42df46ea6dd31b049b"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/symbolic-20261118-001.json",
+        "bytes": 856,
+        "sha256": "3b7d70ad263ea5394f126b89d87f5354d91dfd53aad9c01a191bf235995fd340"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/symbolic-20261118-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "second-f-20261118-001",
+      "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/second-f-20261118-001/manifest.json",
+        "bytes": 7213,
+        "sha256": "0494311caf1db10f27cb5bf0b2b5bd7a7eea838d73fffd1876944e0f793c9321"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/second-f-20261118-001.json",
+        "bytes": 791,
+        "sha256": "d3959dcab6b5f9147dc118135c8f1f1b214680c75afb34aed6c01d4478d6ff68"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/second-f-20261118-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "symbolic-20261118-002",
+      "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/symbolic-20261118-002/manifest.json",
+        "bytes": 11539,
+        "sha256": "4d9f5fcd78617b157f32445982eb704d0f8a284f494cb127c5f5eedfbd8870dc"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/symbolic-20261118-002.json",
+        "bytes": 897,
+        "sha256": "b32269950245700bcdcb7c8600de7650d58273e73ff6c69ed317856d1ffc9918"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/symbolic-20261118-002"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "ptx-20261118-003",
+      "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/ptx-20261118-003/manifest.json",
+        "bytes": 10936,
+        "sha256": "88b40f35c0d8a5f804fde872637832fc02b4ed1a880cea1510f8480279e627b7"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/ptx-20261118-003.json",
+        "bytes": 867,
+        "sha256": "914eb940fc28db66c3ae1522feda171e69e9e82bf2e14904c23b03e78aa88ba8"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/ptx-20261118-003"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "cuda-20261118-002",
+      "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/cuda-20261118-002/manifest.json",
+        "bytes": 10619,
+        "sha256": "f600d8f942efa43265fa9975807d8ac2892e1f0c2fb3884c0fc1862d967b78ae"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/cuda-20261118-002.json",
+        "bytes": 850,
+        "sha256": "e8aa1737c0230a8bb53ae51f8d8b6adb7e2eaa79378e5b14f58e680997a4faf9"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/cuda-20261118-002"
+      }
+    },
+    {
+      "experiment_id": "v3-restore-r2-001",
+      "run_id": "second-f-20261118-002",
+      "code_commit": "0722355b9e7e6f1e0a62e3555af67aa94583f576",
+      "manifest": {
+        "path": "evidence/v3-restore-r2-001/second-f-20261118-002/manifest.json",
+        "bytes": 7213,
+        "sha256": "b048ccceee9ae8ad622a4a0a2f02af05263d13d40443a5627e350abdf63f9dc0"
+      },
+      "report": {
+        "path": "reports/v3-restore-r2-001/second-f-20261118-002.json",
+        "bytes": 891,
+        "sha256": "ce58cf95ece90d57c5ebbe5f6169ef492b8d59f40d34758c990c2bb3361a3698"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restore-r2-001/second-f-20261118-002"
+      }
     }
   ]
 }

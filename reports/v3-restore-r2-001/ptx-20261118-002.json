@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restore-r2-001",
+  "run_id": "ptx-20261118-002",
+  "version": "v3",
+  "code_commit": "a42440b03e93dc177072f78ffd54964af250a054",
+  "code_tree": "511d499d12f2de4e56a8887cda99ca44f7b962fe",
+  "base_commit": "2fbee216a0784fdf995af2a667ef48fc219b6c41",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "R2 norm 模型四步完整 logits 和 KV 逐位一致；第 0 行 down 算术与请求覆盖通过，完整 down 负例按预期拒绝。",
+  "manifest": "evidence/v3-restore-r2-001/ptx-20261118-002/manifest.json",
+  "manifest_sha256": "8825ea2c72e8da45b35ac7bc81e13aa99250930611407289605bf7f19694d644",
+  "created_utc": "2026-11-18T02:33:12.446074+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
