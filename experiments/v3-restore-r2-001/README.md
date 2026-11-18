@@ -3,7 +3,7 @@
 | 入口 | 配置与实际覆盖 |
 |---|---|
 | 第二次 F 完整入口 | `symbolic_f model.gguf prompt.txt output count timing config.json`。沿用原单节点调度、CUPTI 计算段采集与表回放、S3Gate、TensorAccessBridge 和在线审计。原 F1/F2 区域与 H0 配置可直接使用。 |
-| 选定权重 symbolic | 主机对每个矩阵或每次实际 embedding 行消费提交一个范围父请求，原生 GPU 消费者使用原权重。图按单节点派发。有效范围按 64 B 对齐，Global 上限 4096 B。扩展布局只增大 H0 的块数。此入口测任务墙钟；带计算段及 token 模拟时钟的原 F 使用上行入口。 |
+| 选定权重 symbolic | 主机对每个矩阵或每次实际 embedding 行消费提交一个范围父请求，原生 GPU 消费者使用原权重。图按单节点派发。有效范围按 64 B 对齐，Global 上限 4096 B。扩展入口按所选 V3 清单的 2 GiB 介质和 32 KiB 块组初始化注册预留，消费沿用真实字节范围。原 F1/F2 专用入口沿用 H0 的 512 MiB 配置。此入口测任务墙钟；带计算段及 token 模拟时钟的原 F 使用上行入口。 |
 | PTX | 完整模型及组件的单个 F32 norm 逐行调用 R2 的 `m6_weight_mul` 算术核，2×128、每活动元素 4 B，原生输入与输出角色沿用 R2。模型需要连续的 hidden 宽度和 MUL 消费者。独立 `r2_down ptx modeled ffn repeats 0 down.ptx tokens result.json` 使用原 half2/F32 FMA、256 线程两级归约，覆盖第 0 行。完整 down、attention、embedding 和输出矩阵均超出 R2 PTX 原范围。 |
 | CUDA | V3 B2 的 `gate` 和 `b2_kernel(true,false)`，K=256 KiB、W=32 KiB，64 个 warp 信用，每个请求 512 B。读完单个消费范围后一次发布。对 embedding 每个实际行单独调用。当前要求范围是完整 512 B warp 跨度，可处理非整 K 的末块。选择输出矩阵时，镜像峰值约 296.75 MiB。 |
 

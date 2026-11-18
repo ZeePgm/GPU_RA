@@ -128,6 +128,11 @@ static int run(int argc, char **argv) {
         auto* w=hbflab_m2_find_tensor(model.get(),entry.at("name").get<std::string>().c_str());
         selected.push_back(w);bases.push_back(entry.at("logical_base"));
     }
+    // Register sparse ranges in logical order independently of JSON list order.
+    std::vector<std::pair<uint64_t,const ggml_tensor*>> ordered;
+    for(size_t i=0;i<bases.size();++i)ordered.emplace_back(bases[i],selected[i]);
+    std::sort(ordered.begin(),ordered.end());
+    for(size_t i=0;i<ordered.size();++i){bases[i]=ordered[i].first;selected[i]=ordered[i].second;}
     restored_bind(route,selected.data(),bases.data(),unsigned(selected.size()),
         spec.at("logical_weight_layout_bytes"),std::getenv("HBFLAB_SAMPLED_PROFILE"),
         std::getenv("HBFLAB_SYMBOLIC_CONFIG"),argv[3],!summary);

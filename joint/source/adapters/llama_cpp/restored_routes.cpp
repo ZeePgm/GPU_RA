@@ -51,6 +51,8 @@ void restored_bind(const char* route,const ggml_tensor* const* weights,const uin
     session=std::make_unique<Session>();auto& s=*session;
     s.route=choose(route);s.output=output;
     m6_load_profile(profile,output);
+    const auto geometry=m6_geometry();
+    const uint64_t group=uint64_t(geometry.block_group_dlus())*4096;
     json regions=json::array();
     std::set<std::string> names;
     for(unsigned i=0;i<count;++i){
@@ -60,20 +62,17 @@ void restored_bind(const char* route,const ggml_tensor* const* weights,const uin
         auto bytes=ggml_nbytes(w);
         check(bytes && bytes<=std::numeric_limits<unsigned>::max() && bytes%64==0 &&
               bases[i]%4096==0 && bases[i]<=layout && bytes<=layout-bases[i],"unsupported selected range");
-        const auto padded=(bytes+4095)/4096*4096;
+        const auto padded=(bytes+group-1)/group*group;
+        check(bases[i]%group==0 && padded<=layout-bases[i],"selected group reservation bounds");
         regions.push_back({{"region_id",w->name},{"tensor",w->name},{"global_base",bases[i]},
             {"valid_bytes",bytes},{"registered_bytes",padded},{"source_offset",0},{"source_bytes",bytes}});
     }
     if(s.route==Route::Symbolic){
         check(config && *config,"symbolic requires the second F configuration");
-        std::ifstream file(config);
-        check(bool(file),"missing second F configuration");
-        const auto geometry=hbf_eventlab::read_configuration(file).device.geometry;
-        // Enlarge only the number of blocks to fit the declared GGUF address space.
-        check(layout && layout<=(uint64_t(1)<<32),"selected layout exceeds supported model size");
-        auto blocks=geometry.blocks_per_bank;
-        while(geometry.channel_bytes()*(blocks/geometry.blocks_per_bank)<layout)blocks*=2;
-        json cfg={{"regions",regions},{"effective_config_path",config},{"blocks_per_bank",blocks}};
+        // The GGUF inventory reserves whole 32 KiB V3 block groups. Program those
+        // groups at registration; before_range still reads only the demanded bytes.
+        json cfg={{"regions",regions},{"effective_config_path",config},
+                  {"pages_per_block",geometry.pages_per_block},{"blocks_per_bank",geometry.blocks_per_bank}};
         s.symbolic=std::make_unique<S3Gate>(s.output,cfg,clock_ns);
         s.symbolic->initialize();s.symbolic->request_begin();
     } else if(s.route==Route::Cuda){

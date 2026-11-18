@@ -39,6 +39,10 @@ public:
         auto config=hbf_eventlab::read_configuration(f,"FFN experiment");
         if(c.value("persistent_program_fail",false))config.faults.persistent_page=0;
         if(c.contains("blocks_per_bank"))config.device.geometry.blocks_per_bank=c.at("blocks_per_bank");
+        if(c.contains("pages_per_block")){
+            config.device.geometry.pages_per_block=c.at("pages_per_block");
+            config.device.selected.zone_size_dlus=config.device.geometry.block_group_dlus();
+        }
         auto resolved=hbf_eventlab::resolve_configuration(config);
         check(resolved.values().device.geometry.host_channels==1,"Online audit requires one channel");
         std::ofstream eff(out/"effective.ini");hbf_eventlab::write_effective_configuration(eff,resolved);check(bool(eff),"Cannot export config");
