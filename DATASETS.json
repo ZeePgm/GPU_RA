@@ -4373,6 +4373,82 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-r2-five-001/ptx-003"
       }
+    },
+    {
+      "experiment_id": "v3-restored-perf-001",
+      "run_id": "qual-w5-d-cuda-001",
+      "code_commit": "640e4c6aa3172e226a6caa746b8e49f83894f5ad",
+      "manifest": {
+        "path": "evidence/v3-restored-perf-001/qual-w5-d-cuda-001/manifest.json",
+        "bytes": 5220,
+        "sha256": "b812b0af0bf49b396953bd303d3c43c58de116e8ba1d817a1b786fae3985dda2"
+      },
+      "report": {
+        "path": "reports/v3-restored-perf-001/qual-w5-d-cuda-001.json",
+        "bytes": 919,
+        "sha256": "7578965f0f4cbf61e13ddc6abac5a41850d63c92e88b8da3a2ea0463715d8e0d"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restored-perf-001/qual-w5-d-cuda-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restored-perf-001",
+      "run_id": "qual-w5-d-symbolic-001",
+      "code_commit": "640e4c6aa3172e226a6caa746b8e49f83894f5ad",
+      "manifest": {
+        "path": "evidence/v3-restored-perf-001/qual-w5-d-symbolic-001/manifest.json",
+        "bytes": 5535,
+        "sha256": "f980ee6194123551edc7b010a51e4347451c2f090a54be730faab4e7173973b7"
+      },
+      "report": {
+        "path": "reports/v3-restored-perf-001/qual-w5-d-symbolic-001.json",
+        "bytes": 927,
+        "sha256": "07db2badc05ca7b0a6b126b4f3b26d12abbb538eb1d7e7ea158b5d725024771f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restored-perf-001/qual-w5-d-symbolic-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restored-perf-001",
+      "run_id": "qual-w5-p-cuda-001",
+      "code_commit": "640e4c6aa3172e226a6caa746b8e49f83894f5ad",
+      "manifest": {
+        "path": "evidence/v3-restored-perf-001/qual-w5-p-cuda-001/manifest.json",
+        "bytes": 5220,
+        "sha256": "8ccd57ade82cb87489dd5c79aca7f0364a20af8ec228b4b2a2c7b0af92cf6ff2"
+      },
+      "report": {
+        "path": "reports/v3-restored-perf-001/qual-w5-p-cuda-001.json",
+        "bytes": 919,
+        "sha256": "9e7f7a5d1fa6344921c2288051276a7978c84cd34a4bb321adcc1107ed600970"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restored-perf-001/qual-w5-p-cuda-001"
+      }
+    },
+    {
+      "experiment_id": "v3-restored-perf-001",
+      "run_id": "qual-w5-p-symbolic-001",
+      "code_commit": "640e4c6aa3172e226a6caa746b8e49f83894f5ad",
+      "manifest": {
+        "path": "evidence/v3-restored-perf-001/qual-w5-p-symbolic-001/manifest.json",
+        "bytes": 5535,
+        "sha256": "96ee8e994bb045af4d5857b201b71d34e12924efd5a5098e88573a1e0a0ea4e7"
+      },
+      "report": {
+        "path": "reports/v3-restored-perf-001/qual-w5-p-symbolic-001.json",
+        "bytes": 927,
+        "sha256": "6d075885a7fc826b5e417ff484688fd2c535056f33bb2265d9bb14e05f302563"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-restored-perf-001/qual-w5-p-symbolic-001"
+      }
     }
   ]
 }

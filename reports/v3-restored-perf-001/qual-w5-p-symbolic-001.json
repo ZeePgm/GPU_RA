@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-restored-perf-001",
+  "run_id": "qual-w5-p-symbolic-001",
+  "version": "v3",
+  "code_commit": "640e4c6aa3172e226a6caa746b8e49f83894f5ad",
+  "code_tree": "af00bb2ca34252eb9ccda6c033a10a15c2fc8b70",
+  "base_commit": "308f8db5567a1dd59fc5c3afa5d81cd50c0d0ae2",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Qualification only. Full 151936-row output projection passed bitwise native equality, demand coverage, immutable weight and drain. One first call 306.453440 s. Excluded from the formal matrix.",
+  "manifest": "evidence/v3-restored-perf-001/qual-w5-p-symbolic-001/manifest.json",
+  "manifest_sha256": "96ee8e994bb045af4d5857b201b71d34e12924efd5a5098e88573a1e0a0ea4e7",
+  "created_utc": "2026-11-18T03:55:52.108387+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
