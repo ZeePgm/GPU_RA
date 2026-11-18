@@ -29,16 +29,20 @@ def committed(root, path, content, revision='HEAD'):
     return E.git_text(root, 'log', '-1', '--format=%H', revision, '--', relative)
 
 
-def trace_name(relative):
+def trace_name(relative, subprocess_logs=False):
     parts = PurePosixPath(relative).parts
-    require(len(parts) >= 3 and parts[0] == 'data' and parts[-1] in TRACE_NAMES, 'Not an eligible raw trace: ' + relative)
+    if subprocess_logs:
+        require(len(parts) == 2 and parts[0] == 'data' and PurePosixPath(parts[1]).suffix == '.log',
+                'Not a top-level child process log: ' + relative)
+    else:
+        require(len(parts) >= 3 and parts[0] == 'data' and parts[-1] in TRACE_NAMES, 'Not an eligible raw trace: ' + relative)
     require(not PurePosixPath(relative).is_absolute() and '..' not in parts and ':' not in relative and '\\' not in relative
             and '\x00' not in relative and PurePosixPath(relative).as_posix() == relative, 'Unsafe trace path')
     return parts
 
 
-def trace_path(run_dir, relative):
-    parts = trace_name(relative)
+def trace_path(run_dir, relative, subprocess_logs=False):
+    parts = trace_name(relative, subprocess_logs)
     # Reject every reparse point before resolving; never unlink through a junction.
     base = Path(run_dir).absolute()
     target = base.joinpath(*parts)
@@ -75,7 +79,10 @@ def checked_plan(root, paths, manifest, report):
     require(removed and len({r['path'] for r in removed}) == len(removed), 'Empty/duplicate removal list')
     for row in removed:
         require(original.get(row['path']) == row, 'Removal row differs from original sealed manifest')
-        trace_name(row['path'])
+        subprocess_logs = p.get('scope') == 'subprocess-logs'
+        trace_name(row['path'], subprocess_logs)
+        if subprocess_logs:
+            require(row['path'][:-4] + '.process.json' in original, 'Missing sealed child process record')
     require(p['remove_bytes'] == sum(r['bytes'] for r in removed), 'Removal byte count')
     keep = [r for r in manifest['files'] if r['path'] not in {r['path'] for r in removed}]
     require(p['retained_inventory_sha256'] == E.sha_bytes(E.encoded(keep)), 'Retained inventory identity')
@@ -112,9 +119,19 @@ def prepare(args):
     plan_path, result_path = names(paths)
     require(not plan_path.exists() and not result_path.exists(), 'A retention record already exists')
     verification = full_verify(args)
-    removed = [r for r in manifest['files'] if r['path'].startswith('data/') and Path(r['path']).name in TRACE_NAMES]
+    requested = getattr(args, 'subprocess_log', None)
+    if requested:
+        originals = {r['path']: r for r in manifest['files']}
+        require(len(requested) == len(set(requested)), 'Duplicate child log selection')
+        for relative in requested:
+            trace_name(relative, True)
+            require(relative in originals and relative[:-4] + '.process.json' in originals,
+                    'Child log or matching process record missing from sealed manifest: ' + relative)
+        removed = [originals[path] for path in sorted(requested)]
+    else:
+        removed = [r for r in manifest['files'] if r['path'].startswith('data/') and Path(r['path']).name in TRACE_NAMES]
     for row in removed:
-        trace_path(run_dir, row['path'])
+        trace_path(run_dir, row['path'], bool(requested))
     keep = [r for r in manifest['files'] if r not in removed]
     plan = {'schema': 1, 'kind': 'approved-trace-retention', 'experiment_id': args.id, 'run_id': args.run,
             'created_utc': E.now(), 'approval': {'source': 'explicit_user_message', 'text': args.approval_text},
@@ -122,6 +139,9 @@ def prepare(args):
             'full_verification_before_cleanup': verification, 'remove': removed,
             'remove_bytes': sum(r['bytes'] for r in removed), 'retained_inventory_sha256': E.sha_bytes(E.encoded(keep)),
             'scope_after_cleanup': 'Retained references and reports remain verifiable; complete raw trace replay/recalculation is unavailable.'}
+    if requested:
+        plan['scope'] = 'subprocess-logs'
+        plan['scope_after_cleanup'] = 'Only the listed child process text logs are retired; their sealed process records remain.'
     checked = E.encoded(plan)
     E.write_new(plan_path, checked)
     checked_plan(root, paths, manifest, report)
@@ -179,7 +199,7 @@ def apply(args):
             stream.flush()
             os.fsync(stream.fileno())
     for row in p['remove']:
-        target = trace_path(run_dir, row['path'])
+        target = trace_path(run_dir, row['path'], p.get('scope') == 'subprocess-logs')
         if target.exists():
             require(E.identity(target) == {k: row[k] for k in ('bytes', 'sha256')}, 'Trace changed before deletion')
             event('before_unlink', row)
@@ -240,6 +260,8 @@ def main():
         p.add_argument('--data-root', type=Path)
         if action == 'plan':
             p.add_argument('--approval-text', required=True)
+            p.add_argument('--subprocess-log', nargs='+', metavar='data/NAME.log',
+                           help='Remove only these exact child logs with matching sealed process records')
     args = parser.parse_args()
     try:
         {'plan': prepare, 'apply': apply}[args.action](args)
