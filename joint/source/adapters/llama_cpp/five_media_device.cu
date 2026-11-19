@@ -30,7 +30,16 @@ constexpr unsigned page_bytes = 4096, halfs = 2048, mask_words = 64, batch_limit
 constexpr std::size_t sites_per_range = 4 * 32768;
 constexpr U32 idle = 0, requested = 1, ready = 2, failed = 3;
 
+#if defined(HBFLAB_ALL_MEDIA_BUILD)
+constexpr bool all_media = true;
+struct alignas(64) GpuRange { U64 base, bytes, first_page; U32* counts; U64 ordinal; };
+static_assert(sizeof(GpuRange) == 64 && offsetof(GpuRange, ordinal) == 32);
+#else
+constexpr bool all_media = false;
 struct GpuRange { U64 base, bytes, first_page; U32* counts; };
+static_assert(sizeof(GpuRange) == 32);
+#endif
+std::size_t page_count(U64 bytes) { return (bytes-1)/page_bytes+1; }
 struct alignas(64) Page { U64 request_ns, delay_ns; U32 status; U64 released_base; };
 struct alignas(64) Audit { U64 ready_base, earliest_ns, latest_ns, loads, bytes; U32 claim; };
 struct Fault { U64 code, address, page_index, time_ns; };
@@ -46,7 +55,7 @@ struct Root {
     U64* errors;
     Fault* fault;
 };
-static_assert(sizeof(GpuRange) == 32 && offsetof(GpuRange, counts) == 24);
+static_assert(offsetof(GpuRange, counts) == 24);
 static_assert(sizeof(Page) == 64 && offsetof(Page, status) == 16 && offsetof(Page, released_base) == 24);
 static_assert(sizeof(Audit) == 64 && offsetof(Audit, claim) == 40);
 static_assert(sizeof(Fault) == 32 && offsetof(Fault, address) == 8 && offsetof(Fault, page_index) == 16 &&
@@ -104,24 +113,35 @@ struct Session {
     U64 total_requests = 0;
 
     void init(const RangeSpec* input, std::size_t count) {
-        need(input && count == 5, "expected five registered weight ranges");
+        need(input && (all_media ? count > 0 && count < UINT32_MAX : count == 5), "invalid registered weight count");
         specs.assign(input, input + count);
         root.count = count;
         for (const auto& s : specs) {
             const U64 base = reinterpret_cast<U64>(s.base);
-            need(base && s.bytes && !(s.bytes % page_bytes) && !(s.logical % page_bytes) &&
+            need(base && s.bytes && !(s.bytes % (all_media ? 2 : page_bytes)) && !(s.logical % page_bytes) &&
                  s.bytes <= UINT64_MAX-base && s.retain_words <= 1, "invalid registered range");
+            if (all_media && !ranges.empty())
+                need(s.logical > specs[ranges.size()-1].logical, "expected registration in logical order");
             for (const auto& r : ranges)
                 need(base >= r.base+r.bytes || r.base >= base+s.bytes, "registered GPU allocations overlap");
             ranges.push_back({base, s.bytes, owners.size(), nullptr});
-            owners.insert(owners.end(), s.bytes/page_bytes, unsigned(ranges.size()-1));
-            if (s.retain_words) allocate(ranges.back().counts, s.bytes/2);
+            const auto pages = page_count(s.bytes);
+            need(pages < UINT32_MAX-owners.size(), "too many registered pages");
+            owners.insert(owners.end(), pages, unsigned(ranges.size()-1));
+            if (s.retain_words) allocate(ranges.back().counts, pages*halfs);
         }
         const auto pages = owners.size();
         need(pages && pages < UINT32_MAX, "invalid demand queue capacity");
         receipts.resize(pages);
         allocate(root.ranges, count);
+#if defined(HBFLAB_ALL_MEDIA_BUILD)
+        auto by_gpu_address = ranges;
+        for (std::size_t i=0; i<count; ++i) by_gpu_address[i].ordinal = i;
+        std::sort(by_gpu_address.begin(), by_gpu_address.end(), [](const auto& a,const auto& b){return a.base < b.base;});
+        check(cudaMemcpy(root.ranges, by_gpu_address.data(), count*sizeof(GpuRange), cudaMemcpyHostToDevice));
+#else
         check(cudaMemcpy(root.ranges, ranges.data(), count*sizeof(GpuRange), cudaMemcpyHostToDevice));
+#endif
         mapped(host_pages, root.pages, pages);
         mapped(host_queue, root.queue, pages);
         mapped(host_fault, root.fault, 1);
@@ -144,6 +164,8 @@ struct Session {
         hbflab::BackendOptions options;
         options.geometry = m6_geometry();
         options.resident_fragments = 256;
+        options.direct_device_transactions = all_media;
+        options.coalesce_capacity_feedback = all_media;
         options.max_events_per_batch = integrated_profile().max_events;
         backend = std::make_unique<hbflab::TimingBackend>(options);
         U64 next = 0;
@@ -205,7 +227,9 @@ struct Session {
                     next_progress = now + std::chrono::seconds(5);
                 }
                 indices.clear(); reads.clear();
-                const auto arrival = backend->now_ps();
+                // Streaming admission uses an exclusive floor. All demands already in
+                // this FIFO cohort arrive together at the first admissible model tick.
+                const auto arrival = backend->now_ps() + (all_media ? 1 : 0);
                 for (std::size_t slot = consumed; slot < owners.size() && indices.size() < batch_limit; ++slot) {
                     const auto index_plus_one = acquire(host_queue[slot]);
                     if (!index_plus_one) break;
@@ -219,12 +243,7 @@ struct Session {
                 }
                 if (reads.empty()) { std::this_thread::yield(); continue; }
                 const auto batch_start = Clock::now();
-                const auto completed = backend->read_batch(reads);
-                last_batch_seconds = std::chrono::duration<double>(Clock::now()-batch_start).count();
-                need(completed.size() == reads.size(), "missing EventLab page completion");
-                for (std::size_t i = 0; i < indices.size(); ++i) {
-                    const auto page = indices[i];
-                    const auto& result = completed[i];
+                auto publish = [&](std::size_t page, const hbflab::ReadResult& result) {
                     need(result.status == hbflab::Status::Ok && result.sectors == 64 && result.end_ps > result.begin_ps,
                          "EventLab page read failed");
                     const auto duration = result.end_ps-result.begin_ps;
@@ -237,7 +256,30 @@ struct Session {
                     host_pages[page].delay_ns = delay;
                     host_pages[page].released_base = backing;
                     release(host_pages[page].status, ready);
+                };
+                if (all_media) {
+                    // One stream per cohort preserves the configured event budget per
+                    // batch. Reap after each model yield so winners can resume early.
+                    backend->begin_stream(batch_limit);
+                    for (std::size_t i=0; i<reads.size(); ++i) backend->submit_read(i+1, reads[i]);
+                    std::size_t completed = 0;
+                    bool advanced;
+                    do {
+                        advanced = backend->advance_before(UINT64_MAX);
+                        for (const auto& item : backend->take_completed()) {
+                            need(item.id && item.id <= indices.size(), "unknown EventLab completion id");
+                            publish(indices[item.id-1], item.result);
+                            ++completed;
+                        }
+                    } while (advanced);
+                    need(completed == indices.size(), "missing EventLab stream completion");
+                    backend->end_stream();
+                } else {
+                    const auto completed = backend->read_batch(reads);
+                    need(completed.size() == reads.size(), "missing EventLab page completion");
+                    for (std::size_t i=0; i<indices.size(); ++i) publish(indices[i], completed[i]);
                 }
+                last_batch_seconds = std::chrono::duration<double>(Clock::now()-batch_start).count();
             }
         } catch (const std::exception& e) {
             std::fprintf(stderr, "five media service: %s\n", e.what());
@@ -262,7 +304,7 @@ struct Session {
         *host_fault = {};
         fault_reported = false;
         std::fill(receipts.begin(), receipts.end(), Receipt{});
-        for (const auto& r : ranges) if (r.counts) clear(r.counts, r.bytes/2);
+        for (const auto& r : ranges) if (r.counts) clear(r.counts, page_count(r.bytes)*halfs);
         initialize_audits<<<unsigned((pages+255)/256),256>>>(root.audits, pages);
         check(cudaGetLastError());
         clear(root.coverage, pages*mask_words);
@@ -284,10 +326,10 @@ struct Session {
         const auto pages = owners.size();
         std::vector<Audit> audits(pages);
         std::vector<U32> masks(pages*mask_words), repeat(halfs);
-        std::vector<U64> sites(root.count*sites_per_range);
+        std::vector<U64> sites((all_media ? 1 : root.count)*sites_per_range);
         download(audits.data(), root.audits, pages);
         download(masks.data(), root.coverage, masks.size());
-        download(sites.data(), root.sites, sites.size());
+        if (!all_media) download(sites.data(), root.sites, sites.size());
         auto media_file = output(dir, "media", step, ".u64");
         auto audit_file = output(dir, "audit", step, ".u64");
         auto mask_file = output(dir, "coverage", step, ".u32");
@@ -316,7 +358,18 @@ struct Session {
             ++written;
         }
         need(written == consumed, "incomplete receipt file");
-        write_values(site_file, sites.data(), sites.size());
+        if (all_media) {
+            for (std::size_t owner=0; owner<ranges.size(); ++owner) {
+                download(sites.data(), root.sites+owner*sites_per_range, sites.size());
+                for (std::size_t site=0; site<sites.size(); ++site) {
+                    if (!sites[site]) continue;
+                    const std::array<U64,4> row{owner, site/32768, site%32768, sites[site]};
+                    write_values(site_file, row.data(), row.size());
+                }
+            }
+        } else {
+            write_values(site_file, sites.data(), sites.size());
+        }
         media_file.close(); audit_file.close(); mask_file.close(); repeat_file.close(); site_file.close();
     }
     void end_step(const wchar_t* path, unsigned step) {

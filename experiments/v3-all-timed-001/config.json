@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-all-timed-001",
+  "parameters": {
+    "model": "Qwen3-0.6B F16",
+    "inventory": "experiments/v3-route-perf-five-001/inventory.json",
+    "inventory_sha256": "621f66aa8bb6cf1bfd1cf9775a1032a5a7e804309b20018e2d06e9d10e21544d",
+    "frozen_fixture_reference": "v3-route-perf-five-001/reference-20261117-001",
+    "numerical_reference": "v3-five-timed-001/five-native-timed-20261119-002",
+    "layers": 28,
+    "selected_tensors": 311,
+    "weight_bytes": 1503395840,
+    "prompt_length": 44,
+    "vocabulary": 151936,
+    "output_tokens": [32, 6366],
+    "modes": ["native", "timed"],
+    "process_timeout_seconds": 7200,
+    "process_disk_limit_bytes": 536870912,
+    "page_bytes": 4096,
+    "input_tile_bytes": 524288,
+    "output_tile_rows": 256,
+    "expected_demand_pages": [291152, 291122],
+    "expected_unique_bytes": [1192296448, 1192232960],
+    "expected_dynamic_bytes": [1217118208, 1192548352],
+    "logit_vector_sha256": [
+      "d7314a9ae1948be9e591fda710db24e009e8201a976a5fb7d33d19e5796c69cf",
+      "ff11435a4de17b13cd85b804f481dad5b63b80761db1de34a79f3d510465089d"
+    ],
+    "native_kv_state_sha256": "7798b46e500a0a010eb460f7d07db1553b659e936593b38517c9532d9d5abb25"
+  },
+  "acceptance": {
+    "scope": "Two complete native-graph phases with all 311 original weights. One native control and one timed sample share the 44-token prompt, CUDA tiling and native F16 KV.",
+    "numerical": "Compare the complete logical F32 output hashes of all 622 graph consumers between arms. For five tensors also require both historical full output fixtures and their companion input fixtures. Require both full vocabulary logit vectors, tokens, native KV state, positions and release.",
+    "demand": "Compare per-halfword coverage and bytes for every matrix page. Check each gather against exact token multiplicity. Check both halves of each F32 norm for its exact broadcast multiplicity and require zero in unused sub-page padding. The last block selects one token after attention.",
+    "timing": "Every demanded page must match its registered GPU and logical addresses, complete its 64-sector service and gate the earliest native read until the service deadline. Check the phase sequence bijection, bound each dynamic site to the compiled PTX and reconcile load and byte counts by tensor.",
+    "resources": "Use the existing full-workspace and process memory guard. The all-weight run reserves 7200 seconds and 512 MiB of scientific output per process."
+  }
+}

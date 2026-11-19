@@ -6,6 +6,7 @@
 #include "five_capture.hpp"
 #include "q_auto_model.hpp"
 #ifdef HBFLAB_FIVE_MEDIA_BUILD
+#include "all_graph_witness.hpp"
 #include "five_media_api.hpp"
 #include "five_media_projection.hpp"
 #endif
@@ -34,22 +35,26 @@ static void save(const fs::path &path, const json &value) {
 }
 #ifdef HBFLAB_FIVE_MEDIA_BUILD
 struct FiveMediaCase {
-    bool enabled = false, active_device = false;
+    bool enabled = false, active_device = false, all_weights = false;
+    std::map<const ggml_tensor *, std::size_t> physical_ids;
     std::uint64_t tiles_at_begin = 0;
     fs::path directory;
     json report;
     ~FiveMediaCase() { if (active_device) hbflab_five_media_finish(); }
 
     void start(const char *mode, const std::vector<const ggml_tensor *> &weights,
-               const std::vector<std::uint64_t> &bases, const fs::path &out) {
+               const std::vector<std::uint64_t> &bases, const fs::path &out, bool all) {
         if (!mode) return;
         const std::string arm(mode);
         need(arm == "native" || arm == "timed", "five media mode must be native or timed");
-        need(weights.size() == 5 && bases.size() == weights.size(), "five media selection count");
+        all_weights = all;
+        need(weights.size() == (all ? 311 : 5) && bases.size() == weights.size(), "media selection count");
         directory = out;
         enabled = true;
         std::vector<five_media::RangeSpec> ranges;
         json registered = json::array();
+        json aliases = json::array();
+        std::map<std::uintptr_t, std::size_t> by_address;
         for (std::size_t i = 0; i < weights.size(); ++i) {
             const auto *w = weights[i];
             cudaPointerAttributes attributes{};
@@ -57,11 +62,39 @@ struct FiveMediaCase {
             need(attributes.type == cudaMemoryTypeDevice && attributes.device == 0 && ggml_is_contiguous(w),
                  "selected range must be contiguous CUDA0 device memory");
             const std::string name(w->name);
-            const bool retain = name == "blk.10.ffn_norm.weight" || name == "token_embd.weight";
+            const bool retain = name == "token_embd.weight" ||
+                (all ? w->type == GGML_TYPE_F32 : name == "blk.10.ffn_norm.weight");
             const auto bytes = ggml_nbytes(w);
+            const auto start = reinterpret_cast<std::uintptr_t>(w->data);
+            need(bytes && bytes <= UINTPTR_MAX - start, "invalid device weight span");
+            auto next = by_address.lower_bound(start);
+            if (next != by_address.end() && next->first == start) {
+                const auto id = next->second;
+                need(ranges[id].bytes == bytes, "partial device alias at common base");
+                aliases.push_back({{"name", name}, {"physical_id", id}, {"logical", bases[i]},
+                    {"canonical", registered[id].at("name")}});
+                physical_ids.emplace(w, id);
+                continue;
+            }
+            need(next == by_address.end() || start + bytes <= next->first, "overlapping device weight ranges");
+            if (next != by_address.begin()) {
+                const auto prior = std::prev(next);
+                need(ranges[prior->second].bytes <= start - prior->first, "overlapping device weight ranges");
+            }
+            const auto id = ranges.size();
+            by_address.emplace_hint(next, start, id);
+            physical_ids.emplace(w, id);
             ranges.push_back({w->data, bytes, bases[i], std::uint32_t(retain)});
-            registered.push_back({{"name", name}, {"base", reinterpret_cast<std::uintptr_t>(w->data)},
+            registered.push_back({{"name", name}, {"base", start},
                 {"bytes", bytes}, {"logical", bases[i]}, {"retain_words", retain}});
+            if (all) registered.back()["physical_id"] = id;
+        }
+        if (all) {
+            save(directory / "weight-aliases.json", {{"logical_weights", weights.size()}, {"unique_ranges", ranges.size()},
+                 {"aliases", aliases}});
+            // The frozen GGUF stores embedding and output separately. A tied storage
+            // identity requires its own logical mapping and evidence contract.
+            need(ranges.size() == 311 && physical_ids.size() == 311, "frozen checkpoint expects 311 distinct device ranges");
         }
         if (arm == "timed") {
             ck(static_cast<cudaError_t>(hbflab_five_media_begin(ranges.data(), ranges.size())));
@@ -71,6 +104,7 @@ struct FiveMediaCase {
             {"ranges", std::move(registered)}, {"input_tile_bytes", five_media_input_tile_bytes},
             {"output_tile_rows", five_media_output_tile_rows},
             {"output_tile_launches", json::array()}};
+        if (all) report["aliases"] = std::move(aliases);
     }
     void step_begin() {
         if (!enabled) return;
@@ -94,7 +128,7 @@ struct FiveMediaCase {
             ck(static_cast<cudaError_t>(result));
             report["media_finished"] = true;
         }
-        save(directory / "five-media.json", report);
+        save(directory / (all_weights ? "all-media.json" : "five-media.json"), report);
     }
 };
 #endif
@@ -117,6 +151,10 @@ struct Observation {
     int step = -1;
     uint64_t sequence = 0;
     std::map<const ggml_tensor *, std::string> selected;
+    std::map<const ggml_tensor *, std::string> fixture_weights;
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+    AllGraphWitness all_graph;
+#endif
     bool single_node = false;
     FiveCapture capture;
     QAutoModel q_auto;
@@ -126,10 +164,16 @@ static bool observe(ggml_tensor *node, bool ask, void *opaque) {
     if (s.step < 0) return false;
     if (!ask) {
         s.q_auto.observe_after(node);
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+        s.all_graph.after(node);
+#endif
         s.capture.after(node);
         return true;
     }
-    s.capture.before(node,s.step,s.selected);
+    s.capture.before(node, s.step, s.fixture_weights.empty() ? s.selected : s.fixture_weights);
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+    s.all_graph.before(node);
+#endif
     restored_before(node);
     for(const auto* src:node->src)if(src && s.selected.count(src))++s.sequence;
     const bool capture_q = s.q_auto.observe_before(node);
@@ -180,6 +224,9 @@ static int run(int argc, char **argv) {
     need(bool(model), "model load failed"); budgets["after_model"] = memory();
     Observation observations; observations.single_node = std::string(route)=="symbolic";
     const char *five_media_mode = std::getenv("HBFLAB_FIVE_MEDIA");
+    const char *all_media_mode = std::getenv("HBFLAB_ALL_MEDIA");
+    if (all_media_mode) need(five_media_mode && std::string(five_media_mode) == all_media_mode,
+                             "all media and native kernel tiling modes must match");
     if (const char *capture = std::getenv("HBFLAB_FIVE_CAPTURE")) observations.capture.root = capture;
     else if (five_media_mode) observations.capture.root = out / "fixtures";
     if (!observations.capture.root.empty()) {
@@ -192,12 +239,16 @@ static int run(int argc, char **argv) {
         const auto name = item.at("name").get<std::string>();
         const auto *t = hbflab_m2_find_tensor(model.get(), name.c_str()); need(t, "tensor missing after load");
         need(ggml_nbytes(t) == item.at("bytes").get<size_t>(), "loaded tensor size mismatch");
-        if(item.at("selected").get<bool>())need(item.at("dtype")==(t->type==GGML_TYPE_F32?"F32":t->type==GGML_TYPE_F16?"F16":"unsupported"),"selected weight type mismatch");
-        auto row = info(t); row["selected"] = item.at("selected");
+        const bool selected = all_media_mode || item.at("selected").get<bool>();
+        if(selected)need(item.at("dtype")==(t->type==GGML_TYPE_F32?"F32":t->type==GGML_TYPE_F16?"F16":"unsupported"),"selected weight type mismatch");
+        auto row = info(t); row["selected"] = selected;
         cudaPointerAttributes attributes{}; ck(cudaPointerGetAttributes(&attributes, t->data));
         row["cuda_memory_type"] = int(attributes.type); row["cuda_device"] = attributes.device;
         tensors.push_back(row);
-        if (item.at("selected").get<bool>()) observations.selected.emplace(t, name);
+        if (selected) observations.selected.emplace(t, name);
+        if (all_media_mode && (name == "blk.10.ffn_norm.weight" || name == "blk.10.attn_q.weight" ||
+            name == "blk.10.ffn_down.weight" || name == "token_embd.weight" || name == "output.weight"))
+            observations.fixture_weights.emplace(t, name);
     }
     need(!observations.selected.empty(), "selected tensor identity mismatch");
     save(out / "loaded-tensors.json", tensors);
@@ -209,7 +260,7 @@ static int run(int argc, char **argv) {
     struct Cleanup {~Cleanup(){restored_abort();}} cleanup;
     std::vector<const ggml_tensor*> selected;
     std::vector<uint64_t> bases;
-    for(const auto& entry:spec.at("all_tensors"))if(entry.at("selected").get<bool>()){
+    for(const auto& entry:spec.at("all_tensors"))if(all_media_mode || entry.at("selected").get<bool>()){
         auto* w=hbflab_m2_find_tensor(model.get(),entry.at("name").get<std::string>().c_str());
         selected.push_back(w);bases.push_back(entry.at("logical_base"));
     }
@@ -231,7 +282,11 @@ static int run(int argc, char **argv) {
     if (five_media_mode) {
         need(std::string(route) == "native" && !std::getenv("HBFLAB_AUTO_Q_MODE") && !paged &&
              n == 44 && outputs == 2, "five media requires native graph, 44 input tokens and 2 output tokens");
-        five_media_case.start(five_media_mode, selected, bases, out);
+        five_media_case.start(all_media_mode ? all_media_mode : five_media_mode, selected, bases, out, all_media_mode != nullptr);
+        if (all_media_mode) {
+            need(observations.fixture_weights.size() == 5, "historical five-fixture selection missing");
+            observations.all_graph.start(five_media_case.physical_ids, out);
+        }
     }
 #else
     need(!five_media_mode, "five media mode requires an instrumented build");
@@ -260,6 +315,7 @@ static int run(int argc, char **argv) {
         observations.q_auto.begin_step(step);
 #ifdef HBFLAB_FIVE_MEDIA_BUILD
         five_media_case.step_begin();
+        observations.all_graph.step_begin(step);
 #endif
         observations.step = step; llama_batch_ext_clear(batch.get());
         for (auto token : input) {
@@ -271,6 +327,7 @@ static int run(int argc, char **argv) {
         llama_synchronize(ctx.get());
 #ifdef HBFLAB_FIVE_MEDIA_BUILD
         five_media_case.step_end(unsigned(step));
+        observations.all_graph.step_end();
 #endif
         observations.q_auto.end_step();
         if (sampled) restored_step_end();
@@ -308,6 +365,7 @@ static int run(int argc, char **argv) {
         observations.q_auto.finish();
 #ifdef HBFLAB_FIVE_MEDIA_BUILD
         five_media_case.finish();
+        observations.all_graph.finish();
 #endif
         auto memory = llama_get_memory(ctx.get());
         need(llama_memory_seq_rm(memory,0,0,-1), "framework sequence release failed");
