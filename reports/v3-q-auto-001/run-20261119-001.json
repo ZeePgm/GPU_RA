@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-q-auto-001",
+  "run_id": "run-20261119-001",
+  "version": "v3",
+  "code_commit": "778af16c2eaf7db08a8e39f29879c9b02552abc3",
+  "code_tree": "831f3229b3ac43fd5a2800ca94275d5744529cbf",
+  "base_commit": "b5533b90b5f882bd845bd71a8823827a4beb9dd7",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "真实 GPU 的 Qwen3-0.6B F16 44 入/2 出单序列通过读取覆盖及数值验收。第 10 层 Q 权重 4 MiB 只登记一次，两阶段均未配置 GPU 核名或核参数位置。预填充原生转换拦到 524288 次 8 B load，单 token 解码原生矩阵向量乘法拦到 1048576 次 4 B load。两阶段每个 F16 元素均命中一次。相对同构建探针关闭组，两个 Q 投影、两份完整 logits、KV 内容与位置、释放结果均逐字节一致，生成 token 为 32、6366。构建级范围为 ggml 原生 convert.cu 与 mmvf.cu，此次运行验证读取覆盖和输出等价。",
+  "manifest": "evidence/v3-q-auto-001/run-20261119-001/manifest.json",
+  "manifest_sha256": "53220f5ba58385353a3e4e935a4e227a7eb245b429daaf7974a344950ac2cc9f",
+  "created_utc": "2026-11-19T08:36:31.239048+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

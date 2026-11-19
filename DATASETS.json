@@ -4449,6 +4449,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-restored-perf-001/qual-w5-p-symbolic-001"
       }
+    },
+    {
+      "experiment_id": "v3-q-auto-001",
+      "run_id": "run-20261119-001",
+      "code_commit": "778af16c2eaf7db08a8e39f29879c9b02552abc3",
+      "manifest": {
+        "path": "evidence/v3-q-auto-001/run-20261119-001/manifest.json",
+        "bytes": 8393,
+        "sha256": "53220f5ba58385353a3e4e935a4e227a7eb245b429daaf7974a344950ac2cc9f"
+      },
+      "report": {
+        "path": "reports/v3-q-auto-001/run-20261119-001.json",
+        "bytes": 1317,
+        "sha256": "ab7fcfc851758b19cd8f24c7f56aa3d3781dff3880715580fb6f228e51dd0ffc"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-q-auto-001/run-20261119-001"
+      }
     }
   ]
 }
