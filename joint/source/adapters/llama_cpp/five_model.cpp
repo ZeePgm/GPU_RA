@@ -5,6 +5,10 @@
 #include "hbflab/platform.hpp"
 #include "five_capture.hpp"
 #include "q_auto_model.hpp"
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+#include "five_media_api.hpp"
+#include "five_media_projection.hpp"
+#endif
 #include <algorithm>
 #include <cuda_runtime.h>
 #include <nlohmann/json.hpp>
@@ -28,6 +32,71 @@ static void ck(cudaError_t value) { if (value != cudaSuccess) throw std::runtime
 static void save(const fs::path &path, const json &value) {
     std::ofstream f(path); f << value.dump(2) << '\n'; f.close(); need(bool(f), "inventory write failed");
 }
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+struct FiveMediaCase {
+    bool enabled = false, active_device = false;
+    std::uint64_t tiles_at_begin = 0;
+    fs::path directory;
+    json report;
+    ~FiveMediaCase() { if (active_device) hbflab_five_media_finish(); }
+
+    void start(const char *mode, const std::vector<const ggml_tensor *> &weights,
+               const std::vector<std::uint64_t> &bases, const fs::path &out) {
+        if (!mode) return;
+        const std::string arm(mode);
+        need(arm == "native" || arm == "timed", "five media mode must be native or timed");
+        need(weights.size() == 5 && bases.size() == weights.size(), "five media selection count");
+        directory = out;
+        enabled = true;
+        std::vector<five_media::RangeSpec> ranges;
+        json registered = json::array();
+        for (std::size_t i = 0; i < weights.size(); ++i) {
+            const auto *w = weights[i];
+            cudaPointerAttributes attributes{};
+            ck(cudaPointerGetAttributes(&attributes, w->data));
+            need(attributes.type == cudaMemoryTypeDevice && attributes.device == 0 && ggml_is_contiguous(w),
+                 "selected range must be contiguous CUDA0 device memory");
+            const std::string name(w->name);
+            const bool retain = name == "blk.10.ffn_norm.weight" || name == "token_embd.weight";
+            const auto bytes = ggml_nbytes(w);
+            ranges.push_back({w->data, bytes, bases[i], std::uint32_t(retain)});
+            registered.push_back({{"name", name}, {"base", reinterpret_cast<std::uintptr_t>(w->data)},
+                {"bytes", bytes}, {"logical", bases[i]}, {"retain_words", retain}});
+        }
+        if (arm == "timed") {
+            ck(static_cast<cudaError_t>(hbflab_five_media_begin(ranges.data(), ranges.size())));
+            active_device = true;
+        }
+        report = {{"mode", arm}, {"registrations", active_device ? ranges.size() : 0}, {"media_finished", false},
+            {"ranges", std::move(registered)}, {"output_tile_rows", five_media_output_tile_rows},
+            {"output_tile_launches", json::array()}};
+    }
+    void step_begin() {
+        if (!enabled) return;
+        tiles_at_begin = hbflab_five_projection_tiles();
+        if (active_device) ck(static_cast<cudaError_t>(hbflab_five_media_step_begin()));
+    }
+    void step_end(unsigned step) {
+        if (!enabled) return;
+        if (active_device) ck(static_cast<cudaError_t>(hbflab_five_media_step_end(directory.c_str(), step)));
+        const auto launches = hbflab_five_projection_tiles() - tiles_at_begin;
+        constexpr auto output_rows = 151936u;
+        need(launches == (output_rows + five_media_output_tile_rows - 1) / five_media_output_tile_rows,
+             "full native output projection tile count mismatch");
+        report["output_tile_launches"].push_back(launches);
+    }
+    void finish() {
+        if (!enabled) return;
+        if (active_device) {
+            const auto result = hbflab_five_media_finish();
+            active_device = false;
+            ck(static_cast<cudaError_t>(result));
+            report["media_finished"] = true;
+        }
+        save(directory / "five-media.json", report);
+    }
+};
+#endif
 static json memory() {
     size_t available = 0, total = 0; ck(cudaMemGetInfo(&available, &total));
     return {{"free_bytes", available}, {"total_bytes", total}};
@@ -109,7 +178,15 @@ static int run(int argc, char **argv) {
     std::unique_ptr<llama_model, decltype(&llama_model_free)> model(llama_model_load_from_file(argv[1], mp), llama_model_free);
     need(bool(model), "model load failed"); budgets["after_model"] = memory();
     Observation observations; observations.single_node = std::string(route)=="symbolic";
-    if(const char *capture=std::getenv("HBFLAB_FIVE_CAPTURE")){need(std::string(route)=="native","capture requires native reference");observations.capture.root=capture;need(!fs::exists(capture),"capture root exists");fs::create_directories(capture);} json tensors = json::array();
+    const char *five_media_mode = std::getenv("HBFLAB_FIVE_MEDIA");
+    if (const char *capture = std::getenv("HBFLAB_FIVE_CAPTURE")) observations.capture.root = capture;
+    else if (five_media_mode) observations.capture.root = out / "fixtures";
+    if (!observations.capture.root.empty()) {
+        need(std::string(route) == "native", "capture requires native graph");
+        need(!fs::exists(observations.capture.root), "capture root exists");
+        fs::create_directories(observations.capture.root);
+    }
+    json tensors = json::array();
     for (const auto &item : spec.at("all_tensors")) {
         const auto name = item.at("name").get<std::string>();
         const auto *t = hbflab_m2_find_tensor(model.get(), name.c_str()); need(t, "tensor missing after load");
@@ -148,6 +225,16 @@ static int run(int argc, char **argv) {
     restored_bind(route,selected.data(),bases.data(),unsigned(selected.size()),
         spec.at("logical_weight_layout_bytes"),std::getenv("HBFLAB_SAMPLED_PROFILE"),
         std::getenv("HBFLAB_SYMBOLIC_CONFIG"),argv[3],!summary);
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+    FiveMediaCase five_media_case;
+    if (five_media_mode) {
+        need(std::string(route) == "native" && !std::getenv("HBFLAB_AUTO_Q_MODE") && !paged &&
+             n == 44 && outputs == 2, "five media requires native graph, 44 input tokens and 2 output tokens");
+        five_media_case.start(five_media_mode, selected, bases, out);
+    }
+#else
+    need(!five_media_mode, "five media mode requires an instrumented build");
+#endif
     auto cp = llama_context_default_params();
     cp.n_ctx = 512; cp.n_batch = cp.n_ubatch = 256; cp.n_seq_max = 1;
     cp.n_threads = cp.n_threads_batch = 8; cp.flash_attn_type = LLAMA_FLASH_ATTN_TYPE_DISABLED;
@@ -170,6 +257,9 @@ static int run(int argc, char **argv) {
     for (int step = 0; step < outputs; ++step) {
         if (sampled) restored_step_begin(step);
         observations.q_auto.begin_step(step);
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+        five_media_case.step_begin();
+#endif
         observations.step = step; llama_batch_ext_clear(batch.get());
         for (auto token : input) {
             const int index = llama_batch_ext_add_token(batch.get(), 0, token); const auto pos = position++;
@@ -178,6 +268,9 @@ static int run(int argc, char **argv) {
         need(llama_batch_ext_set_output_logits(batch.get(), int32_t(input.size() - 1), true), "logits selection failed");
         need(llama_process(ctx.get(), LLAMA_PROCESS_TYPE_DECODE, batch.get()) == 0, "model process failed");
         llama_synchronize(ctx.get());
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+        five_media_case.step_end(unsigned(step));
+#endif
         observations.q_auto.end_step();
         if (sampled) restored_step_end();
         if (sampled && !paged) {
@@ -212,6 +305,9 @@ static int run(int argc, char **argv) {
     if (sampled) {
         restored_finish();
         observations.q_auto.finish();
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+        five_media_case.finish();
+#endif
         auto memory = llama_get_memory(ctx.get());
         need(llama_memory_seq_rm(memory,0,0,-1), "framework sequence release failed");
         need(llama_memory_seq_pos_min(memory,0) < 0 && llama_memory_seq_pos_max(memory,0) < 0, "framework sequence not empty after release");

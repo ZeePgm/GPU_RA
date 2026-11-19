@@ -117,6 +117,10 @@ add_executable(five_model "${LAB_ROOT}/adapters/llama_cpp/five_model.cpp")
 target_include_directories(five_model PRIVATE "${LAB_ROOT}/adapters/llama_cpp" "${LLAMA_SOURCE}/vendor" "${M2_CUPTI_INCLUDE}" "${LAB_ROOT}/include")
 target_link_libraries(five_model PRIVATE llama ggml-cuda CUDA::cudart ${M2_CUPTI_LIBRARY})
 set(HBFLAB_Q_AUTO_LAUNCHER "" CACHE FILEPATH "Experimental compiler launcher for Q access tracing")
+set(HBFLAB_FIVE_MEDIA_LAUNCHER "" CACHE FILEPATH "Experimental compiler launcher for five-weight live timing")
+if(HBFLAB_Q_AUTO_LAUNCHER AND HBFLAB_FIVE_MEDIA_LAUNCHER)
+  message(FATAL_ERROR "Choose a single experimental PTX launcher")
+endif()
 if(HBFLAB_Q_AUTO_LAUNCHER)
   target_sources(ggml-cuda PRIVATE "${LAB_ROOT}/adapters/llama_cpp/q_auto_device.cu")
   set_property(TARGET ggml-cuda PROPERTY CUDA_COMPILER_LAUNCHER
@@ -128,6 +132,21 @@ if(HBFLAB_Q_AUTO_LAUNCHER)
       "${HBFLAB_Q_AUTO_LAUNCHER}" "${q_auto_dir}/rewrite_ptx.py")
   endforeach()
   target_compile_definitions(five_model PRIVATE HBFLAB_Q_AUTO_TRACE=1)
+endif()
+if(HBFLAB_FIVE_MEDIA_LAUNCHER)
+  target_sources(ggml-cuda PRIVATE "${LAB_ROOT}/adapters/llama_cpp/five_media_device.cu")
+  set_property(TARGET ggml-cuda PROPERTY CUDA_COMPILER_LAUNCHER
+    "${Python3_EXECUTABLE};${HBFLAB_FIVE_MEDIA_LAUNCHER}")
+  get_filename_component(five_media_dir "${HBFLAB_FIVE_MEDIA_LAUNCHER}" DIRECTORY)
+  foreach(unit convert mmvf binbcast getrows)
+    set_property(SOURCE "${LLAMA_SOURCE}/ggml/src/ggml-cuda/${unit}.cu"
+      TARGET_DIRECTORY ggml-cuda APPEND PROPERTY OBJECT_DEPENDS
+      "${HBFLAB_FIVE_MEDIA_LAUNCHER}" "${five_media_dir}/rewrite_ptx.py"
+      "${five_media_dir}/../v3-q-auto-001/compile_ptx.py"
+      "${five_media_dir}/../v3-q-auto-001/rewrite_ptx.py")
+  endforeach()
+  target_compile_definitions(ggml-cuda PRIVATE HBFLAB_FIVE_MEDIA_BUILD=1)
+  target_compile_definitions(five_model PRIVATE HBFLAB_FIVE_MEDIA_BUILD=1)
 endif()
 add_executable(five_weight "${LAB_ROOT}/adapters/llama_cpp/five_weight.cpp")
 target_include_directories(five_weight PRIVATE "${LAB_ROOT}/adapters/llama_cpp" "${LLAMA_SOURCE}/vendor")

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-five-timed-001",
+  "parameters": {
+    "model": "Qwen3-0.6B F16",
+    "inventory": "experiments/v3-route-perf-five-001/inventory.json",
+    "reference": "v3-route-perf-five-001/reference-20261117-001",
+    "prompt_length": 44,
+    "vocabulary": 151936,
+    "output_tokens": [32, 6366],
+    "modes": ["native", "timed"],
+    "process_timeout_seconds": 1200,
+    "process_disk_limit_bytes": 134217728,
+    "page_bytes": 4096,
+    "output_tile_rows": 512,
+    "expected_demand_pages": [78560,78530],
+    "logit_vector_sha256": [
+      "d7314a9ae1948be9e591fda710db24e009e8201a976a5fb7d33d19e5796c69cf",
+      "ff11435a4de17b13cd85b804f481dad5b63b80761db1de34a79f3d510465089d"
+    ],
+    "native_kv_state_sha256": "7798b46e500a0a010eb460f7d07db1553b659e936593b38517c9532d9d5abb25"
+  },
+  "acceptance": {
+    "selection": "Register the five whole tensors once; select no consumer kernels in runtime configuration.",
+    "numerical": "Native and timed full graph fixtures for all five weights in both phases, both full logit vectors, token IDs, native KV state, positions and sequence release must match exact references.",
+    "demand": "In each phase Q, FFN down and full output read every half once. Norm uses each F32 weight once per token. Embedding gathers exactly the input rows with their actual multiplicities.",
+    "dependency": "For every demanded page verify its addresses, EventLab completion, sector count, GPU deadline, minimum and maximum resume times, instruction counts, unique halfword coverage and requested byte count. Require drained media.",
+    "scope": "One native and one timed scientific process. Capture qualitative coverage and causal waits, with native F16 KV. This sample provides no statistical performance estimate."
+  }
+}

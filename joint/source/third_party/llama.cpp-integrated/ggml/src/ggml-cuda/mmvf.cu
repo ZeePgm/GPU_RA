@@ -4,6 +4,16 @@
 #include "mmvf.cuh"
 #include "mmf.cuh"
 #include "convert.cuh"
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+#include "five_media_projection.hpp"
+#include <algorithm>
+#include <atomic>
+#include <cstdlib>
+static std::atomic<std::uint64_t> five_projection_tiles{0};
+extern "C" HBFLAB_M2_API std::uint64_t hbflab_five_projection_tiles() {
+    return five_projection_tiles.load(std::memory_order_relaxed);
+}
+#endif
 
 template <typename T, typename type_acc, int ncols_dst, int block_size, bool has_fusion = false, bool is_multi_token_id = false>
 static __global__ void mul_mat_vec_f(
@@ -712,6 +722,24 @@ void ggml_cuda_mul_mat_vec_f(ggml_backend_cuda_context & ctx, const ggml_tensor 
         } break;
         case GGML_TYPE_F16: {
             const half * src0_d = (const half *) src0->data;
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+            // Bound each long grid while retaining the original per-row MMVF and its stream.
+            // The same launch partition is used by both arms of the experiment.
+            if (ne01 > 65535 && ncols_dst == 1 && ne02 == 1 && ne03 == 1 && ne12 == 1 &&
+                ne13 == 1 && ne2 == 1 && ne3 == 1 && !ids && !fusion && prec == GGML_PREC_F32 &&
+                ggml_is_contiguous(src0) && ggml_is_contiguous(src1) && ggml_is_contiguous(dst) &&
+                std::getenv("HBFLAB_FIVE_MEDIA") != nullptr) {
+                for (int64_t first_row = 0; first_row < ne01; first_row += five_media_output_tile_rows) {
+                    const int64_t rows = std::min<int64_t>(ne01 - first_row, five_media_output_tile_rows);
+                    mul_mat_vec_f_cuda(src0_d + first_row * s01, src1_d, ids_d, fusion_local, dst_d + first_row,
+                        ne00, rows, ncols_dst, s01, stride_col_y, stride_col_dst,
+                        ne02, nchannels_y, nchannels_dst, s02, stride_channel_y, stride_channel_dst,
+                        ne03, ne3, s03, s13, s3, ids_stride, prec, ctx.stream());
+                    five_projection_tiles.fetch_add(1, std::memory_order_relaxed);
+                }
+                break;
+            }
+#endif
             mul_mat_vec_f_cuda(src0_d, src1_d, ids_d, fusion_local, dst_d, ne00, ne01, ncols_dst, s01, stride_col_y, stride_col_dst,
                 ne02, nchannels_y, nchannels_dst, s02, stride_channel_y, stride_channel_dst,
                 ne03,              ne3,           s03, s13,              s3,                 ids_stride, prec, ctx.stream());

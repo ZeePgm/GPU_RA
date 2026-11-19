@@ -1,0 +1,340 @@
+#include "five_media_api.hpp"
+#include "integrated_geometry.hpp"
+#include <cuda/atomic>
+#include <cuda_runtime.h>
+#include <algorithm>
+#include <array>
+#include <atomic>
+#include <cstdio>
+#include <cstring>
+#include <filesystem>
+#include <fstream>
+#include <memory>
+#include <numeric>
+#include <stdexcept>
+#include <string>
+#include <thread>
+#include <vector>
+
+extern "C" cudaError_t hbflab_q_auto_bind_convert(void*);
+extern "C" cudaError_t hbflab_q_auto_bind_mmvf(void*);
+extern "C" cudaError_t hbflab_q_auto_bind_binbcast(void*);
+extern "C" cudaError_t hbflab_q_auto_bind_getrows(void*);
+
+namespace {
+using U64 = std::uint64_t;
+using U32 = std::uint32_t;
+using five_media::RangeSpec;
+constexpr unsigned page_bytes = 4096, halfs = 2048, mask_words = 64, batch_limit = 16;
+constexpr std::size_t sites_per_range = 4 * 32768;
+constexpr U32 idle = 0, requested = 1, ready = 2, failed = 3;
+
+struct GpuRange { U64 base, bytes, first_page; U32* counts; };
+struct alignas(64) Page { U64 request_ns, delay_ns; U32 status; U64 released_base; };
+struct alignas(64) Audit { U64 ready_base, earliest_ns, latest_ns, loads, bytes; U32 claim; };
+struct Root {
+    GpuRange* ranges;
+    U64 count;
+    Page* pages;
+    Audit* audits;
+    U32* coverage;
+    U64* sites;
+    U32* queue;
+    U32* tail;
+    U64* errors;
+};
+static_assert(sizeof(GpuRange) == 32 && offsetof(GpuRange, counts) == 24);
+static_assert(sizeof(Page) == 64 && offsetof(Page, status) == 16 && offsetof(Page, released_base) == 24);
+static_assert(sizeof(Audit) == 64 && offsetof(Audit, claim) == 40);
+static_assert(sizeof(Root) == 72 && offsetof(Root, count) == 8 && offsetof(Root, audits) == 24 &&
+              offsetof(Root, queue) == 48 && offsetof(Root, errors) == 64);
+using Receipt = std::array<U64, 10>;
+using Bind = cudaError_t (*)(void*);
+const Bind bindings[] = {hbflab_q_auto_bind_convert, hbflab_q_auto_bind_mmvf,
+                         hbflab_q_auto_bind_binbcast, hbflab_q_auto_bind_getrows};
+
+void need(bool okay, const char* reason) { if (!okay) throw std::runtime_error(reason); }
+void check(cudaError_t err) { if (err != cudaSuccess) throw std::runtime_error(cudaGetErrorString(err)); }
+U32 acquire(U32& word) { return cuda::atomic_ref<U32, cuda::thread_scope_system>(word).load(cuda::memory_order_acquire); }
+void release(U32& word, U32 value) { cuda::atomic_ref<U32, cuda::thread_scope_system>(word).store(value, cuda::memory_order_release); }
+template<class T> void allocate(T*& ptr, std::size_t count) { check(cudaMalloc(&ptr, count * sizeof(T))); }
+template<class T> void mapped(T*& host, T*& device, std::size_t count) {
+    check(cudaHostAlloc(reinterpret_cast<void**>(&host), count * sizeof(T), cudaHostAllocMapped));
+    check(cudaHostGetDevicePointer(reinterpret_cast<void**>(&device), host, 0));
+}
+template<class T> void clear(T* ptr, std::size_t count) { check(cudaMemset(ptr, 0, count * sizeof(T))); }
+template<class T> void download(T* dest, const T* device, std::size_t count) {
+    check(cudaMemcpy(dest, device, count * sizeof(T), cudaMemcpyDeviceToHost));
+}
+template<class T> void write_values(std::ofstream& out, const T* words, std::size_t count) {
+    out.write(reinterpret_cast<const char*>(words), std::streamsize(count * sizeof(T)));
+}
+std::ofstream output(const std::filesystem::path& dir, const char* stem, unsigned step, const char* extension) {
+    std::ofstream out;
+    out.exceptions(std::ios::badbit | std::ios::failbit);
+    out.open(dir/(std::string(stem)+"-"+std::to_string(step)+extension), std::ios::binary);
+    return out;
+}
+__global__ void initialize_audits(Audit* audits, std::size_t count) {
+    const std::size_t i = std::size_t(blockIdx.x)*blockDim.x + threadIdx.x;
+    if (i < count) { Audit a{}; a.earliest_ns = ~U64{0}; audits[i] = a; }
+}
+
+struct Session {
+    Root root{};
+    Root* device_root = nullptr;
+    Page* host_pages = nullptr;
+    U32* host_queue = nullptr;
+    std::vector<RangeSpec> specs;
+    std::vector<GpuRange> ranges;
+    std::vector<unsigned> owners;
+    std::vector<Receipt> receipts;
+    std::unique_ptr<hbflab::TimingBackend> backend;
+    std::thread worker;
+    std::atomic<bool> stop{false};
+    bool worker_failed = false, bound = false, phase_failed = false, cleaned = false;
+    unsigned steps = 0;
+    std::size_t consumed = 0;
+    U64 total_requests = 0;
+
+    void init(const RangeSpec* input, std::size_t count) {
+        need(input && count == 5, "expected five registered weight ranges");
+        specs.assign(input, input + count);
+        root.count = count;
+        for (const auto& s : specs) {
+            const U64 base = reinterpret_cast<U64>(s.base);
+            need(base && s.bytes && !(s.bytes % page_bytes) && !(s.logical % page_bytes) &&
+                 s.bytes <= UINT64_MAX-base && s.retain_words <= 1, "invalid registered range");
+            for (const auto& r : ranges)
+                need(base >= r.base+r.bytes || r.base >= base+s.bytes, "registered GPU allocations overlap");
+            ranges.push_back({base, s.bytes, owners.size(), nullptr});
+            owners.insert(owners.end(), s.bytes/page_bytes, unsigned(ranges.size()-1));
+            if (s.retain_words) allocate(ranges.back().counts, s.bytes/2);
+        }
+        const auto pages = owners.size();
+        need(pages && pages < UINT32_MAX, "invalid demand queue capacity");
+        receipts.resize(pages);
+        allocate(root.ranges, count);
+        check(cudaMemcpy(root.ranges, ranges.data(), count*sizeof(GpuRange), cudaMemcpyHostToDevice));
+        mapped(host_pages, root.pages, pages);
+        mapped(host_queue, root.queue, pages);
+        allocate(root.audits, pages);
+        allocate(root.coverage, pages*mask_words);
+        allocate(root.sites, count*sites_per_range);
+        allocate(root.tail, 1);
+        allocate(root.errors, 1);
+        allocate(device_root, 1);
+        check(cudaMemcpy(device_root, &root, sizeof(root), cudaMemcpyHostToDevice));
+        bound = true;
+        for (const auto bind : bindings) check(bind(device_root));
+    }
+
+    void init_backend() {
+        if (backend) return;
+        hbflab::BackendOptions options;
+        options.geometry = m6_geometry();
+        options.resident_fragments = 256;
+        options.max_events_per_batch = integrated_profile().max_events;
+        backend = std::make_unique<hbflab::TimingBackend>(options);
+        U64 next = 0;
+        const U64 group = U64(options.geometry.block_group_dlus()) * page_bytes;
+        auto sorted = specs;
+        std::sort(sorted.begin(), sorted.end(), [](const auto& a, const auto& b){ return a.logical < b.logical; });
+        for (const auto& s : sorted) {
+            need(s.logical >= next && s.logical % group == 0, "unaligned or overlapping medium range");
+            if (s.logical > next) backend->reserve_gap(s.logical-next);
+            const auto padded = (s.bytes + group-1) / group * group;
+            need(backend->reserve(padded) == s.logical, "medium reservation address mismatch");
+            next = s.logical + padded;
+        }
+        need(backend->drained(), "medium initialization incomplete");
+    }
+
+    U64 address(std::size_t page, bool logical) const {
+        const auto owner = owners.at(page);
+        return (logical ? specs[owner].logical : ranges[owner].base) +
+               (page - ranges[owner].first_page)*page_bytes;
+    }
+
+    void service() noexcept {
+        try {
+            std::vector<std::size_t> indices;
+            std::vector<hbflab::TimedRead> reads;
+            indices.reserve(batch_limit); reads.reserve(batch_limit);
+            while (!stop.load(std::memory_order_acquire)) {
+                indices.clear(); reads.clear();
+                const auto arrival = backend->now_ps();
+                for (std::size_t slot = consumed; slot < owners.size() && indices.size() < batch_limit; ++slot) {
+                    const auto index_plus_one = acquire(host_queue[slot]);
+                    if (!index_plus_one) break;
+                    const auto page = std::size_t(index_plus_one-1);
+                    need(page < owners.size() && !receipts[page][9] &&
+                         std::find(indices.begin(), indices.end(), page) == indices.end(), "duplicate or invalid demand queue entry");
+                    need(acquire(host_pages[page].status) == requested && host_pages[page].request_ns,
+                         "demand queue references unpublished request");
+                    indices.push_back(page);
+                    reads.push_back({arrival, {{address(page, true), page_bytes}}});
+                }
+                if (reads.empty()) { std::this_thread::yield(); continue; }
+                const auto completed = backend->read_batch(reads);
+                need(completed.size() == reads.size(), "missing EventLab page completion");
+                for (std::size_t i = 0; i < indices.size(); ++i) {
+                    const auto page = indices[i];
+                    const auto& result = completed[i];
+                    need(result.status == hbflab::Status::Ok && result.sectors == 64 && result.end_ps > result.begin_ps,
+                         "EventLab page read failed");
+                    const auto duration = result.end_ps-result.begin_ps;
+                    const auto delay = duration/1000 + (duration%1000 != 0);
+                    need(delay < 1000000000 && acquire(host_pages[page].status) == requested, "invalid page deadline or ownership");
+                    const auto backing = address(page, false);
+                    receipts[page] = {page, address(page, true), backing, host_pages[page].request_ns, result.begin_ps,
+                                      result.end_ps, delay, result.sectors, ++consumed, ready};
+                    ++total_requests;
+                    host_pages[page].delay_ns = delay;
+                    host_pages[page].released_base = backing;
+                    release(host_pages[page].status, ready);
+                }
+            }
+        } catch (const std::exception& e) {
+            std::fprintf(stderr, "five media service: %s\n", e.what());
+            worker_failed = true;
+            // A later CTA may publish after the first notification. Wake all
+            // blocked and newly scheduled demand producers until the host joins.
+            do {
+                for (std::size_t i=0; i<owners.size(); ++i) release(host_pages[i].status, failed);
+                std::this_thread::yield();
+            } while (!stop.load());
+        }
+    }
+    void begin_step() {
+        need(!phase_failed && !worker_failed && !worker.joinable(), "five media phase lifecycle");
+        init_backend();
+        const auto pages = owners.size();
+        std::memset(host_pages, 0, pages*sizeof(Page));
+        std::memset(host_queue, 0, pages*sizeof(U32));
+        std::fill(receipts.begin(), receipts.end(), Receipt{});
+        for (const auto& r : ranges) if (r.counts) clear(r.counts, r.bytes/2);
+        initialize_audits<<<unsigned((pages+255)/256),256>>>(root.audits, pages);
+        check(cudaGetLastError());
+        clear(root.coverage, pages*mask_words);
+        clear(root.sites, root.count*sites_per_range);
+        clear(root.tail, 1); clear(root.errors, 1);
+        check(cudaDeviceSynchronize());
+        consumed = 0; stop = false;
+        worker = std::thread([this]{service();});
+    }
+    void join() {
+        stop.store(true, std::memory_order_release);
+        if (worker.joinable()) worker.join();
+    }
+
+    void dump(const std::filesystem::path& dir, unsigned step) {
+        U32 tail; U64 errors;
+        download(&tail, root.tail, 1); download(&errors, root.errors, 1);
+        need(errors == 0 && tail == consumed && consumed > 0 && backend->drained(), "GPU audit error or incomplete page service");
+        const auto pages = owners.size();
+        std::vector<Audit> audits(pages);
+        std::vector<U32> masks(pages*mask_words), repeat(halfs);
+        std::vector<U64> sites(root.count*sites_per_range);
+        download(audits.data(), root.audits, pages);
+        download(masks.data(), root.coverage, masks.size());
+        download(sites.data(), root.sites, sites.size());
+        auto media_file = output(dir, "media", step, ".u64");
+        auto audit_file = output(dir, "audit", step, ".u64");
+        auto mask_file = output(dir, "coverage", step, ".u32");
+        auto repeat_file = output(dir, "repeats", step, ".u32");
+        auto site_file = output(dir, "sites", step, ".u64");
+        std::size_t written = 0;
+        for (std::size_t page=0; page<pages; ++page) {
+            const auto& a = audits[page];
+            const auto& r = receipts[page];
+            const U32* mask = masks.data()+page*mask_words;
+            if (!r[9]) {
+                need(!a.ready_base && !a.loads && !a.bytes && !a.claim && acquire(host_pages[page].status)==idle &&
+                     std::all_of(mask, mask+mask_words, [](U32 x){ return x == 0; }), "unserved GPU accesses");
+                continue;
+            }
+            need(a.ready_base == r[2] && a.earliest_ns >= r[3]+r[6] && a.earliest_ns <= a.latest_ns &&
+                 a.loads && a.bytes && acquire(host_pages[page].status) == ready, "page gate dependency failed");
+            write_values(media_file, r.data(), r.size());
+            write_values(audit_file, &a.ready_base, 5);
+            write_values(mask_file, mask, mask_words);
+            const auto& range = ranges[owners[page]];
+            if (range.counts) {
+                download(repeat.data(), range.counts+(page-range.first_page)*halfs, halfs);
+                write_values(repeat_file, repeat.data(), repeat.size());
+            }
+            ++written;
+        }
+        need(written == consumed, "incomplete receipt file");
+        write_values(site_file, sites.data(), sites.size());
+        media_file.close(); audit_file.close(); mask_file.close(); repeat_file.close(); site_file.close();
+    }
+    void end_step(const wchar_t* path, unsigned step) {
+        need(path && step == steps && worker.joinable(), "five media step order");
+        const auto gpu = cudaDeviceSynchronize();
+        join();
+        check(gpu);
+        need(!worker_failed, "five media worker failed");
+        dump(path,step);
+        ++steps;
+    }
+    void finish() {
+        need(!worker.joinable() && !phase_failed && !worker_failed && steps && backend, "five media unfinished");
+        backend->finish();
+        const auto stats = backend->statistics();
+        need(backend->drained() && stats.input_closed && !stats.host.logical_failed &&
+             stats.requests == total_requests && stats.sectors == total_requests*64 &&
+             stats.registered_globals == stats.completed_globals && stats.peak_resident_fragments <= 256,
+             "five media backend failed to drain or conserved resources exceeded");
+    }
+    cudaError_t cleanup() {
+        if (cleaned) return cudaSuccess;
+        cleaned = true;
+        cudaError_t error = cudaSuccess;
+        auto take = [&](cudaError_t e){if (error==cudaSuccess && e!=cudaSuccess) error=e;};
+        if (worker.joinable()) {
+            // A normal or failing kernel can still need its CPU responder.
+            take(cudaDeviceSynchronize()); join();
+        }
+        if (bound) for (const auto bind : bindings) take(bind(nullptr));
+        for (auto& r : ranges) if (r.counts) take(cudaFree(r.counts));
+        for (void* p : std::array<void*,7>{device_root, root.ranges, root.audits, root.coverage, root.sites, root.tail, root.errors})
+            if (p) take(cudaFree(p));
+        if (host_pages) take(cudaFreeHost(host_pages));
+        if (host_queue) take(cudaFreeHost(host_queue));
+        return error;
+    }
+    ~Session() { cleanup(); }
+};
+std::unique_ptr<Session> session;
+
+template<class Work> int call(Work work) {
+    try { work(); return cudaSuccess; }
+    catch (const std::exception& e) {
+        std::fprintf(stderr, "five media: %s\n", e.what());
+        if (session) session->phase_failed = true;
+        return cudaErrorUnknown;
+    }
+}
+} // namespace
+
+extern "C" int hbflab_five_media_begin(const RangeSpec* specs, std::size_t count) {
+    if (session) return cudaErrorInvalidValue;
+    return call([&]{auto s = std::make_unique<Session>(); s->init(specs,count); session=std::move(s);});
+}
+extern "C" int hbflab_five_media_step_begin() {
+    if (!session) return cudaErrorInvalidValue;
+    return call([&]{session->begin_step();});
+}
+extern "C" int hbflab_five_media_step_end(const wchar_t* out, unsigned step) {
+    if (!session) return cudaErrorInvalidValue;
+    return call([&]{session->end_step(out,step);});
+}
+extern "C" int hbflab_five_media_finish() {
+    if (!session) return cudaErrorInvalidValue;
+    const int status = call([]{session->finish();});
+    const auto cleanup = session->cleanup();
+    session.reset();
+    return status == cudaSuccess ? cleanup : status;
+}
