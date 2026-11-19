@@ -22,6 +22,7 @@ class QAutoModel {
     const ggml_tensor *pending_ = nullptr;
     std::filesystem::path directory_;
     bool trace_ = false;
+    bool timed_ = false;
     bool device_registered_ = false;
     int step_ = -1;
     bool captured_ = false;
@@ -69,6 +70,33 @@ class QAutoModel {
         row_["device_summary"] = {{"convert_loads", summary[q_auto::convert_loads]},
             {"convert_bytes", summary[q_auto::convert_bytes]}, {"decode_loads", summary[q_auto::decode_loads]},
             {"decode_bytes", summary[q_auto::decode_bytes]}, {"partial_or_misaligned", summary[q_auto::partial_or_misaligned]}};
+        if (timed_) collect_timing(counts.size(), suffix);
+    }
+    void collect_timing(std::size_t words, const std::string &suffix) {
+        std::vector<std::uint64_t> observed(words);
+        std::vector<std::uint64_t> resumed(words);
+        std::vector<q_auto::MediaReceipt> receipts(ggml_nbytes(weight_) / 4096);
+        check_cuda(hbflab_q_auto_device_timing(observed.data(), resumed.data(), words,
+                                             receipts.data(), receipts.size()), "Q live media audit");
+        const auto observed_file = "observed-" + suffix + ".u64";
+        const auto resumed_file = "resumed-" + suffix + ".u64";
+        const auto media_file = "media-" + suffix + ".json";
+        write_array(observed_file, observed);
+        write_array(resumed_file, resumed);
+        Json pages = Json::array();
+        for (const auto &r : receipts) {
+            pages.push_back({{"logical", r.logical}, {"request_ns", r.request_ns}, {"begin_ps", r.begin_ps},
+                {"end_ps", r.end_ps}, {"delay_ns", r.delay_ns}, {"sectors", r.sectors},
+                {"completion_order", r.completion_order}, {"status", r.status},
+                {"released_base", r.released_base}});
+        }
+        std::ofstream out(directory_ / media_file);
+        out << pages.dump(2) << '\n';
+        out.close();
+        require(bool(out), "cannot write Q media receipts");
+        row_["observed_file"] = observed_file;
+        row_["resumed_file"] = resumed_file;
+        row_["media_file"] = media_file;
     }
 public:
     QAutoModel() = default;
@@ -78,7 +106,7 @@ public:
 
     void bind(const std::string &mode, const ggml_tensor *weight, std::uint64_t logical_base,
               const std::filesystem::path &directory, int prompt_tokens, int outputs) {
-        require(mode == "native" || mode == "trace", "Q auto mode must be native or trace");
+        require(mode == "native" || mode == "trace" || mode == "timed", "Q auto mode must be native, trace or timed");
         require(!weight_ && weight && std::string(weight->name) == "blk.10.attn_q.weight" &&
                 weight->type == GGML_TYPE_F16 && weight->ne[0] == 1024 && weight->ne[1] == 2048 &&
                 weight->ne[2] == 1 && weight->ne[3] == 1 && ggml_is_contiguous(weight) &&
@@ -88,10 +116,12 @@ public:
         check_cuda(cudaPointerGetAttributes(&attributes, weight->data), "Q weight CUDA identity");
         require(attributes.type == cudaMemoryTypeDevice && attributes.device == 0, "Q weight must be on CUDA0");
         weight_ = weight;
-        trace_ = mode == "trace";
+        trace_ = mode != "native";
+        timed_ = mode == "timed";
         directory_ = directory;
         if (trace_) {
-            check_cuda(hbflab_q_auto_device_begin(weight->data, ggml_nbytes(weight)), "Q device registration");
+            check_cuda(hbflab_q_auto_device_begin(weight->data, ggml_nbytes(weight), logical_base, int(timed_)),
+                       "Q device registration");
             device_registered_ = true;
         }
         report_ = {{"mode", mode}, {"tensor", weight->name}, {"bytes", ggml_nbytes(weight)},
@@ -147,6 +177,7 @@ public:
             device_registered_ = false;
         }
         require(report_["steps"].size() >= 2, "Q prefill/decode coverage missing");
+        report_["media_finished"] = timed_;
         report_["finished"] = true;
         std::ofstream out(directory_ / "q-auto.json");
         out << report_.dump(2) << '\n';

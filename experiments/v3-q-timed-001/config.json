@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-q-timed-001",
+  "parameters": {
+    "model": "Qwen3-0.6B F16",
+    "weight": "blk.10.attn_q.weight",
+    "shape": [
+      1024,
+      2048
+    ],
+    "bytes": 4194304,
+    "logical_base": 69533696,
+    "prompt_length": 44,
+    "vocabulary": 151936,
+    "output_tokens": [
+      32,
+      6366
+    ],
+    "modes": [
+      "native",
+      "timed"
+    ],
+    "process_timeout_seconds": 1200,
+    "process_disk_limit_bytes": 134217728,
+    "historical_reference": "v3-route-perf-five-001/reference-20261117-001",
+    "projection_sha256": [
+      "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8",
+      "c714049ac96b6b2f7476611260a5768a693bad014c341fe898e98e3eeea98968"
+    ],
+    "logit_vector_sha256": [
+      "d7314a9ae1948be9e591fda710db24e009e8201a976a5fb7d33d19e5796c69cf",
+      "ff11435a4de17b13cd85b804f481dad5b63b80761db1de34a79f3d510465089d"
+    ],
+    "page_bytes": 4096,
+    "native_kv_state_sha256": "7798b46e500a0a010eb460f7d07db1553b659e936593b38517c9532d9d5abb25",
+    "access_reference": "v3-q-auto-001/run-20261119-001"
+  },
+  "acceptance": {
+    "modeled_service": "Exactly one on-demand 4096 B EventLab read per registered Q page per graph phase. Each successful receipt covers 64 sectors. A single serialized service session spans both phases.",
+    "native_outputs": "Keep native prefill and decode Q outputs, two full logit vectors, token IDs, native KV bytes and locations, and sequence release equal to the frozen reference and same-build native control.",
+    "dynamic_coverage": "Each F16 half is read exactly once in each phase. The candidate manifest identifies the executed site. Instruction opcode, width, load count and bytes must match the qualified observation experiment.",
+    "dependency": "At every original matched load start offset, observe and resume samples must be present and ordered against its own page's GPU request and simulated delay. Other half offsets must have no timestamps. Media service must finish drained.",
+    "execution": "Sequential native and timed scientific processes use the existing V3 full-root conflict, resource and timeout guard. Wall time and media service time have distinct clock domains.",
+    "native_access_signatures": [
+      {
+        "unit": "convert",
+        "opcode": "ld.global.nc.v4.u16",
+        "width": 8,
+        "dynamic_reads": 524288
+      },
+      {
+        "unit": "mmvf",
+        "opcode": "ld.global.u32",
+        "width": 4,
+        "dynamic_reads": 1048576
+      }
+    ]
+  }
+}
