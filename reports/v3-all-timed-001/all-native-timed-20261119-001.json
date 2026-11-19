@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-all-timed-001",
+  "run_id": "all-native-timed-20261119-001",
+  "version": "v3",
+  "code_commit": "bd8f77d0f215f11cf7b8c5191c9094b93faa3ba4",
+  "code_tree": "7f0dc2fd42aa206d4b11fe36d1ee7949e617f51f",
+  "base_commit": "f6c97691e8b360dc27b3bf5e26b96a938c52b134",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Qwen3-0.6B F16 的 311 个权重在加载后一次登记。44-token 预填充、新增一个 token 的解码分别验收 291,152 和 291,122 个实读页，两个阶段所有权重都有动态读取。覆盖位图与逐权重读取字节符合预注册预期，582,274 页均通过先完成服务再放行检查，提前放行、缺失时间戳均为零，阶段结束队列排空。两步完整 logits、原生 F16 KV 内容与位置、序列释放记录均与原生组逐字节一致。两个阶段 622 份完整算子输出的 SHA-256 一致，五类冻结参考通过，两组输出 token 均为 [32, 6366]。",
+  "manifest": "evidence/v3-all-timed-001/all-native-timed-20261119-001/manifest.json",
+  "manifest_sha256": "2bcdc3b4f1a41dad73ce7375375897389822f3c94e82ee81a66fa3faedd97357",
+  "created_utc": "2026-11-19T12:15:40.588398+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

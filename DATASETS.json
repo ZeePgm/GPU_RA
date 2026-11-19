@@ -4525,6 +4525,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-five-timed-001/five-native-timed-20261119-002"
       }
+    },
+    {
+      "experiment_id": "v3-all-timed-001",
+      "run_id": "all-native-timed-20261119-001",
+      "code_commit": "bd8f77d0f215f11cf7b8c5191c9094b93faa3ba4",
+      "manifest": {
+        "path": "evidence/v3-all-timed-001/all-native-timed-20261119-001/manifest.json",
+        "bytes": 20153,
+        "sha256": "2bcdc3b4f1a41dad73ce7375375897389822f3c94e82ee81a66fa3faedd97357"
+      },
+      "report": {
+        "path": "reports/v3-all-timed-001/all-native-timed-20261119-001.json",
+        "bytes": 1354,
+        "sha256": "5c6c73192e32ed178b4d4143dab20e111b23b8f6dde40a981267a67edd215e5f"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-all-timed-001/all-native-timed-20261119-001"
+      }
     }
   ]
 }
