@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "kind": "external-experiment-run",
+  "experiment_id": "v3-five-timed-001",
+  "run_id": "five-native-timed-20261119-001",
+  "version": "v3",
+  "code_commit": "6ef8ed35b08ac3ab896d435366c276f8168edcc2",
+  "code_tree": "d274dbf509b28f24151191ed8c9ed43f5a5cef8d",
+  "base_commit": "a3ee58745940bbef0dfe4d0c65fcd7e8820d02f4",
+  "storage": {
+    "relative_to": "data_root.parent",
+    "path": "runs/v3-five-timed-001/five-native-timed-20261119-001"
+  },
+  "files": [
+    {
+      "path": "config.json",
+      "bytes": 1791,
+      "sha256": "99e6c8c26826a92b4f6d60c8d9c58dd3638fadb9bf05318a0f26d174df73b775"
+    },
+    {
+      "path": "data/native/five-media.json",
+      "bytes": 995,
+      "sha256": "0d5731f646018492e3b5534bb6f83a39484c1a5a2431621bdbcb7033e12109ff"
+    },
+    {
+      "path": "data/native/fixtures/w1-d-output.bin",
+      "bytes": 4096,
+      "sha256": "6f2310f9836e094182b4b79e5f3835547983adb303b925ee9e02dc9e5891691d"
+    },
+    {
+      "path": "data/native/fixtures/w1-d-src0.bin",
+      "bytes": 4096,
+      "sha256": "bb11ad4e58359a5d8daf58821cd0b0ac36d48974b38b8d6a915b1220dca108d0"
+    },
+    {
+      "path": "data/native/fixtures/w1-d.json",
+      "bytes": 833,
+      "sha256": "9d061d977d8dd18c96ed2ba2ae2bc2fd9c14ea127a45f4cdcaae8b2e4e116554"
+    },
+    {
+      "path": "data/native/fixtures/w1-p-output.bin",
+      "bytes": 180224,
+      "sha256": "3ca02dfa35404ebfa7cff2cfb0a251f9640059ee5d2e13bf57d2cd195ee6a926"
+    },
+    {
+      "path": "data/native/fixtures/w1-p-src0.bin",
+      "bytes": 180224,
+      "sha256": "e496d141c9d880b3ac03fc8cbbfaa84e33e7b735684951643d6b02ad71944900"
+    },
+    {
+      "path": "data/native/fixtures/w1-p.json",
+      "bytes": 847,
+      "sha256": "deb916616ae2b8a20b29b4973b3f4eeb39c1192c8f87a648fc8c11cf8ae6d7fd"
+    },
+    {
+      "path": "data/native/fixtures/w2-d-output.bin",
+      "bytes": 8192,
+      "sha256": "c714049ac96b6b2f7476611260a5768a693bad014c341fe898e98e3eeea98968"
+    },
+    {
+      "path": "data/native/fixtures/w2-d-src1.bin",
+      "bytes": 4096,
+      "sha256": "b5315b6a1ef10ebcbd4eca56d656517bb6a31e042270bff3da76887eeb2f0d05"
+    },
+    {
+      "path": "data/native/fixtures/w2-d.json",
+      "bytes": 847,
+      "sha256": "cc44563ca7ccd1156f8b70ebd4201558e82841f99f64e979a46dc8285e40f365"
+    },
+    {
+      "path": "data/native/fixtures/w2-p-output.bin",
+      "bytes": 360448,
+      "sha256": "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8"
+    },
+    {
+      "path": "data/native/fixtures/w2-p-src1.bin",
+      "bytes": 180224,
+      "sha256": "39b9160fd1555a0283dfea8702fcb3dec1d7f7c611e179348e7288ccfb212bb5"
+    },
+    {
+      "path": "data/native/fixtures/w2-p.json",
+      "bytes": 861,
+      "sha256": "19445de30c708422141d6ec1b889bf8c7f625a9e924350f1daa385ec04e27be6"
+    },
+    {
+      "path": "data/native/fixtures/w3-d-output.bin",
+      "bytes": 4096,
+      "sha256": "35a52e07d77828778204b71b411e50af89bc7e54e4cba494fd757c9fde9475ea"
+    },
+    {
+      "path": "data/native/fixtures/w3-d-src1.bin",
+      "bytes": 12288,
+      "sha256": "10a47afdfd304059b448c1782ca6454496bf3ddc95b26a43030aa06be4ab55ad"
+    },
+    {
+      "path": "data/native/fixtures/w3-d.json",
+      "bytes": 853,
+      "sha256": "ee1b1e312207b0ffa13089235ef478fa24cc68fdda8d7f4737dd897eb8a1ee3f"
+    },
+    {
+      "path": "data/native/fixtures/w3-p-output.bin",
+      "bytes": 180224,
+      "sha256": "4e7c5ba7ec28f2bc7ad4f0115e1a8c169289e484312c60a95f1ac32c5d7f1b1f"
+    },
+    {
+      "path": "data/native/fixtures/w3-p-src1.bin",
+      "bytes": 540672,
+      "sha256": "db15f5000dfbe16076aaa2f8800eac64aaf24da8913da0800d82d74d1efaa71a"
+    },
+    {
+      "path": "data/native/fixtures/w3-p.json",
+      "bytes": 864,
+      "sha256": "bca8b6c64983b8a45333bbd4ad11242ba18820cc14d40a97e5bc7f8c3b6debcb"
+    },
+    {
+      "path": "data/native/fixtures/w4-d-output.bin",
+      "bytes": 4096,
+      "sha256": "15607eb9ecc77f523198f7cbf78df7b8724e2ff6d290985f38993e0ec39b7c2c"
+    },
+    {
+      "path": "data/native/fixtures/w4-d-src1.bin",
+      "bytes": 4,
+      "sha256": "8d71b3faab8201459ad37ef499beb336ba88bdcfa0f51ee6f0a46ec3192d750a"
+    },
+    {
+      "path": "data/native/fixtures/w4-d.json",
+      "bytes": 839,
+      "sha256": "9480e24fb675b45fd4869d2b647cd61159c815f26928b40850b63bf5c919561e"
+    },
+    {
+      "path": "data/native/fixtures/w4-p-output.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/native/fixtures/w4-p-src1.bin",
+      "bytes": 176,
+      "sha256": "cd8203d0c9f08ae2c5aaffa2290495b2368bb26e6b091aca03d60883e7f47f38"
+    },
+    {
+      "path": "data/native/fixtures/w4-p.json",
+      "bytes": 855,
+      "sha256": "b3f7228f2fd593697a6f2d63b07284d445cd6df397616d9a406b13da93af2c93"
+    },
+    {
+      "path": "data/native/fixtures/w5-d-output.bin",
+      "bytes": 607744,
+      "sha256": "ff11435a4de17b13cd85b804f481dad5b63b80761db1de34a79f3d510465089d"
+    },
+    {
+      "path": "data/native/fixtures/w5-d-src1.bin",
+      "bytes": 4096,
+      "sha256": "e1c4e8269408edf9f849360d079719701012740064198bc799227a6a323188da"
+    },
+    {
+      "path": "data/native/fixtures/w5-d.json",
+      "bytes": 858,
+      "sha256": "d35b314733279bd8e83e3984dc78d5af52985225a832755235eeafca9f0ebc9d"
+    },
+    {
+      "path": "data/native/fixtures/w5-p-output.bin",
+      "bytes": 607744,
+      "sha256": "d7314a9ae1948be9e591fda710db24e009e8201a976a5fb7d33d19e5796c69cf"
+    },
+    {
+      "path": "data/native/fixtures/w5-p-src1.bin",
+      "bytes": 4096,
+      "sha256": "97bb69eb05f593821103ec895da67c210fc6e1a66253ac0bc59a279571eca3ed"
+    },
+    {
+      "path": "data/native/fixtures/w5-p.json",
+      "bytes": 858,
+      "sha256": "dd4a8a61becc424c954f1cdebcdb709884465753e5f886ea5c37a92bb7ed2d1d"
+    },
+    {
+      "path": "data/native/framework-release.json",
+      "bytes": 62,
+      "sha256": "f0b152efba3ba762a8b724732c2001a2d86c4f653ef2eeaaae7d047679bb3dd2"
+    },
+    {
+      "path": "data/native/loaded-tensors.json",
+      "bytes": 139813,
+      "sha256": "f07ef8cbc2e8f603f72a2f86af89474ce8437278148573fe16cf084ee22e114c"
+    },
+    {
+      "path": "data/native/logits.f32",
+      "bytes": 1215488,
+      "sha256": "7b46ed89388ff513846b11f7771e4775476a4854ef31c625c647ff266e7913ea"
+    },
+    {
+      "path": "data/native/native-kv-positions.json",
+      "bytes": 119,
+      "sha256": "7ea354b94cd4f1ff4abaa14e9e59e1234525b4ab0b2d914f2632e91a70436dd2"
+    },
+    {
+      "path": "data/native/native-kv-state.bin",
+      "bytes": 5162204,
+      "sha256": "7798b46e500a0a010eb460f7d07db1553b659e936593b38517c9532d9d5abb25"
+    },
+    {
+      "path": "data/native/profile.json",
+      "bytes": 62855,
+      "sha256": "85d40689c80a78df50d310116b274a5425c87df450f29a7f2dd097908ad37b57"
+    },
+    {
+      "path": "data/native/resources.json",
+      "bytes": 418,
+      "sha256": "a5361f791137138612f1fcdd3605a655b4c40f91e256a9ba246ea8c88791a08b"
+    },
+    {
+      "path": "data/native/route-summary.json",
+      "bytes": 152,
+      "sha256": "ae10637d64511c6b8c05771d983d4d79eeb010efc3d283e1c2a7e9a6d6f3f6db"
+    },
+    {
+      "path": "data/native/summary.json",
+      "bytes": 2172,
+      "sha256": "0ec674de76aec608f97a6a54f2e824b058977eb23f1ecf636af927caa8c4a1e5"
+    },
+    {
+      "path": "data/native.log",
+      "bytes": 200352,
+      "sha256": "0534cd59b0b72522acc801b59dd5972719aadab6b5ed160c40b7c1b4e3fbc9b0"
+    },
+    {
+      "path": "data/native.process.json",
+      "bytes": 3987,
+      "sha256": "adc485fccbe6880eefffcd4202cb71878292dec531005f2a27453dee0c720717"
+    },
+    {
+      "path": "data/profile.json",
+      "bytes": 62855,
+      "sha256": "85d40689c80a78df50d310116b274a5425c87df450f29a7f2dd097908ad37b57"
+    },
+    {
+      "path": "data/timed/fixtures/w2-p-src1.bin",
+      "bytes": 180224,
+      "sha256": "39b9160fd1555a0283dfea8702fcb3dec1d7f7c611e179348e7288ccfb212bb5"
+    },
+    {
+      "path": "data/timed/fixtures/w4-p-output.bin",
+      "bytes": 180224,
+      "sha256": "8e815f75f5961d8adf9439166ebf36c98e2db9e333bdfb37ddcea5007fbb2d90"
+    },
+    {
+      "path": "data/timed/fixtures/w4-p-src1.bin",
+      "bytes": 176,
+      "sha256": "cd8203d0c9f08ae2c5aaffa2290495b2368bb26e6b091aca03d60883e7f47f38"
+    },
+    {
+      "path": "data/timed/fixtures/w4-p.json",
+      "bytes": 855,
+      "sha256": "b3f7228f2fd593697a6f2d63b07284d445cd6df397616d9a406b13da93af2c93"
+    },
+    {
+      "path": "data/timed/loaded-tensors.json",
+      "bytes": 139813,
+      "sha256": "f07ef8cbc2e8f603f72a2f86af89474ce8437278148573fe16cf084ee22e114c"
+    },
+    {
+      "path": "data/timed/logits.f32",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/timed/profile.json",
+      "bytes": 62855,
+      "sha256": "85d40689c80a78df50d310116b274a5425c87df450f29a7f2dd097908ad37b57"
+    },
+    {
+      "path": "data/timed.log",
+      "bytes": 200612,
+      "sha256": "0b0f5f1e2ac82bacb2d104a4d1a2abe38a87fa1929eb8452275a182b2b7eb87f"
+    },
+    {
+      "path": "data/timed.process.json",
+      "bytes": 7858,
+      "sha256": "0e87679a07858f2631943fdeb4f67b0f45f1a43d7bd254d068d70bd88c121168"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 465,
+      "sha256": "bdf3fff2646b0e8404f65009281a5be934cc4badbc039b41eb16cc072102696d"
+    },
+    {
+      "path": "experiment.json",
+      "bytes": 1070,
+      "sha256": "85e98ba026eaf77f6be724a91e8e8de736638931ab4523233e3ae26c4ec6d833"
+    },
+    {
+      "path": "launch.lock",
+      "bytes": 103,
+      "sha256": "3eef4ef158227d5a19129eee242c4c28917fcd480e8d38258ba522a2ca9da0a5"
+    },
+    {
+      "path": "launch.ps1",
+      "bytes": 6990,
+      "sha256": "c5c597e4ce4e235e4a4f6bad56e1ce0f20ec58a42569f75c460a7c2f185a5a55"
+    },
+    {
+      "path": "run.json",
+      "bytes": 11505,
+      "sha256": "b4b7abf7f30a987cfbb24f6740d2469af3d1a08ee27c2c1c1eca43f060a745e7"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 1002,
+      "sha256": "8287083a80a0dcfa17fd85531fe7bf384cb0ef5e175c38ee170f11e7e53869b9"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 120,
+      "sha256": "92c6661b0e71647359d5099a691eef0a6b5cd98f895ee559eebaef73f7e83c25"
+    }
+  ],
+  "file_count": 60,
+  "total_bytes": 10722710,
+  "input_objects": [
+    {
+      "storage_path": "inputs/74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2",
+      "bytes": 1509347712,
+      "sha256": "74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2"
+    },
+    {
+      "storage_path": "inputs/ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74",
+      "bytes": 249,
+      "sha256": "ce4fa40becfa4a191064fbda15721985a953ae231557ea6f6f8f7b669e0d1a74"
+    },
+    {
+      "storage_path": "inputs/1242da1b4f4dff59d82ecbce899a13d66c17a9615a79ca59335965ee64d561c9",
+      "bytes": 44851,
+      "sha256": "1242da1b4f4dff59d82ecbce899a13d66c17a9615a79ca59335965ee64d561c9"
+    },
+    {
+      "storage_path": "inputs/d2fdb165feb62c58f349edac5719b265447b1ad3054e1e5aff937c2397f5b369",
+      "bytes": 8401,
+      "sha256": "d2fdb165feb62c58f349edac5719b265447b1ad3054e1e5aff937c2397f5b369"
+    },
+    {
+      "storage_path": "inputs/2ec57c9807c3c617f3cd721f5b5df99a219b4049ced0e8b6a5957f49c6eb27c4",
+      "bytes": 256990,
+      "sha256": "2ec57c9807c3c617f3cd721f5b5df99a219b4049ced0e8b6a5957f49c6eb27c4"
+    },
+    {
+      "storage_path": "inputs/4e267d73f977aa0ae6d51694a10b566113aa60cb85fc46f76001689123449e5e",
+      "bytes": 3705209,
+      "sha256": "4e267d73f977aa0ae6d51694a10b566113aa60cb85fc46f76001689123449e5e"
+    },
+    {
+      "storage_path": "inputs/7bace0eaf873c55bcf6f5cac809ee2c0d93fb90bae5dd41632757ea82bd27401",
+      "bytes": 561405,
+      "sha256": "7bace0eaf873c55bcf6f5cac809ee2c0d93fb90bae5dd41632757ea82bd27401"
+    },
+    {
+      "storage_path": "inputs/138ff8ac3cfce35032b205f6e25d8297ae4346104c732c5d78a2c84e0f0f622c",
+      "bytes": 609435,
+      "sha256": "138ff8ac3cfce35032b205f6e25d8297ae4346104c732c5d78a2c84e0f0f622c"
+    }
+  ]
+}
