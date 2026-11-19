@@ -34,12 +34,15 @@ def instrument_load(line: str, unit: str, site: int, match, width: int) -> str:
     .reg .b64 %f_header, %f_timer, %f_started, %f_request, %f_delay, %f_elapsed, %f_released;
     .reg .b64 %f_mask, %f_audit, %f_words;
     .reg .b32 %f_old, %f_status, %f_ticket, %f_queue, %f_bit, %f_lo, %f_hi;
+    .reg .b64 %f_reason;
     .reg .pred %f_test, %f_owns;
     {check_predicate}
     add.u64 %f_actual, {match[3]}, {delta};
     ld.volatile.global.u64 %f_root, [hbflab_q_auto_state_{unit}];
     setp.eq.u64 %f_test, %f_root, 0;
     @%f_test bra {label}_load;
+    mov.u64 %f_reason, 1;
+    mov.u64 %f_page_index, 0xffffffffffffffff;
     ld.global.u64 %f_ranges, [%f_root];
     ld.global.u64 %f_count, [%f_root+8];
     mov.u64 %f_index, 0;
@@ -64,7 +67,8 @@ def instrument_load(line: str, unit: str, site: int, match, width: int) -> str:
     add.u64 %f_index, %f_index, 1;
     bra {label}_lookup;
 {label}_match:
-    {f"bra {label}_fault;" if width % 2 else ""}
+    mov.u64 %f_reason, 2;
+    {f"bra {label}_fault;" if width % 2 or width > 64 else ""}
     sub.u64 %f_end, %f_size, {width};
     setp.gt.u64 %f_test, %f_offset, %f_end;
     @%f_test bra {label}_fault;
@@ -105,10 +109,12 @@ def instrument_load(line: str, unit: str, site: int, match, width: int) -> str:
     ld.acquire.sys.global.u32 %f_status, [%f_header+16];
     setp.eq.u32 %f_test, %f_status, 2;
     @%f_test bra {label}_host_done;
+    mov.u64 %f_reason, 3;
     setp.eq.u32 %f_test, %f_status, 3;
     @%f_test bra {label}_fault;
     mov.u64 %f_timer, %globaltimer;
     sub.u64 %f_elapsed, %f_timer, %f_started;
+    mov.u64 %f_reason, 4;
     setp.ge.u64 %f_test, %f_elapsed, 1000000000;
     @%f_test bra {label}_fault;
     nanosleep.u32 256;
@@ -116,6 +122,7 @@ def instrument_load(line: str, unit: str, site: int, match, width: int) -> str:
 {label}_host_done:
     ld.global.u64 %f_request, [%f_header];
     ld.global.u64 %f_delay, [%f_header+8];
+    mov.u64 %f_reason, 5;
     setp.gt.u64 %f_test, %f_delay, 1000000000;
     @%f_test bra {label}_fault;
 {label}_deadline:
@@ -124,6 +131,7 @@ def instrument_load(line: str, unit: str, site: int, match, width: int) -> str:
     setp.ge.u64 %f_test, %f_elapsed, %f_delay;
     @!%f_test bra {label}_deadline;
     ld.global.u64 %f_released, [%f_header+24];
+    mov.u64 %f_reason, 6;
     setp.eq.u64 %f_test, %f_released, 0;
     @%f_test bra {label}_fault;
     st.release.gpu.global.u64 [%f_audit], %f_released;
@@ -162,7 +170,22 @@ def instrument_load(line: str, unit: str, site: int, match, width: int) -> str:
     bra {label}_load;
 {label}_fault:
     ld.global.u64 %f_ptr, [%f_root+64];
-    red.global.add.u64 [%f_ptr], 1;
+    atom.global.add.u64 %f_work, [%f_ptr], 1;
+    setp.eq.u64 %f_owns, %f_work, 0;
+    ld.global.u64 %f_ptr, [%f_root+72];
+    mov.u64 %f_started, %globaltimer;
+    @%f_owns st.global.u64 [%f_ptr+8], %f_actual;
+    @%f_owns st.global.u64 [%f_ptr+16], %f_page_index;
+    @%f_owns st.global.u64 [%f_ptr+24], %f_started;
+    @%f_owns st.release.sys.global.u64 [%f_ptr], %f_reason;
+{label}_fault_notice:
+    mov.u64 %f_timer, %globaltimer;
+    sub.u64 %f_elapsed, %f_timer, %f_started;
+    setp.ge.u64 %f_test, %f_elapsed, 5000000;
+    @%f_test bra {label}_trap;
+    nanosleep.u32 100000;
+    bra {label}_fault_notice;
+{label}_trap:
     trap;
 {label}_load:
 {native}

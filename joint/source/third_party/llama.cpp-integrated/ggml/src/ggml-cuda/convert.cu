@@ -2,6 +2,11 @@
 #include "dequantize.cuh"
 
 #include <cstdint>
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+#include "five_media_projection.hpp"
+#include <cstdlib>
+#include <type_traits>
+#endif
 
 #define CUDA_Q8_0_NE_ALIGN 2048
 
@@ -480,10 +485,8 @@ static void convert_unary_cuda(const void * vx, dst_t * y,
 }
 
 template <typename src_t, typename dst_t>
-static void convert_unary_cont_cuda(const void * vx, dst_t * y, const int64_t k, cudaStream_t stream) {
-    if (k % 4 == 0 &&
-        (uintptr_t) vx % alignof(cvt_vec4<src_t>) == 0 &&
-        (uintptr_t) y  % alignof(cvt_vec4<dst_t>) == 0) {
+static void launch_contiguous_conversion(const void * vx, dst_t * y, int64_t k, bool vectorized, cudaStream_t stream) {
+    if (vectorized) {
         const int64_t k4 = k/4;
         const int64_t num_blocks = (k4 + CUDA_DEQUANTIZE_BLOCK_SIZE - 1) / CUDA_DEQUANTIZE_BLOCK_SIZE;
         convert_unary_cont_vec4<src_t, dst_t><<<num_blocks, CUDA_DEQUANTIZE_BLOCK_SIZE, 0, stream>>>(vx, y, k4);
@@ -491,6 +494,27 @@ static void convert_unary_cont_cuda(const void * vx, dst_t * y, const int64_t k,
     }
 
     convert_unary_cuda<src_t>(vx, y, k, 1, 1, 1, k, k, k, stream);
+}
+
+template <typename src_t, typename dst_t>
+static void convert_unary_cont_cuda(const void * vx, dst_t * y, const int64_t k, cudaStream_t stream) {
+    const bool vectorized = k % 4 == 0 &&
+        (uintptr_t) vx % alignof(cvt_vec4<src_t>) == 0 &&
+        (uintptr_t) y  % alignof(cvt_vec4<dst_t>) == 0;
+#ifdef HBFLAB_FIVE_MEDIA_BUILD
+    if constexpr (std::is_same_v<src_t, half> && std::is_same_v<dst_t, float>) {
+        constexpr int64_t elements_per_tile = five_media_input_tile_bytes / sizeof(src_t);
+        if (k > elements_per_tile && std::getenv("HBFLAB_FIVE_MEDIA") != nullptr) {
+            const auto *src = static_cast<const src_t *>(vx);
+            for (int64_t first = 0; first < k; first += elements_per_tile) {
+                const auto n = std::min(k - first, elements_per_tile);
+                launch_contiguous_conversion<src_t>(src + first, y + first, n, vectorized, stream);
+            }
+            return;
+        }
+    }
+#endif
+    launch_contiguous_conversion<src_t>(vx, y, k, vectorized, stream);
 }
 
 to_bf16_cuda_t ggml_get_to_bf16_cuda(ggml_type type) {

@@ -12,7 +12,8 @@
     "process_timeout_seconds": 1200,
     "process_disk_limit_bytes": 134217728,
     "page_bytes": 4096,
-    "output_tile_rows": 512,
+    "output_tile_rows": 256,
+    "input_tile_bytes": 524288,
     "expected_demand_pages": [78560,78530],
     "logit_vector_sha256": [
       "d7314a9ae1948be9e591fda710db24e009e8201a976a5fb7d33d19e5796c69cf",
@@ -25,6 +26,11 @@
     "numerical": "Native and timed full graph fixtures for all five weights in both phases, both full logit vectors, token IDs, native KV state, positions and sequence release must match exact references.",
     "demand": "In each phase Q, FFN down and full output read every half once. Norm uses each F32 weight once per token. Embedding gathers exactly the input rows with their actual multiplicities.",
     "dependency": "For every demanded page verify its addresses, EventLab completion, sector count, GPU deadline, minimum and maximum resume times, instruction counts, unique halfword coverage and requested byte count. Require drained media.",
-    "scope": "One native and one timed scientific process. Capture qualitative coverage and causal waits, with native F16 KV. This sample provides no statistical performance estimate."
+    "scope": "One native and one timed scientific process. Capture qualitative coverage and causal waits, with native F16 KV. This sample provides no statistical performance estimate.",
+    "previous_attempt": {
+      "run": "five-native-timed-20261119-001",
+      "outcome": "The native control completed both phases. The timed process captured the prefill embedding output and Q activation, then reported an unspecified CUDA launch failure at stream synchronization before capturing the Q projection output.",
+      "change": "Limit projection input tiles to 512 KiB and the output head to 256 rows per launch in both arms. Retain the original failed run and verify every page, full output and dependency under the same guards."
+    }
   }
 }

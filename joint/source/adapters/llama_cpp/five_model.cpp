@@ -68,7 +68,8 @@ struct FiveMediaCase {
             active_device = true;
         }
         report = {{"mode", arm}, {"registrations", active_device ? ranges.size() : 0}, {"media_finished", false},
-            {"ranges", std::move(registered)}, {"output_tile_rows", five_media_output_tile_rows},
+            {"ranges", std::move(registered)}, {"input_tile_bytes", five_media_input_tile_bytes},
+            {"output_tile_rows", five_media_output_tile_rows},
             {"output_tile_launches", json::array()}};
     }
     void step_begin() {

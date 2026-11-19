@@ -197,6 +197,7 @@ def inspect(child, mode, inventory, spec, cfg, gold, sites):
     tiles = (cfg['vocabulary'] + cfg['output_tile_rows'] - 1) // cfg['output_tile_rows']
     require(run['mode'] == mode and run['registrations'] == (5 if timed else 0) and
             run['output_tile_rows'] == cfg['output_tile_rows'] and run['output_tile_launches'] == [tiles, tiles]
+            and run['input_tile_bytes'] == cfg['input_tile_bytes']
             and run['media_finished'] is timed,
             'Wrong registration, tiling, or unfinished service ' + mode)
     ranges = registered_ranges(child, run, inventory, spec['weights'])
@@ -215,7 +216,8 @@ def inspect(child, mode, inventory, spec, cfg, gold, sites):
     item = {'registrations':run['registrations'],'output_sha256':output_hashes, 'tokens':tokens,
             'kv_sha256':sha(child/'native-kv-state.bin'), 'kv_positions':positions,
             'logit_vector_sha256':cfg['logit_vector_sha256'],'media_finished':run['media_finished'],
-            'output_tile_launches':run['output_tile_launches'],'output_tile_rows':run['output_tile_rows']}
+            'output_tile_launches':run['output_tile_launches'],'output_tile_rows':run['output_tile_rows'],
+            'input_tile_bytes':run['input_tile_bytes']}
     if timed:
         item['phases'] = [check_phase(child, step, ranges, input_ids, sites, cfg)
                           for step,input_ids in enumerate([prompt,tokens[:1]])]

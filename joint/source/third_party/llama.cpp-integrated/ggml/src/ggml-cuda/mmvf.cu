@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <atomic>
 #include <cstdlib>
+#include <numeric>
 static std::atomic<std::uint64_t> five_projection_tiles{0};
 extern "C" HBFLAB_M2_API std::uint64_t hbflab_five_projection_tiles() {
     return five_projection_tiles.load(std::memory_order_relaxed);
@@ -725,17 +726,23 @@ void ggml_cuda_mul_mat_vec_f(ggml_backend_cuda_context & ctx, const ggml_tensor 
 #ifdef HBFLAB_FIVE_MEDIA_BUILD
             // Bound each long grid while retaining the original per-row MMVF and its stream.
             // The same launch partition is used by both arms of the experiment.
-            if (ne01 > 65535 && ncols_dst == 1 && ne02 == 1 && ne03 == 1 && ne12 == 1 &&
+            if (ncols_dst == 1 && ne02 == 1 && ne03 == 1 && ne12 == 1 &&
                 ne13 == 1 && ne2 == 1 && ne3 == 1 && !ids && !fusion && prec == GGML_PREC_F32 &&
                 ggml_is_contiguous(src0) && ggml_is_contiguous(src1) && ggml_is_contiguous(dst) &&
+                ggml_nbytes(src0) > five_media_input_tile_bytes && nb01 <= five_media_input_tile_bytes &&
                 std::getenv("HBFLAB_FIVE_MEDIA") != nullptr) {
-                for (int64_t first_row = 0; first_row < ne01; first_row += five_media_output_tile_rows) {
-                    const int64_t rows = std::min<int64_t>(ne01 - first_row, five_media_output_tile_rows);
+                const auto max_rows = five_media_input_tile_bytes / nb01;
+                const auto rows_per_page_boundary = 4096 / std::gcd<std::size_t>(4096, nb01);
+                const auto aligned_rows = max_rows / rows_per_page_boundary * rows_per_page_boundary;
+                const auto tile_rows = static_cast<int64_t>(aligned_rows ? aligned_rows : max_rows);
+                for (int64_t first_row = 0; first_row < ne01; first_row += tile_rows) {
+                    const auto rows = std::min(ne01 - first_row, tile_rows);
                     mul_mat_vec_f_cuda(src0_d + first_row * s01, src1_d, ids_d, fusion_local, dst_d + first_row,
                         ne00, rows, ncols_dst, s01, stride_col_y, stride_col_dst,
                         ne02, nchannels_y, nchannels_dst, s02, stride_channel_y, stride_channel_dst,
                         ne03, ne3, s03, s13, s3, ids_stride, prec, ctx.stream());
-                    five_projection_tiles.fetch_add(1, std::memory_order_relaxed);
+                    // Only the vocabulary-scale projection contributes to its launch audit.
+                    if (ne01 > 65535) five_projection_tiles.fetch_add(1, std::memory_order_relaxed);
                 }
                 break;
             }

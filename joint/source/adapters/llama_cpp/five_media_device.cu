@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <array>
 #include <atomic>
+#include <chrono>
 #include <cstdio>
 #include <cstring>
 #include <filesystem>
@@ -32,6 +33,7 @@ constexpr U32 idle = 0, requested = 1, ready = 2, failed = 3;
 struct GpuRange { U64 base, bytes, first_page; U32* counts; };
 struct alignas(64) Page { U64 request_ns, delay_ns; U32 status; U64 released_base; };
 struct alignas(64) Audit { U64 ready_base, earliest_ns, latest_ns, loads, bytes; U32 claim; };
+struct Fault { U64 code, address, page_index, time_ns; };
 struct Root {
     GpuRange* ranges;
     U64 count;
@@ -42,12 +44,15 @@ struct Root {
     U32* queue;
     U32* tail;
     U64* errors;
+    Fault* fault;
 };
 static_assert(sizeof(GpuRange) == 32 && offsetof(GpuRange, counts) == 24);
 static_assert(sizeof(Page) == 64 && offsetof(Page, status) == 16 && offsetof(Page, released_base) == 24);
 static_assert(sizeof(Audit) == 64 && offsetof(Audit, claim) == 40);
-static_assert(sizeof(Root) == 72 && offsetof(Root, count) == 8 && offsetof(Root, audits) == 24 &&
-              offsetof(Root, queue) == 48 && offsetof(Root, errors) == 64);
+static_assert(sizeof(Fault) == 32 && offsetof(Fault, address) == 8 && offsetof(Fault, page_index) == 16 &&
+              offsetof(Fault, time_ns) == 24);
+static_assert(sizeof(Root) == 80 && offsetof(Root, count) == 8 && offsetof(Root, audits) == 24 &&
+              offsetof(Root, queue) == 48 && offsetof(Root, errors) == 64 && offsetof(Root, fault) == 72);
 using Receipt = std::array<U64, 10>;
 using Bind = cudaError_t (*)(void*);
 const Bind bindings[] = {hbflab_q_auto_bind_convert, hbflab_q_auto_bind_mmvf,
@@ -85,6 +90,7 @@ struct Session {
     Root* device_root = nullptr;
     Page* host_pages = nullptr;
     U32* host_queue = nullptr;
+    Fault* host_fault = nullptr;
     std::vector<RangeSpec> specs;
     std::vector<GpuRange> ranges;
     std::vector<unsigned> owners;
@@ -92,7 +98,7 @@ struct Session {
     std::unique_ptr<hbflab::TimingBackend> backend;
     std::thread worker;
     std::atomic<bool> stop{false};
-    bool worker_failed = false, bound = false, phase_failed = false, cleaned = false;
+    bool worker_failed = false, bound = false, phase_failed = false, cleaned = false, fault_reported = false;
     unsigned steps = 0;
     std::size_t consumed = 0;
     U64 total_requests = 0;
@@ -118,6 +124,7 @@ struct Session {
         check(cudaMemcpy(root.ranges, ranges.data(), count*sizeof(GpuRange), cudaMemcpyHostToDevice));
         mapped(host_pages, root.pages, pages);
         mapped(host_queue, root.queue, pages);
+        mapped(host_fault, root.fault, 1);
         allocate(root.audits, pages);
         allocate(root.coverage, pages*mask_words);
         allocate(root.sites, count*sites_per_range);
@@ -131,6 +138,9 @@ struct Session {
 
     void init_backend() {
         if (backend) return;
+        const auto start = std::chrono::steady_clock::now();
+        std::fprintf(stderr, "five media init_begin ranges=%zu registered_pages=%zu\n", specs.size(), owners.size());
+        std::fflush(stderr);
         hbflab::BackendOptions options;
         options.geometry = m6_geometry();
         options.resident_fragments = 256;
@@ -148,6 +158,9 @@ struct Session {
             next = s.logical + padded;
         }
         need(backend->drained(), "medium initialization incomplete");
+        const auto elapsed = std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();
+        std::fprintf(stderr, "five media init_end ranges=%zu registered_pages=%zu wall_s=%.3f\n", specs.size(), owners.size(), elapsed);
+        std::fflush(stderr);
     }
 
     U64 address(std::size_t page, bool logical) const {
@@ -156,12 +169,41 @@ struct Session {
                (page - ranges[owner].first_page)*page_bytes;
     }
 
+    void progress(const char* event, double elapsed, double last_batch_seconds) const {
+        const auto next_slot = consumed < owners.size() ? acquire(host_queue[consumed]) : 0;
+        std::fprintf(stderr, "five media %s step=%u wall_s=%.3f served=%zu queue_slot=%zu queue_page_plus_one=%u last_batch_s=%.6f\n",
+                     event, steps, elapsed, consumed, consumed, next_slot, last_batch_seconds);
+        std::fflush(stderr);
+    }
+    bool first_device_fault() {
+        const auto code = cuda::atomic_ref<U64, cuda::thread_scope_system>(host_fault->code).load(cuda::memory_order_acquire);
+        if (code && !fault_reported) {
+            // The device release-publishes code only after writing its first fault payload.
+            std::fprintf(stderr, "five media device_fault step=%u code=%llu address=0x%llx page_index=%llu gpu_time_ns=%llu served=%zu\n",
+                         steps, static_cast<unsigned long long>(code), static_cast<unsigned long long>(host_fault->address),
+                         static_cast<unsigned long long>(host_fault->page_index), static_cast<unsigned long long>(host_fault->time_ns), consumed);
+            std::fflush(stderr);
+            fault_reported = true;
+        }
+        return code != 0;
+    }
     void service() noexcept {
+        using Clock = std::chrono::steady_clock;
+        const auto start = Clock::now();
+        auto next_progress = start + std::chrono::seconds(5);
+        double last_batch_seconds = 0;
+        progress("phase_begin", 0, 0);
         try {
             std::vector<std::size_t> indices;
             std::vector<hbflab::TimedRead> reads;
             indices.reserve(batch_limit); reads.reserve(batch_limit);
             while (!stop.load(std::memory_order_acquire)) {
+                need(!first_device_fault(), "GPU reported a five-weight instrumentation fault");
+                const auto now = Clock::now();
+                if (now >= next_progress) {
+                    progress("phase_progress", std::chrono::duration<double>(now-start).count(), last_batch_seconds);
+                    next_progress = now + std::chrono::seconds(5);
+                }
                 indices.clear(); reads.clear();
                 const auto arrival = backend->now_ps();
                 for (std::size_t slot = consumed; slot < owners.size() && indices.size() < batch_limit; ++slot) {
@@ -176,7 +218,9 @@ struct Session {
                     reads.push_back({arrival, {{address(page, true), page_bytes}}});
                 }
                 if (reads.empty()) { std::this_thread::yield(); continue; }
+                const auto batch_start = Clock::now();
                 const auto completed = backend->read_batch(reads);
+                last_batch_seconds = std::chrono::duration<double>(Clock::now()-batch_start).count();
                 need(completed.size() == reads.size(), "missing EventLab page completion");
                 for (std::size_t i = 0; i < indices.size(); ++i) {
                     const auto page = indices[i];
@@ -205,6 +249,9 @@ struct Session {
                 std::this_thread::yield();
             } while (!stop.load());
         }
+        // A fast device trap may cause the owner to join before the next poll.
+        if (first_device_fault()) worker_failed = true;
+        progress(worker_failed ? "phase_failed" : "phase_end", std::chrono::duration<double>(Clock::now()-start).count(), last_batch_seconds);
     }
     void begin_step() {
         need(!phase_failed && !worker_failed && !worker.joinable(), "five media phase lifecycle");
@@ -212,6 +259,8 @@ struct Session {
         const auto pages = owners.size();
         std::memset(host_pages, 0, pages*sizeof(Page));
         std::memset(host_queue, 0, pages*sizeof(U32));
+        *host_fault = {};
+        fault_reported = false;
         std::fill(receipts.begin(), receipts.end(), Receipt{});
         for (const auto& r : ranges) if (r.counts) clear(r.counts, r.bytes/2);
         initialize_audits<<<unsigned((pages+255)/256),256>>>(root.audits, pages);
@@ -274,6 +323,11 @@ struct Session {
         need(path && step == steps && worker.joinable(), "five media step order");
         const auto gpu = cudaDeviceSynchronize();
         join();
+        if (gpu != cudaSuccess) {
+            std::fprintf(stderr, "five media gpu_sync_failed step=%u cuda=%d reason=%s device_fault_recorded=%d\n",
+                         step, static_cast<int>(gpu), cudaGetErrorString(gpu), int(fault_reported));
+            std::fflush(stderr);
+        }
         check(gpu);
         need(!worker_failed, "five media worker failed");
         dump(path,step);
@@ -303,6 +357,7 @@ struct Session {
             if (p) take(cudaFree(p));
         if (host_pages) take(cudaFreeHost(host_pages));
         if (host_queue) take(cudaFreeHost(host_queue));
+        if (host_fault) take(cudaFreeHost(host_fault));
         return error;
     }
     ~Session() { cleanup(); }
