@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "completed-trace-retention",
+  "experiment_id": "v3-five-timed-001",
+  "run_id": "five-native-timed-20261119-002",
+  "status": "completed",
+  "completed_utc": "2026-11-19T10:45:31.882273+00:00",
+  "plan_sha256": "d4a291ba9e1ff49e46435b90419eb2588ee643fc91d5af1dbd7465607db6cb55",
+  "plan_commit": "c0a3e694f86207a3657f02a641d3a2b28fe95c7b",
+  "cleanup_code_commit": "c0a3e694f86207a3657f02a641d3a2b28fe95c7b",
+  "cleanup_tool_sha256": {
+    "retention.py": "093a36bf0bd652598ab13406c4651cc80f642860e8b08f5506311ee9041322d5",
+    "experiment.py": "794bc16b6ebb364266ee0802e7beed87a1e4e32f44f2a1d8f294a1a35828a1bc",
+    "data_paths.py": "bdaf0aabd2b17cfb9564c67607b5c49eca78fccf900ed10157b5c549ab1b4f82"
+  },
+  "removed_files": 2,
+  "removed_bytes": 427164,
+  "retained_files": 102,
+  "retained_bytes": 89338391,
+  "retained_inventory_sha256": "f588128d2822b6ab396a65f1bbef7dade043b3532456389f24232a89437ab65d",
+  "full_payload_present": false,
+  "full_raw_trace_recheck_available": false,
+  "original_manifest_unchanged": true
+}
