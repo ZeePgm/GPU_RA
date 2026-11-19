@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-five-timed-001",
+  "run_id": "five-native-timed-20261119-002",
+  "version": "v3",
+  "code_commit": "bf6ef301bf841346fb905c3e139b74b7714e6d08",
+  "code_tree": "c9f098206ec27fc1b9cbe8c8ad4adb63cd04b2dc",
+  "base_commit": "a3ee58745940bbef0dfe4d0c65fcd7e8820d02f4",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Qwen3-0.6B F16 44 入/2 出单序列的五类权重联合计时通过。一次登记五个完整 GPU 地址范围，运行配置无 CUDA 核名或参数位置。预填充 78560 页和 79192064 次实际权重读、解码 78530 页和 80414720 次实际权重读；页回执、最早放行时间、动态指令和覆盖核对通过，提前放行及缺失时间均为零，介质正常排空。完整输出投影每阶段 151936 行，分 594 次原生启动。全部十组算子输出、两个完整 logits、KV 字节和位置及序列释放与同构建原生组逐字节一致，生成 token 为 32、6366。首轮 CUDA 失败单独封存。",
+  "manifest": "evidence/v3-five-timed-001/five-native-timed-20261119-002/manifest.json",
+  "manifest_sha256": "d6b6d116cccd457d1d8a42379c4461350da6f50d7a46fbf5860740a61e66d068",
+  "created_utc": "2026-11-19T09:54:29.421269+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}

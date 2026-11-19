@@ -4506,6 +4506,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-five-timed-001/five-native-timed-20261119-001"
       }
+    },
+    {
+      "experiment_id": "v3-five-timed-001",
+      "run_id": "five-native-timed-20261119-002",
+      "code_commit": "bf6ef301bf841346fb905c3e139b74b7714e6d08",
+      "manifest": {
+        "path": "evidence/v3-five-timed-001/five-native-timed-20261119-002/manifest.json",
+        "bytes": 19336,
+        "sha256": "d6b6d116cccd457d1d8a42379c4461350da6f50d7a46fbf5860740a61e66d068"
+      },
+      "report": {
+        "path": "reports/v3-five-timed-001/five-native-timed-20261119-002.json",
+        "bytes": 1388,
+        "sha256": "3a99589d80d904cb884c277117571b6d2cdeea0b696b8e153bc08b482f303f15"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-five-timed-001/five-native-timed-20261119-002"
+      }
     }
   ]
 }
