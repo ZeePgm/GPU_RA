@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "kind": "approved-trace-retention",
+  "experiment_id": "v3-q-auto-001",
+  "run_id": "run-20261119-001",
+  "created_utc": "2026-11-19T08:40:04.350133+00:00",
+  "approval": {
+    "source": "explicit_user_message",
+    "text": "这两份文本日志可以清理，其他证据留着。"
+  },
+  "manifest_sha256": "53220f5ba58385353a3e4e935a4e227a7eb245b429daaf7974a344950ac2cc9f",
+  "report_sha256": "ab7fcfc851758b19cd8f24c7f56aa3d3781dff3880715580fb6f228e51dd0ffc",
+  "full_verification_before_cleanup": {
+    "status": "pass",
+    "experiment_id": "v3-q-auto-001",
+    "run_id": "run-20261119-001",
+    "code_commit": "778af16c2eaf7db08a8e39f29879c9b02552abc3",
+    "current_commit": "25913f7d9c8e94c90ca61c1e2a398d01a4acf5c2",
+    "report_commit": "25913f7d9c8e94c90ca61c1e2a398d01a4acf5c2",
+    "report_committed": true,
+    "files": 43,
+    "bytes": 31825285,
+    "mode": "full",
+    "full_payload_present": true,
+    "scope": "Traceability and data integrity; scientific verdict is recorded separately."
+  },
+  "remove": [
+    {
+      "path": "data/native.log",
+      "bytes": 200352,
+      "sha256": "a0449f5eb9d256e238db5305550c75f43bacc9bfe377a28e6e6045219c22ae84"
+    },
+    {
+      "path": "data/trace.log",
+      "bytes": 200352,
+      "sha256": "da1ae731b570fcb1c7a9e6b501c442f82c171e0a5d9e54e0d0f2c6d1b8b84bd3"
+    }
+  ],
+  "remove_bytes": 400704,
+  "retained_inventory_sha256": "161336a4dfc8e2e5700597768d163ffc913386aa5550017d907600d850fa73e6",
+  "scope_after_cleanup": "Only the listed child process text logs are retired; their sealed process records remain.",
+  "scope": "subprocess-logs"
+}
