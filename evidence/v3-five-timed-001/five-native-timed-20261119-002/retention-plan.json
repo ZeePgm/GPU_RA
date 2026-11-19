@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "kind": "approved-trace-retention",
+  "experiment_id": "v3-five-timed-001",
+  "run_id": "five-native-timed-20261119-002",
+  "created_utc": "2026-11-19T10:44:38.704744+00:00",
+  "approval": {
+    "source": "explicit_user_message",
+    "text": "成功运行的 native.log 和 timed.log 可以清理，其他证据和首轮失败记录都保留。"
+  },
+  "manifest_sha256": "d6b6d116cccd457d1d8a42379c4461350da6f50d7a46fbf5860740a61e66d068",
+  "report_sha256": "3a99589d80d904cb884c277117571b6d2cdeea0b696b8e153bc08b482f303f15",
+  "full_verification_before_cleanup": {
+    "status": "pass",
+    "experiment_id": "v3-five-timed-001",
+    "run_id": "five-native-timed-20261119-002",
+    "code_commit": "bf6ef301bf841346fb905c3e139b74b7714e6d08",
+    "current_commit": "a43215a7512760452db9538675173c5a224ca978",
+    "report_commit": "a43215a7512760452db9538675173c5a224ca978",
+    "report_committed": true,
+    "files": 104,
+    "bytes": 89765555,
+    "mode": "full",
+    "full_payload_present": true,
+    "scope": "Traceability and data integrity; scientific verdict is recorded separately."
+  },
+  "remove": [
+    {
+      "path": "data/native.log",
+      "bytes": 200352,
+      "sha256": "c0208f0d918d02303747df4e327c46eb38d625543b47becdf19f621c6d44492d"
+    },
+    {
+      "path": "data/timed.log",
+      "bytes": 226812,
+      "sha256": "5ebfc4af82043ae6e4b7448d2233236c0610d76f73541f00f3ad2213db2950be"
+    }
+  ],
+  "remove_bytes": 427164,
+  "retained_inventory_sha256": "f588128d2822b6ab396a65f1bbef7dade043b3532456389f24232a89437ab65d",
+  "scope_after_cleanup": "Only the listed child process text logs are retired; their sealed process records remain.",
+  "scope": "subprocess-logs"
+}
