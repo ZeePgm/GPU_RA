@@ -4468,6 +4468,25 @@
         "relative_to": "data_root.parent",
         "path": "runs/v3-q-auto-001/run-20261119-001"
       }
+    },
+    {
+      "experiment_id": "v3-q-timed-001",
+      "run_id": "run-20261119-001",
+      "code_commit": "2707f5af970532059a691a12f1b58c67ca40fa09",
+      "manifest": {
+        "path": "evidence/v3-q-timed-001/run-20261119-001/manifest.json",
+        "bytes": 9369,
+        "sha256": "1ca129fa8321e0beeb2782e419383fec5bd92d68554a7b24c336377bcf86c000"
+      },
+      "report": {
+        "path": "reports/v3-q-timed-001/run-20261119-001.json",
+        "bytes": 1302,
+        "sha256": "55e80d7dc2b119b3ac44c51a12e4960550f435c94a1eca524d933a88e4924c02"
+      },
+      "storage": {
+        "relative_to": "data_root.parent",
+        "path": "runs/v3-q-timed-001/run-20261119-001"
+      }
     }
   ]
 }

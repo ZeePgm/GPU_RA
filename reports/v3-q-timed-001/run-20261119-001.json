@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-q-timed-001",
+  "run_id": "run-20261119-001",
+  "version": "v3",
+  "code_commit": "2707f5af970532059a691a12f1b58c67ca40fa09",
+  "code_tree": "ea04cb13bae42a58c7d45198aff30b219c161f14",
+  "base_commit": "25913f7d9c8e94c90ca61c1e2a398d01a4acf5c2",
+  "run_status": "completed",
+  "exit_code": 0,
+  "verdict": "passed",
+  "conclusion": "Qwen3-0.6B F16 44 入/2 出单序列完成。第 10 层 Q 权重只登记一次，运行配置无 GPU 核名或核参数位置。真实 GPU 保留原生算子与启动，预填充 524288 次 8 B load，解码 1048576 次 4 B load，每个阶段 1024 个按需 4 KiB EventLab 回执，源地址由后端完成发布。逐次核对对应页回执、GPU 观察及截止时刻，两个阶段提前读取与缺失时间均为零。两份 Q 投影、两份完整 logits、KV 字节与位置、序列释放逐字节等于同构建原生对照，生成 token 为 32、6366。后端完成并排空。",
+  "manifest": "evidence/v3-q-timed-001/run-20261119-001/manifest.json",
+  "manifest_sha256": "1ca129fa8321e0beeb2782e419383fec5bd92d68554a7b24c336377bcf86c000",
+  "created_utc": "2026-11-19T08:55:51.794282+00:00",
+  "verification_scope": "Run identity and data integrity; scientific acceptance is supplied by the experiment author."
+}
