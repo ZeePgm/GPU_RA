@@ -121,6 +121,12 @@ if(HBFLAB_Q_AUTO_LAUNCHER)
   target_sources(ggml-cuda PRIVATE "${LAB_ROOT}/adapters/llama_cpp/q_auto_device.cu")
   set_property(TARGET ggml-cuda PROPERTY CUDA_COMPILER_LAUNCHER
     "${Python3_EXECUTABLE};${HBFLAB_Q_AUTO_LAUNCHER}")
+  get_filename_component(q_auto_dir "${HBFLAB_Q_AUTO_LAUNCHER}" DIRECTORY)
+  foreach(unit convert mmvf)
+    set_property(SOURCE "${LLAMA_SOURCE}/ggml/src/ggml-cuda/${unit}.cu"
+      TARGET_DIRECTORY ggml-cuda APPEND PROPERTY OBJECT_DEPENDS
+      "${HBFLAB_Q_AUTO_LAUNCHER}" "${q_auto_dir}/rewrite_ptx.py")
+  endforeach()
   target_compile_definitions(five_model PRIVATE HBFLAB_Q_AUTO_TRACE=1)
 endif()
 add_executable(five_weight "${LAB_ROOT}/adapters/llama_cpp/five_weight.cpp")
