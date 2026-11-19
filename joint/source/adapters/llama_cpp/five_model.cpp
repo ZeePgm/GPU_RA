@@ -4,6 +4,7 @@
 #include "restored_routes.hpp"
 #include "hbflab/platform.hpp"
 #include "five_capture.hpp"
+#include "q_auto_model.hpp"
 #include <algorithm>
 #include <cuda_runtime.h>
 #include <nlohmann/json.hpp>
@@ -48,15 +49,21 @@ struct Observation {
     std::map<const ggml_tensor *, std::string> selected;
     bool single_node = false;
     FiveCapture capture;
+    QAutoModel q_auto;
 };
 static bool observe(ggml_tensor *node, bool ask, void *opaque) {
     auto &s = *static_cast<Observation *>(opaque);
     if (s.step < 0) return false;
-    if (!ask) {s.capture.after(node);return true;}
+    if (!ask) {
+        s.q_auto.observe_after(node);
+        s.capture.after(node);
+        return true;
+    }
     s.capture.before(node,s.step,s.selected);
     restored_before(node);
     for(const auto* src:node->src)if(src && s.selected.count(src))++s.sequence;
-    return s.single_node || !s.capture.root.empty();
+    const bool capture_q = s.q_auto.observe_before(node);
+    return capture_q || s.single_node || !s.capture.root.empty();
 }
 static int run(int argc, char **argv) {
     const auto program_start = Clock::now();
@@ -133,6 +140,11 @@ static int run(int argc, char **argv) {
     for(size_t i=0;i<bases.size();++i)ordered.emplace_back(bases[i],selected[i]);
     std::sort(ordered.begin(),ordered.end());
     for(size_t i=0;i<ordered.size();++i){bases[i]=ordered[i].first;selected[i]=ordered[i].second;}
+    if (const char *mode = std::getenv("HBFLAB_AUTO_Q_MODE")) {
+        need(std::string(route) == "native" && selected.size() == 1 && observations.capture.root.empty(),
+             "Q auto trace requires one selected tensor on the native route");
+        observations.q_auto.bind(mode, selected.front(), bases.front(), out, n, outputs);
+    }
     restored_bind(route,selected.data(),bases.data(),unsigned(selected.size()),
         spec.at("logical_weight_layout_bytes"),std::getenv("HBFLAB_SAMPLED_PROFILE"),
         std::getenv("HBFLAB_SYMBOLIC_CONFIG"),argv[3],!summary);
@@ -157,6 +169,7 @@ static int run(int argc, char **argv) {
     json native_positions = json::array();
     for (int step = 0; step < outputs; ++step) {
         if (sampled) restored_step_begin(step);
+        observations.q_auto.begin_step(step);
         observations.step = step; llama_batch_ext_clear(batch.get());
         for (auto token : input) {
             const int index = llama_batch_ext_add_token(batch.get(), 0, token); const auto pos = position++;
@@ -165,6 +178,7 @@ static int run(int argc, char **argv) {
         need(llama_batch_ext_set_output_logits(batch.get(), int32_t(input.size() - 1), true), "logits selection failed");
         need(llama_process(ctx.get(), LLAMA_PROCESS_TYPE_DECODE, batch.get()) == 0, "model process failed");
         llama_synchronize(ctx.get());
+        observations.q_auto.end_step();
         if (sampled) restored_step_end();
         if (sampled && !paged) {
             auto memory = llama_get_memory(ctx.get());
@@ -197,6 +211,7 @@ static int run(int argc, char **argv) {
     }
     if (sampled) {
         restored_finish();
+        observations.q_auto.finish();
         auto memory = llama_get_memory(ctx.get());
         need(llama_memory_seq_rm(memory,0,0,-1), "framework sequence release failed");
         need(llama_memory_seq_pos_min(memory,0) < 0 && llama_memory_seq_pos_max(memory,0) < 0, "framework sequence not empty after release");

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-q-auto-001",
+  "parameters": {
+    "model": "Qwen3-0.6B F16",
+    "weight": "blk.10.attn_q.weight",
+    "shape": [1024, 2048],
+    "bytes": 4194304,
+    "logical_base": 69533696,
+    "prompt_length": 44,
+    "vocabulary": 151936,
+    "output_tokens": [32, 6366],
+    "modes": ["native", "trace"],
+    "process_timeout_seconds": 1200,
+    "process_disk_limit_bytes": 134217728,
+    "historical_reference": "v3-route-perf-five-001/reference-20261117-001",
+    "projection_sha256": [
+      "a55945326c39ba36bf2d3e05227affc7b5251d2a3b6aa722445fcdf9a09cbdb8",
+      "c714049ac96b6b2f7476611260a5768a693bad014c341fe898e98e3eeea98968"
+    ],
+    "logit_vector_sha256": [
+      "d7314a9ae1948be9e591fda710db24e009e8201a976a5fb7d33d19e5796c69cf",
+      "ff11435a4de17b13cd85b804f481dad5b63b80761db1de34a79f3d510465089d"
+    ]
+  },
+  "acceptance": {
+    "operation": "One named range registered before inference; count original native GPU weight loads in both graph phases.",
+    "bitwise_equal": ["prefill Q output", "decode Q output", "two full logit vectors", "native KV state and positions", "sequence release"],
+    "coverage": "Each of the 2097152 halfs touched at least once in each phase. Compare independent per-half counts, per-instruction counts, access width, byte totals and compiled site identities. Report repeated reads.",
+    "execution": "Native control and traced process run sequentially under the existing V3 resource guard, with the same input, model binary and DLLs.",
+    "measurement_scope": "Read coverage and numerical equivalence only; no media-service injection or timing claim."
+  }
+}

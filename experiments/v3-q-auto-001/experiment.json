@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "experiment_id": "v3-q-auto-001",
+  "title": "Single-registration Q weight interception",
+  "purpose": "Verify one registration catches actual layer 10 Q-weight reads during both native prefill and decode and matches native outputs",
+  "version": "v3",
+  "base_ref": "codex/v3-joint",
+  "base_commit": "b5533b90b5f882bd845bd71a8823827a4beb9dd7",
+  "branch": "codex/exp-v3-q-auto-001",
+  "source_prefix": "joint/source",
+  "created_utc": "2026-11-19T08:21:31.813503+00:00",
+  "baseline_manifests": [
+    {
+      "path": "provenance/delivery-manifest.json",
+      "bytes": 1941199,
+      "sha256": "ed116a40fe0547e5f631e7db57ac1133dcface19672602f53e49c97948f6b016"
+    },
+    {
+      "path": "DATASETS.json",
+      "bytes": 178922,
+      "sha256": "daf06ad5435da9a60411afadf7ff84114c151628372d104dafface990bc52609"
+    },
+    {
+      "path": "joint/provenance/final-source-build-manifest.json",
+      "bytes": 929849,
+      "sha256": "5430a8c979657fdd18f950b77c7fb0ba273e4d9ff908ff23856742e8c3031b68"
+    }
+  ]
+}
