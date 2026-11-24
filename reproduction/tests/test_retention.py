@@ -26,6 +26,8 @@ def main():
     (T.REPO / '.gitattributes').write_bytes(b'* -text\n')
     (T.REPO / 'VERSION_MAP.md').write_bytes(b'CPU retention fixture\n')
     (T.REPO / 'DATASETS.json').write_bytes(b'{"schema":1,"datasets":[]}\n')
+    (T.REPO / 'provenance').mkdir()
+    (T.REPO / 'provenance/delivery-manifest.json').write_bytes(b'{"version_family":"historical"}\n')
     T.git(T.REPO, 'init', '-b', 'main')
     for key, value in [('user.name','Retention fixture'), ('user.email','fixture@example.invalid'), ('core.longpaths','true'),
                        ('commit.gpgsign','false'), ('core.hooksPath',str(T.BASE/'no-hooks'))]:
@@ -35,6 +37,9 @@ def main():
     _, result = T.execute('new', T.cli(T.REPO, 'new', '--id', T.EXPERIMENT, '--version', 'v2', '--title', 'CPU retention',
         '--purpose', 'No scientific claim', '--worktree-root', T.WORKTREES, '--data-root', T.DATA), T.REPO)
     root = Path(json.loads(result)['worktree'])
+    meta = json.loads((root / 'experiments' / T.EXPERIMENT / 'experiment.json').read_bytes())
+    assert [row['path'] for row in meta['baseline_manifests']] == [
+        'provenance/delivery-manifest.json', 'DATASETS.json']
     T.commit(root, 'Fixture source A')
     code = ('import os;from pathlib import Path;p=Path(os.environ["GPU_RA_RUN_DIR"]);'
             '(p/"readonly").mkdir(parents=True);'

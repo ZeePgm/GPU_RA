@@ -1,0 +1,21 @@
+{
+  "status": "verified",
+  "plan_commit": "cf1016ed2f2cd0e1830d827fb8252dd893ae83de",
+  "plan_sha256": "27b21602594cc96e48904032782c4b4dc116c6d96df56a9beb975fb8ceecbef0",
+  "deleted": [
+    {
+      "path": "ctest-v2-validation.log",
+      "bytes": 1439,
+      "sha256": "09b81911c065244e52a615e40ffded3facd001d0f912830119a3487fee54c9db",
+      "retained_duplicate": "provenance/clean-validation/ctest-v2-validation.log"
+    },
+    {
+      "path": "f1-v2-validation.log",
+      "bytes": 1051,
+      "sha256": "72fe15e65bc3d1fcb9f1d288f897fb8ebf8840e4cddf0a158c63ef7903984234",
+      "retained_duplicate": "provenance/clean-validation/f1-v2-validation.log"
+    }
+  ],
+  "deleted_bytes": 2490,
+  "retained_duplicates_verified": 2
+}

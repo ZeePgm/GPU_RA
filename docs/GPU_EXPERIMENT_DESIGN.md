@@ -1,6 +1,6 @@
 # GPU 实验设计 v7：S0—S9最小交付与结论边界
 
-设计日期：2026-10-31；执行状态更新：2026-11-01。**新版分类工程判据下S0—S5通过；S5固定计算及最终执行器零计算复验均通过；S6已按最小固定轨迹目标限定验收通过，S7零等待回放、S8真实GPU/HBF配对及S9图表交付通过；单段测量精度限制保留。** 原S2在旧统一阈值下未通过，旧S3是在该阻断状态下的诊断，原始记录均保留。详见[新版S2结果](GPU_S2_B2_V2_RESULTS.md)、[S3—S5结果](GPU_S3_S5_RESULTS.md)、[S6采样结果](GPU_S6_RESULTS.md)及[原S0—S2结果](GPU_S0_S2_RESULTS.md)。
+设计日期：2026-10-31；执行状态更新：2026-11-01。**新版分类工程判据下S0—S5通过；S5固定计算及最终执行器零计算复验均通过；S6已按最小固定轨迹目标限定验收通过，S7零等待回放、S8真实GPU/HBF配对及S9图表交付通过；单段测量精度限制保留。** 原S2在旧统一阈值下未通过，旧S3是在该阻断状态下的诊断，原始记录均保留。详见[新版S2结果](numerics/tensor-tolerance-validation.md)、[S3—S5结果](GPU_S3_S5_RESULTS.md)、[S6采样结果](GPU_S6_RESULTS.md)及[原S0—S2结果](GPU_S0_S2_RESULTS.md)。
 
 依据：当前 README、INCREMENTAL_BACKEND、ARCHITECTURE、VALIDATION、DEPENDENCIES、实际接口和构建入口，以及用户提供的 `D:\HBF-Sim\gpu_experiment_handoff.md`。外部交接文档与当前 bundled 同名文件的 SHA256 相同：`efcb30843271e3ac653f55945633e91a1f4e0add5c7dc3a2bc88b7ac5485e59a`。本文采用其实验与验收要求，不采用人员分工或旧外部执行器的部署安排。
 
@@ -50,7 +50,7 @@
 
 新版S2还验证了392个有效GPU KV发布数组的逐位F16舍入、1/2输出首步logits一致、verify/timing完整logits一致、无额外预测步，以及消费者前中止fixture；HBF请求为0。与旧S2比较，重建后的主输入1/2输出完整logits、有效快照和事件结构逐项一致。S3—S5的时长来自未校准H0，计算为零或每段人工固定1000ps，仅能作为功能验证值，不能解释为真实GPU TTFT或HBF硬件性能。
 
-结果溯源：新版S2批次 `output/gpu-s/20261101-s2-b2-v2-001/`，旧S2批次 `output/gpu-s/20261031-s0-s2-002/`，S3诊断批次 `output/gpu-s/20261031-s3-002/`；各自包含条件、日志、审计、源码/二进制身份及`artifact-index.json`。B2定位和传播模型尝试见[差异定位](GPU_B2_DIAGNOSIS.md)、[传播模型](GPU_B2_PROPAGATION.md)及[分类候选验证](GPU_B2_CANDIDATE_20261101.md)。
+结果溯源：新版S2批次 `output/gpu-s/20261101-s2-b2-v2-001/`，旧S2批次 `output/gpu-s/20261031-s0-s2-002/`，S3诊断批次 `output/gpu-s/20261031-s3-002/`；各自包含条件、日志、审计、源码/二进制身份及`artifact-index.json`。B2定位和传播模型尝试见[差异定位](numerics/kv-rounding-diagnosis.md)、[传播模型](numerics/network-error-propagation.md)及[分类候选验证](numerics/numerical-acceptance-candidate.md)。
 
 ### S6已取得的证据与结论边界
 
@@ -234,7 +234,7 @@ G2内部、G3内部在相同冻结表/输入/配置下的复验模拟时刻分�
 
 ### B2：CPU参照与误差合同
 
-**2026-11-01新版工程合同**：在本轮Qwen3模型及固定执行条件内，logits相对RMS/最大归一化元素误差上限为0.001953125/0.0078125；hidden、Q/K/V计算结果为0.00390625/0.015625；F16 KV存储为0.00390625/0.03125。每个数组须同时满足两个阈值，另要求token、EOS、结束原因及位置一致、形状匹配、数值有限，GPU自身有效KV发布逐位正确。公式、选择依据、校准和限制见[新版S2结果](GPU_S2_B2_V2_RESULTS.md)；这些预算是用户要求采用的工程验收条件，不是数学前向误差上界。
+**2026-11-01新版工程合同**：在本轮Qwen3模型及固定执行条件内，logits相对RMS/最大归一化元素误差上限为0.001953125/0.0078125；hidden、Q/K/V计算结果为0.00390625/0.015625；F16 KV存储为0.00390625/0.03125。每个数组须同时满足两个阈值，另要求token、EOS、结束原因及位置一致、形状匹配、数值有限，GPU自身有效KV发布逐位正确。公式、选择依据、校准和限制见[新版S2结果](numerics/tensor-tolerance-validation.md)；这些预算是用户要求采用的工程验收条件，不是数学前向误差上界。
 
 R第4节任务6要求独立CPU/native/HBF多token对照和事先声明阈值，没有指定CPU工具或具体容差。当前native/bypass/modeled不能替代独立CPU参照。
 
