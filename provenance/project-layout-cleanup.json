@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "approval": "批准，按这个方案整理三个版本，改名、重写 README，并删除确认重复的文件。历史实验和复现入口保留，完成后分别提交并给我验证结果。",
+  "scope": "Remove only the two tracked root copies on codex/organize-v2 after committing this plan.",
+  "historical_delivery_commit": "e890debd0d9d2c064bd4da9c715547f8d269e03c",
+  "precheck": {
+    "historical_delivery_rows_checked": 4730,
+    "historical_delivery_mismatches": 0,
+    "historical_source_rows_checked": 4423,
+    "historical_source_mismatches": 0,
+    "duplicate_comparison": "Direct byte comparison and SHA-256 against the retained files and historical manifest."
+  },
+  "files": [
+    {
+      "path": "ctest-v2-validation.log",
+      "bytes": 1439,
+      "sha256": "09b81911c065244e52a615e40ffded3facd001d0f912830119a3487fee54c9db",
+      "retained_duplicate": "provenance/clean-validation/ctest-v2-validation.log"
+    },
+    {
+      "path": "f1-v2-validation.log",
+      "bytes": 1051,
+      "sha256": "72fe15e65bc3d1fcb9f1d288f897fb8ebf8840e4cddf0a158c63ef7903984234",
+      "retained_duplicate": "provenance/clean-validation/f1-v2-validation.log"
+    }
+  ]
+}
