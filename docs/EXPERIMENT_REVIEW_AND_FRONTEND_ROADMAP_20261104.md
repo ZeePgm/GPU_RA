@@ -84,7 +84,7 @@
 
 独立 CPU 与 GPU 的旧差异，经 KV 统一干预明显缩小，只支持诊断归因。分类 B2 的通过保护的是指定工程预算；bypass/modeled 同路径逐位一致与独立 CPU 容差通过是两种证据，不能互相替代。
 
-来源：[S0–S9 总报告](GPU_S0_S9_EXPERIMENT_REPORT.md)、[B2 诊断](GPU_B2_DIAGNOSIS.md)、[传播候选未获资格](GPU_B2_PROPAGATION.md)、[新版数值合同](GPU_S2_B2_V2_RESULTS.md)、[S6](GPU_S6_RESULTS.md)、[限定验收](GPU_S6_MINIMUM_ACCEPTANCE.md)、[S8](GPU_S8_RESULTS.md)、[S9](GPU_S9_RESULTS.md)。
+来源：[S0–S9 总报告](GPU_S0_S9_EXPERIMENT_REPORT.md)、[B2 诊断](numerics/kv-rounding-diagnosis.md)、[传播候选未获资格](numerics/network-error-propagation.md)、[新版数值合同](numerics/tensor-tolerance-validation.md)、[S6](GPU_S6_RESULTS.md)、[限定验收](GPU_S6_MINIMUM_ACCEPTANCE.md)、[S8](GPU_S8_RESULTS.md)、[S9](GPU_S9_RESULTS.md)。
 
 ## 4. A 系列：三个独立问题，三种不同结论
 

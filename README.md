@@ -1,74 +1,68 @@
-# GPU_RA — 第一版：新后端 F 基线
+# GPU_RA · GPU 推理中的 HBF 权重读取
 
-后续新实验统一使用 [实验工作流](reproduction/EXPERIMENTS.md) 和 `python reproduction/experiment.py new/start/finish/verify`，按代码提交 A、外置运行数据、报告提交 B 建立关联；规则见 [AGENTS.md](AGENTS.md)。
+GPU_RA 用真实 GPU 执行语言模型，研究 HBF 访存如何影响推理。主分支实现 FFN 权重的同步读取。llama.cpp 在 CUDA 上计算 Qwen3，每次使用选定的 gate、up 或 down 矩阵前，由 HBF-EventLab 模拟整块权重读取。所有子请求完成后，调用方放行对应的矩阵乘法。权重值和原生 F16 KV 均由 GPU 持有。
 
-本分支 main 保存实验总账第一版的新后端 F 基线。历史 v0 和 minexp 提交保留在 Git 历史；第二版 R3 只读位于 `codex/v2-readonly`，第三版联合优化位于 `codex/v3-joint`，具体状态见 [VERSION_MAP.md](VERSION_MAP.md)。项目用于真实 GPU 接入的 HBF 仿真。
+## 能研究什么
 
-本源码由 2026-11-05 的冻结快照恢复，按第二次 F 的源码身份补齐完整 FFN 入口。后端固定为 HBF-EventLab `8ccb1f353630f893f761b017d621812b7b9d5bf2`（无 K5 overlay），llama.cpp 固定为 `b3fa69955ea81c3b60e77e3c1e2224c4a826ffb9` 加当时的前端改动。历史源码与恢复记录位于 provenance/；原冻结 README 位于 [docs/README_FROZEN_20261105.md](docs/README_FROZEN_20261105.md)。
+运行器先用 CUPTI 采集原生 GPU 的 kernel、memcpy 和 memset 活动，把每个计算区间内的活动时间合并为计算表。HBF 路径复用这张表，再加入各权重读取的等待时间。比较不同覆盖范围时，可以同时查看每步的读取量、模型首 token 延迟（TTFT）和后续 token 平均间隔（TPOT）。
 
-F1/F2/F3 使用 Qwen3-0.6B F16、原始 CRLF prompt、44 输入/8 输出、greedy、原生 F16 KV、H0 512 MiB、Host 256×64 B 驻留预算。F1 覆盖第10层三个 FFN 矩阵；F2 覆盖0/10/20/27层；F3覆盖28层全部84矩阵。此实验的消费者前门控保留完整矩阵父读取和原调度，未启用分页 KV 或后续 KV 优化。
+| 权重覆盖 | Qwen3-0.6B 层号 | 每步读取 | 命令参数 |
+|---|---|---:|---|
+| 单层 | 10 | 3 个矩阵，18 MiB | `--coverage single-layer` |
+| 四层 | 0、10、20、27 | 12 个矩阵，72 MiB | `--coverage four-layers` |
+| 全部 28 层 | 0 至 27 | 84 个矩阵，504 MiB | `--coverage all-layers` |
 
-## 构建与运行
+四层和全层运行均先建立同批单层原生参考。省略覆盖参数会依次运行三种规模。若研究 CUDA 权重读取与发布，或权重读与分页 KV 读写的相互影响，分别参见只读路径和联合路径。[版本导航](VERSION_MAP.md)
 
-要求 Windows x64、Visual Studio 2022 C++ Build Tools、CMake/Ninja、Python 3.12、CUDA 13.0 含 CUPTI/cuBLAS，以及兼容 CUDA GPU。本次平台目标为 RTX 5070 / SM120a。源码和外部工具链、模型分别管理；仓库不附带 GGUF 权重。
+## 依赖与构建
 
-从仓库根目录启动。CudaRoot、Python 和模型路径均为调用方参数，不依赖原工作区历史库或构建目录。
-
-Windows 建议选择短克隆目录（例如 E:/GPU_RA）；源码包含 llama.cpp UI 长文件名，克隆时启用 core.longpaths。新源码校验入口支持 Windows 扩展路径。
+已验证环境为 Windows x64、Visual Studio 2022 C++ Build Tools、CMake/Ninja、Python 3.12、CUDA 13.0（含 CUPTI 和 cuBLAS）以及 RTX 5070。下列命令从仓库根目录执行。`$env:CUDA_PATH` 指向 CUDA 工具链，默认编译目标为 SM 120a。首次构建使用新的 `build-reproduction/` 目录。
 
 ```powershell
-git clone --config core.longpaths=true https://github.com/ZeePgm/GPU_RA.git
-cd GPU_RA
 python -m venv .venv
-./.venv/Scripts/python.exe -m pip install -r requirements.txt
-./reproduction/build.ps1 -CudaRoot '<CUDA目录>' -Python ./.venv/Scripts/python.exe -Jobs 4
-./.venv/Scripts/python.exe reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output '<仓库外新批次目录>' --cuda-root '<CUDA目录>'
+$python = (Resolve-Path ./.venv/Scripts/python.exe).Path
+& $python -m pip install -r requirements.txt
+pwsh -NoProfile -File ./reproduction/build.ps1 -CudaRoot $env:CUDA_PATH -Python $python
 ```
 
-模型需满足 SHA-256 `74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2`（1,509,347,712字节）。输入以哈希确认，可提供已有同哈希模型；另行转换得到的 GGUF 必须先核对哈希，转换工具与权重版本相同也不自动证明字节身份相同。
+模型使用 Qwen3-0.6B F16 GGUF，SHA-256 为 `74878aba1d10648eae3d6cfef822f8c59ce3217b3808b35fce2dd02d975952a2`。已有同哈希 GGUF 可直接使用；从原始权重重建时，按转换记录准备依赖并运行模型准备脚本。[模型转换记录](provenance/Qwen3-0.6B-conversion.json) · [模型准备脚本](reproduction/prepare_model.py)
 
-精确转换记录见 [provenance/Qwen3-0.6B-conversion.json](provenance/Qwen3-0.6B-conversion.json)，含 HuggingFace revision 和各文件哈希。需要从原始权重重建时，先安装该源码中 `third_party/llama.cpp-integrated/requirements/requirements-convert_hf_to_gguf.txt` 的转换依赖，再使用以下可选入口（首次下载约1.5GB）：
+## 最小示例
+
+先检查一层、一个输出 token 的 GGUF 布局和读取计数。把 `$model` 改为本机 GGUF 路径。准备模式可以在构建前执行，每次在系统临时目录下生成新的输出目录。打开输出中的 `F1/plan.json` 可查看层号、输入身份和预期计数。
 
 ```powershell
-./.venv/Scripts/python.exe -m pip install -r third_party/llama.cpp-integrated/requirements/requirements-convert_hf_to_gguf.txt
-./.venv/Scripts/python.exe reproduction/prepare_model.py --input-dir external/Qwen3-0.6B --download --output models/Qwen3-0.6B-F16.gguf
+$model = 'D:/models/Qwen3-0.6B-F16.gguf'
+$preview = Join-Path ([IO.Path]::GetTempPath()) ('gpu-ra-ffn-' + [guid]::NewGuid())
+& $python reproduction/run_ffn_weight_reads.py --model $model --output $preview --coverage single-layer --tokens 1 --prepare-only
+Get-Content (Join-Path $preview 'F1/plan.json')
 ```
 
-脚本固定原始 revision，逐项检查输入文件大小和 SHA-256，调用仓库内转换器，并拒绝与历史 GGUF 哈希不同的转换结果。已有原始权重可省略 `--download`；省略 `--output` 仅检查输入。
-
-构建入口从仓库内源码新建 model 和 FFN 两个目录，封存新的构建身份，执行在线审计及 Python 检查。所有运行必须使用新输出目录。F2/F3引用本次新F1的原生轨迹，拒绝混用历史二进制身份。默认完整F3可能耗时较长；--stages F1 --tokens 1 可做有限范围的入口资格检查，不能替代正式44输入/8输出实验。
-
-若仅需继续核对同一新构建，可显式传入 `-ReuseVerifiedModel -BuildRoot <已构建目录>`；脚本会先核验该目录的源码和构建身份，并要求 CUDA 工具链路径、CUDA目标架构与PTX架构匹配。模型编译跳过，FFN按同样目标完成构建和检查。首次重建仍使用新的 BuildRoot。
-
-仅核对输入、布局和预期计数而不执行 GPU：
+正式 GPU 采样使用 `reproduction/experiment.py new/start/finish/verify` 登记。从独立实验工作树构建并提交本次配置后，将 `$experiment` 设为该实验 ID，`$run` 设为新的运行 ID。以下命令登记单层的完整请求，随后用 PowerShell 7 执行生成的 `launch.ps1`。默认请求使用原始 44 个输入 token、8 个输出 token、greedy 解码、512 MiB HBF 配置和 256 个 64 B Host 驻留片段。[实验工作流](reproduction/EXPERIMENTS.md)
 
 ```powershell
-python reproduction/run_f.py --model '<Qwen3-0.6B-F16.gguf>' --output '<仓库外准备目录>' --prepare-only
+& $python reproduction/experiment.py start --id $experiment --run $run --input $model -- $python reproduction/run_ffn_weight_reads.py --model $model --output "{run_dir}" --coverage single-layer --cuda-root $env:CUDA_PATH
 ```
 
-## 身份和证据
+## 验证与结果
 
-provenance/historical-f-build-identity.json 保存历史二进制、DLL与4,222条源码哈希；provenance/source-recovery.json 记录源码恢复来源。build-reproduction/model/release-identity.json 在新构建后产生，专门标识新源码构建，和历史二进制身份分开。
+```powershell
+& $python reproduction/verify_checkout.py --manifest provenance/project-layout-manifest.json
+& $python reproduction/verify_source.py
+& $python -m unittest discover -s experiments/gpu_ffn -p test_run.py -v
+```
 
-根目录 `release-manifest.json` 保留恢复的历史发布身份。当前GPU_RA源码、复现入口和数据清单以 `provenance/delivery-manifest.json` 登记，运行 `python reproduction/verify_checkout.py` 复核；该交付清单与历史源码清单、历史实验清单各自保留。
+当前交付清单检查项目文件身份，源码核验检查历史构建的 4,222 条源码哈希。正式采样另行核对完整 logits、token、选定矩阵的地址覆盖、消费顺序、时钟守恒及 Host/Device 排空。每种覆盖的输出目录含 `result.json` 和 `paired-tokens.csv`；前者汇总数值和计时，后者逐 token 列出计算与读取等待。模型计时使用皮秒，运行程序的墙钟开销单独记录。[FFN 实验与输出说明](experiments/gpu_ffn/README.md)
 
-`python reproduction/verify_source.py` 可重新核对全部4,222条历史源码记录。FFN入口本身仅编译C++，CUDA目标架构由新构建model依赖库的 `-CudaArchitectures` 决定。
+## 历史复现
 
-F系列历史数据与离线重建入口由 evidence/ 中的数据清单及复核说明导航。历史计时保留当时的轨迹和测量条件；新采样另存新批次，不替换历史结果。minexp/S 的清单和恢复工具在 artifacts/minexp/。已有原始F代码的详细运行与输出合同见 [experiments/gpu_ffn/README.md](experiments/gpu_ffn/README.md)。
+历史批次以 F1、F2、F3 标记三种覆盖规模。旧入口 `reproduction/run_f.py`、`--stages F1 F2 F3` 和相应的输出目录仍可使用。历史三组均通过离线复核；迁移验证还重建并运行了单层 44 输入、8 输出样本，完整 logits 与原始参考逐位一致。[历史复核结果](provenance/validation/v1-offline-clean/acceptance.json) · [重建运行结果](provenance/validation/v1-fresh-live-validation.json)
 
-## 实验数据外置
+使用 `GPU_RA_DATA_ROOT` 或本机 `data.local.json` 指定外部归档根。下面两步恢复历史运行并重算验收结果，恢复路径和报告路径应取仓库外的新目录。[数据清单与配置](evidence/README.md)
 
-仓库保存源码、配置、报告、数据清单和复现入口；原始轨迹、logits、日志归档等实验载荷保留在仓库外的本地数据目录。克隆不会取得这些载荷，先取得与 [DATASETS.json](DATASETS.json) 及各批 manifest 哈希一致的本地数据。
+```powershell
+& $python reproduction/evidence_bundle.py restore --bundle evidence/v1-ffn --dest '<恢复目录>'
+& $python reproduction/replay_evidence.py --root '<恢复目录>' --version v1 --report-dir '<新报告目录>'
+```
 
-可复制 [data.example.json](data.example.json) 为 `data.local.json`，填写本机的 `data_root`；本机配置已被 Git 忽略。也可设置 `$env:GPU_RA_DATA_ROOT='<外部归档根目录>'`，或在恢复命令中传 `--data-root`。优先级为显式参数、环境变量、本机配置；相对数据根目录按仓库根目录解释。三个版本可以共用一个外部根目录。
-
-外部根目录保持仓库相对布局：`evidence/v1-ffn/part-0000.gzpart`、`evidence/v1-migration-validation/part-0000.gzpart` 和 `artifacts/minexp/payload.zip.part*`。清单继续从仓库读取，载荷只从外部位置读取。恢复目标必须在仓库外；新实验的 `--output` 也建议指向仓库外的新目录。新归档只能写到仓库外，提交时只纳入对应清单、配置和报告。详细命令见[数据说明](evidence/README.md)。
-
-## 此次迁移的实际验证（2026-11-15）
-
-- 恢复树中完整源码构建通过：model 317 步、FFN 4 步；在线审计 CTest 1/1、Python 10/10；最终参数化构建入口复核通过。
-- 新构建 F1 完成原始 44 输入/8 输出，数值、覆盖、依赖、时钟及排空审计通过，5 类损坏记录拒绝检查通过。新 native/F1 完整 logits 与历史结果逐字节一致。
-- 新后端 F1/F2/F3 历史数据在独立干净克隆中恢复并通过深度离线复核；v0/minexp 的 22,379 个原始文件另行恢复且全部哈希匹配。
-- 本轮没有重新采集完整 F2/F3，也没有重新下载或转换模型。新采集不是历史样本的替换，验证结论不扩展为新的性能统计。
-
-新验证摘要见 [v1-fresh-live-validation.json](provenance/validation/v1-fresh-live-validation.json)，原始新轨迹和构建日志的清单见 `evidence/v1-migration-validation`，数据载荷在配置的外部根目录。恢复及复核命令见 [数据说明](evidence/README.md)。
+后端集成记录和数值误差研究保留了各自的实验条件及诊断过程。[后端基线](docs/history/baseline-2026-11-04.md) · [KV 舍入误差诊断](docs/numerics/kv-rounding-diagnosis.md)
