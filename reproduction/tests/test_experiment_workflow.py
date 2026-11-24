@@ -182,6 +182,11 @@ def main():
     commit(REPO, 'Fixture V1')
     git(REPO, 'checkout', '-b', 'codex/v2-readonly')
     (REPO / 'version.txt').write_text('v2\n', encoding='utf-8')
+    (REPO / 'provenance').mkdir()
+    old_delivery = REPO / 'provenance/delivery-manifest.json'
+    current_delivery = REPO / 'provenance/project-layout-manifest.json'
+    old_delivery.write_bytes(b'{"version_family":"historical"}\n')
+    current_delivery.write_bytes(b'{"version_family":"v2"}\n')
     v2_base = commit(REPO, 'Fixture V2')
     git(REPO, 'checkout', 'main')
     git(REPO, 'checkout', '-b', 'codex/v3-joint')
@@ -197,6 +202,12 @@ def main():
     new = json.loads(text)
     root = Path(new['worktree'])
     assert new['base_commit'] == v2_base and (root / 'version.txt').read_text().strip() == 'v2'
+    meta = json.loads((root / 'experiments' / EXPERIMENT / 'experiment.json').read_bytes())
+    assert [row['path'] for row in meta['baseline_manifests']] == [
+        'provenance/project-layout-manifest.json', 'DATASETS.json']
+    current = subprocess.check_output([
+        'git', '-C', str(root), 'show', v2_base + ':provenance/project-layout-manifest.json'])
+    assert meta['baseline_manifests'][0]['sha256'] == hashlib.sha256(current).hexdigest()
     assert git(root, 'rev-parse', 'HEAD') == v2_base
     assert git(root, 'branch', '--show-current') == 'codex/exp-' + EXPERIMENT
     assert git(root, 'status', '--porcelain')

@@ -35,4 +35,9 @@ if __name__ == "__main__":
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--manifest", type=Path)
     args = parser.parse_args()
-    verify(args.root, args.manifest or args.root / "provenance/delivery-manifest.json")
+    manifest = args.manifest
+    if manifest is None:
+        manifest = args.root / "provenance/project-layout-manifest.json"
+        if not manifest.is_file():
+            manifest = args.root / "provenance/delivery-manifest.json"
+    verify(args.root, manifest)

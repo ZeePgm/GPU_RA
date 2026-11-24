@@ -177,7 +177,10 @@ def new(args):
             or any(target.is_relative_to(path) or path.is_relative_to(target) for path in data_locations)):
         raise ValueError('Worktree target exists or contains the configured data root: ' + str(target))
     baseline = []
-    for rel in ['provenance/delivery-manifest.json', 'DATASETS.json', 'joint/provenance/final-source-build-manifest.json']:
+    checkout_manifest = 'provenance/project-layout-manifest.json'
+    if git(root, 'cat-file', '-e', base + ':' + checkout_manifest, check=False).returncode:
+        checkout_manifest = 'provenance/delivery-manifest.json'
+    for rel in (checkout_manifest, 'DATASETS.json', 'joint/provenance/final-source-build-manifest.json'):
         probe = git(root, 'show', base + ':' + rel, check=False)
         if probe.returncode == 0:
             baseline.append({'path': rel, 'bytes': len(probe.stdout), 'sha256': sha_bytes(probe.stdout)})

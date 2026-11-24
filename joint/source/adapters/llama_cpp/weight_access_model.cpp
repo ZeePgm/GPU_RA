@@ -181,13 +181,16 @@ static bool observe(ggml_tensor *node, bool ask, void *opaque) {
 }
 static int run(int argc, char **argv) {
     const auto program_start = Clock::now();
-    need(argc == 6, "usage: five_model model prompt output selection.json outputs");
+    if (argc != 6) {
+        throw std::runtime_error("usage: " + fs::path(argv[0]).filename().string() +
+                                 " model prompt output selection.json outputs");
+    }
     const char *token_only = std::getenv("HBFLAB_SAMPLED_TOKEN_ONLY");
     need(token_only && std::string(token_only) == "1", "explicit token-only graph setting required");
     const fs::path out = argv[3]; need(!fs::exists(out), "output already exists"); fs::create_directories(out);
     const char *route = std::getenv("HBFLAB_SAMPLED_ROUTE");
     const bool sampled = route != nullptr;
-    need(sampled,"five model requires explicit native/symbolic/ptx/cuda route");
+    need(sampled,"select a native, symbolic, PTX or CUDA weight access route");
 
     const char *audit=std::getenv("HBFLAB_SAMPLED_AUDIT");need(audit && (std::string(audit)=="full" || std::string(audit)=="summary"),"explicit five audit mode required");
     const bool summary=std::string(audit)=="summary";
@@ -388,5 +391,5 @@ static int run(int argc, char **argv) {
 }
 int main(int argc, char **argv) {
     try { return run(argc, argv); }
-    catch (const std::exception &e) { std::cerr << "five model: " << e.what() << '\n'; return 1; }
+    catch (const std::exception &e) { std::cerr << fs::path(argv[0]).filename().string() << ": " << e.what() << '\n'; return 1; }
 }

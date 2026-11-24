@@ -7,7 +7,7 @@
 | 版本 | 派生基线 | 实现位置 |
 |---|---|---|
 | v1 | `main` | 第一版根目录源码 |
-| v2 | `codex/v2-readonly` | 第二版源码及 `reproduce/` 入口 |
+| v2 | `codex/v2-readonly` | 第二版源码及 `reproduction/` 的只读权重入口 |
 | v3 | `codex/v3-joint` | `joint/source`；构建/运行入口在 `joint/reproduction/` |
 
 第三版继承的第一版根目录 `src` 不代表第三版实现。实验 ID 不能重复，运行 ID 不复用；每个实验在 `codex/exp-ID` 分支、独立工作树中进行，当前三工作树布局下默认位置为 `GPU_RA/experiments/ID`。
@@ -30,6 +30,10 @@ Windows 新克隆建议将长路径设置持久化到克隆配置：
 ```powershell
 git clone --config core.longpaths=true https://github.com/ZeePgm/GPU_RA.git GPU_RA
 ```
+
+## 当前交付与历史复现
+
+在整理后的工作树运行 `python reproduction/verify_checkout.py` 核对当前交付。实验登记使用所属版本基线提交中的交付清单，较早的提交继续使用当时的清单。历史交付快照见 [版本索引](../VERSION_MAP.md)；封存实验的执行提交和报告提交见该次运行的报告。
 
 ## 1. 建立实验
 
